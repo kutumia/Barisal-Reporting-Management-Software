@@ -1,0 +1,53 @@
+<%if (records.length >0){ %>
+    <table class="table table-bordered table-striped" id="tblCustomers" cellspacing="0" cellpadding="0">
+    <thead>
+    <tr>
+        <th>ফসলের নাম</th>
+        <th>জাতের নাম</th>
+        <th>আবাদী জমি(২০১৭-১৮)</th>
+        <th>আবাদী জমি(২০১৮-১৯)</th>
+        <th>আবাদী জমি(২০১৯-২০)</th>
+        <th>আবাদী জমি(২০২০-২১)</th>
+        <th>আবাদী জমি(২০২১-২২)</th>
+        <th>আবাদী জমি(২০২২-২৩)</th>
+    </tr>
+    </thead>
+    <tbody>
+        <% records.forEach(function(row){ %>
+            <tr>
+                <td><%= row.name %></td>
+                <td><%= row.bname %></td>
+                <td><%= row.areaShotero %></td>
+                <td><%= row.areaAtharo %></td>
+                <td><%= row.areaUnish %></td>
+                <td><%= row.areaBish %></td>
+                <td><%= row.areaEkush %></td>
+                <td><%= row.areaBaish %></td>
+                
+            </tr>
+        <% }) %>
+    </tbody>
+</table>
+<% }else{ %>
+    <table class="table table-bordered table-striped" id="tblCustomers" cellspacing="0" cellpadding="0">
+        <thead>
+        <tr>
+            <th>ফসলের নাম</th>
+        <th>জাতের নাম</th>
+        <th>আবাদী জমি(২০১৭-১৮)</th>
+        <th>আবাদী জমি(২০১৮-১৯)</th>
+        <th>আবাদী জমি(২০১৯-২০)</th>
+        <th>আবাদী জমি(২০২০-২১)</th>
+        <th>আবাদী জমি(২০২১-২২)</th>
+        <th>আবাদী জমি(২০২২-২৩)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% records.forEach(function(row){ %>
+            <tr>
+                <td colspan="10">No data Found</td>
+            </tr>
+        <% }) %>
+        </tbody>
+    </table>
+<% } %>

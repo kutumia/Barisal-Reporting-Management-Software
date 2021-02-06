@@ -1,0 +1,28 @@
+<header class="header-top" header-theme="light">
+    <div class="container-fluid">
+        <div class="d-flex justify-content-between">
+            <div class="top-menu d-flex align-items-center">
+                <button type="button" class="btn-icon mobile-nav-toggle d-lg-none"><span></span></button>
+                <div class="header-search">
+                    <div class="input-group">
+                        <span class="input-group-addon search-close"><i class="ik ik-x"></i></span>
+                        <input type="text" class="form-control">
+                        <span class="input-group-addon search-btn"><i class="ik ik-search"></i></span>
+                        <% if(locals.type === "pd"){%>
+                        <button class="favorite styled" type="button">Go To: <a href="/pd/dashboardMonitoring">Monitoring</a></button>
+                        <% }else if (locals.type === "ad"){%>
+                            <button class="favorite styled" type="button">Go To: <a href="/ad/dashboardMonitoring">Monitoring</a></button>
+                            <% }else if (locals.type === "dd"){%>
+                                <button class="favorite styled" type="button">Go To: <a href="/dd/dashboardMonitoring">Monitoring</a></button>
+                                <% }else { %>
+                                    <button class="favorite styled" type="button">Go To: <a href="/upazilla/dashboardMonitoring">Monitoring</a></button>
+                                    <% }   %>
+
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+</header>

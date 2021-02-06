@@ -1,0 +1,68 @@
+<%if (records.length >0){ %>
+    <table class="table table-bordered table-striped" id="tblCustomers" cellspacing="0" cellpadding="0">
+    <thead>
+    <tr>
+        <th>প্রযুক্তির নাম</th>
+        <th>ব্যবহারকারীর (সংখ্যা)(২০১৭-১৮)</th>
+        <th>ব্যবহারকারীর (সংখ্যা)(২০১৮-১৯)</th>
+        <th>ব্যবহারকারীর (সংখ্যা)(২০১৯-২০)</th>
+        <th>ব্যবহারকারীর (সংখ্যা)(২০২০-২১)</th>
+        <th>ব্যবহারকারীর (সংখ্যা)(২০২১-২২)</th>
+        <th>ব্যবহারকারীর (সংখ্যা)(২০২২-২৩)</th>
+        <th>ব্যবহৃত জমি(২০১৭-১৮)</th>
+        <th>ব্যবহৃত জমি(২০১৮-১৯)</th>
+        <th>ব্যবহৃত জমি(২০১৯-২০)</th>
+        <th>ব্যবহৃত জমি(২০২০-২১)</th>
+        <th>ব্যবহৃত জমি(২০২১-২২)</th>
+        <th>ব্যবহৃত জমি(২০২২-২৩)</th>
+    </tr>
+    </thead>
+    <tbody>
+        <% records.forEach(function(row){ %>
+            <tr>
+                <td><%= row.name %></td>
+                <td><%= row.areaShotero %></td>
+                <td><%= row.areaAtharo %></td>
+                <td><%= row.areaUnish %></td>
+                <td><%= row.areaBish %></td>
+                <td><%= row.areaEkush %></td>
+                <td><%= row.areaBaish %></td>
+                <td><%= row.productionShotero %></td>
+                <td><%= row.productionAtharo %></td>
+                <td><%= row.productionUnish %></td>
+                <td><%= row.productionBish %></td>
+                <td><%= row.productionEkush %></td>
+                <td><%= row.productionBaish %></td>
+                
+            </tr>
+        <% }) %>
+    </tbody>
+</table>
+<% }else{ %>
+    <table class="table table-bordered table-striped" id="tblCustomers" cellspacing="0" cellpadding="0">
+        <thead>
+        <tr>
+            <th>প্রযুক্তির নাম</th>
+            <th>ব্যবহারকারীর (সংখ্যা)(২০১৭-১৮)</th>
+            <th>ব্যবহারকারীর (সংখ্যা)(২০১৮-১৯)</th>
+            <th>ব্যবহারকারীর (সংখ্যা)(২০১৯-২০)</th>
+            <th>ব্যবহারকারীর (সংখ্যা)(২০২০-২১)</th>
+            <th>ব্যবহারকারীর (সংখ্যা)(২০২১-২২)</th>
+            <th>ব্যবহারকারীর (সংখ্যা)(২০২২-২৩)</th>
+            <th>ব্যবহৃত জমি(২০১৭-১৮)</th>
+            <th>ব্যবহৃত জমি(২০১৮-১৯)</th>
+            <th>ব্যবহৃত জমি(২০১৯-২০)</th>
+            <th>ব্যবহৃত জমি(২০২০-২১)</th>
+            <th>ব্যবহৃত জমি(২০২১-২২)</th>
+            <th>ব্যবহৃত জমি(২০২২-২৩)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% records.forEach(function(row){ %>
+            <tr>
+                <td colspan="10">No data Found</td>
+            </tr>
+        <% }) %>
+        </tbody>
+    </table>
+<% } %>

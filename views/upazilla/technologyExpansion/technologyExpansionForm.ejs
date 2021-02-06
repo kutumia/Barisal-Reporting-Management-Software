@@ -1,0 +1,444 @@
+<%- include('../../includes/header')-%>
+        <div class="wrapper">
+          <%- include('../../includes/topbar')-%>
+            <div class="page-wrap">
+              <%- include('../../includes/sidebar')-%>
+              <div class="main-content">
+                <div class="container-fluid">
+                    <div class="row clearfix">
+                    <div id="signupbox" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <div class="panel-title"><h2>ফসল আবাদ অগ্রগতি ফর্ম</h2></div>
+                                <p><%
+                                if(success !=''){ %>
+                                <%= success %>
+                                    <% } %>
+                                </p>
+                                </div>  
+                            <div class="panel-body" >
+                                <form action="/upazilla/technologyExpansionFormPost" id="FieldTrialForm" class="form-horizontal" method="post"  role="form">
+                                    <div id="signupalert" style="display:none" class="alert alert-danger">
+                                        <p>Error:</p>
+                                        <span></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-9">
+                                            <label for="year" class="col-md-3 control-label">বছর</label>
+                                        <select id="year" name="year" required>
+                                        <option value="2017">২০১৭-১৮</option>
+                                        <option value="2018">২০১৮-১৯</option>
+                                        <option value="2019">২০১৯-২০</option>
+                                        <option value="2020" >২০২০-২১</option>
+                                        <option value="2021">২০২১-২২</option>
+                                        <option value="2022">২০২২-২৩</option>
+                                        <option value="2023">২০২৩-২৪</option>                                         
+                                            </select>
+                                        </div>
+                                    </div>
+                                        
+                                    <div class="form-group">
+                                        <label for="adorshoBijUser" class="col-md-3 control-label">আদর্শ বীজতলায় চারা উৎপাদন (ব্যবহারকারীর সংখ্যা)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="adorshoBijUser" placeholder="আদর্শ বীজতলায় চারা উৎপাদন (ব্যবহারকারীর সংখ্যা)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="adorshoBijLand" class="col-md-3 control-label">আদর্শ বীজতলায় চারা উৎপাদন (ব্যবহৃত জমি)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="adorshoBijLand" placeholder="আদর্শ বীজতলায় চারা উৎপাদন (ব্যবহৃত জমি))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="joiboSharUser" class="col-md-3 control-label">জৈব সার ব্যবহার (ব্যবহারকারীর সংখ্যা)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="joiboSharUser" placeholder="জৈব সার ব্যবহার (ব্যবহারকারীর সংখ্যা)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="joiboSharLand" class="col-md-3 control-label">জৈব সার ব্যবহার (ব্যবহৃত জমি)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="joiboSharLand" placeholder="জৈব সার ব্যবহার (ব্যবহৃত জমি))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="compostSharUser" class="col-md-3 control-label">কম্পোস্ট সার তৈরি ও ব্যবহার (ব্যবহারকারীর সংখ্যা)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="compostSharUser" placeholder="কম্পোস্ট সার তৈরি ও ব্যবহার (ব্যবহারকারীর সংখ্যা)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="compostSharLand" class="col-md-3 control-label">কম্পোস্ট সার তৈরি ও ব্যবহার (ব্যবহৃত জমি)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="compostSharLand" placeholder="কম্পোস্ট সার তৈরি ও ব্যবহার (ব্যবহৃত জমি))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="vermiCompostUser" class="col-md-3 control-label">ভার্মিকম্পোস্ট তৈরি ও ব্যবহার (ব্যবহারকারীর সংখ্যা)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="vermiCompostUser" placeholder="ভার্মিকম্পোস্ট তৈরি ও ব্যবহার (ব্যবহারকারীর সংখ্যা)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="vermiCompostLand" class="col-md-3 control-label">ভার্মিকম্পোস্ট তৈরি ও ব্যবহার (ব্যবহৃত জমি)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="vermiCompostLand" placeholder="ভার্মিকম্পোস্ট তৈরি ও ব্যবহার (ব্যবহৃত জমি))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="khamarJatUser" class="col-md-3 control-label">খামারজাত সার তৈরি ও ব্যবহার (ব্যবহারকারীর সংখ্যা)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="khamarJatUser" placeholder="খামারজাত সার তৈরি ও ব্যবহার (ব্যবহারকারীর সংখ্যা)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="khamarJatLand" class="col-md-3 control-label">খামারজাত সার তৈরি ও ব্যবহার (ব্যবহৃত জমি)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="khamarJatLand" placeholder="খামারজাত সার তৈরি ও ব্যবহার (ব্যবহৃত জমি))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="shushomoSharUser" class="col-md-3 control-label">সুষম সার ব্যবহার (ব্যবহারকারীর সংখ্যা)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="shushomoSharUser" placeholder="সুষম সার ব্যবহার (ব্যবহারকারীর সংখ্যা)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="shushomoSharLand" class="col-md-3 control-label">সুষম সার ব্যবহার (ব্যবহৃত জমি)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="shushomoSharLand" placeholder="সুষম সার ব্যবহার (ব্যবহৃত জমি))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="onlineUser" class="col-md-3 control-label">অনলাইন এসারডিয়াই সার সুপারিশ (ব্যবহারকারীর সংখ্যা)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="onlineUser" placeholder="অনলাইন এসারডিয়াই সার সুপারিশ (ব্যবহারকারীর সংখ্যা)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="onlineLand" class="col-md-3 control-label">অনলাইন এসারডিয়াই সার সুপারিশ (ব্যবহৃত জমি)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="onlineLand" placeholder="অনলাইন এসারডিয়াই সার সুপারিশ (ব্যবহৃত জমি))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="ayilUser" class="col-md-3 control-label">আইলে সবজি চাষ (ব্যবহারকারীর সংখ্যা)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="ayilUser" placeholder="আইলে সবজি চাষ (ব্যবহারকারীর সংখ্যা)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="ayilLand" class="col-md-3 control-label">আইলে সবজি চাষ (ব্যবহৃত জমি)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="ayilLand" placeholder="আইলে সবজি চাষ (ব্যবহৃত জমি))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="rastaMachaUser" class="col-md-3 control-label">রাস্তার ঢালে মাচার সবজি চাষ (ব্যবহারকারীর সংখ্যা)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="rastaMachaUser" placeholder="রাস্তার ঢালে মাচার সবজি চাষ (ব্যবহারকারীর সংখ্যা)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="rastaMachaLand" class="col-md-3 control-label">রাস্তার ঢালে মাচার সবজি চাষ (ব্যবহৃত জমি)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="rastaMachaLand" placeholder="রাস্তার ঢালে মাচার সবজি চাষ (ব্যবহৃত জমি))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="bostaUser" class="col-md-3 control-label">ঢিবি/বস্তা পদ্ধতিতে সবজি চাষ (ব্যবহারকারীর সংখ্যা)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="bostaUser" placeholder="ঢিবি/বস্তা পদ্ধতিতে সবজি চাষ (ব্যবহারকারীর সংখ্যা)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="bostaLand" class="col-md-3 control-label">ঢিবি/বস্তা পদ্ধতিতে সবজি চাষ (ব্যবহৃত জমি)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="bostaLand" placeholder="ঢিবি/বস্তা পদ্ধতিতে সবজি চাষ (ব্যবহৃত জমি))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="pukurMachaUser" class="col-md-3 control-label">পুকুর বা জলাশয়ের পাশে মাচায় সবজি চাষ (ব্যবহারকারীর সংখ্যা)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="pukurMachaUser" placeholder="পুকুর বা জলাশয়ের পাশে মাচায় সবজি চাষ (ব্যবহারকারীর সংখ্যা)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="pukurMachaLand" class="col-md-3 control-label">পুকুর বা জলাশয়ের পাশে মাচায় সবজি চাষ (ব্যবহৃত জমি)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="pukurMachaLand" placeholder="পুকুর বা জলাশয়ের পাশে মাচায় সবজি চাষ (ব্যবহৃত জমি))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="shorjanUser" class="col-md-3 control-label">সর্জান পদ্ধতিতে সবজি চাষ (ব্যবহারকারীর সংখ্যা)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="shorjanUser" placeholder="সর্জান পদ্ধতিতে সবজি চাষ (ব্যবহারকারীর সংখ্যা)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="shorjanLand" class="col-md-3 control-label">সর্জান পদ্ধতিতে সবজি চাষ (ব্যবহৃত জমি)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="shorjanLand" placeholder="সর্জান পদ্ধতিতে সবজি চাষ (ব্যবহৃত জমি))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="vashomanUser" class="col-md-3 control-label">ভাসমান বেডে সবজি চাষ (ব্যবহারকারীর সংখ্যা)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="vashomanUser" placeholder="ভাসমান বেডে সবজি চাষ (ব্যবহারকারীর সংখ্যা)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="vashomanLand" class="col-md-3 control-label">ভাসমান বেডে সবজি চাষ (ব্যবহৃত জমি)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="vashomanLand" placeholder="ভাসমান বেডে সবজি চাষ (ব্যবহৃত জমি))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="binaShobjiUser" class="col-md-3 control-label">বিনা চাষে সবজি চাষ (ব্যবহারকারীর সংখ্যা)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="binaShobjiUser" placeholder="বিনা চাষে সবজি চাষ (ব্যবহারকারীর সংখ্যা)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="binaShobjiLand" class="col-md-3 control-label">বিনা চাষে সবজি চাষ (ব্যবহৃত জমি)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="binaShobjiLand" placeholder="বিনা চাষে সবজি চাষ (ব্যবহৃত জমি))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="binaRoshunUser" class="col-md-3 control-label">বিনা চাষে রসুন চাষ (ব্যবহারকারীর সংখ্যা)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="binaRoshunUser" placeholder="বিনা চাষে রসুন চাষ (ব্যবহারকারীর সংখ্যা)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="binaRoshunLand" class="col-md-3 control-label">বিনা চাষে রসুন চাষ (ব্যবহৃত জমি)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="binaRoshunLand" placeholder="বিনা চাষে রসুন চাষ (ব্যবহৃত জমি))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="binaAluUser" class="col-md-3 control-label">বিনা চাষে আলু চাষ (ব্যবহারকারীর সংখ্যা)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="binaAluUser" placeholder="বিনা চাষে আলু চাষ (ব্যবহারকারীর সংখ্যা)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="binaAluLand" class="col-md-3 control-label">বিনা চাষে আলু চাষ (ব্যবহৃত জমি)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="binaAluLand" placeholder="বিনা চাষে আলু চাষ (ব্যবহৃত জমি))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="binaShorishaUser" class="col-md-3 control-label">বিনা চাষে সরিষা চাষ (ব্যবহারকারীর সংখ্যা)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="binaShorishaUser" placeholder="বিনা চাষে সরিষা চাষ (ব্যবহারকারীর সংখ্যা)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="binaShorishaLand" class="col-md-3 control-label">বিনা চাষে সরিষা চাষ (ব্যবহৃত জমি)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="binaShorishaLand" placeholder="বিনা চাষে সরিষা চাষ (ব্যবহৃত জমি))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="alokFaadUser" class="col-md-3 control-label">আলোক ফাঁদ ব্যবহার (ব্যবহারকারীর সংখ্যা)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="alokFaadUser" placeholder="আলোক ফাঁদ ব্যবহার (ব্যবহারকারীর সংখ্যা)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="alokFaadLand" class="col-md-3 control-label">আলোক ফাঁদ ব্যবহার (ব্যবহৃত জমি)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="alokFaadLand" placeholder="আলোক ফাঁদ ব্যবহার (ব্যবহৃত জমি))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="feromanUser" class="col-md-3 control-label">ফেরোমান ফাঁদ ব্যবহার (ব্যবহারকারীর সংখ্যা)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="feromanUser" placeholder="ফেরোমান ফাঁদ ব্যবহার (ব্যবহারকারীর সংখ্যা)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="feromanLand" class="col-md-3 control-label">ফেরোমান ফাঁদ ব্যবহার (ব্যবহৃত জমি)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="feromanLand" placeholder="ফেরোমান ফাঁদ ব্যবহার (ব্যবহৃত জমি))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="bishtopUser" class="col-md-3 control-label">বিষটোপ ফাঁদ ব্যবহার (ব্যবহারকারীর সংখ্যা)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="bishtopUser" placeholder="বিষটোপ ফাঁদ ব্যবহার (ব্যবহারকারীর সংখ্যা)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="bishtopLand" class="col-md-3 control-label">বিষটোপ ফাঁদ ব্যবহার (ব্যবহৃত জমি)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="bishtopLand" placeholder="বিষটোপ ফাঁদ ব্যবহার (ব্যবহৃত জমি))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="holudAthaloUser" class="col-md-3 control-label">হলুদ আঠালো ব্যবহার (ব্যবহারকারীর সংখ্যা)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="holudAthaloUser" placeholder="হলুদ আঠালো ব্যবহার (ব্যবহারকারীর সংখ্যা)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="holudAthaloLand" class="col-md-3 control-label">হলুদ আঠালো ব্যবহার (ব্যবহৃত জমি)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="holudAthaloLand" placeholder="হলুদ আঠালো ব্যবহার (ব্যবহৃত জমি))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="parchingUser" class="col-md-3 control-label">পারচিং (ব্যবহারকারীর সংখ্যা)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="parchingUser" placeholder="পারচিং (ব্যবহারকারীর সংখ্যা)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="parchingLand" class="col-md-3 control-label">পারচিং (ব্যবহৃত জমি)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="parchingLand" placeholder="পারচিং (ব্যবহৃত জমি))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="polytheneParchingUser" class="col-md-3 control-label">পলিথিন পারচিং (ব্যবহারকারীর সংখ্যা)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="polytheneParchingUser" placeholder="পলিথিন পারচিং (ব্যবহারকারীর সংখ্যা)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="polytheneParchingLand" class="col-md-3 control-label">পলিথিন পারচিং (ব্যবহৃত জমি)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="polytheneParchingLand" placeholder="পলিথিন পারচিং (ব্যবহৃত জমি))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="baggingShobjiUser" class="col-md-3 control-label">ব্যাগিং (সবজি) (ব্যবহারকারীর সংখ্যা)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="baggingShobjiUser" placeholder="ব্যাগিং (সবজি) (ব্যবহারকারীর সংখ্যা)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="baggingShobjiLand" class="col-md-3 control-label">ব্যাগিং (সবজি) (ব্যবহৃত জমি)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="baggingShobjiLand" placeholder="ব্যাগিং (সবজি) (ব্যবহৃত জমি))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="baggingFolUser" class="col-md-3 control-label">ব্যাগিং (ফল) (ব্যবহারকারীর সংখ্যা)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="baggingFolUser" placeholder="ব্যাগিং (ফল) (ব্যবহারকারীর সংখ্যা)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="baggingFolLand" class="col-md-3 control-label">ব্যাগিং (ফল) (ব্যবহৃত জমি)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="baggingFolLand" placeholder="ব্যাগিং (ফল) (ব্যবহৃত জমি))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="folPruningUser" class="col-md-3 control-label">ফল্ গাছে প্রুণিং (ব্যবহারকারীর সংখ্যা)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="folPruningUser" placeholder="ফল্ গাছে প্রুণিং (ব্যবহারকারীর সংখ্যা)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="folPruningLand" class="col-md-3 control-label">ফল্ গাছে প্রুণিং (ব্যবহৃত জমি)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="folPruningLand" placeholder="ফল্ গাছে প্রুণিং (ব্যবহৃত জমি))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="folSharShechUser" class="col-md-3 control-label">ফলগাছে সার ও সেচ ব্যবস্থাপনা (ব্যবহারকারীর সংখ্যা)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="folSharShechUser" placeholder="ফলগাছে সার ও সেচ ব্যবস্থাপনা (ব্যবহারকারীর সংখ্যা)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="folSharShechLand" class="col-md-3 control-label">ফলগাছে সার ও সেচ ব্যবস্থাপনা (ব্যবহৃত জমি)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="folSharShechLand" placeholder="ফলগাছে সার ও সেচ ব্যবস্থাপনা (ব্যবহৃত জমি))">
+                                        </div>
+                                    </div>
+
+                                    
+                                    
+
+                                            <input type="hidden" class="form-control" name="user_id" placeholder="id" value="<%= user_id %>">
+                                        
+                                        
+                                    
+                                    <div class="form-group">
+                                        <!-- Button -->                                        
+                                        <div class="col-md-offset-3 col-md-9">
+                                        <input type="submit" name="submit" value="submit" class="btn btn-primary">   
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                        
+                                    
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<%- include('../../includes/footer')-%>

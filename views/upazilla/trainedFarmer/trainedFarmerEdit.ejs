@@ -1,0 +1,172 @@
+<%- include('../../includes/header')-%>
+        <div class="wrapper">
+          <%- include('../../includes/topbar')-%>
+            <div class="page-wrap">
+              <%- include('../../includes/sidebar')-%>
+              <div class="main-content">
+                <div class="container-fluid">
+                    <div class="row clearfix">
+                    <div id="signupbox" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <div class="panel-title"><h2>প্রশিক্ষণপ্রাপ্ত কৃষকের তথ্য ফর্ম</h2></div>
+                                <p><%
+                                if(success !=''){ %>
+                                <%= success %>
+                                    <% } %>
+                                </p>
+                                </div>  
+                            <div class="panel-body" >
+                                <form action="/upazilla/trainedFarmerEditPost/<%= records.id %>"  id="FieldTrialForm" class="form-horizontal" method="post"  role="form">
+                                    <div id="signupalert" style="display:none" class="alert alert-danger">
+                                        <p>Error:</p>
+                                        <span></span>
+                                    </div>
+
+                                        
+                                    <div class="form-group">
+                                        <label for="name" class="col-md-3 control-label">কৃষকের নাম</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="name" placeholder="কৃষকের নাম" value="<%=records.name%>">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="fname" class="col-md-3 control-label">পিতার নাম</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="fname" placeholder="পিতার নাম" value="<%=records.fname%>">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="vname" class="col-md-3 control-label">গ্রামের/মাঠের নাম</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="vname" placeholder="গ্রামের/মাঠের নাম" value="<%=records.vname%>">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="nid" class="col-md-3 control-label">কৃষকের এনআইডি নং</label>
+                                        <div class="col-md-9">
+                                        <input type="text" class="form-control" name="nid" placeholder="কৃষকের এনআইডি নং" value="<%=records.nid%>">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="mnum" class="col-md-3 control-label">কৃষকের মোবাইল নং</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="mnum" placeholder="কৃষকের মোবাইল নং" value="<%=records.mnum%>">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-9">
+                                            <label for="ptype">প্রদর্শনীর ধরণ বাছুন:</label>
+                                        <select id="ptype" name="ptype" required>
+                                            <option value="একক">একক</option>
+                                            <option value="ব্লক">ব্লক</option>
+                                            <option value="সবজি">সবজি</option>
+                                            <option value="ফল">ফল</option>
+                                            <option value="মিশ্রফল">মিশ্রফল</option>
+                                            <option value="বিশেষ">বিশেষ</option>
+                                        </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-9">
+                                            <label for="ptype">প্রদর্শনী ফসলের/প্রযুক্তির নাম বাছুন:</label>
+                                        <select id="pname" name="pname" required>
+                                            <option value="ধান (আউশ)">ধান (আউশ)</option>
+                                            <option value="ধান (আমন)">ধান (আমন)</option>
+                                            <option value="গম">গম</option>
+                                            <option value="ভূট্টা">ভূট্টা</option>
+                                            <option value="বার্লি">বার্লি</option>
+                                            <option value="পাট">পাট</option>
+                                            <option value="মুগ">মুগ</option>
+                                            <option value="খেসারি">খেসারি</option>
+                                            <option value="ফেলন">ফেলন</option>
+                                            <option value="সরিষা">সরিষা</option>
+                                            <option value="তিল">তিল</option>
+                                            <option value="সয়াবিন">সয়াবিন</option>
+                                            <option value="চীনাবাদাম">চীনাবাদাম</option>
+                                            <option value="সূর্যমূখী">সূর্যমূখী</option>
+                                            <option value="পিঁয়াজ">পিঁয়াজ</option>
+                                            <option value="রসুন">রসুন</option>
+                                            <option value="হলুদ">হলুদ</option>
+                                            <option value="আলু">আলু</option>
+                                            <option value="বেগুন">বেগুন</option>
+                                            <option value="টমেটো">টমেটো</option>
+                                            <option value="ঢেঁড়স">ঢেঁড়স</option>
+                                            <option value="পুঁইশাক">পুঁইশাক</option>
+                                            <option value="ডাটা">ডাটা</option>
+                                            <option value="কুমড়া জাতীয়">কুমড়া জাতীয়</option>
+                                            <option value="সীম">সীম</option>
+                                            <option value="বরবটি">বরবটি</option>
+                                            <option value="আম">আম</option>
+                                            <option value="পেয়ারা">পেয়ারা</option>
+                                            <option value="কলা">কলা</option>
+                                            <option value="পেঁপে">পেঁপে</option>
+                                            <option value="সফেদা">সফেদা</option>
+                                            <option value="মাল্টা">মাল্টা</option>
+                                            <option value="কুল">কুল</option>
+                                            <option value="তরমুজ">তরমুজ</option>
+                                           
+                                        </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="date" class="col-md-3 control-label">প্রশিক্ষণের তারিখ</label>
+                                        <div class="col-md-9">
+                                            <input type="date" class="form-control" name="date" placeholder="প্র্রশিক্ষণের তারিখ" value="<%=records.date%>">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="block" class="col-md-3 control-label">ব্লকের নাম</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="block" placeholder="ব্লকের নাম" value="<%=records.block%>">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="saooname" class="col-md-3 control-label">এসএএওর নাম</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="saooname" placeholder="এসএএওর নাম" value="<%=records.saooname%>">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="pnum" class="col-md-3 control-label">এসএএওর ফোন নাম্বার</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="pnum" placeholder="এসএএওর ফোন নাম্বার" value="<%=records.pnum%>">
+                                        </div>
+                                    </div>
+
+                                    <input type="hidden" class="form-control" name="year" placeholder="বছর" value="<%=records.year%>">
+
+                                    
+                                   
+                                    <input type="hidden" class="form-control" name="user_id" placeholder="id" value="<%= user_id %>">
+                                    
+                                    
+                                    <div class="form-group">
+                                        <!-- Button -->                                        
+                                        <div class="col-md-offset-3 col-md-9">
+                                        <input type="submit" name="submit" value="submit" class="btn btn-primary">   
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                        
+                                    
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<%- include('../../includes/footer')-%>

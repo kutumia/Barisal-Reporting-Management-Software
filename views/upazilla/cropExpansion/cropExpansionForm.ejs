@@ -1,0 +1,542 @@
+<%- include('../../includes/header')-%>
+        <div class="wrapper">
+          <%- include('../../includes/topbar')-%>
+            <div class="page-wrap">
+              <%- include('../../includes/sidebar')-%>
+              <div class="main-content">
+                <div class="container-fluid">
+                    <div class="row clearfix">
+                    <div id="signupbox" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <div class="panel-title"><h2>ফসল আবাদ অগ্রগতি ফর্ম</h2></div>
+                                <p><%
+                                if(success !=''){ %>
+                                <%= success %>
+                                    <% } %>
+                                </p>
+                                </div>  
+                            <div class="panel-body" >
+                                <form action="/upazilla/cropExpansionFormPost" id="FieldTrialForm" class="form-horizontal" method="post"  role="form">
+                                    <div id="signupalert" style="display:none" class="alert alert-danger">
+                                        <p>Error:</p>
+                                        <span></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-9">
+                                            <label for="year" class="col-md-3 control-label">বছর</label>
+                                        <select id="year" name="year" required>
+                                        <option value="2017">২০১৭-১৮</option>
+                                        <option value="2018">২০১৮-১৯</option>
+                                        <option value="2019">২০১৯-২০</option>
+                                        <option value="2020" >২০২০-২১</option>
+                                        <option value="2021">২০২১-২২</option>
+                                        <option value="2022">২০২২-২৩</option>
+                                        <option value="2023">২০২৩-২৪</option>                                         
+                                            </select>
+                                        </div>
+                                    </div>
+                                        
+                                    <div class="form-group">
+                                        <label for="aushAbadi" class="col-md-3 control-label">ধান (আউশ) (আবাদী জমি হেঃ)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="aushAbadi" placeholder="ধান (আউশ) (আবাদী জমি হেঃ)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="aushUtpadon" class="col-md-3 control-label">ধান (আউশ) (উৎপাদন টন)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="aushUtpadon" placeholder="ধান (আউশ) (উৎপাদন টন))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="amanAbadi" class="col-md-3 control-label">ধান (আমন) (আবাদী জমি হেঃ)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="amanAbadi" placeholder="ধান (আমন) (আবাদী জমি হেঃ)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="amanUtpadon" class="col-md-3 control-label">ধান (আমন) (উৎপাদন টন)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="amanUtpadon" placeholder="ধান (আমন) (উৎপাদন টন))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="boroAbadi" class="col-md-3 control-label">ধান (বোরো) (আবাদী জমি হেঃ)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="boroAbadi" placeholder="ধান (বোরো) (আবাদী জমি হেঃ)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="boroUtpadon" class="col-md-3 control-label">ধান (বোরো) (উৎপাদন টন)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="boroUtpadon" placeholder="ধান (বোরো) (উৎপাদন টন))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="hybridAbadi" class="col-md-3 control-label">ধান (হাইব্রিড) (আবাদী জমি হেঃ)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="hybridAbadi" placeholder="ধান (হাইব্রিড) (আবাদী জমি হেঃ)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="hybridUtpadon" class="col-md-3 control-label">ধান (হাইব্রিড) (উৎপাদন টন)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="hybridUtpadon" placeholder="ধান (হাইব্রিড) (উৎপাদন টন))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="gomAbadi" class="col-md-3 control-label">গম (আবাদী জমি হেঃ)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="gomAbadi" placeholder="গম (আবাদী জমি হেঃ)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="gomUtpadon" class="col-md-3 control-label">গম (উৎপাদন টন)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="gomUtpadon" placeholder="গম (উৎপাদন টন))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="vuttaAbadi" class="col-md-3 control-label">ভূট্টা (আবাদী জমি হেঃ)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="vuttaAbadi" placeholder="ভূট্টা (আবাদী জমি হেঃ)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="vuttaUtpadon" class="col-md-3 control-label">ভূট্টা (উৎপাদন টন)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="vuttaUtpadon" placeholder="ভূট্টা (উৎপাদন টন))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="barliAbadi" class="col-md-3 control-label">বার্লি (আবাদী জমি হেঃ)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="barliAbadi" placeholder="বার্লি (আবাদী জমি হেঃ)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="barliUtpadon" class="col-md-3 control-label">বার্লি (উৎপাদন টন)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="barliUtpadon" placeholder="বার্লি (উৎপাদন টন))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="patAbadi" class="col-md-3 control-label">পাট (আবাদী জমি হেঃ)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="patAbadi" placeholder="পাট (আবাদী জমি হেঃ)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="patUtpadon" class="col-md-3 control-label">পাট (উৎপাদন টন)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="patUtpadon" placeholder="পাট (উৎপাদন টন))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="mugAbadi" class="col-md-3 control-label">মুগ (আবাদী জমি হেঃ)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="mugAbadi" placeholder="মুগ (আবাদী জমি হেঃ)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="mugUtpadon" class="col-md-3 control-label">মুগ (উৎপাদন টন)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="mugUtpadon" placeholder="মুগ (উৎপাদন টন))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="kheshariAbadi" class="col-md-3 control-label">খেসারি (আবাদী জমি হেঃ)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="kheshariAbadi" placeholder="খেসারি (আবাদী জমি হেঃ)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="kheshariUtpadon" class="col-md-3 control-label">খেসারি (উৎপাদন টন)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="kheshariUtpadon" placeholder="খেসারি (উৎপাদন টন))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="felonAbadi" class="col-md-3 control-label">ফেলন (আবাদী জমি হেঃ)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="felonAbadi" placeholder="ফেলন (আবাদী জমি হেঃ)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="felonUtpadon" class="col-md-3 control-label">ফেলন (উৎপাদন টন)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="felonUtpadon" placeholder="ফেলন (উৎপাদন টন))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="shorishaAbadi" class="col-md-3 control-label">সরিষা (আবাদী জমি হেঃ)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="shorishaAbadi" placeholder="সরিষা (আবাদী জমি হেঃ)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="shorishaUtpadon" class="col-md-3 control-label">সরিষা (উৎপাদন টন)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="shorishaUtpadon" placeholder="সরিষা (উৎপাদন টন))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="tilAbadi" class="col-md-3 control-label">তিল (আবাদী জমি হেঃ)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="tilAbadi" placeholder="তিল (আবাদী জমি হেঃ)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="tilUtpadon" class="col-md-3 control-label">তিল (উৎপাদন টন)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="tilUtpadon" placeholder="তিল (উৎপাদন টন))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="soyabeanAbadi" class="col-md-3 control-label">সয়াবিন (আবাদী জমি হেঃ)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="soyabeanAbadi" placeholder="সয়াবিন (আবাদী জমি হেঃ)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="soyabeanUtpadon" class="col-md-3 control-label">সয়াবিন (উৎপাদন টন)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="soyabeanUtpadon" placeholder="সয়াবিন (উৎপাদন টন))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="chinabadamAbadi" class="col-md-3 control-label">চীনাবাদাম (আবাদী জমি হেঃ)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="chinabadamAbadi" placeholder="চীনাবাদাম (আবাদী জমি হেঃ)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="chinabadamUtpadon" class="col-md-3 control-label">চীনাবাদাম (উৎপাদন টন)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="chinabadamUtpadon" placeholder="চীনাবাদাম (উৎপাদন টন))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="surjomukhiAbadi" class="col-md-3 control-label">সূর্যমূখী (আবাদী জমি হেঃ)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="surjomukhiAbadi" placeholder="সূর্যমূখী (আবাদী জমি হেঃ)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="surjomukhiUtpadon" class="col-md-3 control-label">সূর্যমূখী (উৎপাদন টন)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="surjomukhiUtpadon" placeholder="সূর্যমূখী (উৎপাদন টন))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="piyajAbadi" class="col-md-3 control-label">পিঁয়াজ (আবাদী জমি হেঃ)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="piyajAbadi" placeholder="পিঁয়াজ (আবাদী জমি হেঃ)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="piyajUtpadon" class="col-md-3 control-label">পিঁয়াজ (উৎপাদন টন)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="piyajUtpadon" placeholder="পিঁয়াজ (উৎপাদন টন))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="roshunAbadi" class="col-md-3 control-label">রসুন (আবাদী জমি হেঃ)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="roshunAbadi" placeholder="রসুন (আবাদী জমি হেঃ)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="roshunUtpadon" class="col-md-3 control-label">রসুন (উৎপাদন টন)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="roshunUtpadon" placeholder="রসুন (উৎপাদন টন))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="holudAbadi" class="col-md-3 control-label">হলুদ (আবাদী জমি হেঃ)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="holudAbadi" placeholder="হলুদ (আবাদী জমি হেঃ)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="holudUtpadon" class="col-md-3 control-label">হলুদ (উৎপাদন টন)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="holudUtpadon" placeholder="হলুদ (উৎপাদন টন))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="aluAbadi" class="col-md-3 control-label">আলু (আবাদী জমি হেঃ)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="aluAbadi" placeholder="আলু (আবাদী জমি হেঃ)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="aluUtpadon" class="col-md-3 control-label">আলু (উৎপাদন টন)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="aluUtpadon" placeholder="আলু (উৎপাদন টন))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="begunAbadi" class="col-md-3 control-label">বেগুন (আবাদী জমি হেঃ)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="begunAbadi" placeholder="বেগুন (আবাদী জমি হেঃ)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="begunUtpadon" class="col-md-3 control-label">বেগুন (উৎপাদন টন)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="begunUtpadon" placeholder="বেগুন (উৎপাদন টন))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="tomatoAbadi" class="col-md-3 control-label">টমেটো (আবাদী জমি হেঃ)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="tomatoAbadi" placeholder="টমেটো (আবাদী জমি হেঃ)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="tomatoUtpadon" class="col-md-3 control-label">টমেটো (উৎপাদন টন)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="tomatoUtpadon" placeholder="টমেটো (উৎপাদন টন))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="dheroshAbadi" class="col-md-3 control-label">ঢেঁড়স (আবাদী জমি হেঃ)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="dheroshAbadi" placeholder="ঢেঁড়স (আবাদী জমি হেঃ)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="dheroshUtpadon" class="col-md-3 control-label">ঢেঁড়স (উৎপাদন টন)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="dheroshUtpadon" placeholder="ঢেঁড়স (উৎপাদন টন))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="puishakAbadi" class="col-md-3 control-label">পুইশাক/ডাটা (আবাদী জমি হেঃ)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="puishakAbadi" placeholder="পুইশাক/ডাটা (আবাদী জমি হেঃ)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="puishakUtpadon" class="col-md-3 control-label">পুইশাক/ডাটা (উৎপাদন টন)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="puishakUtpadon" placeholder="পুইশাক/ডাটা (উৎপাদন টন))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="kumraAbadi" class="col-md-3 control-label">কুমড়াজাতীয় (আবাদী জমি হেঃ)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="kumraAbadi" placeholder="কুমড়াজাতীয় (আবাদী জমি হেঃ)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="kumraUtpadon" class="col-md-3 control-label">কুমড়াজাতীয় (উৎপাদন টন)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="kumraUtpadon" placeholder="কুমড়াজাতীয় (উৎপাদন টন))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="simAbadi" class="col-md-3 control-label">সীম/বরবটি (আবাদী জমি হেঃ)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="simAbadi" placeholder="সীম/বরবটি (আবাদী জমি হেঃ)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="simUtpadon" class="col-md-3 control-label">সীম/বরবটি (উৎপাদন টন)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="simUtpadon" placeholder="সীম/বরবটি (উৎপাদন টন))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="amAbadi" class="col-md-3 control-label">আম (আবাদী জমি হেঃ)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="amAbadi" placeholder="আম (আবাদী জমি হেঃ)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="amUtpadon" class="col-md-3 control-label">আম (উৎপাদন টন)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="amUtpadon" placeholder="আম (উৎপাদন টন))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="peyaraAbadi" class="col-md-3 control-label">পেয়ারা (আবাদী জমি হেঃ)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="peyaraAbadi" placeholder="পেয়ারা (আবাদী জমি হেঃ)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="peyaraUtpadon" class="col-md-3 control-label">পেয়ারা (উৎপাদন টন)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="peyaraUtpadon" placeholder="পেয়ারা (উৎপাদন টন))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="kolaAbadi" class="col-md-3 control-label">কলা (আবাদী জমি হেঃ)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="kolaAbadi" placeholder="কলা (আবাদী জমি হেঃ)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="kolaUtpadon" class="col-md-3 control-label">কলা (উৎপাদন টন)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="kolaUtpadon" placeholder="কলা (উৎপাদন টন))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="pepeAbadi" class="col-md-3 control-label">পেঁপে (আবাদী জমি হেঃ)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="pepeAbadi" placeholder="পেঁপে (আবাদী জমি হেঃ)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="pepeUtpadon" class="col-md-3 control-label">পেঁপে (উৎপাদন টন)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="pepeUtpadon" placeholder="পেঁপে (উৎপাদন টন))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="sofedaAbadi" class="col-md-3 control-label">সফেদা (আবাদী জমি হেঃ)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="sofedaAbadi" placeholder="সফেদা (আবাদী জমি হেঃ)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="sofedaUtpadon" class="col-md-3 control-label">সফেদা (উৎপাদন টন)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="sofedaUtpadon" placeholder="সফেদা (উৎপাদন টন))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="maltaAbadi" class="col-md-3 control-label">মাল্টা (আবাদী জমি হেঃ)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="maltaAbadi" placeholder="মাল্টা (আবাদী জমি হেঃ)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="maltaUtpadon" class="col-md-3 control-label">মাল্টা (উৎপাদন টন)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="maltaUtpadon" placeholder="মাল্টা (উৎপাদন টন))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="kulAbadi" class="col-md-3 control-label">কুল (আবাদী জমি হেঃ)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="kulAbadi" placeholder="কুল (আবাদী জমি হেঃ)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="kulUtpadon" class="col-md-3 control-label">কুল (উৎপাদন টন)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="kulUtpadon" placeholder="কুল (উৎপাদন টন))">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="tormujAbadi" class="col-md-3 control-label">তরমুজ (আবাদী জমি হেঃ)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="tormujAbadi" placeholder="তরমুজ (আবাদী জমি হেঃ)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="tormujUtpadon" class="col-md-3 control-label">তরমুজ (উৎপাদন টন)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="tormujUtpadon" placeholder="তরমুজ (উৎপাদন টন))">
+                                        </div>
+                                    </div>
+
+                                    
+
+                                            <input type="hidden" class="form-control" name="user_id" placeholder="id" value="<%= user_id %>">
+                                        
+                                            <input type="hidden" class="form-control" name="dd" placeholder="dd_id" value="<%= dd %>">
+                                        
+                                    
+                                    <div class="form-group">
+                                        <!-- Button -->                                        
+                                        <div class="col-md-offset-3 col-md-9">
+                                        <input type="submit" name="submit" value="submit" class="btn btn-primary">   
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                        
+                                    
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<%- include('../../includes/footer')-%>

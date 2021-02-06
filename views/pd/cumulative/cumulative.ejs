@@ -1,0 +1,64 @@
+<%- include('../../includes/header')-%>
+        <div id="wrapper" class="wrapper" >
+            <%- include('../../includes/topbar')-%>
+            <div class="page-wrap">
+                <%- include('../../includes/sidebar')-%>
+                <div class="main-content">
+                    <div class="container-fluid">
+                        <div class="row clearfix">
+                            <div class="col-md-10">
+                                <h1 class="text-center"><%= title %></h1>
+                            </div>
+                            
+                        </div>
+
+                        
+    <table class="table table-bordered table-striped" id="tblCustomers" cellspacing="0" cellpadding="0">
+        <thead>
+        <tr>
+            <th>ক্র. নং</th>
+            <th>বিবরণ</th>
+            <th>বরিশাল</th>
+            <th>পটুয়াখালী</th>
+            <th>ভোলা</th>
+            <th>ঝালকাঠি</th>
+            <th>বরগুনা</th>
+            <th>মাদারীপুর</th>
+            <th>শরিয়তপুর</th>
+            <!-- <th>মোট</th> -->
+            
+        </tr>
+        </thead>
+        <tbody>
+            
+                <tr>
+                    <td>১</td>
+                    <td>মোট আয়তন</td>
+                    <td><%= sumBariAbadiSeventeenAyoton !== null ? sumBariAbadiSeventeenAyoton : ''  %></td>
+                    <td><%= sumPatuAbadiSeventeenAyoton !== null ? sumPatuAbadiSeventeenAyoton : ''  %></td>
+                    <td><%= sumBholaAbadiSeventeenAyoton !== null ? sumBholaAbadiSeventeenAyoton : ''  %></td>
+                    <td><%= sumJhalAbadiSeventeenAyoton !== null ? sumJhalAbadiSeventeenAyoton : ''  %></td>
+                    <td><%= sumBarAbadiSeventeenAyoton !== null ? sumBarAbadiSeventeenAyoton : ''  %></td>
+                    <td><%= sumMadarAbadiSeventeenAyoton !== null ? sumMadarAbadiSeventeenAyoton : ''  %></td>
+                    <td><%= sumSharAbadiSeventeenAyoton !== null ? sumSharAbadiSeventeenAyoton : ''  %></td>
+                    
+                </tr>
+               
+               
+            
+        </tbody>
+    </table>
+
+                        <input type="button" id="btnExport" value="Download PDF" />
+
+                        <div id="output"></div>
+        <!--                    <div id="loading" class="loading"><img src="{{ asset('assets/img/icon/loading.gif') }}" alt=""></div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+   
+<%- include('../../includes/footer')-%>
+

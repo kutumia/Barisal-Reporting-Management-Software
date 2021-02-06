@@ -1,0 +1,156 @@
+<div class="app-sidebar colored">
+    <div class="sidebar-header">
+        <a class="header-brand" href="../index.ejs">
+           
+            <span class="text"><%= locals.type %> Admin </span>
+        </a>
+       
+      </div>
+    
+
+
+      <% if(locals.type === "pd"){%>
+        <div class="sidebar-content">
+            <div class="nav-container">
+                <nav id="main-menu-navigation" class="navigation-main">
+                    <div class="nav-lavel">Navigation</div>
+                    <div class="nav-item active">
+                        <a href="/pd/dashboardMonitoring"><i class="ik ik-bar-chart-2"></i><span>ড্যাশবোর্ড</span></a>
+                    </div>
+                   
+                    <div class="nav-lavel">প্রশিক্ষণ</div>
+                    <div class="nav-item">
+                        <a href="/pd/demonstration"><i class="ik ik-package"></i><span>প্রদর্শনী</span></a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="/pd/fieldDay"><i class="ik ik-package"></i><span>মাঠ দিবস</span></a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="/pd/farmerTraining"><i class="ik ik-package"></i><span>কৃষক প্রশিক্ষণ</span></a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="/pd/agriFair"><i class="ik ik-package"></i><span>কৃষি মেলা</span></a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="/pd/farmerPrize"><i class="ik ik-package"></i><span>কৃষক পুরষ্কার</span></a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="/pd/llp"><i class="ik ik-package"></i><span>এলএলপি বিতরণ</span></a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="/pd/solarLight"><i class="ik ik-package"></i><span>সৌর আলো ফাঁদ বিতরণ</span></a>
+                    </div>
+    
+                </nav>
+            </div>
+        </div>
+    </div>
+    <% }else if (locals.type === "ad"){%>
+        <div class="sidebar-content">
+            <div class="nav-container">
+                <nav id="main-menu-navigation" class="navigation-main">
+                    <div class="nav-lavel">Navigation</div>
+                    <div class="nav-item active">
+                        <a href="/ad/dashboardMonitoring"><i class="ik ik-bar-chart-2"></i><span>ড্যাশবোর্ড</span></a>
+                    </div>
+                   
+                    <div class="nav-lavel">প্রশিক্ষণ</div>
+                    <div class="nav-item">
+                        <a href="/ad/demonstration"><i class="ik ik-package"></i><span>প্রদর্শনী</span></a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="/ad/fieldDay"><i class="ik ik-package"></i><span>মাঠ দিবস</span></a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="/ad/farmerTraining"><i class="ik ik-package"></i><span>কৃষক প্রশিক্ষণ</span></a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="/ad/agriFair"><i class="ik ik-package"></i><span>কৃষি মেলা</span></a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="/ad/farmerPrize"><i class="ik ik-package"></i><span>কৃষক পুরষ্কার</span></a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="/ad/llp"><i class="ik ik-package"></i><span>এলএলপি বিতরণ</span></a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="/ad/solarLight"><i class="ik ik-package"></i><span>সৌর আলো ফাঁদ বিতরণ</span></a>
+                    </div>
+    
+                </nav>
+            </div>
+        </div>
+    </div>
+    <% }else if (locals.type === "dd"){%>
+        <div class="sidebar-content">
+            <div class="nav-container">
+                <nav id="main-menu-navigation" class="navigation-main">
+                    <div class="nav-lavel">Navigation</div>
+                    <div class="nav-item active">
+                        <a href="/dd/dashboardMonitoring"><i class="ik ik-bar-chart-2"></i><span>ড্যাশবোর্ড</span></a>
+                    </div>
+                   
+                    <div class="nav-lavel">প্রশিক্ষণ</div>
+                    <div class="nav-item">
+                        <a href="/dd/demonstration"><i class="ik ik-package"></i><span>প্রদর্শনী</span></a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="/dd/fieldDay"><i class="ik ik-package"></i><span>মাঠ দিবস</span></a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="/dd/farmerTraining"><i class="ik ik-package"></i><span>কৃষক প্রশিক্ষণ</span></a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="/dd/agriFair"><i class="ik ik-package"></i><span>কৃষি মেলা</span></a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="/dd/farmerPrize"><i class="ik ik-package"></i><span>কৃষক পুরষ্কার</span></a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="/dd/llp"><i class="ik ik-package"></i><span>এলএলপি বিতরণ</span></a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="/dd/solarLight"><i class="ik ik-package"></i><span>সৌর আলো ফাঁদ বিতরণ</span></a>
+                    </div>
+    
+                </nav>
+            </div>
+        </div>
+    </div>
+<% }else { %>
+    <div class="sidebar-content">
+        <div class="nav-container">
+            <nav id="main-menu-navigation" class="navigation-main">
+                <div class="nav-lavel">Navigation</div>
+                <div class="nav-item active">
+                    <a href="/upazilla/dashboardMonitoring"><i class="ik ik-bar-chart-2"></i><span>ড্যাশবোর্ড</span></a>
+                </div>
+               
+                <div class="nav-lavel">প্রশিক্ষণ</div>
+                <div class="nav-item">
+                    <a href="/upazilla/demonstration"><i class="ik ik-package"></i><span>প্রদর্শনী</span></a>
+                </div>
+                <div class="nav-item">
+                    <a href="/upazilla/fieldDay"><i class="ik ik-package"></i><span>মাঠ দিবস</span></a>
+                </div>
+                <div class="nav-item">
+                    <a href="/upazilla/farmerTraining"><i class="ik ik-package"></i><span>কৃষক প্রশিক্ষণ</span></a>
+                </div>
+                <div class="nav-item">
+                    <a href="/upazilla/agriFair"><i class="ik ik-package"></i><span>কৃষি মেলা</span></a>
+                </div>
+                <div class="nav-item">
+                    <a href="/upazilla/farmerPrize"><i class="ik ik-package"></i><span>কৃষক পুরষ্কার</span></a>
+                </div>
+                <div class="nav-item">
+                    <a href="/upazilla/llp"><i class="ik ik-package"></i><span>এলএলপি বিতরণ</span></a>
+                </div>
+                <div class="nav-item">
+                    <a href="/upazilla/solarLight"><i class="ik ik-package"></i><span>সৌর আলো ফাঁদ বিতরণ</span></a>
+                </div>
+
+            </nav>
+        </div>
+    </div>
+</div>
+<% }   %>
