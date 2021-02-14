@@ -13,6 +13,7 @@ var upazillaRouter = require('./routes/upazilla');
 var pdRouter = require('./routes/pd');
 var adRouter = require('./routes/ad');
 var ddRouter = require('./routes/dd');
+var saaoRouter = require('./routes/saao');
 
 
 dotenv.config({path:'./.env'});
@@ -43,7 +44,7 @@ app.use('/upazilla', upazillaRouter);
 app.use('/pd', pdRouter);
 app.use('/ad', adRouter);
 app.use('/dd', ddRouter);
-
+app.use('/saao', saaoRouter);
 
 
 

@@ -160,7 +160,7 @@
             </div>
         </div>
     </div>
-<% }else { %>
+    <% }else if (locals.type === "upazilla"){%>
     <div class="sidebar-content">
         <div class="nav-container">
             <nav id="main-menu-navigation" class="navigation-main">
@@ -200,6 +200,30 @@
                     <a href="/upazilla/abadiJomi"><i class="ik ik-package"></i><span>আবাদী জমি ও ফসল উৎপাদন</span></a>
                 </div>
 
+                
+            </nav>
+        </div>
+    </div>
+</div>
+<% }else if (locals.type === "saao"){%>
+    <div class="sidebar-content">
+        <div class="nav-container">
+            <nav id="main-menu-navigation" class="navigation-main">
+                <div class="nav-lavel">Navigation</div>
+                <div class="nav-item active">
+                    <a href="/saao/dashboard"><i class="ik ik-bar-chart-2"></i><span>ড্যাশবোর্ড</span></a>
+                </div>
+               
+                <div class="nav-lavel">প্রশিক্ষণ</div>
+                <div class="nav-item">
+                    <a href="/saao/selectedField"><i class="ik ik-package"></i><span>নির্বাচিত মাঠের কৃষকের তথ্য</span></a>
+                </div>
+                <div class="nav-item">
+                    <a href="/saao/cropNibirota"><i class="ik ik-package"></i><span>শস্য নিবিড়তার অগ্রগতির তথ্য</span></a>
+                </div>
+                <div class="nav-item">
+                    <a href="/saao/producedCrop"><i class="ik ik-package"></i><span>মাঠে উৎপাদিত ফসলের তথ্য</span></a>
+                </div>
                 
             </nav>
         </div>

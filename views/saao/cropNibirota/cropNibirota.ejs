@@ -1,0 +1,174 @@
+<%- include('../../includes/header')-%>
+        <div id="wrapper" class="wrapper" >
+            <%- include('../../includes/topbar')-%>
+            <div class="page-wrap">
+                <%- include('../../includes/sidebar')-%>
+                <div class="main-content">
+                    <div class="container-fluid">
+                        <div class="row clearfix">
+                            <div class="col-md-10">
+                                <h1 class="text-center"><%= title %></h1>
+                            </div>
+                            
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-md-12">
+                                <a href="/saao/cropNibirotaForm" class="btn btn-success btn-group-sm ">শস্য নিবিড়তার অগ্রগতির ফর্ম</a>
+                            </div>
+
+                        </div>
+
+                        
+    <table class="table table-bordered table-striped" id="tblCustomers" cellspacing="0" cellpadding="0">
+        <thead>
+        <tr>
+            <th>ক্র. নং</th>
+            <th>বিবরণ</th>
+            <th>২০১৭-১৮</th>
+            <th>২০১৮-১৯</th>
+            <th>২০১৯-২০</th>
+            <th>২০২০-২১</th>
+            <th>২০২১-২২</th>
+            <th>২০২২-২৩</th>
+            
+        </tr>
+        </thead>
+        <tbody>
+            
+                <tr>
+                    <td>১</td>
+                    <td>মাঠটি এক/দুই/তিন ফসলী? </td>
+                    <td><%= seventeen !== null ? seventeen.fosholi : ''  %></td>
+                    <td><%= eighteen !== null ? eighteen.fosholi : '' %></td>
+                    <td><%= nineteen !== null ? nineteen.fosholi : ''  %></td>
+                    <td><%= twenty !== null ? twenty.fosholi : ''  %></td>
+                    <td><%= twentyOne !== null ? twentyOne.fosholi : ''  %></td>
+                    <td><%= twentyTwo !== null ? twentyTwo.fosholi : ''  %></td>
+                </tr>
+                <tr>
+                    <td>২</td>
+                    <td>আবাদযোগ্য জমি (হেঃ)</td>
+                    <td><%= seventeen !== null ? seventeen.abadjoggo : ''  %></td>
+                    <td><%= eighteen !== null ? eighteen.abadjoggo : '' %></td>
+                    <td><%= nineteen !== null ? nineteen.abadjoggo : ''  %></td>
+                    <td><%= twenty !== null ? twenty.abadjoggo : ''  %></td>
+                    <td><%= twentyOne !== null ? twentyOne.abadjoggo : ''  %></td>
+                    <td><%= twentyTwo !== null ? twentyTwo.abadjoggo : ''  %></td>
+                </tr>
+                <tr>
+                    <td>৩</td>
+                    <td>মোট আবাদী/নীট ফসলী জমি (হেঃ)</td>
+                    <td><%= seventeen !== null ? seventeen.abadi : ''  %></td>
+                    <td><%= eighteen !== null ? eighteen.abadi : '' %></td>
+                    <td><%= nineteen !== null ? nineteen.abadi : ''  %></td>
+                    <td><%= twenty !== null ? twenty.abadi : ''  %></td>
+                    <td><%= twentyOne !== null ? twentyOne.abadi : ''  %></td>
+                    <td><%= twentyTwo !== null ? twentyTwo.abadi : ''  %></td>
+                </tr>
+                <tr>
+                    <td>৪</td>
+                    <td>এক ফসলী জমি (হেঃ)</td>
+                    <td><%= seventeen !== null ? seventeen.ek : ''  %></td>
+                    <td><%= eighteen !== null ? eighteen.ek : '' %></td>
+                    <td><%= nineteen !== null ? nineteen.ek : ''  %></td>
+                    <td><%= twenty !== null ? twenty.ek : ''  %></td>
+                    <td><%= twentyOne !== null ? twentyOne.ek : ''  %></td>
+                    <td><%= twentyTwo !== null ? twentyTwo.ek : ''  %></td>
+                </tr>
+                <tr>
+                    <td>৫</td>
+                    <td>দুই ফসলী জমি (হেঃ)</td>
+                    <td><%= seventeen !== null ? seventeen.dui : ''  %></td>
+                    <td><%= eighteen !== null ? eighteen.dui : '' %></td>
+                    <td><%= nineteen !== null ? nineteen.dui : ''  %></td>
+                    <td><%= twenty !== null ? twenty.dui : ''  %></td>
+                    <td><%= twentyOne !== null ? twentyOne.dui : ''  %></td>
+                    <td><%= twentyTwo !== null ? twentyTwo.dui : ''  %></td>
+                </tr>
+                <tr>
+                    <td>৬</td>
+                    <td>তিন ফসলী জমি (হেঃ)</td>
+                    <td><%= seventeen !== null ? seventeen.tin : ''  %></td>
+                    <td><%= eighteen !== null ? eighteen.tin : '' %></td>
+                    <td><%= nineteen !== null ? nineteen.tin : ''  %></td>
+                    <td><%= twenty !== null ? twenty.tin : ''  %></td>
+                    <td><%= twentyOne !== null ? twentyOne.tin : ''  %></td>
+                    <td><%= twentyTwo !== null ? twentyTwo.tin : ''  %></td>
+                </tr>
+                <tr>
+                    <td>৭</td>
+                    <td>মোট ফসলী জমি (হেঃ)</td>
+                    <td><%= seventeen !== null ? seventeen.total : ''  %></td>
+                    <td><%= eighteen !== null ? eighteen.total : '' %></td>
+                    <td><%= nineteen !== null ? nineteen.total : ''  %></td>
+                    <td><%= twenty !== null ? twenty.total : ''  %></td>
+                    <td><%= twentyOne !== null ? twentyOne.total : ''  %></td>
+                    <td><%= twentyTwo !== null ? twentyTwo.total : ''  %></td>
+                </tr>
+                <tr>
+                    <td>৮</td>
+                    <td>ফসলের নিবিড়তা</td>
+                    <td><%= seventeen !== null ? seventeen.nibirota : ''  %></td>
+                    <td><%= eighteen !== null ? eighteen.nibirota : '' %></td>
+                    <td><%= nineteen !== null ? nineteen.nibirota : ''  %></td>
+                    <td><%= twenty !== null ? twenty.nibirota : ''  %></td>
+                    <td><%= twentyOne !== null ? twentyOne.nibirota : ''  %></td>
+                    <td><%= twentyTwo !== null ? twentyTwo.nibirota : ''  %></td>
+                </tr>
+                <tr>
+                    <td>৯</td>
+                    <td>খরিফ-২ মৌসুমে পতিত জমি (হেঃ)</td>
+                    <td><%= seventeen !== null ? seventeen.kharif2 : ''  %></td>
+                    <td><%= eighteen !== null ? eighteen.kharif2 : '' %></td>
+                    <td><%= nineteen !== null ? nineteen.kharif2 : ''  %></td>
+                    <td><%= twenty !== null ? twenty.kharif2 : ''  %></td>
+                    <td><%= twentyOne !== null ? twentyOne.kharif2 : ''  %></td>
+                    <td><%= twentyTwo !== null ? twentyTwo.kharif2 : ''  %></td>
+                </tr>
+                <tr>
+                    <td>১০</td>
+                    <td>রবি মৌসুমে পতিত জমি (হেঃ</td>
+                    <td><%= seventeen !== null ? seventeen.robi : ''  %></td>
+                    <td><%= eighteen !== null ? eighteen.robi : '' %></td>
+                    <td><%= nineteen !== null ? nineteen.robi : ''  %></td>
+                    <td><%= twenty !== null ? twenty.robi : ''  %></td>
+                    <td><%= twentyOne !== null ? twentyOne.robi : ''  %></td>
+                    <td><%= twentyTwo !== null ? twentyTwo.robi : ''  %></td>
+                </tr>
+                <tr>
+                    <td>১১</td>
+                    <td>খরিফ-১ মৌসুমে পতিত জমি (হেঃ)</td>
+                    <td><%= seventeen !== null ? seventeen.kharif1 : ''  %></td>
+                    <td><%= eighteen !== null ? eighteen.kharif1 : '' %></td>
+                    <td><%= nineteen !== null ? nineteen.kharif1 : ''  %></td>
+                    <td><%= twenty !== null ? twenty.kharif1 : ''  %></td>
+                    <td><%= twentyOne !== null ? twentyOne.kharif1 : ''  %></td>
+                    <td><%= twentyTwo !== null ? twentyTwo.kharif1 : ''  %></td>
+                </tr>
+                <tr>
+                    <td>১২</td>
+                    <td>সেচকৃত জমি (হেঃ)</td>
+                    <td><%= seventeen !== null ? seventeen.irrigation : ''  %></td>
+                    <td><%= eighteen !== null ? eighteen.irrigation : '' %></td>
+                    <td><%= nineteen !== null ? nineteen.irrigation : ''  %></td>
+                    <td><%= twenty !== null ? twenty.irrigation : ''  %></td>
+                    <td><%= twentyOne !== null ? twentyOne.irrigation : ''  %></td>
+                    <td><%= twentyTwo !== null ? twentyTwo.irrigation : ''  %></td>
+                </tr>
+                
+        </tbody>
+    </table>
+
+                        <input type="button" id="btnExport" value="Download PDF" />
+
+                        <div id="output"></div>
+        <!--                    <div id="loading" class="loading"><img src="{{ asset('assets/img/icon/loading.gif') }}" alt=""></div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+   
+<%- include('../../includes/footer')-%>
+

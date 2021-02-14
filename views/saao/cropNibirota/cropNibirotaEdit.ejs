@@ -1,0 +1,125 @@
+<%- include('../../includes/header')-%>
+        <div class="wrapper">
+          <%- include('../../includes/topbar')-%>
+            <div class="page-wrap">
+              <%- include('../../includes/sidebar')-%>
+              <div class="main-content">
+                <div class="container-fluid">
+                    <div class="row clearfix">
+                    <div id="signupbox" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <div class="panel-title"><h2>প্রদর্শনীর অগ্রগতির প্রতিবেদন ফর্ম</h2></div>
+                                <p><%
+                                if(success !=''){ %>
+                                <%= success %>
+                                    <% } %>
+                                </p>
+                                </div>  
+                            <div class="panel-body" >
+                                <form action="/saao/cropNibirotaFormPost/<%=records.id>" id="FieldTrialForm" class="form-horizontal" method="post"  role="form">
+                                    <div id="signupalert" style="display:none" class="alert alert-danger">
+                                        <p>Error:</p>
+                                        <span></span>
+                                    </div>
+
+                                        
+                                    
+                                    <div class="form-group">
+                                        <div class="col-md-9">
+                                            <label for="fosholi">মাঠটি কতো ফসলী?:</label>
+                                        <select id="fosholi" name="fosholi" required value="<%=records.name%>">
+                                            <option value="">বাছুন</option>
+                                            <option value="এক">এক</option>
+                                            <option value="দুই">দুই</option>
+                                            <option value="তিন">তিন</option>
+                                        </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="abadjoggo" class="col-md-3 control-label">আবাদযোগ্য জমি (হেঃ)</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="abadjoggo" placeholder="আবাদযোগ্য জমি (হেঃ)" value="<%=records.abadjoggo%>">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                            <label for="abadi" class="col-md-3 control-label">মোট আবাদী/নীট ফসলী জমি (হেঃ)</label>
+                                            <div class="col-md-9">
+                                                <input type="number" class="form-control" name="abadi" placeholder="এক ফসলী জমি (হেঃ)" value="<%=records.abadi%>">
+                                                </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="ek" class="col-md-3 control-label">এক ফসলী জমি (হেঃ)</label>
+                                        <div class="col-md-9">
+                                        <input type="number" class="form-control" name="ek" placeholder="এক ফসলী জমি (হেঃ)" value="<%=records.ek%>">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="dui" class="col-md-3 control-label">দুই ফসলী জমি (হেঃ)</label>
+                                        <div class="col-md-9">
+                                        <input type="number" class="form-control" name="dui" placeholder="দুই ফসলী জমি (হেঃ)" value="<%=records.dui%>">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="tin" class="col-md-3 control-label">তিন ফসলী জমি (হেঃ)</label>
+                                        <div class="col-md-9">
+                                        <input type="number" class="form-control" name="tin" placeholder="তিন ফসলী জমি (হেঃ)" value="<%=records.tin%>">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="kharif2" class="col-md-3 control-label">খরিফ-২ মৌসুমে পতিত জমি (হেঃ)</label>
+                                        <div class="col-md-9">
+                                        <input type="number" class="form-control" name="kharif2" placeholder="খরিফ-২ মৌসুমে পতিত জমি (হেঃ)" value="<%=records.kharif2%>">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="robi" class="col-md-3 control-label">রবি মৌসুমে পতিত জমি (হেঃ)</label>
+                                        <div class="col-md-9">
+                                        <input type="number" class="form-control" name="robi" placeholder="রবি মৌসুমে পতিত জমি (হেঃ)" value="<%=records.robi%>">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="kharif1" class="col-md-3 control-label">খরিফ-১ মৌসুমে পতিত জমি (হেঃ)</label>
+                                        <div class="col-md-9">
+                                        <input type="number" class="form-control" name="kharif1" placeholder="খরিফ-২ মৌসুমে পতিত জমি (হেঃ)" value="<%=records.kharif1%>">
+                                        </div>
+                                    </div>
+                                                                 
+                                    <div class="form-group">
+                                        <label for="irrigation" class="col-md-3 control-label">সেচকৃত জমি (হেঃ)</label>
+                                        <div class="col-md-9">
+                                        <input type="number" class="form-control" name="irrigation" placeholder="সেচকৃত জমি (হেঃ)" value="<%=records.irrigation%>">
+                                        </div>
+                                    </div>
+                                   
+
+                                            <input type="hidden" class="form-control" name="user_id" placeholder="id" value="<%= user_id %>">
+                                        
+                                    
+                                    <div class="form-group">
+                                        <!-- Button -->                                        
+                                        <div class="col-md-offset-3 col-md-9">
+                                        <input type="submit" name="submit" value="submit" class="btn btn-primary">   
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                        
+                                    
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<%- include('../../includes/footer')-%>

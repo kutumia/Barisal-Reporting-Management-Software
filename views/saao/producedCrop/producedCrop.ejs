@@ -1,0 +1,124 @@
+<%- include('../../includes/header')-%>
+        <div id="wrapper" class="wrapper" >
+            <%- include('../../includes/topbar')-%>
+            <div class="page-wrap">
+                <%- include('../../includes/sidebar')-%>
+                <div class="main-content">
+                    <div class="container-fluid">
+                        <div class="row clearfix">
+                            <div class="col-md-10">
+                                <h1 class="text-center"><%= title %></h1>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-md-12">
+                                <a href="/saao/producedCropForm" class="btn btn-success btn-group-sm ">মাঠে উৎপাদিত ফসলের তথ্য ফর্ম</a>
+                            </div>
+
+                        </div>
+
+                        <div class="table-responsive" id="output">
+                            <%if (records.length >0){ %>
+                                <table class="table table-bordered table-striped" id="" cellspacing="0" cellpadding="0">
+                                <thead>
+                                <tr>
+                                    <th rowspan="2">ক্রমিক নং</th>
+                                    <th rowspan="2">ফসলের নাম</th>
+                                    <th colspan="2">২০১৭-১৮</th>
+                                    <th colspan="2">২০১৮-১৯</th>
+                                    <th colspan="2">২০১৯-২০</th>
+                                    <th colspan="2">২০২০-২১</th>
+                                    <th colspan="2">২০২১-২২</th>
+                                    <th colspan="2">২০২২-২৩</th>
+                                    <th rowspan="2">পরিবর্তন/মুছুন</th>
+                                </tr>
+                                <tr>
+                                    <th>আয়তন (হেঃ)</th>
+                                    <th>উৎপাদন (টন)</th>
+                                    <th>আয়তন (হেঃ)</th>
+                                    <th>উৎপাদন (টন)</th>
+                                    <th>আয়তন (হেঃ)</th>
+                                    <th>উৎপাদন (টন)</th>
+                                    <th>আয়তন (হেঃ)</th>
+                                    <th>উৎপাদন (টন)</th>
+                                    <th>আয়তন (হেঃ)</th>
+                                    <th>উৎপাদন (টন)</th>
+                                    <th>আয়তন (হেঃ)</th>
+                                    <th>উৎপাদন (টন)</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                    <% records.forEach(function(row,index) { %>
+                                        <tr>
+                                            <td><%= index+1 %></td>
+                                            <td><%= row.crop %></td>
+                                            <td><%= row.areaShotero %></td>
+                                            <td><%= row.productionShotero %></td>
+                                            <td><%= row.areaAtharo %></td>
+                                            <td><%= row.productionAtharo %></td>
+                                            <td><%= row.areaUnish %></td>
+                                            <td><%= row.productionUnish %></td>
+                                            <td><%= row.areaBish %></td>
+                                            <td><%= row.productionBish %></td>
+                                            <td><%= row.areaEkush %></td>
+                                            <td><%= row.productionEkush %></td>
+                                            <td><%= row.areaBaish %></td>
+                                            <td><%= row.productionBaish %></td>
+                                            <td><a class="btn btn-primary btn-xs" href="/saao/producedCropEdit/<%= row.id %>"><i class="fa fa-edit"></i></a>
+                                                <a class="btn btn-danger btn-xs" href="/saao/producedCropDelete/<%= row.id %>"><i class="fa fa-trash"></i></a>
+                                            </td>
+                                        </tr>
+                                    <% }) %>
+                                </tbody>
+                            </table>
+                            <% }else{ %>
+                                <table class="table table-bordered table-striped" id="tblCustomers" cellspacing="0" cellpadding="0">
+                                    <thead>
+                                        <tr>
+                                            <th rowspan="2">ক্রমিক নং</th>
+                                            <th rowspan="2">ফসলের নাম</th>
+                                            <th colspan="2">২০১৭-১৮</th>
+                                            <th colspan="2">২০১৮-১৯</th>
+                                            <th colspan="2">২০১৯-২০</th>
+                                            <th colspan="2">২০২০-২১</th>
+                                            <th colspan="2">২০২১-২২</th>
+                                            <th colspan="2">২০২২-২৩</th>
+                                            <th rowspan="2">পরিবর্তন/মুছুন</th>
+                                        </tr>
+                                        <tr>
+                                            <th>আয়তন (হেঃ)</th>
+                                            <th>উৎপাদন (টন)</th>
+                                            <th>আয়তন (হেঃ)</th>
+                                            <th>উৎপাদন (টন)</th>
+                                            <th>আয়তন (হেঃ)</th>
+                                            <th>উৎপাদন (টন)</th>
+                                            <th>আয়তন (হেঃ)</th>
+                                            <th>উৎপাদন (টন)</th>
+                                            <th>আয়তন (হেঃ)</th>
+                                            <th>উৎপাদন (টন)</th>
+                                            <th>আয়তন (হেঃ)</th>
+                                            <th>উৎপাদন (টন)</th>
+                                        </tr>
+                                        </thead>
+                                    <tbody>
+                                    <% records.forEach(function(row){ %>
+                                        <tr>
+                                            <td colspan="10">No data Found</td>
+                                        </tr>
+                                    <% }) %>
+                                    </tbody>
+                                </table>
+                            <% } %>
+                        </div>
+
+                        <input type="button" id="btnExport" value="Download PDF" />
+
+                        </div>
+                </div>
+            </div>
+        </div>
+
+
+   
+<%- include('../../includes/footer')-%>

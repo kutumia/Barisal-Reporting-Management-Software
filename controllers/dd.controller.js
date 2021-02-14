@@ -123,7 +123,7 @@ module.exports.ddsignup=async(req,res)=>{
 };
 module.exports.ddsignuppost=async(req,res)=>{
     try {
-        const{ads,uname,password,confirmPassword}=req.body;
+        const{ads,uname,district,password,confirmPassword}=req.body;
         const ddata=await ad.findAll();
         const data = await dd.findAll({ where: {uname: uname} })
         if(data.length > 0){
@@ -138,6 +138,7 @@ module.exports.ddsignuppost=async(req,res)=>{
             try{
                 const createdd = await dd.create({
                     uname: uname,
+                    district:district,
                     password:hashedPassword,
                     ad_id:ads,
                     pd_id:1
