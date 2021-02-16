@@ -5,6 +5,21 @@ module.exports = (sequelize, Sequelize) => {
         primaryKey: true,
         autoIncrement:true
       },
+      village: {
+        type: Sequelize.STRING
+      },
+      field: {
+        type: Sequelize.STRING
+      },
+      block: {
+        type: Sequelize.STRING
+      },
+      mobile: {
+        type: Sequelize.STRING
+      },
+      date: {
+        type: Sequelize.STRING
+      },
       saao: {
         type: Sequelize.STRING
       },

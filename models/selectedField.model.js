@@ -11,31 +11,52 @@ module.exports = (sequelize, Sequelize) => {
       fname: {
         type: Sequelize.STRING
       },
-      vname: {
+      mobile: {
         type: Sequelize.STRING
       },
-      nid: {
+      total: {
         type: Sequelize.STRING
       },
-      mnum: {
+      robi1: {
         type: Sequelize.STRING
       },
-      ptype: {
+      robi2: {
         type: Sequelize.STRING
       },
-      pname: {
+      robi3: {
         type: Sequelize.STRING
       },
-      date: {
+      robi4: {
         type: Sequelize.STRING
       },
-      block: {
+      robi5: {
         type: Sequelize.STRING
       },
-      saooname: {
+      robi6: {
         type: Sequelize.STRING
       },
-      pnum: {
+      kharif1_1: {
+        type: Sequelize.STRING
+      },
+      kharif1_2: {
+        type: Sequelize.STRING
+      },
+      kharif1_3: {
+        type: Sequelize.STRING
+      },
+      kharif2_1: {
+        type: Sequelize.STRING
+      },
+      kharif2_2: {
+        type: Sequelize.STRING
+      },
+      kharif2_3: {
+        type: Sequelize.STRING
+      },
+      irrigation: {
+        type: Sequelize.STRING
+      },
+      groups: {
         type: Sequelize.STRING
       },
       year: {

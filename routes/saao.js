@@ -3,7 +3,7 @@ const router = express.Router();
 // const { Router } = require("express");
 const app=express();
 
-const {saaosignup,saaosignuppost,saaologin,saaologinpost,saaoDashboard,districtFilter,
+const {saaosignup,saaosignuppost,saaologin,saaologinpost,saaoDashboard,districtFilter,saaoEdit,saaoEditPost,
     cropNibirota,cropNibirotaYear,cropNibirotaForm,cropNibirotaFormPost,producedCrop,producedCropYear,producedCropForm,producedCropFormPost,
     selectedField,selectedFieldYear,selectedFieldForm,selectedFieldFormPost,cropNibirotaEditPost,
     cropNibirotaEdit,cropNibirotaDelete,producedCropEdit,producedCropDelete,selectedFieldEdit,selectedFieldDelete,} = require('../controllers/saao.controller');
@@ -11,6 +11,8 @@ const {saaosignup,saaosignuppost,saaologin,saaologinpost,saaoDashboard,districtF
 router.get('/login',saaologin);
 router.post('/logins',saaologinpost);
 router.get('/dashboard',saaoDashboard);
+router.post('/saaoEditPost/:id',saaoEditPost);
+router.get('/saaoEdit/:id',saaoEdit);
 
 router.get('/signup',saaosignup);
 router.post('/signups',saaosignuppost);
@@ -21,21 +23,21 @@ router.post('/cropNibirotaYear',cropNibirotaYear);
 router.get('/cropNibirotaForm',cropNibirotaForm);
 router.post('/cropNibirotaFormPost',cropNibirotaFormPost);
 router.get('/cropNibirotaEdit/:id',cropNibirotaEdit);
-router.post('/cropNibirotaEditPost/:id',cropNibirotaEditPost);
+router.post('/cropNibirotaEditPost',cropNibirotaEditPost);
 router.get('/cropNibirotaDelete/:id',cropNibirotaDelete);
 
 router.get('/producedCrop',producedCrop);
 router.get('/producedCropForm',producedCropForm);
 router.post('/producedCropFormPost',producedCropFormPost);
 router.get('/producedCropEdit/:id',producedCropEdit);
-router.post('/producedCropDelete/:id',producedCropDelete);
+router.get('/producedCropDelete/:id',producedCropDelete);
 
 router.get('/selectedField',selectedField);
 router.post('/selectedFieldYear',selectedFieldYear);
 router.get('/selectedFieldForm',selectedFieldForm);
-router.post('/selectedFieldFormPost/:id',selectedFieldFormPost);
+router.post('/selectedFieldFormPost',selectedFieldFormPost);
 router.get('/selectedFieldEdit/:id',selectedFieldEdit);
-router.post('/selectedFieldDelete/:id',selectedFieldDelete);
+router.get('/selectedFieldDelete/:id',selectedFieldDelete);
 
 
 module.exports = router;

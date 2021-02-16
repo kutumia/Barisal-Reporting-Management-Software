@@ -6,76 +6,53 @@
               <%- include('../includes/sidebar')-%>
 
                 
-                <div class="main-content">
-                    <div class="container-fluid">
-                        <div class="row clearfix">
-                            <div class="col-lg-3 col-md-6 col-sm-12">
-                                <div class="widget">
-                                    <div class="widget-body">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div class="state">
-                                                <!-- <h6>চারা উৎপাদন</h6>
-                                                <h4>৯০,০০০</h4> -->
-                                            </div>
-                                            <div class="icon">
-                                                <i class="ik ik-award"></i>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                   
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-12">
-                                <div class="widget">
-                                    <div class="widget-body">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div class="state">
-                                                <!-- <h6>চারা বিতরণ</h6>
-                                                <h4>৫০,০০০ </h4> -->
-                                            </div>
-                                            <div class="icon">
-                                                <i class="ik ik-award"></i>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-12">
-                                <div class="widget">
-                                    <div class="widget-body">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div class="state">
-                                                <!-- <h6>চারা সংরক্ষণ/মজুদ</h6>
-                                                <h4>৪০,০০০</h4> -->
-                                            </div>
-                                            <div class="icon">
-                                                <i class="ik ik-award"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-12">
-                                <div class="widget">
-                                    <div class="widget-body">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div class="state">
-                                                <!-- <h6>রাজস্ব আয়</h6>
-                                                <h4>৮০০০০০০ টাকা</h4> -->
-                                            </div>
-                                            <div class="icon">
-                                                <i class="ik ik-award"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-                            </div>
+               
+            <div class="main-content">
+                <div class="container-fluid">
+                    <div class="records clearfix">
+                        <div class="col-md-10">
+                            <h1 class="text-center">এসএএওর পরিচয়</h1>
                         </div>
+                       
+                    </div>
+
+                    <div class="table-responsive" id="output">
+                            <table class="table table-bordered table-striped" id="tblCustomers" cellspacing="0" cellpadding="0">
+                            <thead>
+                            <tr>
+                                <th>জেলা</th>
+                                <th>উপজেলা</th>
+                                <th>গ্রাম</th>
+                                <th>মাঠের নাম</th>
+                                <th>ব্লক</th>
+                                <th>এসএএওর নাম</th>
+                                <th>এসএএওর মোবাইল নং</th>
+                                <th>অত্র ব্লকে যোগদানের তারিখ</th>
+                                <th>ইউজার নেম</th>
+                                <th>যোগ করুন/পরিবর্তন করুন</th>
+                            </tr>
+                            </thead> 
+                            <tbody>
+                                
+                                    <tr>
+                                        <td><%= dds.district %></td>
+                                        <td><%= upazillas.name %></td> 
+                                        <td><%= records.village %></td>
+                                        <td><%= records.field %></td>
+                                        <td><%= records.block %></td>  
+                                        <td><%= records.saao %></td>               
+                                        <td><%= records.mobile %></td>
+                                        <td><%= records.date %></td>
+                                        <td><%= records.uname %></td>
+                                        <td><a class="btn btn-primary btn-xs" href="/saao/saaoEdit/<%= records.id %>"><i class="fa fa-edit"></i></a>
+                                        </td>
+                                    </tr>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div id="output"></div>
                 </div>
             </div>
         </div>

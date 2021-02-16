@@ -3,6 +3,7 @@ const pd = db.pd;
 const dd = db.dd;
 const ad = db.ad;       
 const upazilla = db.upazilla;
+const saao = db.saao;
 const trainedFarmer = db.trainedFarmer;
 const initialTrial = db.initialTrial;
 const trialProgress = db.trialProgress;
@@ -18,6 +19,10 @@ const agriFair = db.agriFair;
 const farmerPrize = db.farmerPrize;
 const llp = db.llp;
 const solarLight = db.solarLight;
+const selectedField = db.selectedField;
+const cropNibirota = db.cropNibirota;
+const producedCrop = db.producedCrop;
+
 
 const multer = require("multer");
 const path = require("path");
@@ -271,6 +276,42 @@ module.exports.upazillasignuppost=async(req,res)=>{
     } 
 };
 //signUp controller end
+
+//cropNibirota controller
+module.exports.cropNibirota=async(req,res)=>{ 
+    try{
+        var saaos =await saao.findAll({ where: {upazilla_id: req.session.user_id}})
+        console.log("inside");
+        res.render('upazilla/cropNibirota/cropNibirota', { title: 'প্রশিক্ষণপ্রাপ্ত কৃষকের তথ্য',success:'',saaos:saaos});
+    }
+    catch(err){
+        console.log("outside",err);
+    }
+     
+    //  records:result
+
+};
+
+module.exports.cropNibirotaFilter=async(req,res)=>{
+    try{
+        var seventeen=await cropNibirota.findOne({where: {year:"2017",saao_id: req.body.saao}});
+        var eighteen=await cropNibirota.findOne({where: {year:"2018",saao_id: req.body.saao}});
+        var nineteen=await cropNibirota.findOne({where: {year:"2019",saao_id: req.body.saao}});
+        var twenty=await cropNibirota.findOne({where: {year:"2020",saao_id: req.body.saao}});
+        var twentyOne=await cropNibirota.findOne({where: {year:"2021",saao_id: req.body.saao}});
+        var twentyTwo=await cropNibirota.findOne({where: {year:"2022" ,saao_id: req.body.saao}});
+        res.render('upazilla/cropNibirota/cropNibirotaTable', { title: 'প্রশিক্ষণপ্রাপ্ত কৃষকের তথ্য',success:'',seventeen: seventeen,eighteen: eighteen,nineteen: nineteen,twenty: twenty,twentyOne: twentyOne,twentyTwo: twentyTwo });
+    }
+    catch(err){
+        console.log("outside",err);
+    }
+    await saao.findAll({ 
+        where: {upazilla_id: req.session.user_id}
+    })
+};
+
+
+//trainedFarmer controller end
 
 //trainedFarmer controller
 module.exports.trainedFarmer=async(req,res)=>{

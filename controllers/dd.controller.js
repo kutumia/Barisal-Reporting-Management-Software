@@ -166,7 +166,6 @@ module.exports.trainedFarmer=async(req,res)=>{
     }
     catch(err){
         console.log("outside",err);
-        res.render('dd/trainedFarmer/trainedFarmer', { title: 'প্রশিক্ষণপ্রাপ্ত কৃষকের তথ্য',success:'', upazillas:err });
     }
      
     //  records:result
@@ -183,7 +182,7 @@ module.exports.trainedFarmerFilter=async(req,res)=>{
         });
     })
     .catch(err => {
-        res.render('dd/trainedFarmer/trainedFarmerYear', { title: 'প্রশিক্ষণপ্রাপ্ত কৃষকের তথ্য',success:'', records: err });
+        console.log("outside",err);
     })
 
 };

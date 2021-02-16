@@ -5,37 +5,34 @@ module.exports = (sequelize, Sequelize) => {
         primaryKey: true,
         autoIncrement:true
       },
-      name: {
+      fosholi: {
         type: Sequelize.STRING
       },
-      fname: {
+      abadjoggo: {
         type: Sequelize.STRING
       },
-      vname: {
+      abadi: {
         type: Sequelize.STRING
       },
-      nid: {
+      ek: {
         type: Sequelize.STRING
       },
-      mnum: {
+      dui: {
         type: Sequelize.STRING
       },
-      ptype: {
+      tin: {
         type: Sequelize.STRING
       },
-      pname: {
+      kharif2: {
         type: Sequelize.STRING
       },
-      date: {
+      robi: {
         type: Sequelize.STRING
       },
-      block: {
+      kharif1: {
         type: Sequelize.STRING
       },
-      saooname: {
-        type: Sequelize.STRING
-      },
-      pnum: {
+      irrigation: {
         type: Sequelize.STRING
       },
       year: {

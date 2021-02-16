@@ -10,7 +10,7 @@ const {agriFairFormEdit,agriFairFormUpdate,llpYear,fieldDayYear,demonstrationYea
     technologyExpansion,technologyExpansionYear,technologyExpansionForm,technologyExpansionFormPost,trainedFarmerEditPost,
     trainedFarmerEdit,trainedFarmerDelete,initialTrialEdit,initialTrialDelete,finalTrialEdit,finalTrialDelete,
     trialProgressEdit,trialProgressDelete,cropExpansionEdit,cropExpansionDelete,breedExpansionEdit,breedExpansionDelete,technologyExpansionEdit,technologyExpansionDelete,
-    abadiJomi,abadiJomiYear,abadiJomiForm,abadiJomiFormPost,abadiJomiEdit,abadiJomiDelete,trialProgressEditPost,
+    abadiJomi,abadiJomiYear,abadiJomiForm,abadiJomiFormPost,abadiJomiEdit,abadiJomiDelete,trialProgressEditPost,cropNibirota,cropNibirotaFilter,
     demonstration,fieldDay,farmerTraining,agriFair,farmerPrize,llp,solarLight} = require('../controllers/upazilla.controller');
 router.get('/',allupazilla);
 router.get('/login',upazillalogin);
@@ -20,6 +20,32 @@ router.get('/dashboardMonitoring',dashboardMonitoring);
 
 router.get('/signup',upazillasignup);
 router.post('/signups',upazillasignuppost);
+
+router.get('/cropNibirota',cropNibirota);
+router.post('/cropNibirotaFilter',cropNibirotaFilter);
+// producedCrop,producedCropFilter,selectedField,selectedFieldYear,selectedFieldFilter,
+// router.get('/producedCrop',producedCrop);
+// router.post('/producedCropFilter',producedCropFilter);
+
+// router.get('/selectedField',selectedField);
+// router.post('/selectedFieldYear',selectedFieldYear);
+// router.post('/selectedFieldFilter',selectedFieldFilter);
+
+router.get('/trainedFarmer',trainedFarmer);
+router.post('/trainedFarmerYear',trainedFarmerYear);
+router.get('/trainedFarmerForm',trainedFarmerForm);
+router.post('/trainedFarmerFormPost',trainedFarmerFormPost);
+router.get('/trainedFarmerEdit/:id',trainedFarmerEdit);
+router.post('/trainedFarmerEditPost/:id',trainedFarmerEditPost);
+router.get('/trainedFarmerDelete/:id',trainedFarmerDelete);
+
+router.get('/trainedFarmer',trainedFarmer);
+router.post('/trainedFarmerYear',trainedFarmerYear);
+router.get('/trainedFarmerForm',trainedFarmerForm);
+router.post('/trainedFarmerFormPost',trainedFarmerFormPost);
+router.get('/trainedFarmerEdit/:id',trainedFarmerEdit);
+router.post('/trainedFarmerEditPost/:id',trainedFarmerEditPost);
+router.get('/trainedFarmerDelete/:id',trainedFarmerDelete);
 
 router.get('/trainedFarmer',trainedFarmer);
 router.post('/trainedFarmerYear',trainedFarmerYear);

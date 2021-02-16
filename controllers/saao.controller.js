@@ -67,12 +67,60 @@ module.exports.saaologinpost=async(req,res)=>{
 };
 module.exports.saaoDashboard = async(req,res) => {
     try{
-    saaos=await saao.findAll({where: {id:req.session.user_id}})
-    res.render('saao/dashboard', { title: 'বরিশাল, পটুয়াখালী, ভোলা, ঝালকাঠী, বরগুনা, মাদারীপুর ও শরিয়তপুর কৃষি উন্নয়ন প্রকল্প ',saao:saaos,msg:'Welcome' });
+    saaos=await saao.findOne({where: {id:req.session.user_id}});
+    dds=await dd.findOne({where: {id:saaos.dd_id}});
+    upazillas=await upazilla.findOne({where: {id:saaos.upazilla_id}});
+    console.log("inside",saaos,dds,upazillas)
+    res.render('saao/dashboard', { title: 'বরিশাল, পটুয়াখালী, ভোলা, ঝালকাঠী, বরগুনা, মাদারীপুর ও শরিয়তপুর কৃষি উন্নয়ন প্রকল্প ',saao:saaos,msg:'Welcome',records: saaos,dds:dds,upazillas:upazillas });
     }
     catch{
         console.log(err);
     }
+};
+module.exports.saaoEdit=async(req,res)=>{
+    await saao.findByPk(req.params.id)
+    .then(data => {
+        console.log("inside");
+        res.render('saao/saaoEdit', { title: 'প্রশিক্ষণপ্রাপ্ত কৃষকের তথ্য',msg:'' ,success:'',records:data,user_id: req.session.user_id});
+    })
+    .catch(err => {
+        console.log("err");
+    })
+};
+module.exports.saaoEditPost=async(req,res)=>{
+    var village= req.body.village;
+    var field= req.body.field;
+    var block= req.body.block;
+    var saaos= req.body.saao;
+    var mobile= req.body.mobile;
+    var date= req.body.date;
+    var pname= req.body.pname;
+    var date= req.body.date;
+    var uname= req.body.uname;
+    var user_id =req.body.user_id;
+
+    await saao.update({
+        village: village,
+        field:field,
+        block:block,
+        saao:saaos,
+        mobile:mobile,
+        date:date,
+        pname:pname,
+        date:date,
+        uname:uname,
+    },
+    {
+        where: {id: req.params.id}
+    })
+        
+        .then(data => {
+            res.redirect('/saao/dashboard');
+        }).catch(err => {
+            res.render('errorpage',err);
+        });
+  
+  
 };
 //logIn controller end
 
@@ -167,14 +215,21 @@ module.exports.selectedFieldFormPost=async(req,res)=>{
     var name= req.body.name;
     var fname= req.body.fname;
     var mobile= req.body.mobile;
-    var nid= req.body.nid;
-    var mnum= req.body.mnum;
-    var ptype= req.body.ptype;
-    var pname= req.body.pname;
-    var date= req.body.date;
-    var block= req.body.block;
-    var saooname= req.body.saooname;
-    var pnum= req.body.pnum;
+    var total= req.body.total;
+    var robi1= req.body.robi1;
+    var robi2= req.body.robi2;
+    var robi3= req.body.robi3;
+    var robi4= req.body.robi4;
+    var robi5= req.body.robi5;
+    var robi6= req.body.robi6;
+    var kharif1_1= req.body.kharif1_1;
+    var kharif1_2= req.body.kharif1_2;
+    var kharif1_3= req.body.kharif1_3;
+    var kharif2_1= req.body.kharif2_1;
+    var kharif2_2= req.body.kharif2_2;
+    var kharif2_3= req.body.kharif2_3;
+    var irrigation= req.body.irrigation;
+    var groups= req.body.groups;
     var year =req.body.year;
     var user_id =req.body.user_id;
 
@@ -182,14 +237,21 @@ module.exports.selectedFieldFormPost=async(req,res)=>{
         name: name,
         fname:fname,
         mobile:mobile,
-        nid:nid,
-        mnum:mnum,
-        ptype:ptype,
-        pname:pname,
-        date:date,
-        block:block,
-        saooname:saooname,
-        pnum:pnum,
+        total:total,
+        robi1:robi1,
+        robi2:robi2,
+        robi3:robi3,
+        robi4:robi4,
+        robi5:robi5,
+        robi6:robi6,
+        kharif1_1:kharif1_1,
+        kharif1_2:kharif1_2,
+        kharif1_3:kharif1_3,
+        kharif2_1:kharif2_1,
+        kharif2_2:kharif2_2,
+        kharif2_3:kharif2_3,
+        irrigation:irrigation,
+        groups:groups,
         year:year,
         saao_id:user_id
     })
@@ -403,17 +465,22 @@ module.exports.producedCropDelete=async(req,res)=>{
 
 //cropNibirota controller
 module.exports.cropNibirota=async(req,res)=>{
-    await cropNibirota.findAll({
-        where: {saao_id: req.session.user_id}        
-    })
-    .then(data => {
-        console.log("inside");
-        res.render('saao/cropNibirota/cropNibirota', { title: 'শস্য নিবিড়তার অগ্রগতি',success:'', records: data });
-    })
-    .catch(err => {
+    try{
+        var seventeen=await cropNibirota.findOne({where: {year:"2017",saao_id: req.session.user_id}});
+        var eighteen=await cropNibirota.findOne({where: {year:"2018",saao_id: req.session.user_id}});
+        var nineteen=await cropNibirota.findOne({where: {year:"2019",saao_id: req.session.user_id}});
+        var twenty=await cropNibirota.findOne({where: {year:"2020",saao_id: req.session.user_id}});
+        var twentyOne=await cropNibirota.findOne({where: {year:"2021",saao_id: req.session.user_id}});
+        var twentyTwo=await cropNibirota.findOne({where: {year:"2022" ,saao_id: req.session.user_id}});
+        
+        res.render('saao/cropNibirota/cropNibirota', { title: 'আবাদী জমি ও ফসল উৎপাদন',success:'', seventeen: seventeen,eighteen: eighteen,nineteen: nineteen,twenty: twenty,twentyOne: twentyOne,twentyTwo: twentyTwo });
+        // var men=seventeen.purush;
+        // console.log("seventeen,",req.typeof(men));
+    }
+    catch(err){
         console.log(err);
-    })
-     
+    }
+   
     //  records:result
 
 };
@@ -435,32 +502,30 @@ module.exports.cropNibirotaForm=async(req,res)=>{
     res.render('saao/cropNibirota/cropNibirotaForm', { title: 'শস্য নিবিড়তার অগ্রগতি',msg:'' ,success:'',user_id: req.session.user_id});
 };
 module.exports.cropNibirotaFormPost=async(req,res)=>{
-    var name= req.body.name;
-    var fname= req.body.fname;
-    var vname= req.body.vname;
-    var nid= req.body.nid;
-    var mnum= req.body.mnum;
-    var ptype= req.body.ptype;
-    var pname= req.body.pname;
-    var date= req.body.date;
-    var block= req.body.block;
-    var saooname= req.body.saooname;
-    var pnum= req.body.pnum;
+    var fosholi= req.body.fosholi;
+    var abadjoggo= req.body.abadjoggo;
+    var abadi= req.body.abadi;
+    var ek= req.body.ek;
+    var dui= req.body.dui;
+    var tin= req.body.tin;
+    var kharif2= req.body.kharif2;
+    var robi= req.body.robi;
+    var kharif1= req.body.kharif1;
+    var irrigation= req.body.irrigation;
     var year =req.body.year;
     var user_id =req.body.user_id;
 
     await cropNibirota.create({
-        name: name,
-        fname:fname,
-        vname:vname,
-        nid:nid,
-        mnum:mnum,
-        ptype:ptype,
-        pname:pname,
-        date:date,
-        block:block,
-        saooname:saooname,
-        pnum:pnum,
+        fosholi: fosholi,
+        abadjoggo:abadjoggo,
+        abadi:abadi,
+        ek:ek,
+        dui:dui,
+        tin:tin,
+        kharif2:kharif2,
+        robi:robi,
+        kharif1:kharif1,
+        irrigation:irrigation,
         year:year,
         saao_id:user_id
     })

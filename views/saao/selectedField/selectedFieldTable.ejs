@@ -18,41 +18,42 @@
         <th colspan="3">খরিফ-২ মৌসুমের ফসল</th>
     </tr>
     <tr>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
+        <th>আম</th>
+        <th>জাম</th>
+        <th>কাঠাল</th>
+        <th>আম</th>
+        <th>আম</th>
+        <th>আম</th>
+        <th>আম</th>
+        <th>আম</th>
+        <th>আম</th>
+        <th>আম</th>
+        <th>আম</th>
+        <th>আম</th>
     </tr>
     </thead> 
     <tbody>
-        <% records.forEach(function(row){ %>
+        <% records.forEach(function(row,index){ %>
             <tr>
+                <td><%= index+1 %></td>
                 <td><%= row.name %></td>
                 <td><%= row.fname %></td> 
                 <td><%= row.mobile %></td>
                 <td><%= row.total %></td>               
-                <td><%= row.shorisha %></td>
-                <td><%= row.boro %></td>
-                <td><%= row.shorisha %></td>
-                <td><%= row.shorisha %></td>
-                <td><%= row.shorisha %></td>
-                <td><%= row.shorisha %></td>
-                <td><%= row.shorisha %></td>
-                <td><%= row.shorisha %></td>
-                <td><%= row.shorisha %></td>
-                <td><%= row.shorisha %></td>
-                <td><%= row.shorisha %></td>
-                <td><%= row.shorisha %></td>
+                <td><%= row.robi1 %></td>
+                <td><%= row.robi2 %></td>
+                <td><%= row.robi3 %></td>
+                <td><%= row.robi4 %></td>
+                <td><%= row.robi5 %></td>
+                <td><%= row.robi6 %></td>
+                <td><%= row.kharif1_1 %></td>
+                <td><%= row.kharif1_2 %></td>
+                <td><%= row.kharif1_3 %></td>
+                <td><%= row.kharif2_1 %></td>
+                <td><%= row.kharif2_2 %></td>
+                <td><%= row.kharif2_3 %></td>
                 <td><%= row.irrigation %></td>
-                <td><%= row.group %></td>
+                <td><%= row.groups %></td>
                 <td><a class="btn btn-primary btn-xs" href="/saao/selectedFieldEdit/<%= row.id %>"><i class="fa fa-edit"></i></a>
                     <a class="btn btn-danger btn-xs" href="/saao/selectedFieldDelete/<%= row.id %>"><i class="fa fa-trash"></i></a>
                 </td>
@@ -78,6 +79,20 @@
                 <th colspan="6">রবি মৌসুমের ফসল</th>
                 <th colspan="3">খরিফ-১ মৌসুমের ফসল</th>
                 <th colspan="3">খরিফ-২ মৌসুমের ফসল</th>
+            </tr>
+            <tr>
+                <th>আম</th>
+                <th>জাম</th>
+                <th>কাঠাল</th>
+                <th>আম</th>
+                <th>আম</th>
+                <th>আম</th>
+                <th>আম</th>
+                <th>আম</th>
+                <th>আম</th>
+                <th>আম</th>
+                <th>আম</th>
+                <th>আম</th>
             </tr>
         </thead>
         <tbody>

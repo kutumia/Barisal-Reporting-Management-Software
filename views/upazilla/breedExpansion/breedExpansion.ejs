@@ -73,17 +73,20 @@
                     <% }else{ %>
                         <table class="table table-bordered table-striped" id="tblCustomers" cellspacing="0" cellpadding="0">
                             <thead>
-                            <tr>
-                                <th>ফসলের নাম</th>
-                            <th>জাতের নাম</th>
-                            <th>আবাদী জমি(২০১৭-১৮)</th>
-                            <th>আবাদী জমি(২০১৮-১৯)</th>
-                            <th>আবাদী জমি(২০১৯-২০)</th>
-                            <th>আবাদী জমি(২০২০-২১)</th>
-                            <th>আবাদী জমি(২০২১-২২)</th>
-                            <th>আবাদী জমি(২০২২-২৩)</th>
-                            <th>পরিবর্তন/মুছুন</th>
-                            </tr>
+                                <tr>
+                                    <th rowspan="2">ক্রমিক নং</th>
+                                    <th rowspan="2">প্রযুক্তির নাম</th>
+                                    <th colspan="6">আবাদী জমি</th>
+                                    <th rowspan="2">পরিবর্তন/মুছুন</th>
+                                </tr>
+                                <tr>
+                                    <th>২০১৭-১৮</th>
+                                    <th>২০১৮-১৯</th>
+                                    <th>২০১৯-২০</th>
+                                    <th>২০২০-২১</th>
+                                    <th>২০২১-২২</th>
+                                    <th>২০২২-২৩</th>
+                                </tr>
                             </thead>
                             <tbody>
                             <% records.forEach(function(row){ %>
