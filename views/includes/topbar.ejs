@@ -5,6 +5,7 @@
                 <button type="button" class="btn-icon mobile-nav-toggle d-lg-none"><span></span></button>
                 <div class="header-search">
                     <div class="input-group">
+                        <a href="/" class="btn btn-primary">Log Out</a>  
                         <span class="input-group-addon search-close"><i class="ik ik-x"></i></span>
                         <input type="text" class="form-control">
                         <span class="input-group-addon search-btn"><i class="ik ik-search"></i></span>
@@ -14,8 +15,9 @@
                             <button class="favorite styled" type="button">Go To: <a href="/ad/dashboardMonitoring">Monitoring</a></button>
                             <% }else if (locals.type === "dd"){%>
                                 <button class="favorite styled" type="button">Go To: <a href="/dd/dashboardMonitoring">Monitoring</a></button>
-                                <% }else { %>
+                                <% }else if (locals.type === "dd"){%>
                                     <button class="favorite styled" type="button">Go To: <a href="/upazilla/dashboardMonitoring">Monitoring</a></button>
+                                <% }else { %>
                                     <% }   %>
 
                     </div>

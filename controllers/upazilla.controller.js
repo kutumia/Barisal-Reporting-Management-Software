@@ -309,9 +309,66 @@ module.exports.cropNibirotaFilter=async(req,res)=>{
         where: {upazilla_id: req.session.user_id}
     })
 };
+//producedCrop controller
+module.exports.producedCrop=async(req,res)=>{ 
+    try{
+        var saaos =await saao.findAll({ where: {upazilla_id: req.session.user_id}})
+        console.log("inside");
+        res.render('upazilla/producedCrop/producedCrop', { title: 'প্রশিক্ষণপ্রাপ্ত কৃষকের তথ্য',success:'',saaos:saaos});
+    }
+    catch(err){
+        console.log("outside",err);
+    }
+     
+    //  records:result
 
+};
 
-//trainedFarmer controller end
+module.exports.producedCropFilter=async(req,res)=>{
+    await producedCrop.findAll({ 
+        where: {saao_id: req.body.saao}
+    })
+    .then(data => {
+        res.render('upazilla/producedCrop/producedCropTable', {records: data} ,function(err, html) {
+            res.send(html);
+        });
+    })
+    .catch(err => {
+        console.log("outside",err);
+    })
+
+};
+//producedCrop controller end
+//selectedField controller
+module.exports.selectedField=async(req,res)=>{ 
+    try{
+        var saaos =await saao.findAll({ where: {upazilla_id: req.session.user_id}})
+        console.log("inside");
+        res.render('upazilla/selectedField/selectedField', { title: 'প্রশিক্ষণপ্রাপ্ত কৃষকের তথ্য',success:'',saaos:saaos});
+    }
+    catch(err){
+        console.log("outside",err);
+    }
+     
+    //  records:result
+
+};
+
+module.exports.selectedFieldFilter=async(req,res)=>{
+    await selectedField.findAll({ 
+        where: {year: req.body.year,saao_id: req.body.saao}
+    })
+    .then(data => {
+        res.render('upazilla/selectedField/selectedFieldTable', {records: data} ,function(err, html) {
+            res.send(html);
+        });
+    })
+    .catch(err => {
+        console.log("outside",err);
+    })
+
+};
+//selectedField controller end
 
 //trainedFarmer controller
 module.exports.trainedFarmer=async(req,res)=>{
@@ -414,101 +471,7 @@ module.exports.trainedFarmerFormPost=async(req,res)=>{
         });
   
 };
-module.exports.trainedFarmerEdit=async(req,res)=>{
-    await trainedFarmer.findByPk(req.params.id)
-    .then(data => {
-        console.log("inside");
-        res.render('upazilla/trainedFarmer/trainedFarmerEdit', { title: 'প্রশিক্ষণপ্রাপ্ত কৃষকের তথ্য',msg:'' ,success:'',records:data,user_id: req.session.user_id});
-    })
-    .catch(err => {
-        console.log("err");
-    })
-};
-module.exports.trainedFarmerEditPost=async(req,res)=>{
-    var name= req.body.name;
-    var fname= req.body.fname;
-    var vname= req.body.vname;
-    var nid= req.body.nid;
-    var mnum= req.body.mnum;
-    var ptype= req.body.ptype;
-    var pname= req.body.pname;
-    var date= req.body.date;
-    var block= req.body.block;
-    var saooname= req.body.saooname;
-    var pnum= req.body.pnum;
-    var year =req.body.year;
-    var user_id =req.body.user_id;
-
-    await trainedFarmer.update({
-        name: name,
-        fname:fname,
-        vname:vname,
-        nid:nid,
-        mnum:mnum,
-        ptype:ptype,
-        pname:pname,
-        date:date,
-        block:block,
-        saooname:saooname,
-        pnum:pnum,
-        year:year,
-    },
-    {
-        where: {id: req.params.id}
-    });
-    await initialTrial.update({
-        name: name,
-        fname:fname,
-        vname:vname,
-        nid:nid,
-        mnum:mnum,
-        ptype:ptype,
-        pname:pname,
-        block:block,
-        saooname:saooname,
-        pnum:pnum,
-        year:year,
-    },
-    {
-        where: {id: req.params.id}
-    });
-    await finalTrial.update({
-        name: name,
-        fname:fname,
-        vname:vname,
-        nid:nid,
-        mnum:mnum,
-        ptype:ptype,
-        pname:pname,
-        year:year,
-    },
-    {
-        where: {id: req.params.id}
-    })
-    
-        
-        .then(data => {
-            res.redirect('/upazilla/trainedFarmer');
-        }).catch(err => {
-            res.render('errorpage',err);
-        });
-  
-  
-};
-module.exports.trainedFarmerDelete=async(req,res)=>{
-    var trainedFarmerDelete = await trainedFarmer.findByPk(req.params.id);
-    var initialTrialDelete = await initialTrial.findByPk(req.params.id);
-    var finalTrialDelete = await finalTrial.findByPk(req.params.id);
-    try {
-        trainedFarmerDelete.destroy();
-        initialTrialDelete.destroy();
-        finalTrialDelete.destroy();
-        res.redirect("/upazilla/trainedFarmer");
-    }
-    catch{
-        res.render('errorpage',err);
-    }
-};
+ 
 //trainedFarmer controller end
 
 //initialTrial controller

@@ -30,6 +30,7 @@
                                 <th>অত্র ব্লকে যোগদানের তারিখ</th>
                                 <th>ইউজার নেম</th>
                                 <th>যোগ করুন/পরিবর্তন করুন</th>
+                                <th>পাসওয়ার্ড পরিবর্তন করুন</th>
                             </tr>
                             </thead> 
                             <tbody>
@@ -45,6 +46,7 @@
                                         <td><%= records.date %></td>
                                         <td><%= records.uname %></td>
                                         <td><a class="btn btn-primary btn-xs" href="/saao/saaoEdit/<%= records.id %>"><i class="fa fa-edit"></i></a>
+                                        <td><a class="btn btn-primary btn-xs" href="/saao/saaoPassword/<%= records.id %>"><i class="fa fa-wrench"></i></a>
                                         </td>
                                     </tr>
                                 

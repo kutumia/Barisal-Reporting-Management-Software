@@ -17,7 +17,7 @@
                                 </p>
                                 </div>  
                             <div class="panel-body" >
-                                <form action="/saao/producedCropEditPost/<%= records.id %>" id="FieldTrialForm" class="form-horizontal" method="post"  role="form">
+                                <form action="/saao/producedCropFormPost" id="FieldTrialForm" class="form-horizontal" method="post"  role="form">
                                     <div id="signupalert" style="display:none" class="alert alert-danger">
                                         <p>Error:</p>
                                         <span></span>
@@ -25,94 +25,93 @@
 
 
                                     <div class="form-group">
-                                            <label for="done" class="col-md-3 control-label">ফসলের নাম</label>
-                                        <select id="done" name="done" value="<%=records.name%>">
-                                            <option value="স্থাপিত">স্থাপিত</option>
-                                            <option value="সম্পন্ন">সম্পন্ন</option>
-                                        </select>
+                                        <label for="crop" class="col-md-3 control-label">ফসলের নাম</label>
+                                        <div class="col-md-9">
+                                        <input type="text" class="form-control" name="crop" placeholder="ফসলের নাম">
+                                        </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="areaShotero" class="col-md-3 control-label">আয়তন (হেঃ) (২০১৭-১৮)</label>
                                         <div class="col-md-9">
-                                        <input type="text" class="form-control" name="areaShotero" placeholder="আয়তন (হেঃ) (২০১৭-১৮)" value="<%=records.areaShotero%>">
+                                        <input type="number" class="form-control" name="areaShotero" placeholder="আয়তন (হেঃ) (২০১৭-১৮)">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="productionShotero" class="col-md-3 control-label">উৎপাদন (টন) (২০১৭-১৮)</label>
                                         <div class="col-md-9">
-                                        <input type="text" class="form-control" name="productionShotero" placeholder="উৎপাদন (টন) (২০১৭-১৮)" value="<%=records.productionShotero%>">
+                                        <input type="number" class="form-control" name="productionShotero" placeholder="উৎপাদন (টন) (২০১৭-১৮)">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="areaAtharo" class="col-md-3 control-label">আয়তন (হেঃ) (২০১৮-১৯)</label>
                                         <div class="col-md-9">
-                                        <input type="text" class="form-control" name="areaAtharo" placeholder="আয়তন (হেঃ) (২০১৮-১৯)" value="<%=records.areaAtharo%>">
+                                        <input type="number" class="form-control" name="areaAtharo" placeholder="আয়তন (হেঃ) (২০১৮-১৯)">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="productionAtharo" class="col-md-3 control-label">উৎপাদন (টন) (২০১৮-১৯)</label>
                                         <div class="col-md-9">
-                                        <input type="text" class="form-control" name="productionAtharo" placeholder="উৎপাদন (টন) (২০১৮-১৯)" value="<%=records.productionAtharo%>"> 
+                                        <input type="number" class="form-control" name="productionAtharo" placeholder="উৎপাদন (টন) (২০১৮-১৯)">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="areaUnish" class="col-md-3 control-label">আয়তন (হেঃ) (২০১৯-২০)</label>
                                         <div class="col-md-9">
-                                        <input type="text" class="form-control" name="areaUnish" placeholder="আয়তন (হেঃ) (২০১৯-২০)" value="<%=records.areaUnish%>">
+                                        <input type="number" class="form-control" name="areaUnish" placeholder="আয়তন (হেঃ) (২০১৯-২০)">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="productionUnish" class="col-md-3 control-label">উৎপাদন (টন) (২০১৯-২০)</label>
                                         <div class="col-md-9">
-                                        <input type="text" class="form-control" name="productionUnish" placeholder="উৎপাদন (টন) (২০১৯-২০)" value="<%=records.productionUnish%>">
+                                        <input type="number" class="form-control" name="productionUnish" placeholder="উৎপাদন (টন) (২০১৯-২০)">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="areaBish" class="col-md-3 control-label">আয়তন (হেঃ) (২০২০-২১)</label>
                                         <div class="col-md-9">
-                                        <input type="text" class="form-control" name="areaBish" placeholder="আয়তন (হেঃ) (২০২০-২১)" value="<%=records.areaBish%>"> 
+                                        <input type="number" class="form-control" name="areaBish" placeholder="আয়তন (হেঃ) (২০২০-২১)">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="productionBish" class="col-md-3 control-label">উৎপাদন (টন) (২০২০-২১)</label>
                                         <div class="col-md-9">
-                                        <input type="text" class="form-control" name="productionBish" placeholder="উৎপাদন (টন) (২০২০-২১)" value="<%=records.productionBish%>">
+                                        <input type="number" class="form-control" name="productionBish" placeholder="উৎপাদন (টন) (২০২০-২১)">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="areaEkush" class="col-md-3 control-label">আয়তন (হেঃ) (২০২১-২২)</label>
                                         <div class="col-md-9">
-                                        <input type="text" class="form-control" name="areaEkush" placeholder="আয়তন (হেঃ) (২০২১-২২)" value="<%=records.areaEkush%>">
+                                        <input type="number" class="form-control" name="areaEkush" placeholder="আয়তন (হেঃ) (২০২১-২২)">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="productionEkush" class="col-md-3 control-label">উৎপাদন (টন) (২০২১-২২)</label>
                                         <div class="col-md-9">
-                                        <input type="text" class="form-control" name="productionEkush" placeholder="উৎপাদন (টন) (২০২১-২২)" value="<%=records.productionEkush%>">
+                                        <input type="number" class="form-control" name="productionEkush" placeholder="উৎপাদন (টন) (২০২১-২২)">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="areaBaish" class="col-md-3 control-label">আয়তন (হেঃ) (২০২২-২৩)</label>
                                         <div class="col-md-9">
-                                        <input type="text" class="form-control" name="areaBaish" placeholder="আয়তন (হেঃ) (২০২২-২৩)" value="<%=records.areaBaish%>">
+                                        <input type="number" class="form-control" name="areaBaish" placeholder="আয়তন (হেঃ) (২০২২-২৩)">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="productionBaish" class="col-md-3 control-label">উৎপাদন (টন) (২০২২-২৩)</label>
                                         <div class="col-md-9">
-                                        <input type="text" class="form-control" name="productionBaish" placeholder="উৎপাদন (টন) (২০২২-২৩)" value="<%=records.productionBaish%>">
+                                        <input type="number" class="form-control" name="productionBaish" placeholder="উৎপাদন (টন) (২০২২-২৩)">
                                         </div>
                                     </div>
 

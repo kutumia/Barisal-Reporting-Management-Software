@@ -122,6 +122,36 @@ module.exports.saaoEditPost=async(req,res)=>{
   
   
 };
+module.exports.saaoPassword=async(req,res)=>{
+    await saao.findByPk(req.params.id)
+    .then(data => {
+        console.log("inside");
+        res.render('saao/saaoPassword', { title: 'পাসওয়ার্ড',msg:'' ,success:'',records:data,user_id: req.session.user_id});
+    })
+    .catch(err => {
+        console.log("err");
+    })
+};
+module.exports.saaoPasswordEditPost=async(req,res)=>{
+    var password= req.body.password;
+    var user_id =req.body.user_id;
+    const hashedPassword = await bcrypt.hash(password, 10);
+    console.log("hashedPassword",hashedPassword)
+    await saao.update({
+        password: hashedPassword,
+    },
+    {
+        where: {id: req.params.id}
+    })
+        
+        .then(data => {
+            res.redirect('/saao/dashboard');
+        }).catch(err => {
+            res.render('errorpage',err);
+        });
+  
+  
+};
 //logIn controller end
 
 //signUp controller
@@ -276,31 +306,43 @@ module.exports.selectedFieldEdit=async(req,res)=>{
 module.exports.selectedFieldEditPost=async(req,res)=>{
     var name= req.body.name;
     var fname= req.body.fname;
-    var vname= req.body.vname;
-    var nid= req.body.nid;
-    var mnum= req.body.mnum;
-    var ptype= req.body.ptype;
-    var pname= req.body.pname;
-    var date= req.body.date;
-    var block= req.body.block;
-    var saooname= req.body.saooname;
-    var pnum= req.body.pnum;
-    var year =req.body.year;
+    var mobile= req.body.mobile;
+    var total= req.body.total;
+    var robi1= req.body.robi1;
+    var robi2= req.body.robi2;
+    var robi3= req.body.robi3;
+    var robi4= req.body.robi4;
+    var robi5= req.body.robi5;
+    var robi6= req.body.robi6;
+    var kharif1_1= req.body.kharif1_1;
+    var kharif1_2= req.body.kharif1_2;
+    var kharif1_3= req.body.kharif1_3;
+    var kharif2_1= req.body.kharif2_1;
+    var kharif2_2= req.body.kharif2_2;
+    var kharif2_3= req.body.kharif2_3;
+    var irrigation= req.body.irrigation;
+    var groups= req.body.groups;
     var user_id =req.body.user_id;
 
     await selectedField.update({
         name: name,
         fname:fname,
-        vname:vname,
-        nid:nid,
-        mnum:mnum,
-        ptype:ptype,
-        pname:pname,
-        date:date,
-        block:block,
-        saooname:saooname,
-        pnum:pnum,
-        year:year,
+        mobile:mobile,
+        total:total,
+        robi1:robi1,
+        robi2:robi2,
+        robi3:robi3,
+        robi4:robi4,
+        robi5:robi5,
+        robi6:robi6,
+        kharif1_1:kharif1_1,
+        kharif1_2:kharif1_2,
+        kharif1_3:kharif1_3,
+        kharif2_1:kharif2_1,
+        kharif2_2:kharif2_2,
+        kharif2_3:kharif2_3,
+        irrigation:irrigation,
+        groups:groups,
     },
     {
         where: {id: req.params.id}
@@ -411,33 +453,35 @@ module.exports.producedCropEdit=async(req,res)=>{
     })
 };
 module.exports.producedCropEditPost=async(req,res)=>{
-    var name= req.body.name;
-    var fname= req.body.fname;
-    var vname= req.body.vname;
-    var nid= req.body.nid;
-    var mnum= req.body.mnum;
-    var ptype= req.body.ptype;
-    var pname= req.body.pname;
-    var date= req.body.date;
-    var block= req.body.block;
-    var saooname= req.body.saooname;
-    var pnum= req.body.pnum;
-    var year =req.body.year;
+    var crop= req.body.crop;
+    var areaShotero= req.body.areaShotero;
+    var productionShotero= req.body.productionShotero;
+    var areaAtharo= req.body.areaAtharo;
+    var productionAtharo= req.body.productionAtharo;
+    var areaUnish= req.body.areaUnish;
+    var productionUnish= req.body.productionUnish;
+    var areaBish= req.body.areaBish;
+    var productionBish= req.body.productionBish;
+    var areaEkush= req.body.areaEkush;
+    var productionEkush= req.body.productionEkush;
+    var areaBaish= req.body.areaBaish;
+    var productionBaish= req.body.productionBaish;
     var user_id =req.body.user_id;
 
     await producedCrop.update({
-        name: name,
-        fname:fname,
-        vname:vname,
-        nid:nid,
-        mnum:mnum,
-        ptype:ptype,
-        pname:pname,
-        date:date,
-        block:block,
-        saooname:saooname,
-        pnum:pnum,
-        year:year,
+        crop: crop,
+        areaShotero:areaShotero,
+        productionShotero:productionShotero,
+        areaAtharo:areaAtharo,
+        productionAtharo:productionAtharo,
+        areaUnish:areaUnish,
+        productionUnish:productionUnish,
+        areaBish:areaBish,
+        productionBish:productionBish,
+        areaEkush:areaEkush,
+        productionEkush:productionEkush,
+        areaBaish:areaBaish,
+        productionBaish:productionBaish,
     },
     {
         where: {id: req.params.id}

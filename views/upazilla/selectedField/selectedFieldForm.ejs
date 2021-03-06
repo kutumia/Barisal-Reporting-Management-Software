@@ -9,145 +9,144 @@
                     <div id="signupbox" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
                         <div class="panel panel-info">
                             <div class="panel-heading">
-                                <div class="panel-title"><h2>প্রদর্শনীর অগ্রগতির প্রতিবেদন ফর্ম</h2></div>
-                                <p><%                                                                                                 
+                                <div class="panel-title"><h2>নির্বাচিত মাঠের কৃষকের তথ্য ফর্ম</h2></div>
+                                <p><%
                                 if(success !=''){ %>
                                 <%= success %>
                                     <% } %>
                                 </p>
                                 </div>  
                             <div class="panel-body" >
-                                <form action="/saao/selectedFieldEditPost/<%= records.id %>" id="FieldTrialForm" class="form-horizontal" method="post"  role="form">
+                                <form action="/saao/selectedFieldFormPost" id="FieldTrialForm" class="form-horizontal" method="post"  role="form">
                                     <div id="signupalert" style="display:none" class="alert alert-danger">
                                         <p>Error:</p>
                                         <span></span>
                                     </div>
 
-                                        
                                     
                                     <div class="form-group">
                                         <label for="name" class="col-md-3 control-label">কৃষকের নাম</label>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control" name="name" placeholder="কৃষকের নাম" value="<%=records.name%>">
+                                            <input type="text" class="form-control" name="name" placeholder="কৃষকের নাম">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="fname" class="col-md-3 control-label">পিতার নাম</label>
                                         <div class="col-md-9">
-                                        <input type="text" class="form-control" name="fname" placeholder="পিতার নাম" value="<%=records.fname%>">
+                                        <input type="text" class="form-control" name="fname" placeholder="পিতার নাম">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="mobile" class="col-md-3 control-label">মোবাইল নং</label>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control" name="mobile" placeholder="মোবাইল নং" value="<%=records.mobile%>">
+                                            <input type="text" class="form-control" name="mobile" placeholder="মোবাইল নং">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="total" class="col-md-3 control-label">মোট কৃষি জমি(শতাংশ)</label>
                                         <div class="col-md-9">
-                                        <input type="text" class="form-control" name="total" placeholder="মোট কৃষি জমি(শতাংশ)" value="<%=records.total%>">
+                                        <input type="text" class="form-control" name="total" placeholder="মোট কৃষি জমি(শতাংশ)">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="shorisha" class="col-md-3 control-label">সরিষার আবাদকৃত জমির পরিমাণ (শতাংশ)</label>
                                         <div class="col-md-9">
-                                        <input type="text" class="form-control" name="robi1" placeholder="সরিষার আবাদকৃত জমির পরিমাণ (শতাংশ)" value="<%=records.robi1%>">
+                                        <input type="text" class="form-control" name="robi1" placeholder="সরিষার আবাদকৃত জমির পরিমাণ (শতাংশ)">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="boro" class="col-md-3 control-label">বোরো আবাদকৃত জমির পরিমাণ (শতাংশ)</label>
                                         <div class="col-md-9">
-                                        <input type="text" class="form-control" name="robi2" placeholder="বোরো আবাদকৃত জমির পরিমাণ (শতাংশ)" value="<%=records.robi2%>">
+                                        <input type="text" class="form-control" name="robi2" placeholder="বোরো আবাদকৃত জমির পরিমাণ (শতাংশ)">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="breed" class="col-md-3 control-label">সরিষার আবাদকৃত জমির পরিমাণ (শতাংশ)</label>
                                         <div class="col-md-9">
-                                        <input type="text" class="form-control" name="robi3" placeholder="সরিষার আবাদকৃত জমির পরিমাণ (শতাংশ)" value="<%=records.robi3%>">
+                                        <input type="text" class="form-control" name="robi3" placeholder="সরিষার আবাদকৃত জমির পরিমাণ (শতাংশ)">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="breed" class="col-md-3 control-label">সরিষার আবাদকৃত জমির পরিমাণ (শতাংশ)</label>
                                         <div class="col-md-9">
-                                        <input type="text" class="form-control" name="robi4" placeholder="সরিষার আবাদকৃত জমির পরিমাণ (শতাংশ)" value="<%=records.robi4%>">
+                                        <input type="text" class="form-control" name="robi4" placeholder="সরিষার আবাদকৃত জমির পরিমাণ (শতাংশ)">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="breed" class="col-md-3 control-label">সরিষার আবাদকৃত জমির পরিমাণ (শতাংশ)</label>
                                         <div class="col-md-9">
-                                        <input type="text" class="form-control" name="robi5" placeholder="সরিষার আবাদকৃত জমির পরিমাণ (শতাংশ)" value="<%=records.robi5%>">
+                                        <input type="text" class="form-control" name="robi5" placeholder="সরিষার আবাদকৃত জমির পরিমাণ (শতাংশ)">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="breed" class="col-md-3 control-label">সরিষার আবাদকৃত জমির পরিমাণ (শতাংশ)</label>
                                         <div class="col-md-9">
-                                        <input type="text" class="form-control" name="robi6" placeholder="সরিষার আবাদকৃত জমির পরিমাণ (শতাংশ)" value="<%=records.robi6%>">
+                                        <input type="text" class="form-control" name="robi6" placeholder="সরিষার আবাদকৃত জমির পরিমাণ (শতাংশ)">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="breed" class="col-md-3 control-label">আউশ আবাদকৃত জমির পরিমাণ (শতাংশ)</label>
                                         <div class="col-md-9">
-                                        <input type="text" class="form-control" name="kharif1_1" placeholder="আউশ আবাদকৃত জমির পরিমাণ (শতাংশ)" value="<%=records.kharif1_1%>">
+                                        <input type="text" class="form-control" name="kharif1_1" placeholder="আউশ আবাদকৃত জমির পরিমাণ (শতাংশ)">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="breed" class="col-md-3 control-label">পাট আবাদকৃত জমির পরিমাণ (শতাংশ)</label>
                                         <div class="col-md-9">
-                                        <input type="text" class="form-control" name="kharif1_2" placeholder="পাট আবাদকৃত জমির পরিমাণ (শতাংশ)" value="<%=records.kharif1_2%>">
+                                        <input type="text" class="form-control" name="kharif1_2" placeholder="পাট আবাদকৃত জমির পরিমাণ (শতাংশ)">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="breed" class="col-md-3 control-label">সরিষার আবাদকৃত জমির পরিমাণ (শতাংশ)</label>
                                         <div class="col-md-9">
-                                        <input type="text" class="form-control" name="kharif1_3" placeholder="সরিষার আবাদকৃত জমির পরিমাণ (শতাংশ)" value="<%=records.kharif1_3%>">
+                                        <input type="text" class="form-control" name="kharif1_3" placeholder="সরিষার আবাদকৃত জমির পরিমাণ (শতাংশ)">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="breed" class="col-md-3 control-label">রোপা আমন আবাদকৃত জমির পরিমাণ (শতাংশ)</label>
                                         <div class="col-md-9">
-                                        <input type="text" class="form-control" name="kharif2_1" placeholder="রোপা আমন আবাদকৃত জমির পরিমাণ (শতাংশ)" value="<%=records.kharif2_1%>">
+                                        <input type="text" class="form-control" name="kharif2_1" placeholder="রোপা আমন আবাদকৃত জমির পরিমাণ (শতাংশ)">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="breed" class="col-md-3 control-label">সরিষার আবাদকৃত জমির পরিমাণ (শতাংশ)</label>
                                         <div class="col-md-9">
-                                        <input type="text" class="form-control" name="kharif2_2" placeholder="সরিষার আবাদকৃত জমির পরিমাণ (শতাংশ)" value="<%=records.kharif2_2%>">
+                                        <input type="text" class="form-control" name="kharif2_2" placeholder="সরিষার আবাদকৃত জমির পরিমাণ (শতাংশ)">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="breed" class="col-md-3 control-label">সরিষার আবাদকৃত জমির পরিমাণ (শতাংশ)</label>
                                         <div class="col-md-9">
-                                        <input type="text" class="form-control" name="kharif2_3" placeholder="সরিষার আবাদকৃত জমির পরিমাণ (শতাংশ)" value="<%=records.kharif2_3%>">
+                                        <input type="text" class="form-control" name="kharif2_3" placeholder="সরিষার আবাদকৃত জমির পরিমাণ (শতাংশ)">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="irrigation" class="col-md-3 control-label">কৃষকের সেচ যন্ত্র আছে কিনা?</label>
                                         <div class="col-md-9">
-                                        <input type="text" class="form-control" name="irrigation" placeholder="কৃষকের সেচ যন্ত্র আছে কিনা?" value="<%=records.irrigation%>">
+                                        <input type="text" class="form-control" name="irrigation" placeholder="কৃষকের সেচ যন্ত্র আছে কিনা?">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="groups" class="col-md-3 control-label">ব্লকে এসএএও কর্তৃক গঠিত কত নাম্বার কৃষকের গ্রুপের সদস্য</label>
                                         <div class="col-md-9">
-                                        <input type="text" class="form-control" name="groups" placeholder="ব্লকে এসএএও কর্তৃক গঠিত কত নাম্বার কৃষকের গ্রুপের সদস্য" value="<%=records.groups%>">
+                                        <input type="text" class="form-control" name="groups" placeholder="ব্লকে এসএএও কর্তৃক গঠিত কত নাম্বার কৃষকের গ্রুপের সদস্য">
                                         </div>
                                     </div>
 
@@ -155,8 +154,18 @@
 
                                    
 
-                                    <input type="hidden" class="form-control" name="year" placeholder="বছর" value="<%=records.year%>">
-
+                                    <div class="form-group">
+                                            <label for="year" class="col-md-3 control-label">বছর</label>
+                                        <select id="year" name="year" required>
+                                        <option value="2017">২০১৭-১৮</option>
+                                        <option value="2018">২০১৮-১৯</option>
+                                        <option value="2019">২০১৯-২০</option>
+                                        <option value="2020" >২০২০-২১</option>
+                                        <option value="2021">২০২১-২২</option>
+                                        <option value="2022">২০২২-২৩</option>
+                                        <option value="2023">২০২৩-২৪</option>                                         
+                                            </select>
+                                    </div>
 
                                             <input type="hidden" class="form-control" name="user_id" placeholder="id" value="<%= user_id %>">
                                         
