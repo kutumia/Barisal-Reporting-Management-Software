@@ -12,33 +12,43 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="row clearfix">
-                                        <%if (saaos.length >0){ %>
-                                            <div class="col-md-4">
-                                                <label for="saao">Choose a saao:</label>
-                                                    <select id="saao" name="saao">
-                                                        <% saaos.forEach(function(row){ %>
-                                                            <option value="<%= row.id %>"><%= row.saao %></option>
+                                        <%if (upazilla.length >0){ %>
+                                            <div class="col-md-3">
+                                                <label for="upazilla">উপজেলা :</label>
+                                                    <select id="upazilla" name="upazilla">
+                                                        <option value="">উপজেলা বাছুন</option>
+                                                        <option value="all">সকল উপজেলা </option>
+                                                        <% upazilla.forEach(function(row){ %>
+                                                            <option value="<%= row.id %>"><%= row.name %></option>
                                                         <% }) %>
                                                     </select>
                                             </div>
                                         <% } %>
-                                        <div class="col-md-4">
-                                            <label for="year">Choose a year:</label>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <select name="saao" id="saao" class="form-control">
+                                                        <option value="0" disabled="true" selected="true">Select saao</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            
+                                        <div class="col-md-3">
+                                            <label for="year">বছর:</label>
                                             <select id="year" name="year">
                                                 <option value="">Choose year</option>
-                                                <option value="2017">2017</option>
-                                                <option value="2018">2018</option>
-                                                <option value="2019">2019</option>
-                                                <option value="2020" selected>2020</option>
-                                                <option value="2021">2021</option>
-                                                <option value="2022">2022</option>
-                                                <option value="2023">2023</option>
+                                                <option value="2017">২০১৭-১৮</option>
+                                                <option value="2018">২০১৮-১৯</option>
+                                                <option value="2019">২০১৯-২০</option>
+                                                <option value="2020" selected>২০২০-২১</option>
+                                                <option value="2021">২০২১-২২</option>
+                                                <option value="2022">২০২২-২৩</option>
+                                                <option value="2023">২০২৩-২৪</option>
                                             </select>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <!-- Button -->                                        
                                             <div>
-                                            <input type="submit" id="submit" name="submit" value="রিপোর্ট দেখুন" class="btn btn-primary">   
+                                            <input type="submit" id="submit" name="submit" value="submit" class="btn btn-primary">   
                                             </div>
                                         </div>
                                     </div>
@@ -89,12 +99,46 @@
         });
     });
 
+    $('#upazilla').on("change",function () {
+        var upazilla = $('#upazilla').val();
+        var year = $('#year').val();
+        $.ajax({
+            type: "POST",
+            url: "/dd/selectedFieldUpazillaFilter",
+            data: {year: year,upazilla: upazilla},
+            datatype: "json",
+            beforeSend: function() {
+                // setting a timeout
+                $('#loading').show();
+                $('#output').hide();
+            },
+            success: function (data) {
+                $('#output').html(data);
+                $('#tblCustomers').DataTable();
+                if(data){
+                    $.each(data, function(key, value){
+                    $('#saao').append('<option value="'+value.id+'">' + value.saao + '</option>');
+
+                });
+                }else {
+                    $('#saao').empty();
+                }
+
+            },
+            complete: function() {
+                $('#loading').hide();
+                $('#output').show();
+            }
+        });
+    });
+
     $("#wrapper").load( "no url rn",function() {
+        
         var year = $('#year').val();
         var saao = $('#saao').val();
         $.ajax({
             type: "POST",
-            url: "/upazilla/selectedFieldFilter",
+            url: "/dd/selectedFieldFilter",
             data: {year: year,saao:saao},
             datatype: "json",
             beforeSend: function() {
@@ -115,12 +159,12 @@
     });
 
     $('#submit').on("click",function () {
-        var saao = $('#saao').val();
         var year = $('#year').val();
+        var saao = $('#saao').val();
         $.ajax({
             type: "POST",
-            url: "/upazilla/selectedFieldFilter",
-            data: {year:year,saao:saao},
+            url: "/dd/selectedFieldFilter",
+            data: {year: year,saao:saao},
             datatype: "json",
             beforeSend: function() {
                 // setting a timeout

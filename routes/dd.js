@@ -4,8 +4,8 @@ const router = express.Router();
 const app=express();
 const {demonstration,demonstrationFilter,fieldDay,fieldDayFilter,farmerTraining,farmerTrainingFilter,agriFair,agriFairFilter,farmerPrize,farmerPrizeFilter,
     llp,llpFilter,solarLight,solarLightFilter,dashboardMonitoring,ddsignup,ddsignuppost,allupazilla,ddlogin,ddloginpost,ddDashboard,
-    trainedFarmer,trainedFarmerFilter,initialTrial,initialTrialFilter,
-    finalTrial,finalTrialFilter,trialProgress,trialProgressFilter,
+    trainedFarmer,trainedFarmerFilter,initialTrial,initialTrialFilter,cropNibirota,cropNibirotaFilter,cropNibirotaUpazillaFilter,producedCrop,producedCropFilter,producedCropUpazillaFilter,
+    finalTrial,finalTrialFilter,trialProgress,trialProgressFilter,selectedField,selectedFieldFilter,selectedFieldUpazillaFilter,
     cropExpansion,cropExpansionFilter,breedExpansion,breedExpansionFilter,
     technologyExpansion,technologyExpansionFilter,
     abadiJomi,abadiJomiFilter} = require('../controllers/dd.controller');
@@ -18,6 +18,18 @@ router.get('/dashboardMonitoring',dashboardMonitoring);
 
 router.get('/signup',ddsignup);
 router.post('/signups',ddsignuppost);
+
+router.get('/selectedField',selectedField);
+router.post('/selectedFieldFilter',selectedFieldFilter);
+router.post('/selectedFieldUpazillaFilter',selectedFieldUpazillaFilter);
+
+router.get('/cropNibirota',cropNibirota);
+router.post('/cropNibirotaFilter',cropNibirotaFilter);
+router.post('/cropNibirotaUpazillaFilter',cropNibirotaUpazillaFilter);
+
+router.get('/producedCrop',producedCrop);
+router.post('/producedCropFilter',producedCropFilter);
+router.post('/producedCropUpazillaFilter',producedCropUpazillaFilter);
 
 router.get('/trainedFarmer',trainedFarmer);
 router.post('/trainedFarmerFilter',trainedFarmerFilter);

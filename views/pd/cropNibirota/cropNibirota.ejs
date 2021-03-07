@@ -9,6 +9,7 @@
                             <div class="col-md-10">
                                 <h1 class="text-center"><%= title %></h1>
                             </div>
+                            
                         </div>
                         <div class="card">
                             <div class="card-body">
@@ -25,27 +26,20 @@
                                                 </select>
                                         </div>
                                     <% } %>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <select name="upazilla" id="upazilla" class="form-control">
+                                                <option value="0" disabled="true" selected="true">Select upazilla</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <select name="upazilla" id="upazilla" class="form-control">
-                                                    <option value="0" disabled="true" selected="true">Select upazilla</option>
+                                                <select name="saao" id="saao" class="form-control">
+                                                    <option value="0" disabled="true" selected="true">Select saao</option>
                                                 </select>
                                             </div>
                                         </div>
-                                        
-                                    <div class="col-md-3">
-                                        <label for="year">বছর:</label>
-                                        <select id="year" name="year">
-                                            <option value="">Choose year</option>
-                                            <option value="2017">২০১৭-১৮</option>
-                                            <option value="2018">২০১৮-১৯</option>
-                                            <option value="2019">২০১৯-২০</option>
-                                            <option value="2020" selected>২০২০-২১</option>
-                                            <option value="2021">২০২১-২২</option>
-                                            <option value="2022">২০২২-২৩</option>
-                                            <option value="2023">২০২৩-২৪</option>
-                                        </select>
-                                    </div>
                                     <div class="col-md-3">
                                         <!-- Button -->                                        
                                         <div>
@@ -55,18 +49,13 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="row mb-2">
-                            <div class="col-md-12">
-                                <a href="/upazilla/finalTrialForm" class="btn btn-success btn-group-sm ">প্রশিক্ষণপ্রাপ্ত কৃষকের তথ্য ফর্ম</a>
-                            </div>
 
-                        </div> -->
+    
 
-                        <div class="table-responsive" id="output"></div>
-
-                        <input type="button" id="btnExport" value="Download PDF" />
+                        
 
                         <div id="output"></div>
+                        <input type="button" id="btnExport" value="Download PDF" />
         <!--                    <div id="loading" class="loading"><img src="{{ asset('assets/img/icon/loading.gif') }}" alt=""></div>-->
                     </div>
                 </div>
@@ -76,6 +65,7 @@
 
    
 <%- include('../../includes/footer')-%>
+
 <script>
         
     $(document).ready(function(){
@@ -107,11 +97,10 @@
 
     $('#district').on("change",function () {
         var district = $('#district').val();
-        var year = new Date().getFullYear();
         $.ajax({
             type: "POST",
-            url: "/pd/finalTrialDistrictFilter",
-            data: {year: year,district: district},
+            url: "/pd/cropNibirotaDistrictFilter",
+            data: {district: district},
             datatype: "json",
             beforeSend: function() {
                 // setting a timeout
@@ -121,7 +110,6 @@
             success: function (data) {
                 $('#output').html(data);
                 $('#tblCustomers').DataTable();
-                $('#upazilla').empty();
                 if(data){
                     $.each(data, function(key, value){
                     $('#upazilla').append('<option value="'+value.id+'">' + value.name + '</option>');
@@ -138,15 +126,44 @@
             }
         });
     });
-
-    $("#wrapper").load( "no url rn",function() {
-        
-        var year = new Date().getFullYear();
+    $('#upazilla').on("change",function () {
         var upazilla = $('#upazilla').val();
         $.ajax({
             type: "POST",
-            url: "/pd/finalTrialFilter",
-            data: {year: year,upazilla:upazilla},
+            url: "/pd/cropNibirotaUpazillaFilter",
+            data: {upazilla: upazilla},
+            datatype: "json",
+            beforeSend: function() {
+                // setting a timeout
+                $('#loading').show();
+                $('#output').hide();
+            },
+            success: function (data) {
+                $('#output').html(data);
+                $('#tblCustomers').DataTable();
+                if(data){
+                    $.each(data, function(key, value){
+                    $('#saao').append('<option value="'+value.id+'">' + value.saao + '</option>');
+
+                });
+                }else {
+                    $('#saao').empty();
+                }
+
+            },
+            complete: function() {
+                $('#loading').hide();
+                $('#output').show();
+            }
+        });
+    });
+
+    $("#wrapper").load( "no url rn",function() {
+                var saao = $('#saao').val();
+        $.ajax({
+            type: "POST",
+            url: "/pd/cropNibirotaFilter",
+            data: {year: year,saao:saao},
             datatype: "json",
             beforeSend: function() {
                 // setting a timeout
@@ -166,12 +183,11 @@
     });
 
     $('#submit').on("click",function () {
-        var year = $('#year').val();
-        var upazilla = $('#upazilla').val();
+        var saao = $('#saao').val();
         $.ajax({
             type: "POST",
-            url: "/pd/finalTrialFilter",
-            data: {year: year,upazilla:upazilla},
+            url: "/pd/cropNibirotaFilter",
+            data: {saao:saao},
             datatype: "json",
             beforeSend: function() {
                 // setting a timeout

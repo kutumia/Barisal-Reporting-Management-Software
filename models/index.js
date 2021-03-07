@@ -42,5 +42,7 @@ db.solarLight = require("./solarLight.model.js")(sequelize, Sequelize);
 db.producedCrop = require("./producedCrop.model.js")(sequelize, Sequelize);
 db.cropNibirota = require("./cropNibirota.model.js")(sequelize, Sequelize);
 db.selectedField = require("./selectedField.model.js")(sequelize, Sequelize);
+db.technologyList = require("./technologyList.model.js")(sequelize, Sequelize);
+db.cropList = require("./cropList.model.js")(sequelize, Sequelize);
 
 module.exports = db;

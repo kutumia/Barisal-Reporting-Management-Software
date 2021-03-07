@@ -3,6 +3,7 @@ const pd = db.pd;
 const dd = db.dd;
 const ad = db.ad;
 const upazilla = db.upazilla;
+const saao = db.saao;
 const trainedFarmer = db.trainedFarmer;
 const initialTrial = db.initialTrial;
 const trialProgress = db.trialProgress;
@@ -18,6 +19,10 @@ const agriFair = db.agriFair;
 const farmerPrize = db.farmerPrize;
 const llp = db.llp;
 const solarLight = db.solarLight;
+const selectedField = db.selectedField;
+const cropNibirota = db.cropNibirota;
+const producedCrop = db.producedCrop;
+
 
 const jwt= require('jsonwebtoken');
 const bcrypt= require('bcryptjs'); 
@@ -156,6 +161,195 @@ module.exports.ddsignuppost=async(req,res)=>{
     } 
 };
 //signUp controller end
+
+//selectedField controller
+module.exports.selectedField=async(req,res)=>{
+    try{
+        var upazillas=await upazilla.findAll();
+        console.log("inside");
+        res.render('dd/selectedField/selectedField', { title: 'প্রশিক্ষণপ্রাপ্ত কৃষকের তথ্য',success:'',upazilla:upazillas });
+    }
+    catch(err){
+        console.log("outside",err);
+    }
+     
+    //  records:result
+
+};
+module.exports.selectedFieldFilter=async(req,res)=>{
+    if (req.body.saao === "all") {
+        await selectedField.findAll({ 
+            where: {year: req.body.year}
+        })
+        .then(data => {
+            res.render('dd/selectedField/selectedFieldTable', {records: data} ,function(err, html) {
+                res.send(html);
+            });
+        })
+        .catch(err => {
+            console.log("outside",err);
+            })
+    }
+    else{
+        await selectedField.findAll({ 
+            where: {year: req.body.year,saao_id: req.body.saao}
+        })
+        .then(data => {
+            res.render('dd/selectedField/selectedFieldTable', {records: data} ,function(err, html) {
+                res.send(html);
+            });
+        })
+        .catch(err => {
+            console.log("outside",err);        })
+    }
+    
+
+};
+module.exports.selectedFieldUpazillaFilter=async(req,res)=>{
+    try{
+        if (req.body.upazilla === "all") {
+            console.log("AllIsWell",req.body.year);
+            res.send([{id:"all",uname:"all"}]);
+                
+        }else{
+        var saaos=await saao.findAll({where: {upazilla_id: req.body.upazilla}});
+        console.log("inside");
+        res.send(saaos)
+        }
+        
+    }
+    catch(err){
+        console.log("outside",err);
+    }
+     
+
+};
+//selectedField controller end
+
+//producedCrop controller
+module.exports.producedCrop=async(req,res)=>{
+    try{
+        var upazillas=await upazilla.findAll();
+        console.log("inside");
+        res.render('dd/producedCrop/producedCrop', { title: 'প্রশিক্ষণপ্রাপ্ত কৃষকের তথ্য',success:'',upazilla:upazillas });
+    }
+    catch(err){
+        console.log("outside",err);
+    }
+     
+    //  records:result
+
+};
+module.exports.producedCropFilter=async(req,res)=>{
+    if (req.body.saao === "all") {
+        await producedCrop.findAll()
+        .then(data => {
+            res.render('dd/producedCrop/producedCropTable', {records: data} ,function(err, html) {
+                res.send(html);
+            });
+        })
+        .catch(err => {
+            console.log("outside",err);
+            })
+    }
+    else{
+        await producedCrop.findAll({ 
+            where: {saao_id: req.body.saao}
+        })
+        .then(data => {
+            res.render('dd/producedCrop/producedCropTable', {records: data} ,function(err, html) {
+                res.send(html);
+            });
+        })
+        .catch(err => {
+            console.log("outside",err);        })
+    }
+    
+
+};
+module.exports.producedCropUpazillaFilter=async(req,res)=>{
+    try{
+        if (req.body.upazilla === "all") {
+            res.send([{id:"all",uname:"all"}]);
+                
+        }else{
+        var saaos=await saao.findAll({where: {upazilla_id: req.body.upazilla}});
+        console.log("inside");
+        res.send(saaos)
+        }
+        
+    }
+    catch(err){
+        console.log("outside",err);
+    }
+     
+
+};
+//producedCrop controller end
+
+//cropNibirota controller
+module.exports.cropNibirota=async(req,res)=>{
+    try{
+        var upazillas=await upazilla.findAll();
+        console.log("inside");
+        res.render('dd/cropNibirota/cropNibirota', { title: 'প্রশিক্ষণপ্রাপ্ত কৃষকের তথ্য',success:'',upazilla:upazillas });
+    }
+    catch(err){
+        console.log("outside",err);
+    }
+     
+    //  records:result
+
+};
+module.exports.cropNibirotaFilter=async(req,res)=>{
+    if (req.body.saao === "all") {
+        await cropNibirota.findAll()
+        .then(data => {
+            res.render('dd/cropNibirota/cropNibirotaTable', {records: data} ,function(err, html) {
+                res.send(html);
+            });
+        })
+        .catch(err => {
+            console.log("outside",err);
+            })
+    }
+    else{
+        try{
+            var seventeen=await cropNibirota.findOne({where: {year:"2017",saao_id: req.body.saao}});
+            var eighteen=await cropNibirota.findOne({where: {year:"2018",saao_id: req.body.saao}});
+            var nineteen=await cropNibirota.findOne({where: {year:"2019",saao_id: req.body.saao}});
+            var twenty=await cropNibirota.findOne({where: {year:"2020",saao_id: req.body.saao}});
+            var twentyOne=await cropNibirota.findOne({where: {year:"2021",saao_id: req.body.saao}});
+            var twentyTwo=await cropNibirota.findOne({where: {year:"2022" ,saao_id: req.body.saao}});
+            res.render('dd/cropNibirota/cropNibirotaTable', { title: 'শস্য নিবিড়তার অগ্রগতির তথ্য',success:'',seventeen: seventeen,eighteen: eighteen,nineteen: nineteen,twenty: twenty,twentyOne: twentyOne,twentyTwo: twentyTwo });
+        }
+        catch(err){
+            console.log("outside",err);
+        }
+    }
+    
+
+};
+module.exports.cropNibirotaUpazillaFilter=async(req,res)=>{
+    try{
+        if (req.body.upazilla === "all") {
+            res.send([{id:"all",uname:"all"}]);
+                
+        }else{
+        var saaos=await saao.findAll({where: {upazilla_id: req.body.upazilla}});
+        console.log("inside");
+        res.send(saaos)
+        }
+        
+    }
+    catch(err){
+        console.log("outside",err);
+    }
+     
+
+};
+//cropNibirota controller end
+
 
 //trainedFarmer controller
 module.exports.trainedFarmer=async(req,res)=>{ 

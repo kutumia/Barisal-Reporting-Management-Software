@@ -9,54 +9,32 @@
                             <div class="col-md-10">
                                 <h1 class="text-center"><%= title %></h1>
                             </div>
+                            
                         </div>
                         <div class="card">
                             <div class="card-body">
                                 <div class="row clearfix">
-                                <%if (upazillas.length >0){ %>
+                                <%if (saaos.length >0){ %>
                                         <div class="col-md-4">
-                                            <label for="upazilla">উপজেলা বাছুন :</label>
-                                                <select id="upazilla" name="upazilla">
-                                                    <% upazillas.forEach(function(row){ %>
-                                                        <option value="<%= row.id %>"><%= row.name %></option>
+                                            <label for="saao">Choose a saao:</label>
+                                                <select id="saao" name="saao">
+                                                    <% saaos.forEach(function(row){ %>
+                                                        <option value="<%= row.id %>"><%= row.saao %></option>
                                                     <% }) %>
                                                 </select>
                                         </div>
                                     <% } %>
-                                    <div class="col-md-4">
-                                        <label for="year">অর্থবছর বাছুন:</label>
-                                        <select id="year" name="year">
-                                            <option value="">অর্থবছর</option>
-                                            <option value="2017">২০১৭-১৮</option>
-                                            <option value="2018">২০১৮-১৯</option>
-                                            <option value="2019">২০১৯-২০</option>
-                                            <option value="2020" selected>২০২০-২১</option>
-                                            <option value="2021">২০২১-২২</option>
-                                            <option value="2022">২০২২-২৩</option>
-                                            <option value="2023">২০২৩-২৪</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <!-- Button -->                                        
-                                        <div>
-                                        <input type="submit" id="submit" name="submit" value="রিপোর্ট দেখুন" class="btn btn-primary">   
-                                        </div>
+                                    
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="row mb-2">
-                            <div class="col-md-12">
-                                <a href="/upazilla/trainedFarmerForm" class="btn btn-success btn-group-sm ">প্রশিক্ষণপ্রাপ্ত কৃষকের তথ্য ফর্ম</a>
-                            </div>
+    
 
-                        </div> -->
-
-                        <div class="table-responsive" id="output"></div>
-
-                        <input type="button" id="btnExport" value="Download PDF" />
+                        
 
                         <div id="output"></div>
+                        <input type="button" id="btnExport" value="Download PDF" />
         <!--                    <div id="loading" class="loading"><img src="{{ asset('assets/img/icon/loading.gif') }}" alt=""></div>-->
                     </div>
                 </div>
@@ -66,6 +44,7 @@
 
    
 <%- include('../../includes/footer')-%>
+
 <script>
         
     $(document).ready(function(){
@@ -96,14 +75,11 @@
     });
 
     $("#wrapper").load( "no url rn",function() {
-        
-        var year = $('#year').val();
-        var upazilla = $('#upazilla').val();
-
+        var saao = $('#saao').val();
         $.ajax({
             type: "POST",
-            url: "/dd/initialTrialFilter",
-            data: {year: year,upazilla: upazilla},
+            url: "/upazilla/cropNibirotaFilter",
+            data: {saao:saao},
             datatype: "json",
             beforeSend: function() {
                 // setting a timeout
@@ -122,14 +98,12 @@
         });
     });
 
-    $('#submit').on("click",function () {
-        var year = $('#year').val();
-        var upazilla = $('#upazilla').val();
-
+    $('#saao').on("change",function () {
+        var saao = $('#saao').val();
         $.ajax({
             type: "POST",
-            url: "/dd/initialTrialFilter",
-            data: {year: year,upazilla: upazilla},
+            url: "/upazilla/cropNibirotaFilter",
+            data: {saao:saao},
             datatype: "json",
             beforeSend: function() {
                 // setting a timeout

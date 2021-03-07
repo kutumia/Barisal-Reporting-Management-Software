@@ -6,10 +6,10 @@ const app=express();
 const {agriFairFormEdit,agriFairFormUpdate,llpYear,fieldDayYear,demonstrationYear,farmerTrainingYear,agriFairYear,farmerPrizeYear,solarLightYear,upload,uploadfieldDay,uploadagriFair,uploadfarmerPrize,uploadfarmerTraining,uploadllp,uploadsolarLight,solarLightForm,solarLightFormPost,llpForm,llpFormPost,farmerPrizeForm,farmerPrizeFormPost,agriFairForm,agriFairFormPost,fieldDayForm,fieldDayFormPost,farmerTrainingForm,farmerTrainingFormPost,dashboardMonitoring,demonstrationForm,demonstrationFormPost,upazillasignup,upazillasignuppost,allupazilla,upazillalogin,upazillaloginpost,upazillaDashboard,
     trainedFarmer,trainedFarmerYear,trainedFarmerForm,trainedFarmerFormPost,initialTrial,initialTrialYear,initialTrialForm,initialTrialFormPost,selectedField,selectedFieldFilter,
     finalTrial,finalTrialYear,finalTrialForm,finalTrialFormPost,trialProgress,trialProgressYear,trialProgressForm,trialProgressFormPost,producedCrop,producedCropFilter,
-    cropExpansion,cropExpansionYear,cropExpansionForm,cropExpansionFormPost,breedExpansion,breedExpansionYear,breedExpansionForm,breedExpansionFormPost,
+    cropExpansion,cropExpansionYear,cropExpansionForm,cropExpansionFormPost,breedExpansion,breedExpansionYear,breedExpansionForm,breedExpansionFormPost,trainedFarmerEdit,
     technologyExpansion,technologyExpansionYear,technologyExpansionForm,technologyExpansionFormPost,initialTrialEdit,initialTrialDelete,finalTrialEdit,finalTrialDelete,
     trialProgressEdit,trialProgressDelete,cropExpansionEdit,cropExpansionDelete,breedExpansionEdit,breedExpansionDelete,technologyExpansionEdit,technologyExpansionDelete,
-    abadiJomi,abadiJomiYear,abadiJomiForm,abadiJomiFormPost,abadiJomiEdit,abadiJomiDelete,trialProgressEditPost,cropNibirota,cropNibirotaFilter,
+    abadiJomi,abadiJomiYear,abadiJomiForm,abadiJomiFormPost,abadiJomiEdit,abadiJomiDelete,trialProgressEditPost,cropNibirota,cropNibirotaFilter,trainedFarmerEditPost,trainedFarmerDelete,
     demonstration,fieldDay,farmerTraining,agriFair,farmerPrize,llp,solarLight} = require('../controllers/upazilla.controller');
 router.get('/',allupazilla);
 router.get('/login',upazillalogin);
@@ -34,8 +34,9 @@ router.get('/trainedFarmer',trainedFarmer);
 router.post('/trainedFarmerYear',trainedFarmerYear);
 router.get('/trainedFarmerForm',trainedFarmerForm);
 router.post('/trainedFarmerFormPost',trainedFarmerFormPost);
-// router.post('/trainedFarmerEditPost/:id',trainedFarmerEditPost);
-// router.get('/trainedFarmerDelete/:id',trainedFarmerDelete);
+router.get('/trainedFarmerEdit/:id',trainedFarmerEdit);
+router.post('/trainedFarmerEditPost/:id',trainedFarmerEditPost);
+router.get('/trainedFarmerDelete/:id',trainedFarmerDelete);
 
 //                                                     
 

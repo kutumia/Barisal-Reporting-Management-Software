@@ -1,0 +1,122 @@
+<%- include('../../includes/header')-%>
+        <div id="wrapper" class="wrapper">
+          <%- include('../../includes/topbar')-%>
+            <div class="page-wrap">
+              <%- include('../../includes/sidebar')-%>
+              <div class="main-content">
+                <div class="container-fluid">
+                    <div class="row clearfix">
+                        <div class="col-md-10">
+                            <h1 class="text-center">ফসলের নাম, জাত ও প্রযুক্তিসমূহ</h1>
+                        </div>
+                    </div>
+
+                     <!--    cropName -->
+                     <div class="card">
+                        <div class="card-body">
+                            <form action="/pd/add/cropName" method="post">
+                                <div class="form-row">
+                                    <div class="col">
+                                        <label for="">ফসলের নাম</label>
+                                        <input type="text"  id="cropName" name="cropName" class="form-control">
+                                    </div>
+                                    <div class="col">
+                                        <label for=""></label>
+                                        <input type="submit" value="যোগ করুন ফসল" class="btn btn-primary" >
+                                    </div>
+
+                                    <div class="col">
+                                        <% crop.forEach((row) => {
+                                        if (row.type === 'cropName'){
+                                        %>
+                                            <span style="margin-right: 2px"> <%= row.name %> </span> |
+                                        <%
+                                        }
+                                        })
+                                        %>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!--  breedName -->
+                    <div class="card">
+                        <div class="card-body">
+                            <form action="/pd/add/breedName" method="post">
+                                <div class="form-row">
+                                    <div class="col">
+                                        <label for="">ফসলের নাম</label>
+                                        <select class="form-control" id="cropName" name="cropName">
+                                            <option selected> ফসলের নাম বাছুনঃ </option>
+                                            <% crop.forEach((row) => {
+                                            if (row.type === 'cropName'){
+                                            %>
+                                                <option value="<%= row.id %>"> <%= row.name %> </option>
+                                            <%
+                                            }
+                                            })
+                                            %>
+                                        </select>
+                                    </div>
+                                    <div class="col">
+                                        <label for="">জাত</label>
+                                        <input type="text"  id="breedName" name="breedName" class="form-control">
+                                    </div>
+                                    <div class="col">
+                                        <label for=""></label>
+                                        <input type="submit" value="জাত যোগ করুন" class="btn btn-primary">
+                                    </div>
+                                    <div class="col">
+                                        <% crop.forEach((row) => {
+                                        if (row.type === 'breedName'){
+                                        %>
+                                            <span style="margin-right: 2px"> <%= row.name %> </span> |
+                                        <%
+                                        }
+                                        })
+                                        %>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!--    technology -->
+                    <div class="card">
+                        <div class="card-body">
+                            <form action="/pd/add/technology" method="post">
+                                <div class="form-row">
+                                    <div class="col">
+                                        <label for="">প্রযুক্তির নাম</label>
+                                        <input type="text"  id="technology" name="technology" class="form-control">
+                                    </div>
+                                    <div class="col">
+                                        <label for=""></label>
+                                        <input type="submit" value="যোগ করুন প্রযুক্তি" class="btn btn-primary" >
+                                    </div>
+
+                                    <div class="col">
+                                        <% tech.forEach((row) => {
+                                        if (row.type === 'technology'){
+                                        %>
+                                            <span style="margin-right: 2px"> <%= row.name %> </span> |
+                                        <%
+                                        }
+                                        })
+                                        %>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+
+    <%- include('../../includes/footer')-%>

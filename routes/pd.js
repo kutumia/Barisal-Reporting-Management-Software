@@ -3,9 +3,9 @@ const router = express.Router();
 // const { Router } = require("express");
 const app=express();
 
-const {demonstration,demonstrationFilter,fieldDay,fieldDayFilter,farmerTraining,farmerTrainingFilter,agriFair,agriFairFilter,farmerPrize,farmerPrizeFilter,
-    llp,llpFilter,solarLight,solarLightFilter,dashboardMonitoring,pdsignup,pdsignuppost,pdlogin,pdloginpost,pdDashboard,cropExpansionAllFilter,cropExpansionAll,
-    trainedFarmer,trainedFarmerFilter,initialTrial,initialTrialFilter,breedExpansionDistrictFilter,cropExpansionDistrictFilter,agriFairDistrictFilter,
+const {demonstration,demonstrationFilter,fieldDay,fieldDayFilter,farmerTraining,farmerTrainingFilter,agriFair,agriFairFilter,farmerPrize,farmerPrizeFilter,cropNibirota,cropNibirotaFilter,cropNibirotaUpazillaFilter,cropNibirotaDistrictFilter,
+    llp,llpFilter,solarLight,solarLightFilter,dashboardMonitoring,pdsignup,pdsignuppost,pdlogin,pdloginpost,pdDashboard,cropExpansionAllFilter,cropExpansionAll,selectedField,selectedFieldFilter,selectedFieldUpazillaFilter,selectedFieldDistrictFilter,
+    trainedFarmer,trainedFarmerFilter,initialTrial,initialTrialFilter,breedExpansionDistrictFilter,cropExpansionDistrictFilter,agriFairDistrictFilter,producedCrop,producedCropFilter,producedCropUpazillaFilter,producedCropDistrictFilter,
     finalTrial,finalTrialFilter,trialProgress,trialProgressFilter,trainedFarmerDistrictFilter,abadiJomiDistrictFilter,farmerTrainingDistrictFilter,
     cropExpansion,cropExpansionFilter,breedExpansion,breedExpansionFilter,technologyExpansionDistrictFilter,fieldDayDistrictFilter,cumulative,abadiJomiAllFilter,abadiJomiAll,
     technologyExpansion,technologyExpansionFilter,trialProgressDistrictFilter,finalTrialDistrictFilter,initialTrialDistrictFilter,technologyExpansionAll,technologyExpansionAllFilter,
@@ -18,6 +18,21 @@ router.get('/dashboardMonitoring',dashboardMonitoring);
 
 router.get('/signup',pdsignup);
 router.post('/signups',pdsignuppost);
+
+router.get('/cropNibirota',cropNibirota);
+router.post('/cropNibirotaFilter',cropNibirotaFilter);
+router.post('/cropNibirotaUpazillaFilter',cropNibirotaUpazillaFilter);
+router.post('/cropNibirotaDistrictFilter',cropNibirotaDistrictFilter);
+
+router.get('/selectedField',selectedField);
+router.post('/selectedFieldFilter',selectedFieldFilter);
+router.post('/selectedFieldUpazillaFilter',selectedFieldUpazillaFilter);
+router.post('/selectedFieldDistrictFilter',selectedFieldDistrictFilter);
+
+router.get('/producedCrop',producedCrop);
+router.post('/producedCropFilter',producedCropFilter);
+router.post('/producedCropUpazillaFilter',producedCropUpazillaFilter);
+router.post('/producedCropDistrictFilter',producedCropDistrictFilter);
 
 router.get('/trainedFarmer',trainedFarmer);
 router.post('/trainedFarmerFilter',trainedFarmerFilter);
