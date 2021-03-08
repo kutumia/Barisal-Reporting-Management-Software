@@ -1084,7 +1084,7 @@ module.exports.breedExpansionForm=async(req,res)=>{
 
 module.exports.breedExpansionFormPost=async(req,res)=>{
     var name= req.body.name;
-    var bname= req.body.bname;
+    var breed= req.body.breed;
     var areaShotero= req.body.areaShotero;
     var productionShotero= req.body.productionShotero;
     var areaAtharo= req.body.areaAtharo;
@@ -1097,12 +1097,12 @@ module.exports.breedExpansionFormPost=async(req,res)=>{
     var productionEkush= req.body.productionEkush;
     var areaBaish= req.body.areaBaish;
     var productionBaish= req.body.productionBaish;
-    var year =req.body.year;
     var user_id =req.body.user_id;
+    var dd_id =req.body.dd;
 
     await breedExpansion.create({
         name: name,
-        bname: bname,
+        bname:breed,
         areaShotero:areaShotero,
         productionShotero:productionShotero,
         areaAtharo:areaAtharo,
@@ -1115,8 +1115,8 @@ module.exports.breedExpansionFormPost=async(req,res)=>{
         productionEkush:productionEkush,
         areaBaish:areaBaish,
         productionBaish:productionBaish,
-        year:year,
-        upazilla_id:user_id
+        upazilla_id:user_id,
+        dd_id:dd_id
     })
     
         

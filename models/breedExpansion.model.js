@@ -12,40 +12,22 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.STRING
       },
       areaShotero: {
-        type: Sequelize.STRING
-      },
-      productionShotero: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       areaAtharo: {
-        type: Sequelize.STRING
-      },
-      productionAtharo: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       areaUnish: {
-        type: Sequelize.STRING
-      },
-      productionUnish: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       areaBish: {
-        type: Sequelize.STRING
-      },
-      productionBish: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       areaEkush: {
-        type: Sequelize.STRING
-      },
-      productionEkush: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       areaBaish: {
-        type: Sequelize.STRING
-      },
-      productionBaish: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       year: {
         type: Sequelize.STRING

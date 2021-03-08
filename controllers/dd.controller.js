@@ -483,12 +483,10 @@ module.exports.trialProgressFilter=async(req,res)=>{
 module.exports.cropExpansion=async(req,res)=>{
     try{
         var upazillass=await upazilla.findAll({where: {dd_id: req.session.user_id}});
-        console.log("inside");
         res.render('dd/cropExpansion/cropExpansion', { title: 'প্রকল্প এলাকার ফসলের জাত সম্প্রসারণ তথ্য',success:'',upazillas:upazillass });
     }
     catch(err){
         console.log("outside",err);
-        res.render('dd/cropExpansion/cropExpansion', { title: 'প্রকল্প এলাকার ফসলের জাত সম্প্রসারণ তথ্য',success:'', upazillas:err });
     }
      
     //  records:result
@@ -505,7 +503,7 @@ module.exports.cropExpansionFilter=async(req,res)=>{
         });
     })
     .catch(err => {
-        res.render('dd/cropExpansion/cropExpansionYear', { title: 'প্রকল্প এলাকার ফসলের জাত সম্প্রসারণ তথ্য',success:'', records: err });
+        console.log("outside",err);
     })
 
 };
@@ -520,7 +518,6 @@ module.exports.breedExpansion=async(req,res)=>{
     }
     catch(err){
         console.log("outside",err);
-        res.render('dd/breedExpansion/breedExpansion', { title: 'প্রকল্প এলাকার ফসলের জাত সম্প্রসারণ',success:'', upazillas:err });
     }
      
     //  records:result
@@ -537,7 +534,7 @@ module.exports.breedExpansionFilter=async(req,res)=>{
         });
     })
     .catch(err => {
-        res.render('dd/breedExpansion/breedExpansionYear', { title: 'প্রকল্প এলাকার ফসলের জাত সম্প্রসারণ',success:'', records: err });
+        console.log("outside",err);
     })
 
 };
@@ -552,7 +549,6 @@ module.exports.technologyExpansion=async(req,res)=>{
     }
     catch(err){
         console.log("outside",err);
-        res.render('dd/technologyExpansion/technologyExpansion', { title: 'প্রকল্প এলাকার প্রযুক্তি সম্প্রসারণ',success:'', upazillas:err });
     }
      
     //  records:result
@@ -569,7 +565,7 @@ module.exports.technologyExpansionFilter=async(req,res)=>{
         });
     })
     .catch(err => {
-        res.render('dd/technologyExpansion/technologyExpansionYear', { title: 'প্রকল্প এলাকার প্রযুক্তি সম্প্রসারণ',success:'', records: err });
+        console.log("outside",err);
     })
 
 };

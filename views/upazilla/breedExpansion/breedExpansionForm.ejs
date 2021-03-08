@@ -47,7 +47,7 @@
                                     <div class="form-group">
                                         <label for="areaShotero" class="col-md-3 control-label">আবাদী জমি (২০১৭-১৮)</label>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control" name="areaShotero" placeholder="আবাদী জমি (২০১৭-১৮)">
+                                            <input type="number" class="form-control" name="areaShotero" placeholder="আবাদী জমি (২০১৭-১৮)">
                                         </div>
                                     </div>
 
@@ -56,7 +56,7 @@
                                     <div class="form-group">
                                         <label for="areaAtharo" class="col-md-3 control-label">আবাদী জমি (২০১৮-১৯)</label>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control" name="areaAtharo" placeholder="আবাদী জমি (২০১৮-১৯)">
+                                            <input type="number" class="form-control" name="areaAtharo" placeholder="আবাদী জমি (২০১৮-১৯)">
                                         </div>
                                     </div>
 
@@ -65,7 +65,7 @@
                                     <div class="form-group">
                                         <label for="areaUnish" class="col-md-3 control-label">আবাদী জমি (২০১৯-২০)</label>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control" name="areaUnish" placeholder="আবাদী জমি (২০১৯-২০)">
+                                            <input type="number" class="form-control" name="areaUnish" placeholder="আবাদী জমি (২০১৯-২০)">
                                         </div>
                                     </div>
 
@@ -73,7 +73,7 @@
                                     <div class="form-group">
                                         <label for="areaBish" class="col-md-3 control-label">আবাদী জমি (২০২০-২১)</label>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control" name="areaBish" placeholder="আবাদী জমি (২০২০-২১)">
+                                            <input type="number" class="form-control" name="areaBish" placeholder="আবাদী জমি (২০২০-২১)">
                                         </div>
                                     </div>
 
@@ -81,7 +81,7 @@
                                     <div class="form-group">
                                         <label for="areaEkush" class="col-md-3 control-label">আবাদী জমি (২০২১-২২)</label>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control" name="areaEkush" placeholder="আবাদী জমি (২০২১-২২)">
+                                            <input type="number" class="form-control" name="areaEkush" placeholder="আবাদী জমি (২০২১-২২)">
                                         </div>
                                     </div>
 
@@ -89,7 +89,7 @@
                                     <div class="form-group">
                                         <label for="areaBaish" class="col-md-3 control-label">আবাদী জমি (২০২২-২৩)</label>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control" name="areaBaish" placeholder="আবাদী জমি (২০২২-২৩)">
+                                            <input type="number" class="form-control" name="areaBaish" placeholder="আবাদী জমি (২০২২-২৩)">
                                         </div>
                                     </div>
 
@@ -138,7 +138,7 @@
             if(data){
                 $('#breed').append('<option value="0">জাতের নাম</option>');
                 $.each(data, function(key, value){
-                    $('#breed').append('<option value="'+value.id+'">' + value.name + '</option>');
+                    $('#breed').append('<option value="'+value.name+'">' + value.name + '</option>');
                 });
             }else {
                 $('#breed').empty();

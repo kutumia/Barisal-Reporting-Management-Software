@@ -888,15 +888,11 @@ module.exports.technologyExpansionAll=async(req,res)=>{
 };
 module.exports.technologyExpansionAllFilter=async(req,res)=>{
     try{
-        var seventeen=await technologyExpansion.findAll({where: {year:"2017",dd_id: req.body.district}});
-        var eighteen=await technologyExpansion.findAll({where: {year:"2018",dd_id: req.body.district}});
-        var nineteen=await technologyExpansion.findAll({where: {year:"2019",dd_id: req.body.district}});
-        var twenty=await technologyExpansion.findAll({where: {year:"2020",dd_id: req.body.district}});
-        var twentyOne=await technologyExpansion.findAll({where: {year:"2021",dd_id: req.body.district}});
-        var twentyTwo=await technologyExpansion.findAll({where: {year:"2022" ,dd_id: req.body.district}});
+        var technology=await technologyExpansion.findAll({where: {dd_id: req.body.district}});
+        var technologyLists=await technologyList.findAll();
         
         console.log("technologyExpansion",seventeen,eighteen,nineteen,twenty,twentyOne,twentyTwo);
-        res.render('pd/technologyExpansionAll/technologyExpansionTableAll', {seventeen: seventeen,eighteen: eighteen,nineteen: nineteen,twenty: twenty,twentyOne: twentyOne,twentyTwo: twentyTwo} ,function(err, html) {
+        res.render('pd/technologyExpansionAll/technologyExpansionTableAll', {technology: technology,technologyList: technologyLists} ,function(err, html) {
             res.send(html);
         });
     }
