@@ -77,5 +77,7 @@ db.sequelize.sync();
 db.sequelize.sync({ force: false }).then(() => {
   console.log("Drop and re-sync db.");
 });
-
+app.listen(process.env.PORT, () =>
+  console.log(`Server is running on port ${process.env.PORT}`)
+);
 module.exports = app;
