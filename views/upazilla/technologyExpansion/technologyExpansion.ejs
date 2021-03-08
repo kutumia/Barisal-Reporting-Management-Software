@@ -19,474 +19,10 @@
                         </div>
 
                         
-                        <table class="table table-bordered table-striped" id="tblCustomers" cellspacing="0" cellpadding="0">
-                            <thead>
-                                <tr>
-                                    <th rowspan="2">ক্রমিক নং</th>
-                                    <th rowspan="2">প্রযুক্তির নাম</th>
-                                    <th colspan="6">ব্যবহারকারীর (সংখ্যা)</th>
-                                    <th colspan="6">ব্যবহৃত জমি</th>
-                                    <th rowspan="2">পরিবর্তন/মুছুন</th>
-                                </tr>
-                                <tr>
-                                    <th>২০১৭-১৮</th>
-                                    <th>২০১৮-১৯</th>
-                                    <th>২০১৯-২০</th>
-                                    <th>২০২০-২১</th>
-                                    <th>২০২১-২২</th>
-                                    <th>২০২২-২৩</th>
-                                    <th>২০১৭-১৮</th>
-                                    <th>২০১৮-১৯</th>
-                                    <th>২০১৯-২০</th>
-                                    <th>২০২০-২১</th>
-                                    <th>২০২১-২২</th>
-                                    <th>২০২২-২৩</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                    <tr>
-                                        <td>১</td>
-                                        <td>আদর্শ বীজতলায় চারা উৎপাদন</td>
-                                        <td><%= seventeen !== null ? seventeen.adorshoBijUser : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.adorshoBijUser : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.adorshoBijUser : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.adorshoBijUser : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.adorshoBijUser : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.adorshoBijUser : ''  %></td>
-                                        <td><%= seventeen !== null ? seventeen.adorshoBijLand : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.adorshoBijLand : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.adorshoBijLand : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.adorshoBijLand : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.adorshoBijLand : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.adorshoBijLand : ''  %></td>
-                                    </tr>
-                                   
-                                    <tr>
-                                        <td>২</td>
-                                        <td>জৈব সার ব্যবহার</td>
-                                        <td><%= seventeen !== null ? seventeen.joiboSharUser : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.joiboSharUser : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.joiboSharUser : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.joiboSharUser : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.joiboSharUser : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.joiboSharUser : ''  %></td>
-                                        <td><%= seventeen !== null ? seventeen.joiboSharLand : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.joiboSharLand : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.joiboSharLand : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.joiboSharLand : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.joiboSharLand : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.joiboSharLand : ''  %></td>
-                                    </tr>
-                                    <tr>
-                                        <td>৩</td>
-                                        <td>কম্পোস্ট সার তৈরি ও ব্যবহার</td>
-                                        <td><%= seventeen !== null ? seventeen.compostSharUser : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.compostSharUser : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.compostSharUser : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.compostSharUser : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.compostSharUser : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.compostSharUser : ''  %></td>
-                                        <td><%= seventeen !== null ? seventeen.compostSharLand : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.compostSharLand : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.compostSharLand : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.compostSharLand : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.compostSharLand : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.compostSharLand : ''  %></td>
-                                    </tr>
-                                    <tr>
-                                        <td>৪</td>
-                                        <td>ভার্মিকম্পোস্ট তৈরি ও ব্যবহার</td>
-                                        <td><%= seventeen !== null ? seventeen.vermiCompostUser : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.vermiCompostUser : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.vermiCompostUser : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.vermiCompostUser : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.vermiCompostUser : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.vermiCompostUser : ''  %></td>
-                                        <td><%= seventeen !== null ? seventeen.vermiCompostLand : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.vermiCompostLand : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.vermiCompostLand : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.vermiCompostLand : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.vermiCompostLand : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.vermiCompostLand : ''  %></td>
-                                    </tr>
-                                    <tr>
-                                        <td>৫</td>
-                                        <td>খামারজাত সার তৈরি ও ব্যবহার</td>
-                                        <td><%= seventeen !== null ? seventeen.khamarJatUser : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.khamarJatUser : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.khamarJatUser : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.khamarJatUser : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.khamarJatUser : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.khamarJatUser : ''  %></td>
-                                        <td><%= seventeen !== null ? seventeen.khamarJatLand : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.khamarJatLand : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.khamarJatLand : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.khamarJatLand : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.khamarJatLand : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.khamarJatLand : ''  %></td>
-                                    </tr>
-                                    <tr>
-                                        <td>৬</td>
-                                        <td>সুষম সার ব্যবহার</td>
-                                        <td><%= seventeen !== null ? seventeen.shushomoSharUser : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.shushomoSharUser : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.shushomoSharUser : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.shushomoSharUser : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.shushomoSharUser : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.shushomoSharUser : ''  %></td>
-                                        <td><%= seventeen !== null ? seventeen.shushomoSharLand : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.shushomoSharLand : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.shushomoSharLand : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.shushomoSharLand : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.shushomoSharLand : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.shushomoSharLand : ''  %></td>
-                                    </tr>
-                                    <tr>
-                                        <td>৭</td>
-                                        <td>অনলাইন এসারডিয়াই সার সুপারিশ</td>
-                                        <td><%= seventeen !== null ? seventeen.onlineUser : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.onlineUser : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.onlineUser : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.onlineUser : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.onlineUser : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.onlineUser : ''  %></td>
-                                        <td><%= seventeen !== null ? seventeen.onlineLand : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.onlineLand : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.onlineLand : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.onlineLand : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.onlineLand : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.onlineLand : ''  %></td>
-                                    </tr>
-                                    <tr>
-                                        <td>৮</td>
-                                        <td>আইলে সবজি চাষ</td>
-                                        <td><%= seventeen !== null ? seventeen.ayilUser : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.ayilUser : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.ayilUser : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.ayilUser : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.ayilUser : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.ayilUser : ''  %></td>
-                                        <td><%= seventeen !== null ? seventeen.ayilLand : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.ayilLand : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.ayilLand : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.ayilLand : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.ayilLand : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.ayilLand : ''  %></td>
-                                    </tr>
-                                    <tr>
-                                        <td>৯</td>
-                                        <td>রাস্তার ঢালে মাচার সবজি চাষ</td>
-                                        <td><%= seventeen !== null ? seventeen.rastaMachaUser : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.rastaMachaUser : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.rastaMachaUser : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.rastaMachaUser : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.rastaMachaUser : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.rastaMachaUser : ''  %></td>
-                                        <td><%= seventeen !== null ? seventeen.rastaMachaLand : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.rastaMachaLand : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.rastaMachaLand : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.rastaMachaLand : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.rastaMachaLand : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.rastaMachaLand : ''  %></td>
-                                    </tr>
-                                    <tr>
-                                        <td>১০</td>
-                                        <td>ঢিবি/বস্তা পদ্ধতিতে সবজি চাষ</td>
-                                        <td><%= seventeen !== null ? seventeen.bostaUser : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.bostaUser : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.bostaUser : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.bostaUser : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.bostaUser : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.bostaUser : ''  %></td>
-                                        <td><%= seventeen !== null ? seventeen.bostaLand : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.bostaLand : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.bostaLand : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.bostaLand : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.bostaLand : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.bostaLand : ''  %></td>
-                                    </tr>
-                                    <tr>
-                                        <td>১১</td>
-                                        <td>পুকুর বা জলাশয়ের পাশে মাচায় সবজি চাষ</td>
-                                        <td><%= seventeen !== null ? seventeen.pukurMachaUser : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.pukurMachaUser : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.pukurMachaUser : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.pukurMachaUser : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.pukurMachaUser : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.pukurMachaUser : ''  %></td>
-                                        <td><%= seventeen !== null ? seventeen.pukurMachaLand : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.pukurMachaLand : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.pukurMachaLand : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.pukurMachaLand : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.pukurMachaLand : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.pukurMachaLand : ''  %></td>
-                                    </tr>
-                                    <tr>
-                                        <td>১২</td>
-                                        <td>সর্জান পদ্ধতিতে সবজি চাষ</td>
-                                        <td><%= seventeen !== null ? seventeen.shorjanUser : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.shorjanUser : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.shorjanUser : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.shorjanUser : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.shorjanUser : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.shorjanUser : ''  %></td>
-                                        <td><%= seventeen !== null ? seventeen.shorjanLand : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.shorjanLand : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.shorjanLand : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.shorjanLand : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.shorjanLand : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.shorjanLand : ''  %></td>
-                                    </tr>
-                                    <tr>
-                                        <td>১৩</td>
-                                        <td>ভাসমান বেডে সবজি চাষ</td>
-                                        <td><%= seventeen !== null ? seventeen.vashomanUser : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.vashomanUser : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.vashomanUser : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.vashomanUser : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.vashomanUser : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.vashomanUser : ''  %></td>
-                                        <td><%= seventeen !== null ? seventeen.vashomanLand : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.vashomanLand : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.vashomanLand : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.vashomanLand : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.vashomanLand : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.vashomanLand : ''  %></td>
-                                    </tr>
-                                    <tr>
-                                        <td>১৪</td>
-                                        <td>বিনা চাষে সবজি চাষ</td>
-                                        <td><%= seventeen !== null ? seventeen.binaShobjiUser : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.binaShobjiUser : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.binaShobjiUser : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.binaShobjiUser : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.binaShobjiUser : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.binaShobjiUser : ''  %></td>
-                                        <td><%= seventeen !== null ? seventeen.binaShobjiLand : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.binaShobjiLand : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.binaShobjiLand : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.binaShobjiLand : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.binaShobjiLand : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.binaShobjiLand : ''  %></td>
-                                    </tr>
-                                    <tr>
-                                        <td>১৫</td>
-                                        <td>বিনা চাষে রসুন চাষ</td>
-                                        <td><%= seventeen !== null ? seventeen.binaRoshunUser : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.binaRoshunUser : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.binaRoshunUser : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.binaRoshunUser : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.binaRoshunUser : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.binaRoshunUser : ''  %></td>
-                                        <td><%= seventeen !== null ? seventeen.binaRoshunLand : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.binaRoshunLand : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.binaRoshunLand : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.binaRoshunLand : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.binaRoshunLand : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.binaRoshunLand : ''  %></td>
-                                    </tr>
-                                    <tr>
-                                        <td>১৬</td>
-                                        <td>বিনা চাষে আলু চাষ</td>
-                                        <td><%= seventeen !== null ? seventeen.binaAluUser : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.binaAluUser : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.binaAluUser : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.binaAluUser : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.binaAluUser : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.binaAluUser : ''  %></td>
-                                        <td><%= seventeen !== null ? seventeen.binaAluLand : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.binaAluLand : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.binaAluLand : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.binaAluLand : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.binaAluLand : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.binaAluLand : ''  %></td>
-                                    </tr>
-                    
-                                    <tr>
-                                        <td>১৭</td>
-                                        <td>বিনা চাষে সরিষা চাষ</td>
-                                        <td><%= seventeen !== null ? seventeen.binaShorishaUser : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.binaShorishaUser : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.binaShorishaUser : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.binaShorishaUser : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.binaShorishaUser : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.binaShorishaUser : ''  %></td>
-                                        <td><%= seventeen !== null ? seventeen.binaShorishaLand : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.binaShorishaLand : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.binaShorishaLand : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.binaShorishaLand : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.binaShorishaLand : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.binaShorishaLand : ''  %></td>
-                                    </tr>
-                                   
-                                    <tr>
-                                        <td>১৮</td>
-                                        <td>আলোক ফাঁদ ব্যবহার</td>
-                                        <td><%= seventeen !== null ? seventeen.alokFaadUser : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.alokFaadUser : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.alokFaadUser : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.alokFaadUser : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.alokFaadUser : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.alokFaadUser : ''  %></td>
-                                        <td><%= seventeen !== null ? seventeen.alokFaadLand : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.alokFaadLand : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.alokFaadLand : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.alokFaadLand : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.alokFaadLand : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.alokFaadLand : ''  %></td>
-                                    </tr>
-                                    <tr>
-                                        <td>১৯</td>
-                                        <td>ফেরোমান ফাঁদ ব্যবহার</td>
-                                        <td><%= seventeen !== null ? seventeen.feromanUser : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.feromanUser : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.feromanUser : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.feromanUser : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.feromanUser : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.feromanUser : ''  %></td>
-                                        <td><%= seventeen !== null ? seventeen.feromanLand : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.feromanLand : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.feromanLand : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.feromanLand : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.feromanLand : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.feromanLand : ''  %></td>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>২০</td>
-                                        <td>বিষটোপ ফাঁদ ব্যবহার</td>
-                                        <td><%= seventeen !== null ? seventeen.bishtopUser : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.bishtopUser : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.bishtopUser : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.bishtopUser : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.bishtopUser : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.bishtopUser : ''  %></td>
-                                        <td><%= seventeen !== null ? seventeen.bishtopLand : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.bishtopLand : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.bishtopLand : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.bishtopLand : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.bishtopLand : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.bishtopLand : ''  %></td>
-                                    </tr>
-                                    <tr>
-                                        <td>২১</td>
-                                        <td>হলুদ আঠালো ব্যবহার</td>
-                                        <td><%= seventeen !== null ? seventeen.holudAthaloUser : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.holudAthaloUser : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.holudAthaloUser : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.holudAthaloUser : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.holudAthaloUser : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.holudAthaloUser : ''  %></td>
-                                        <td><%= seventeen !== null ? seventeen.holudAthaloLand : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.holudAthaloLand : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.holudAthaloLand : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.holudAthaloLand : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.holudAthaloLand : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.holudAthaloLand : ''  %></td>
-                                    </tr>
-                                    <tr>
-                                        <td>২২</td>
-                                        <td>পারচিং</td>
-                                        <td><%= seventeen !== null ? seventeen.parchingUser : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.parchingUser : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.parchingUser : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.parchingUser : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.parchingUser : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.parchingUser : ''  %></td>
-                                        <td><%= seventeen !== null ? seventeen.parchingLand : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.parchingLand : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.parchingLand : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.parchingLand : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.parchingLand : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.parchingLand : ''  %></td>
-                                    </tr>
-                                    <tr>
-                                        <td>২৩</td>
-                                        <td>পলিথিন পারচিং</td>
-                                        <td><%= seventeen !== null ? seventeen.polytheneParchingUser : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.polytheneParchingUser : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.polytheneParchingUser : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.polytheneParchingUser : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.polytheneParchingUser : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.polytheneParchingUser : ''  %></td>
-                                        <td><%= seventeen !== null ? seventeen.polytheneParchingLand : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.polytheneParchingLand : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.polytheneParchingLand : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.polytheneParchingLand : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.polytheneParchingLand : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.polytheneParchingLand : ''  %></td>
-                                    </tr>
-                                    <tr>
-                                        <td>২৪</td>
-                                        <td>ব্যাগিং (সবজি)</td>
-                                        <td><%= seventeen !== null ? seventeen.baggingShobjiUser : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.baggingShobjiUser : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.baggingShobjiUser : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.baggingShobjiUser : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.baggingShobjiUser : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.baggingShobjiUser : ''  %></td>
-                                        <td><%= seventeen !== null ? seventeen.baggingShobjiLand : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.baggingShobjiLand : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.baggingShobjiLand : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.baggingShobjiLand : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.baggingShobjiLand : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.baggingShobjiLand : ''  %></td>
-                                    </tr>
-                                    <tr>
-                                        <td>২৫</td>
-                                        <td>ব্যাগিং (ফল)</td>
-                                        <td><%= seventeen !== null ? seventeen.baggingFolUser : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.baggingFolUser : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.baggingFolUser : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.baggingFolUser : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.baggingFolUser : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.baggingFolUser : ''  %></td>
-                                        <td><%= seventeen !== null ? seventeen.baggingFolLand : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.baggingFolLand : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.baggingFolLand : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.baggingFolLand : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.baggingFolLand : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.baggingFolLand : ''  %></td>
-                                    </tr>
-                                    <tr>
-                                        <td>২৬</td>
-                                        <td>ফল্ গাছে প্রুণিং</td>
-                                        <td><%= seventeen !== null ? seventeen.folPruningUser : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.folPruningUser : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.folPruningUser : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.folPruningUser : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.folPruningUser : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.folPruningUser : ''  %></td>
-                                        <td><%= seventeen !== null ? seventeen.folPruningLand : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.folPruningLand : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.folPruningLand : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.folPruningLand : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.folPruningLand : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.folPruningLand : ''  %></td>
-                                    </tr>
-                                    <tr>
-                                        <td>২৭</td>
-                                        <td>ফলগাছে সার ও সেচ ব্যবস্থাপনা</td>
-                                        <td><%= seventeen !== null ? seventeen.folSharShechUser : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.folSharShechUser : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.folSharShechUser : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.folSharShechUser : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.folSharShechUser : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.folSharShechUser : ''  %></td>
-                                        <td><%= seventeen !== null ? seventeen.folSharShechLand : ''  %></td>
-                                        <td><%= eighteen !== null ? eighteen.folSharShechLand : '' %></td>
-                                        <td><%= nineteen !== null ? nineteen.folSharShechLand : ''  %></td>
-                                        <td><%= twenty !== null ? twenty.folSharShechLand : ''  %></td>
-                                        <td><%= twentyOne !== null ? twentyOne.folSharShechLand : ''  %></td>
-                                        <td><%= twentyTwo !== null ? twentyTwo.folSharShechLand : ''  %></td>
-                                    </tr>
-                                    
-                            </tbody>
-                        </table>
-
+                        <div class="table-responsive" id="output"></div>
                         <input type="button" id="btnExport" value="Download PDF" />
 
-                        <div id="output"></div>
+                        
         <!--                    <div id="loading" class="loading"><img src="{{ asset('assets/img/icon/loading.gif') }}" alt=""></div>-->
                     </div>
                 </div>
@@ -496,4 +32,83 @@
 
    
 <%- include('../../includes/footer')-%>
+<script>
+        
+    $(document).ready(function(){
+        
+      $('.dropdown a.test').on("click", function(e){
+        $(this).next('ul').toggle();
+        e.stopPropagation();
+        e.preventDefault();
+      });
+    });
+</script>
 
+<script type="text/javascript">
+   
+    $("body").on("click", "#btnExport", function () {
+        html2canvas($('#tblCustomers')[0], {
+            onrendered: function (canvas) {
+                var data = canvas.toDataURL();
+                var docDefinition = {
+                    content: [{
+                        image: data,
+                        width: 650
+                    }]
+                };
+                pdfMake.createPdf(docDefinition).download("farmer-details.pdf");
+            }
+        });
+    });
+
+    $("#wrapper").load( "no url rn",function() {
+        
+        $.ajax({
+            type: "POST",
+            url: "/upazilla/technologyExpansionYear",
+            datatype: "json",
+            beforeSend: function() {
+                // setting a timeout
+                $('#loading').show();
+                $('#output').hide();
+
+            },
+            success: function (data) {
+                $('#output').html(data);
+                $('#tblCustomers').DataTable();
+            },
+            complete: function() {
+                $('#loading').hide();
+                $('#output').show();
+            }
+        });
+    });
+
+    $('#year').on("change",function () {
+        $.ajax({
+            type: "POST",
+            url: "/upazilla/technologyExpansionYear",
+            datatype: "json",
+            beforeSend: function() {
+                // setting a timeout
+                $('#loading').show();
+                $('#output').hide();
+            },
+            success: function (data) {
+                $('#output').html(data);
+                $('#tblCustomers').DataTable();
+            },
+            complete: function() {
+                $('#loading').hide();
+                $('#output').show();
+            }
+        });
+    });
+
+    $(document).ready(function() {
+        $('#tblCustomers').DataTable();
+    } );
+
+    
+
+</script>

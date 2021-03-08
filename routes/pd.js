@@ -6,10 +6,11 @@ const app=express();
 const {demonstration,demonstrationFilter,fieldDay,fieldDayFilter,farmerTraining,farmerTrainingFilter,agriFair,agriFairFilter,farmerPrize,farmerPrizeFilter,cropNibirota,cropNibirotaFilter,cropNibirotaUpazillaFilter,cropNibirotaDistrictFilter,
     llp,llpFilter,solarLight,solarLightFilter,dashboardMonitoring,pdsignup,pdsignuppost,pdlogin,pdloginpost,pdDashboard,cropExpansionAllFilter,cropExpansionAll,selectedField,selectedFieldFilter,selectedFieldUpazillaFilter,selectedFieldDistrictFilter,
     trainedFarmer,trainedFarmerFilter,initialTrial,initialTrialFilter,breedExpansionDistrictFilter,cropExpansionDistrictFilter,agriFairDistrictFilter,producedCrop,producedCropFilter,producedCropUpazillaFilter,producedCropDistrictFilter,
-    finalTrial,finalTrialFilter,trialProgress,trialProgressFilter,trainedFarmerDistrictFilter,abadiJomiDistrictFilter,farmerTrainingDistrictFilter,
-    cropExpansion,cropExpansionFilter,breedExpansion,breedExpansionFilter,technologyExpansionDistrictFilter,fieldDayDistrictFilter,cumulative,abadiJomiAllFilter,abadiJomiAll,
+    finalTrial,finalTrialFilter,trialProgress,trialProgressFilter,trainedFarmerDistrictFilter,abadiJomiDistrictFilter,farmerTrainingDistrictFilter,addCrop,addBreed,addTechnology,techList,
+    cropExpansion,cropExpansionFilter,breedExpansion,breedExpansionFilter,technologyExpansionDistrictFilter,fieldDayDistrictFilter,cumulative,abadiJomiAllFilter,abadiJomiAll,cropList,
     technologyExpansion,technologyExpansionFilter,trialProgressDistrictFilter,finalTrialDistrictFilter,initialTrialDistrictFilter,technologyExpansionAll,technologyExpansionAllFilter,
     abadiJomi,abadiJomiFilter,demonstrationDistrictFilter,farmerPrizeDistrictFilter,llpDistrictFilter,solarLightDistrictFilter} = require('../controllers/pd.controller');
+
 router.get('/login',pdlogin);
 router.post('/logins',pdloginpost);
 router.get('/dashboard',pdDashboard);
@@ -18,6 +19,13 @@ router.get('/dashboardMonitoring',dashboardMonitoring);
 
 router.get('/signup',pdsignup);
 router.post('/signups',pdsignuppost);
+
+router.post('/add/crop',addCrop);
+router.post('/add/breed',addBreed);
+router.post('/add/technology',addTechnology);
+
+router.get('/cropList',cropList);
+router.get('/techList',techList);
 
 router.get('/cropNibirota',cropNibirota);
 router.post('/cropNibirotaFilter',cropNibirotaFilter);

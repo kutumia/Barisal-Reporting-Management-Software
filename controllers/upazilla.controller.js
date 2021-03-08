@@ -22,7 +22,8 @@ const solarLight = db.solarLight;
 const selectedField = db.selectedField;
 const cropNibirota = db.cropNibirota;
 const producedCrop = db.producedCrop;
-
+const cropList = db.cropList;
+const technologyList = db.technologyList;
 
 const multer = require("multer");
 const path = require("path");
@@ -915,208 +916,71 @@ module.exports.trialProgressDelete=async(req,res)=>{
 
 //cropExpansion controller
 module.exports.cropExpansion=async(req,res)=>{
-    try{
-        var seventeen=await cropExpansion.findOne({where: {year:"2017",upazilla_id: req.session.user_id}});
-        var eighteen=await cropExpansion.findOne({where: {year:"2018",upazilla_id: req.session.user_id}});
-        var nineteen=await cropExpansion.findOne({where: {year:"2019",upazilla_id: req.session.user_id}});
-        var twenty=await cropExpansion.findOne({where: {year:"2020",upazilla_id: req.session.user_id}});
-        var twentyOne=await cropExpansion.findOne({where: {year:"2021",upazilla_id: req.session.user_id}});
-        var twentyTwo=await cropExpansion.findOne({where: {year:"2022" ,upazilla_id: req.session.user_id}});
-        
-        res.render('upazilla/cropExpansion/cropExpansion', { title: 'প্রকল্প এলাকার ফসল আবাদ অগ্রগতি',success:'', seventeen: seventeen,eighteen: eighteen,nineteen: nineteen,twenty: twenty,twentyOne: twentyOne,twentyTwo: twentyTwo });
-        // var men=seventeen.purush;
-        // console.log("seventeen,",req.typeof(men));
-    }
-    catch(err){
-        res.render('upazilla/cropExpansion/cropExpansion', { title: 'প্রকল্প এলাকার ফসল আবাদ অগ্রগতি',success:'', records: err });
-    }
-   
 
-     
-    //  records:result
+        res.render('upazilla/cropExpansion/cropExpansion', { title: 'প্রকল্প এলাকার প্রযুক্তি সম্প্রসারণ',success:''});
+
 
 };
-
 module.exports.cropExpansionYear=async(req,res)=>{
-    var seventeen=await cropExpansion.findAll({
-        where: {year:2017,upazilla_id: req.session.user_id}
-    });
-    var eighteen=await cropExpansion.findAll({
-        where: {year:2018,upazilla_id: req.session.user_id}
-    });
-    var nineteen=await cropExpansion.findAll({
-        where: {year:2019,upazilla_id: req.session.user_id}
-    });
-    var twenty=await cropExpansion.findAll({
-        where: {year:2020,upazilla_id: req.session.user_id}
-    });
-    var twentyOne=await cropExpansion.findAll({
-        where: {year:2021,upazilla_id: req.session.user_id}
-    });
-    var twentyTwo=await cropExpansion.findAll({
-        where: {year:2022,upazilla_id: req.session.user_id}
+    await cropExpansion.findAll({
+        where: {upazilla_id: req.session.user_id}
     })
     .then(data => {
-        res.render('upazilla/cropExpansion', {seventeen: seventeen,eighteen: eighteen,seventeen: seventeen,nineteen: nineteen,twenty: twenty,twentyOne: twentyOne,twentyTwo: twentyTwo} ,function(err, html) {
+        res.render('upazilla/cropExpansion/cropExpansionTable', {records: data} ,function(err, html) {
             res.send(html);
         });
     })
     .catch(err => {
-        res.render('upazilla/cropExpansion/cropExpansionYear', { title: 'আবাদী জমি ও ফসল উৎপাদন',success:'', records: err });
+        console.log("err",err)
     })
 
 };
-
 module.exports.cropExpansionForm=async(req,res)=>{
     var upazillas= await upazilla.findOne({where: {id: req.session.user_id}});
     var dds=upazillas.dd_id;
-    res.render('upazilla/cropExpansion/cropExpansionForm', { title: 'প্রকল্প এলাকার ফসল আবাদ অগ্রগতি',msg:'' ,success:'',dd:dds,user_id: req.session.user_id,});
+    var data=await cropList.findAll({where: {type: "crop"}})
+      try {
+        res.render('upazilla/cropExpansion/cropExpansionForm', { title: 'প্রকল্প এলাকার প্রযুক্তি সম্প্রসারণ',msg:'' ,success:'',dd:dds,user_id: req.session.user_id,data:data});
+      }
+      catch{
+        console.log(err);
+      };
 };
-
-module.exports.cropExpansionFormPost=async(req,res)=>{ 
-    var aushAbadi= req.body.aushAbadi;
-    var aushUtpadon= req.body.aushUtpadon;
-    var amanAbadi= req.body.amanAbadi;
-    var amanUtpadon= req.body.amanUtpadon;
-    var boroAbadi= req.body.boroAbadi;
-    var boroUtpadon= req.body.boroUtpadon;
-    var hybridAbadi= req.body.hybridAbadi;
-    var hybridUtpadon= req.body.hybridUtpadon;
-    var gomAbadi= req.body.gomAbadi;
-    var gomUtpadon= req.body.gomUtpadon;
-    var vuttaAbadi= req.body.vuttaAbadi;
-    var vuttaUtpadon= req.body.vuttaUtpadon;
-    var barliAbadi= req.body.barliAbadi;
-    var barliUtpadon= req.body.barliUtpadon;
-    var patAbadi= req.body.patAbadi;
-    var patUtpadon= req.body.patUtpadon;
-    var mugAbadi= req.body.mugAbadi;
-    var mugUtpadon= req.body.mugUtpadon;
-    var kheshariAbadi= req.body.kheshariAbadi;
-    var kheshariUtpadon= req.body.kheshariUtpadon;
-    var felonAbadi= req.body.felonAbadi;
-    var felonUtpadon= req.body.felonUtpadon;
-    var shorishaAbadi= req.body.shorishaAbadi;
-    var shorishaUtpadon= req.body.shorishaUtpadon;
-    var tilAbadi= req.body.tilAbadi;
-    var tilUtpadon= req.body.tilUtpadon;
-    var soyabeanAbadi= req.body.soyabeanAbadi;
-    var soyabeanUtpadon= req.body.soyabeanUtpadon;
-    var chinabadamAbadi= req.body.chinabadamAbadi;
-    var chinabadamUtpadon= req.body.chinabadamUtpadon;
-    var surjomukhiAbadi= req.body.surjomukhiAbadi;
-    var surjomukhiUtpadon= req.body.surjomukhiUtpadon;
-    var piyajAbadi= req.body.piyajAbadi;
-    var piyajUtpadon= req.body.piyajUtpadon;
-    var roshunAbadi= req.body.roshunAbadi;
-    var roshunUtpadon= req.body.roshunUtpadon;
-    var holudAbadi= req.body.holudAbadi;
-    var holudUtpadon= req.body.holudUtpadon;
-    var aluAbadi= req.body.aluAbadi;
-    var aluUtpadon= req.body.aluUtpadon;
-    var begunAbadi= req.body.begunAbadi;
-    var begunUtpadon= req.body.begunUtpadon;
-    var tomatoAbadi= req.body.tomatoAbadi;
-    var tomatoUtpadon= req.body.tomatoUtpadon;
-    var dheroshAbadi= req.body.dheroshAbadi;
-    var dheroshUtpadon= req.body.dheroshUtpadon;
-    var puishakAbadi= req.body.puishakAbadi;
-    var puishakUtpadon= req.body.puishakUtpadon;
-    var kumraAbadi= req.body.kumraAbadi;
-    var kumraUtpadon= req.body.kumraUtpadon;
-    var simAbadi= req.body.simAbadi;
-    var simUtpadon= req.body.simUtpadon;
-    var amAbadi= req.body.amAbadi;
-    var amUtpadon= req.body.amUtpadon;
-    var peyaraAbadi= req.body.peyaraAbadi;
-    var peyaraUtpadon= req.body.peyaraUtpadon;
-    var kolaAbadi= req.body.kolaAbadi;
-    var kolaUtpadon= req.body.kolaUtpadon;
-    var pepeAbadi= req.body.pepeAbadi;
-    var pepeUtpadon= req.body.pepeUtpadon;
-    var sofedaAbadi= req.body.sofedaAbadi;
-    var sofedaUtpadon= req.body.sofedaUtpadon;
-    var maltaAbadi= req.body.maltaAbadi;
-    var maltaUtpadon= req.body.maltaUtpadon;
-    var kulAbadi= req.body.kulAbadi;
-    var kulUtpadon= req.body.kulUtpadon;
-    var tormujAbadi= req.body.tormujAbadi;
-    var tormujUtpadon= req.body.tormujUtpadon;    
-    var year =req.body.year;
+module.exports.cropExpansionFormPost=async(req,res)=>{
+    var crop= req.body.name;
+    var areaShotero= req.body.areaShotero;
+    var productionShotero= req.body.productionShotero;
+    var areaAtharo= req.body.areaAtharo;
+    var productionAtharo= req.body.productionAtharo;
+    var areaUnish= req.body.areaUnish;
+    var productionUnish= req.body.productionUnish;
+    var areaBish= req.body.areaBish;
+    var productionBish= req.body.productionBish;
+    var areaEkush= req.body.areaEkush;
+    var productionEkush= req.body.productionEkush;
+    var areaBaish= req.body.areaBaish;
+    var productionBaish= req.body.productionBaish;
     var user_id =req.body.user_id;
+    var dd_id =req.body.dd;
 
     await cropExpansion.create({
-        aushAbadi: aushAbadi,
-        aushUtpadon:aushUtpadon,
-        amanAbadi:amanAbadi,
-        amanUtpadon:amanUtpadon,
-        boroAbadi:boroAbadi,
-        boroUtpadon:boroUtpadon,
-        hybridAbadi:hybridAbadi,
-        hybridUtpadon:hybridUtpadon,
-        gomAbadi:gomAbadi,
-        gomUtpadon:gomUtpadon,
-        vuttaAbadi:vuttaAbadi,
-        vuttaUtpadon:vuttaUtpadon,
-        barliAbadi:barliAbadi,
-        barliUtpadon: barliUtpadon,
-        patAbadi:patAbadi,
-        patUtpadon:patUtpadon,
-        mugAbadi:mugAbadi,
-        mugUtpadon:mugUtpadon,
-        kheshariAbadi:kheshariAbadi,
-        kheshariUtpadon:kheshariUtpadon,
-        felonAbadi:felonAbadi,
-        felonUtpadon:felonUtpadon,
-        shorishaAbadi:shorishaAbadi,
-        shorishaUtpadon:shorishaUtpadon,
-        tilAbadi:tilAbadi,
-        tilUtpadon:tilUtpadon,
-        soyabeanAbadi: soyabeanAbadi,
-        soyabeanUtpadon:soyabeanUtpadon,
-        chinabadamAbadi:chinabadamAbadi,
-        chinabadamUtpadon:chinabadamUtpadon,
-        surjomukhiAbadi:surjomukhiAbadi,
-        surjomukhiUtpadon:surjomukhiUtpadon,
-        piyajAbadi:piyajAbadi,
-        piyajUtpadon:piyajUtpadon,
-        roshunAbadi:roshunAbadi,
-        roshunUtpadon:roshunUtpadon,
-        holudAbadi:holudAbadi,
-        holudUtpadon:holudUtpadon,
-        aluAbadi:aluAbadi,
-        aluUtpadon:aluUtpadon,
-        begunAbadi:begunAbadi,
-        begunUtpadon:begunUtpadon,
-        tomatoAbadi:tomatoAbadi,
-        tomatoUtpadon:tomatoUtpadon,
-        dheroshAbadi:dheroshAbadi,
-        dheroshUtpadon:dheroshUtpadon,
-        puishakAbadi:puishakAbadi,
-        puishakUtpadon:puishakUtpadon,
-        kumraAbadi:kumraAbadi,
-        kumraUtpadon:kumraUtpadon,
-        simAbadi:simAbadi,
-        simUtpadon:simUtpadon,
-        amAbadi:amAbadi,
-        amUtpadon:amUtpadon,
-        peyaraAbadi:peyaraAbadi,
-        peyaraUtpadon:peyaraUtpadon,
-        kolaAbadi:kolaAbadi,
-        kolaUtpadon:kolaUtpadon,
-        pepeAbadi:pepeAbadi,
-        pepeUtpadon:pepeUtpadon,
-        sofedaAbadi:sofedaAbadi,
-        sofedaUtpadon:sofedaUtpadon,
-        maltaAbadi:maltaAbadi,
-        maltaUtpadon:maltaUtpadon,
-        kulAbadi:kulAbadi,
-        kulUtpadon:kulUtpadon,
-        tormujAbadi:tormujAbadi,
-        tormujUtpadon:tormujUtpadon,       
-        year:year,
-        upazilla_id:user_id
+        crop: crop,
+        areaShotero:areaShotero,
+        productionShotero:productionShotero,
+        areaAtharo:areaAtharo,
+        productionAtharo:productionAtharo,
+        areaUnish:areaUnish,
+        productionUnish:productionUnish,
+        areaBish:areaBish,
+        productionBish:productionBish,
+        areaEkush:areaEkush,
+        productionEkush:productionEkush,
+        areaBaish:areaBaish,
+        productionBaish:productionBaish,
+        upazilla_id:user_id,
+        dd_id:dd_id
     })
+    
     
         
         .then(data => {
@@ -1127,11 +991,10 @@ module.exports.cropExpansionFormPost=async(req,res)=>{
   
 };
 module.exports.cropExpansionEdit=async(req,res)=>{
-    res.render('upazilla/cropExpansion/cropExpansionForm', { title: 'প্রকল্প এলাকার ফসল আবাদ অগ্রগতি',msg:'' ,success:'',user_id: req.session.user_id});
+    res.render('upazilla/cropExpansion/cropExpansionForm', { title: 'প্রকল্প এলাকার প্রযুক্তি সম্প্রসারণ',msg:'' ,success:'',user_id: req.session.user_id});
 };
-
-module.exports.cropExpansionDelete=async(req,res)=>{ 
-    var name= req.body.name;
+module.exports.cropExpansionDelete=async(req,res)=>{
+    var technology= req.body.technology;
     var areaShotero= req.body.areaShotero;
     var productionShotero= req.body.productionShotero;
     var areaAtharo= req.body.areaAtharo;
@@ -1147,8 +1010,8 @@ module.exports.cropExpansionDelete=async(req,res)=>{
     var year =req.body.year;
     var user_id =req.body.user_id;
 
-    await cropExpansion.create({
-        name: name,
+    await technologyExpansion.create({
+        technology: technology,
         areaShotero:areaShotero,
         productionShotero:productionShotero,
         areaAtharo:areaAtharo,
@@ -1165,15 +1028,16 @@ module.exports.cropExpansionDelete=async(req,res)=>{
         upazilla_id:user_id
     })
     
+    
         
         .then(data => {
-            res.redirect('/upazilla/cropExpansion');
+            res.redirect('/upazilla/technologyExpansion');
         }).catch(err => {
             res.render('errorpage',err);
         });
   
 };
-//cropExpansion controller end
+//technologyExpansion controller end
 
 //breedExpansion controller
 module.exports.breedExpansion=async(req,res)=>{
@@ -1181,12 +1045,10 @@ module.exports.breedExpansion=async(req,res)=>{
         where: {upazilla_id: req.session.user_id}
     })
     .then(data => {
-        console.log("inside");
         res.render('upazilla/breedExpansion/breedExpansion', { title: 'প্রকল্প এলাকার ফসলের জাত সম্প্রসারণ',success:'', records: data });
     })
     .catch(err => {
-        console.log("outside");
-        res.render('upazilla/breedExpansion/breedExpansion', { title: 'প্রকল্প এলাকার ফসলের জাত সম্প্রসারণ',success:'', records: err });
+        console.log("outside",err);
     })
      
     //  records:result
@@ -1195,7 +1057,7 @@ module.exports.breedExpansion=async(req,res)=>{
 
 module.exports.breedExpansionYear=async(req,res)=>{
     await breedExpansion.findAll({
-        where: {year: req.body.year,upazilla_id: req.session.user_id}
+        where: {upazilla_id: req.session.user_id}
     })
     .then(data => {
         res.render('upazilla/breedExpansion/breedExpansionTable', {records: data} ,function(err, html) {
@@ -1203,13 +1065,21 @@ module.exports.breedExpansionYear=async(req,res)=>{
         });
     })
     .catch(err => {
-        res.render('upazilla/breedExpansion/breedExpansionYear', { title: 'প্রকল্প এলাকার ফসলের জাত সম্প্রসারণ',success:'', records: err });
+        console.log(err);
     })
 
 };
 
 module.exports.breedExpansionForm=async(req,res)=>{
-    res.render('upazilla/breedExpansion/breedExpansionForm', { title: 'প্রকল্প এলাকার ফসলের জাত সম্প্রসারণ',msg:'' ,success:'',user_id: req.session.user_id});
+    var upazillas= await upazilla.findOne({where: {id: req.session.user_id}});
+    var dds=upazillas.dd_id;
+    var data=await cropList.findAll({where: {type: "crop"}})
+    try {
+        res.render('upazilla/breedExpansion/breedExpansionForm', { title: 'প্রকল্প এলাকার জাত সম্প্রসারণ',msg:'' ,success:'',dd:dds,user_id: req.session.user_id,data:data});
+      }
+      catch{
+        console.log(err);
+      };
 };
 
 module.exports.breedExpansionFormPost=async(req,res)=>{
@@ -1306,33 +1176,32 @@ module.exports.breedExpansionDelete=async(req,res)=>{
         });
   
 };
+module.exports.fetchBreed = async (req, res) => {
+    var crop=await cropList.findOne({where: {name:req.body.name}});
+    var cropId=crop.id;
+    await cropList.findAll({where: {type: "breed",parent_id:cropId}})
+      .then((breed) => {
+        res.send(breed);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 //breedExpansion controller end
 
 //technologyExpansion controller
 module.exports.technologyExpansion=async(req,res)=>{
-    try{
-        var seventeen=await technologyExpansion.findOne({where: {year:"2017",upazilla_id: req.session.user_id}});
-        var eighteen=await technologyExpansion.findOne({where: {year:"2018",upazilla_id: req.session.user_id}});
-        var nineteen=await technologyExpansion.findOne({where: {year:"2019",upazilla_id: req.session.user_id}});
-        var twenty=await technologyExpansion.findOne({where: {year:"2020",upazilla_id: req.session.user_id}});
-        var twentyOne=await technologyExpansion.findOne({where: {year:"2021",upazilla_id: req.session.user_id}});
-        var twentyTwo=await technologyExpansion.findOne({where: {year:"2022" ,upazilla_id: req.session.user_id}});
-        
-        res.render('upazilla/technologyExpansion/technologyExpansion', { title: 'প্রকল্প এলাকার প্রযুক্তি সম্প্রসারণ',success:'', seventeen: seventeen,eighteen: eighteen,nineteen: nineteen,twenty: twenty,twentyOne: twentyOne,twentyTwo: twentyTwo });
-        // var men=seventeen.purush;
-        // console.log("seventeen,",req.typeof(men));
-    }
-    catch(err){
-        res.render('upazilla/technologyExpansion/technologyExpansion', { title: 'প্রকল্প এলাকার প্রযুক্তি সম্প্রসারণ',success:'', records: err });
-    }
+    
+        res.render('upazilla/technologyExpansion/technologyExpansion', { title: 'প্রকল্প এলাকার প্রযুক্তি সম্প্রসারণ',success:'' });
+
+
      
     //  records:result
 
 };
-
 module.exports.technologyExpansionYear=async(req,res)=>{
     await technologyExpansion.findAll({
-        where: {year: req.body.year,upazilla_id: req.session.user_id}
+        where: {upazilla_id: req.session.user_id}
     })
     .then(data => {
         res.render('upazilla/technologyExpansion/technologyExpansionTable', {records: data} ,function(err, html) {
@@ -1340,132 +1209,52 @@ module.exports.technologyExpansionYear=async(req,res)=>{
         });
     })
     .catch(err => {
-        res.render('upazilla/technologyExpansion/technologyExpansionYear', { title: 'প্রকল্প এলাকার প্রযুক্তি সম্প্রসারণ',success:'', records: err });
+        console.log("err",err)
     })
 
 };
-
 module.exports.technologyExpansionForm=async(req,res)=>{
-    res.render('upazilla/technologyExpansion/technologyExpansionForm', { title: 'প্রকল্প এলাকার প্রযুক্তি সম্প্রসারণ',msg:'' ,success:'',user_id: req.session.user_id});
+    var upazillas= await upazilla.findOne({where: {id: req.session.user_id}});
+    var dds=upazillas.dd_id;
+    var data=await technologyList.findAll()
+      try {
+        res.render('upazilla/technologyExpansion/technologyExpansionForm', { title: 'প্রকল্প এলাকার প্রযুক্তি সম্প্রসারণ',msg:'' ,success:'',dd:dds,user_id: req.session.user_id,data:data});
+      }
+      catch{
+        console.log(err);
+      };
 };
-
 module.exports.technologyExpansionFormPost=async(req,res)=>{
-    var adorshoBijUser= req.body.adorshoBijUser;
-    var adorshoBijLand= req.body.adorshoBijLand;
-    var joiboSharUser= req.body.joiboSharUser;
-    var joiboSharLand= req.body.joiboSharLand;
-    var compostSharUser= req.body.compostSharUser;
-    var compostSharLand= req.body.compostSharLand;
-    var vermiCompostUser= req.body.vermiCompostUser;
-    var vermiCompostLand= req.body.vermiCompostLand;
-    var khamarJatUser= req.body.khamarJatUser;
-    var khamarJatLand= req.body.khamarJatLand;
-    var shushomoSharUser= req.body.shushomoSharUser;
-    var shushomoSharLand= req.body.shushomoSharLand;
-    var onlineUser= req.body.onlineUser;
-    var onlineLand= req.body.onlineLand;
-    var ayilUser= req.body.ayilUser;
-    var ayilLand= req.body.ayilLand;
-    var rastaMachaUser= req.body.rastaMachaUser;
-    var rastaMachaLand= req.body.rastaMachaLand;
-    var bostaUser= req.body.bostaUser;
-    var bostaLand= req.body.bostaLand;
-    var pukurMachaUser= req.body.pukurMachaUser;
-    var pukurMachaLand= req.body.pukurMachaLand;
-    var shorjanUser= req.body.shorjanUser;
-    var shorjanLand= req.body.shorjanLand;
-
-    var vashomanUser= req.body.vashomanUser;
-    var vashomanLand= req.body.vashomanLand;
-    var binaShobjiUser= req.body.binaShobjiUser;
-    var binaShobjiLand= req.body.binaShobjiLand;
-    var binaRoshunUser= req.body.binaRoshunUser;
-    var binaRoshunLand= req.body.binaRoshunLand;
-    var binaAluUser= req.body.binaAluUser;
-    var binaAluLand= req.body.binaAluLand;
-    var binaShorishaUser= req.body.binaShorishaUser;
-    var binaShorishaLand= req.body.binaShorishaLand;
-    var alokFaadUser= req.body.alokFaadUser;
-    var alokFaadLand= req.body.alokFaadLand;
-    var feromanUser= req.body.feromanUser;
-    var feromanLand= req.body.feromanLand;
-    var bishtopUser= req.body.bishtopUser;
-    var bishtopLand= req.body.bishtopLand;
-    var holudAthaloUser= req.body.holudAthaloUser;
-    var holudAthaloLand= req.body.holudAthaloLand;
-    var parchingUser= req.body.parchingUser;
-    var parchingLand= req.body.parchingLand;
-    var polytheneParchingUser= req.body.polytheneParchingUser;
-    var polytheneParchingLand= req.body.polytheneParchingLand;
-    var baggingShobjiUser= req.body.baggingShobjiUser;
-    var baggingShobjiLand= req.body.baggingShobjiLand;
-    var baggingFolUser= req.body.baggingFolUser;
-    var baggingFolLand= req.body.baggingFolLand;
-    var folPruningUser= req.body.folPruningUser;
-    var folPruningLand= req.body.folPruningLand;
-    var folSharShechUser= req.body.folSharShechUser;
-    var folSharShechLand= req.body.folSharShechLand;
-    var year =req.body.year;
+    var technology= req.body.technology;
+    var areaShotero= req.body.areaShotero;
+    var userShotero= req.body.userShotero;
+    var areaAtharo= req.body.areaAtharo;
+    var userAtharo= req.body.userAtharo;
+    var areaUnish= req.body.areaUnish;
+    var userUnish= req.body.userUnish;
+    var areaBish= req.body.areaBish;
+    var userBish= req.body.userBish;
+    var areaEkush= req.body.areaEkush;
+    var userEkush= req.body.userEkush;
+    var areaBaish= req.body.areaBaish;
+    var userBaish= req.body.userBaish;
     var user_id =req.body.user_id;
     var dd_id =req.body.dd;
 
     await technologyExpansion.create({
-        adorshoBijUser: adorshoBijUser,
-        adorshoBijLand:adorshoBijLand,
-        joiboSharUser:joiboSharUser,
-        joiboSharLand:joiboSharLand,
-        compostSharUser:compostSharUser,
-        compostSharLand:compostSharLand,
-        vermiCompostUser:vermiCompostUser,
-        vermiCompostLand:vermiCompostLand,
-        khamarJatUser:khamarJatUser,
-        khamarJatLand:khamarJatLand,
-        shushomoSharUser:shushomoSharUser,
-        shushomoSharLand:shushomoSharLand,
-        onlineUser:onlineUser,
-        onlineLand: onlineLand,
-        ayilUser:ayilUser,
-        ayilLand:ayilLand,
-        rastaMachaUser:rastaMachaUser,
-        rastaMachaLand:rastaMachaLand,
-        bostaUser:bostaUser,
-        bostaLand:bostaLand,
-        pukurMachaUser:pukurMachaUser,
-        pukurMachaLand:pukurMachaLand,
-        shorjanUser:shorjanUser,
-        shorjanLand:shorjanLand,
-
-        vashomanUser: vashomanUser,
-        vashomanLand:vashomanLand,
-        binaShobjiUser:binaShobjiUser,
-        binaShobjiLand:binaShobjiLand,
-        binaRoshunUser:binaRoshunUser,
-        binaRoshunLand:binaRoshunLand,
-        binaAluUser:binaAluUser,
-        binaAluLand:binaAluLand,
-        binaShorishaUser:binaShorishaUser,
-        binaShorishaLand:binaShorishaLand,
-        alokFaadUser:alokFaadUser,
-        alokFaadLand:alokFaadLand,
-        feromanUser:feromanUser,
-        feromanLand: feromanLand,
-        bishtopUser:bishtopUser,
-        bishtopLand:bishtopLand,
-        holudAthaloUser:holudAthaloUser,
-        holudAthaloLand:holudAthaloLand,
-        parchingUser:parchingUser,
-        parchingLand:parchingLand,
-        polytheneParchingUser:polytheneParchingUser,
-        polytheneParchingLand:polytheneParchingLand,
-        baggingShobjiUser:baggingShobjiUser,
-        baggingShobjiLand:baggingShobjiLand,
-        baggingFolUser:baggingFolUser,
-        baggingFolLand:baggingFolLand,
-        folPruningUser:folPruningUser,
-        folPruningLand:folPruningLand,
-        folSharShechUser:folSharShechUser,
-        folSharShechLand:folSharShechLand,
-        year:year,
+        technology: technology,
+        areaShotero:areaShotero,
+        userShotero:userShotero,
+        areaAtharo:areaAtharo,
+        userAtharo:userAtharo,
+        areaUnish:areaUnish,
+        userUnish:userUnish,
+        areaBish:areaBish,
+        userBish:userBish,
+        areaEkush:areaEkush,
+        userEkush:userEkush,
+        areaBaish:areaBaish,
+        userBaish:userBaish,
         upazilla_id:user_id,
         dd_id:dd_id
     })
@@ -1482,9 +1271,8 @@ module.exports.technologyExpansionFormPost=async(req,res)=>{
 module.exports.technologyExpansionEdit=async(req,res)=>{
     res.render('upazilla/technologyExpansion/technologyExpansionForm', { title: 'প্রকল্প এলাকার প্রযুক্তি সম্প্রসারণ',msg:'' ,success:'',user_id: req.session.user_id});
 };
-
 module.exports.technologyExpansionDelete=async(req,res)=>{
-    var name= req.body.name;
+    var technology= req.body.technology;
     var areaShotero= req.body.areaShotero;
     var productionShotero= req.body.productionShotero;
     var areaAtharo= req.body.areaAtharo;
@@ -1501,7 +1289,7 @@ module.exports.technologyExpansionDelete=async(req,res)=>{
     var user_id =req.body.user_id;
 
     await technologyExpansion.create({
-        name: name,
+        technology: technology,
         areaShotero:areaShotero,
         productionShotero:productionShotero,
         areaAtharo:areaAtharo,

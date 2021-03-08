@@ -14,11 +14,11 @@
                      <!--    cropName -->
                      <div class="card">
                         <div class="card-body">
-                            <form action="/pd/add/cropName" method="post">
+                            <form action="/pd/add/crop" method="post">
                                 <div class="form-row">
                                     <div class="col">
                                         <label for="">ফসলের নাম</label>
-                                        <input type="text"  id="cropName" name="cropName" class="form-control">
+                                        <input type="text"  id="crop" name="crop" class="form-control">
                                     </div>
                                     <div class="col">
                                         <label for=""></label>
@@ -26,8 +26,8 @@
                                     </div>
 
                                     <div class="col">
-                                        <% crop.forEach((row) => {
-                                        if (row.type === 'cropName'){
+                                        <% cropList.forEach((row) => {
+                                        if (row.type === 'crop'){
                                         %>
                                             <span style="margin-right: 2px"> <%= row.name %> </span> |
                                         <%
@@ -43,14 +43,14 @@
                     <!--  breedName -->
                     <div class="card">
                         <div class="card-body">
-                            <form action="/pd/add/breedName" method="post">
+                            <form action="/pd/add/breed" method="post">
                                 <div class="form-row">
                                     <div class="col">
                                         <label for="">ফসলের নাম</label>
-                                        <select class="form-control" id="cropName" name="cropName">
+                                        <select class="form-control" id="crop" name="crop">
                                             <option selected> ফসলের নাম বাছুনঃ </option>
-                                            <% crop.forEach((row) => {
-                                            if (row.type === 'cropName'){
+                                            <% cropList.forEach((row) => {
+                                            if (row.type === 'crop'){
                                             %>
                                                 <option value="<%= row.id %>"> <%= row.name %> </option>
                                             <%
@@ -61,15 +61,15 @@
                                     </div>
                                     <div class="col">
                                         <label for="">জাত</label>
-                                        <input type="text"  id="breedName" name="breedName" class="form-control">
+                                        <input type="text"  id="breed" name="breed" class="form-control">
                                     </div>
                                     <div class="col">
                                         <label for=""></label>
                                         <input type="submit" value="জাত যোগ করুন" class="btn btn-primary">
                                     </div>
                                     <div class="col">
-                                        <% crop.forEach((row) => {
-                                        if (row.type === 'breedName'){
+                                        <% cropList.forEach((row) => {
+                                        if (row.type === 'breed'){
                                         %>
                                             <span style="margin-right: 2px"> <%= row.name %> </span> |
                                         <%
@@ -82,34 +82,7 @@
                         </div>
                     </div>
 
-                    <!--    technology -->
-                    <div class="card">
-                        <div class="card-body">
-                            <form action="/pd/add/technology" method="post">
-                                <div class="form-row">
-                                    <div class="col">
-                                        <label for="">প্রযুক্তির নাম</label>
-                                        <input type="text"  id="technology" name="technology" class="form-control">
-                                    </div>
-                                    <div class="col">
-                                        <label for=""></label>
-                                        <input type="submit" value="যোগ করুন প্রযুক্তি" class="btn btn-primary" >
-                                    </div>
-
-                                    <div class="col">
-                                        <% tech.forEach((row) => {
-                                        if (row.type === 'technology'){
-                                        %>
-                                            <span style="margin-right: 2px"> <%= row.name %> </span> |
-                                        <%
-                                        }
-                                        })
-                                        %>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+                   
                     
                     
                 </div>

@@ -1,0 +1,53 @@
+<%- include('../../includes/header')-%>
+        <div id="wrapper" class="wrapper">
+          <%- include('../../includes/topbar')-%>
+            <div class="page-wrap">
+              <%- include('../../includes/sidebar')-%>
+              <div class="main-content">
+                <div class="container-fluid">
+                    <div class="row clearfix">
+                        <div class="col-md-10">
+                            <h1 class="text-center">ফসলের নাম, জাত ও প্রযুক্তিসমূহ</h1>
+                        </div>
+                    </div>
+
+                     <!--    cropName -->
+                     <div class="card">
+                        <div class="card-body">
+                            <form action="/pd/add/technology" method="post">
+                                <div class="form-row">
+                                    <div class="col">
+                                        <label for="">প্রযুক্তির নাম</label>
+                                        <input type="text"  id="technology" name="technology" class="form-control">
+                                    </div>
+                                    <div class="col">
+                                        <label for=""></label>
+                                        <input type="submit" value="যোগ করুন প্রযুক্তি" class="btn btn-primary" >
+                                    </div>
+
+                                    <div class="col">
+                                        <% technologyList.forEach((row) => {
+                                        %>
+                                            <span style="margin-right: 2px"> <%= row.technology %> </span> |
+                                        <%
+                                        
+                                        })
+                                        %>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+
+                   
+                    
+                    
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+
+    <%- include('../../includes/footer')-%>

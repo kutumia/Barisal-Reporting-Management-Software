@@ -146,6 +146,54 @@ module.exports.pdsignuppost=async(req,res)=>{
 };
 //signUp controller end
 
+//cropTechList controller
+module.exports.cropList=async(req,res)=>{
+    const cropLists = await cropList.findAll();
+try{
+    res.render('pd/cropTechList/cropList', { title: 'মাসিক রাজস্ব অর্থ প্রাপ্তির কোডসমূহ',success:'',cropList:cropLists});
+}
+catch{
+    console.log(err);
+}
+};
+module.exports.techList=async(req,res)=>{
+    const technologyLists = await technologyList.findAll();
+try{
+    res.render('pd/cropTechList/techList', { title: 'মাসিক রাজস্ব অর্থ প্রাপ্তির কোডসমূহ',success:'',technologyList:technologyLists});
+}
+catch{
+    console.log(err);
+}
+};
+//cropTechList controller
+
+//addCrop controller
+module.exports.addCrop = async(req,res) => {
+    const crop = await cropList.create({
+        name : req.body.crop,
+        parent_id : null,
+        type : 'crop'
+    })
+    res.redirect('/pd/cropList')
+}
+
+module.exports.addBreed = async(req,res) => {
+    const breed = await cropList.create({
+        name : req.body.breed,
+        parent_id : req.body.crop,
+        type : 'breed'
+    })
+    res.redirect('/pd/cropList')
+}
+
+module.exports.addTechnology = async(req,res) => {
+    const technology = await technologyList.create({
+        technology : req.body.technology,
+    })
+    res.redirect('/pd/techList')
+}
+//cropNibirota controller
+
 //cropNibirota controller
 module.exports.cropNibirota=async(req,res)=>{
     try{

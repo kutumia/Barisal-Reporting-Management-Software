@@ -6,7 +6,7 @@ const app=express();
 const {agriFairFormEdit,agriFairFormUpdate,llpYear,fieldDayYear,demonstrationYear,farmerTrainingYear,agriFairYear,farmerPrizeYear,solarLightYear,upload,uploadfieldDay,uploadagriFair,uploadfarmerPrize,uploadfarmerTraining,uploadllp,uploadsolarLight,solarLightForm,solarLightFormPost,llpForm,llpFormPost,farmerPrizeForm,farmerPrizeFormPost,agriFairForm,agriFairFormPost,fieldDayForm,fieldDayFormPost,farmerTrainingForm,farmerTrainingFormPost,dashboardMonitoring,demonstrationForm,demonstrationFormPost,upazillasignup,upazillasignuppost,allupazilla,upazillalogin,upazillaloginpost,upazillaDashboard,
     trainedFarmer,trainedFarmerYear,trainedFarmerForm,trainedFarmerFormPost,initialTrial,initialTrialYear,initialTrialForm,initialTrialFormPost,selectedField,selectedFieldFilter,
     finalTrial,finalTrialYear,finalTrialForm,finalTrialFormPost,trialProgress,trialProgressYear,trialProgressForm,trialProgressFormPost,producedCrop,producedCropFilter,
-    cropExpansion,cropExpansionYear,cropExpansionForm,cropExpansionFormPost,breedExpansion,breedExpansionYear,breedExpansionForm,breedExpansionFormPost,trainedFarmerEdit,
+    cropExpansion,cropExpansionYear,cropExpansionForm,cropExpansionFormPost,breedExpansion,breedExpansionYear,breedExpansionForm,breedExpansionFormPost,trainedFarmerEdit,fetchBreed,
     technologyExpansion,technologyExpansionYear,technologyExpansionForm,technologyExpansionFormPost,initialTrialEdit,initialTrialDelete,finalTrialEdit,finalTrialDelete,
     trialProgressEdit,trialProgressDelete,cropExpansionEdit,cropExpansionDelete,breedExpansionEdit,breedExpansionDelete,technologyExpansionEdit,technologyExpansionDelete,
     abadiJomi,abadiJomiYear,abadiJomiForm,abadiJomiFormPost,abadiJomiEdit,abadiJomiDelete,trialProgressEditPost,cropNibirota,cropNibirotaFilter,trainedFarmerEditPost,trainedFarmerDelete,
@@ -38,7 +38,7 @@ router.get('/trainedFarmerEdit/:id',trainedFarmerEdit);
 router.post('/trainedFarmerEditPost/:id',trainedFarmerEditPost);
 router.get('/trainedFarmerDelete/:id',trainedFarmerDelete);
 
-//                                                     
+//               fetchBreed                                      
 
 router.get('/initialTrial',initialTrial);
 router.post('/initialTrialYear',initialTrialYear);
@@ -69,12 +69,14 @@ router.post('/cropExpansionFormPost',cropExpansionFormPost);
 router.get('/cropExpansionEdit/:id',cropExpansionEdit);
 router.post('/cropExpansionDelete/:id',cropExpansionDelete);
 
+
 router.get('/breedExpansion',breedExpansion);
 router.post('/breedExpansionYear',breedExpansionYear);
 router.get('/breedExpansionForm',breedExpansionForm);
 router.post('/breedExpansionFormPost',breedExpansionFormPost);
 router.get('/breedExpansionEdit/:id',breedExpansionEdit);
 router.post('/breedExpansionDelete/:id',breedExpansionDelete);
+router.post('/fetchBreed',fetchBreed);
 
 router.get('/technologyExpansion',technologyExpansion);
 router.post('/technologyExpansionYear',technologyExpansionYear);

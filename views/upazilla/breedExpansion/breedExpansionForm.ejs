@@ -28,54 +28,22 @@
                                     <div class="form-group">
                                         <label for="name" class="col-md-3 control-label">ফসলের নাম</label>
                                         <div class="col-md-9">
-                                            <label for="name">ফসলের নাম বাছুন:</label>
-                                        <select id="name" name="name" required>
-                                            <option value="ধান (আউশ)">ধান (আউশ)</option>
-                                            <option value="ধান (আমন)">ধান (আমন)</option>
-                                            <option value="ধান (বোরো)">ধান (বোরো)</option>
-                                            <option value="ধান (হাইব্রিড)">ধান (হাইব্রিড)</option>
-                                            <option value="গম">গম</option>
-                                            <option value="ভূট্টা">ভূট্টা</option>
-                                            <option value="বার্লি">বার্লি</option>
-                                            <option value="পাট">পাট</option>
-                                            <option value="মুগ">মুগ</option>
-                                            <option value="খেসারি">খেসারি</option>
-                                            <option value="ফেলন">ফেলন</option>
-                                            <option value="সরিষা">সরিষা</option>
-                                            <option value="তিল">তিল</option>
-                                            <option value="সয়াবিন">সয়াবিন</option>
-                                            <option value="চীনাবাদাম">চীনাবাদাম</option>
-                                            <option value="সূর্যমূখী">সূর্যমূখী</option>
-                                            <option value="পিঁয়াজ">পিঁয়াজ</option>
-                                            <option value="রসুন">রসুন</option>
-                                            <option value="হলুদ">হলুদ</option>
-                                            <option value="আলু">আলু</option>
-                                            <option value="বেগুন">বেগুন</option>
-                                            <option value="টমেটো">টমেটো</option>
-                                            <option value="ঢেঁড়স">ঢেঁড়স</option>
-                                            <option value="পুঁইশাক/ডাটা">পুঁইশাক/ডাটা</option>
-                                            <option value="কুমড়া জাতীয়">কুমড়া জাতীয়</option>
-                                            <option value="সীম/বরবটি">সীম/বরবটি</option>
-                                            <option value="আম">আম</option>
-                                            <option value="পেয়ারা">পেয়ারা</option>
-                                            <option value="কলা">কলা</option>
-                                            <option value="পেঁপে">পেঁপে</option>
-                                            <option value="সফেদা">সফেদা</option>
-                                            <option value="মাল্টা">মাল্টা</option>
-                                            <option value="কুল">কুল</option>
-                                            <option value="তরমুজ">তরমুজ</option>
+                                            <select name="name" id="name" class="form-control">
+                                                <option value="">ফসলের নাম</option>
+                                                <% data.forEach(function(row){ %>
+                                                        <option value=<%= row.name %>><%= row.name %></option>
+                                                <% }) %>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col">
+                                        <label for="breed" class="col control-label">জাতের নাম</label>
+                                        <select name="breed" id="breed" class="form-control">
+                                            <option value="" selected="true" disabled="true">জাতের নাম</option>
                                         </select>
-                                        </div>
                                     </div>
-                                    
 
-                                    <div class="form-group">
-                                        <label for="bname" class="col-md-3 control-label">জাতের নাম</label>
-                                        <div class="col-md-9">
-                                            <input type="text" class="form-control" name="bname" placeholder="জাতের নাম">
-                                        </div>
-                                    </div>
-                                    
                                     <div class="form-group">
                                         <label for="areaShotero" class="col-md-3 control-label">আবাদী জমি (২০১৭-১৮)</label>
                                         <div class="col-md-9">
@@ -152,3 +120,34 @@
         </div>
     </div>
 <%- include('../../includes/footer')-%>
+
+<script>
+    $('#name').on("change",function () {
+    var name = $('#name').val();
+    $.ajax({
+        type: "POST",
+        url: "/upazilla/fetchBreed",
+        data: {name: name},
+        datatype: "json",
+        beforeSend: function() {
+            // setting a timeout
+            $('#breed').empty();
+        },
+        success: function (data) {
+            $('#breed').empty();
+            if(data){
+                $('#breed').append('<option value="0">জাতের নাম</option>');
+                $.each(data, function(key, value){
+                    $('#breed').append('<option value="'+value.id+'">' + value.name + '</option>');
+                });
+            }else {
+                $('#breed').empty();
+            }
+        },
+        complete: function() {
+            $('#loading').hide();
+            $('#output').show();
+        }
+    });
+});
+</script>
