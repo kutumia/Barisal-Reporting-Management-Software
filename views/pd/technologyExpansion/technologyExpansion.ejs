@@ -15,10 +15,10 @@
                                 <div class="row clearfix">
                                     <%if (district.length >0){ %>
                                         <div class="col-md-3">
-                                            <label for="district">Choose a District:</label>
+                                            <label for="district">জেলা বাছুন:</label>
                                                 <select id="district" name="district">
                                                     <% district.forEach(function(row){ %>
-                                                        <option value="<%= row.id %>"><%= row.uname %></option>
+                                                        <option value="<%= row.id %>"><%= row.district %></option>
                                                     <% }) %>
                                                 </select>
                                         </div>
@@ -26,7 +26,7 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <select name="upazilla" id="upazilla" class="form-control">
-                                                    <option value="0" disabled="true" selected="true">Select upazilla</option>
+                                                    <option value="0" disabled="true" selected="true">উপজেলা বাছুন:</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -47,7 +47,7 @@
                                     <div class="col-md-3">
                                         <!-- Button -->                                        
                                         <div>
-                                        <input type="submit" id="submit" name="submit" value="submit" class="btn btn-primary">   
+                                            <input type="submit" id="submit" name="submit" value="রিপোর্ট দেখুন" class="btn btn-primary">   
                                         </div>
                                     </div>
                                 </div>
@@ -115,7 +115,7 @@
                 $('#upazilla').empty();
                 if(data){
                     $.each(data, function(key, value){
-                    $('#upazilla').append('<option value="'+value.id+'">' + value.uname + '</option>');
+                    $('#upazilla').append('<option value="'+value.id+'">' + value.name + '</option>');
 
                 });
                 }else {

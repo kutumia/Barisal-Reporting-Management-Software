@@ -199,7 +199,7 @@ module.exports.cropNibirota=async(req,res)=>{
     try{
         var districts=await dd.findAll();
         console.log("inside");
-        res.render('pd/cropNibirota/cropNibirota', { title: 'প্রশিক্ষণপ্রাপ্ত কৃষকের তথ্য',success:'',district:districts });
+        res.render('pd/cropNibirota/cropNibirota', { title: 'শস্য নিবিড়তার অগ্রগতির তথ্য',success:'',district:districts });
     }
     catch(err){
         console.log("outside",err);
@@ -280,7 +280,7 @@ module.exports.producedCrop=async(req,res)=>{
     try{
         var districts=await dd.findAll();
         console.log("inside");
-        res.render('pd/producedCrop/producedCrop', { title: 'প্রশিক্ষণপ্রাপ্ত কৃষকের তথ্য',success:'',district:districts });
+        res.render('pd/producedCrop/producedCrop', { title: 'মাঠে উৎপাদিত ফসলের তথ্য',success:'',district:districts });
     }
     catch(err){
         console.log("outside",err);
@@ -360,7 +360,7 @@ module.exports.selectedField=async(req,res)=>{
     try{
         var districts=await dd.findAll();
         console.log("inside");
-        res.render('pd/selectedField/selectedField', { title: 'প্রশিক্ষণপ্রাপ্ত কৃষকের তথ্য',success:'',district:districts });
+        res.render('pd/selectedField/selectedField', { title: 'নির্বাচিত মাঠের কৃষকের তথ্য',success:'',district:districts });
     }
     catch(err){
         console.log("outside",err);
@@ -764,15 +764,11 @@ module.exports.cropExpansionAll=async(req,res)=>{
 };
 module.exports.cropExpansionAllFilter=async(req,res)=>{
     try{
-        var seventeen=await cropExpansion.findAll({where: {year:"2017",dd_id: req.body.district}});
-        var eighteen=await cropExpansion.findAll({where: {year:"2018",dd_id: req.body.district}});
-        var nineteen=await cropExpansion.findAll({where: {year:"2019",dd_id: req.body.district}});
-        var twenty=await cropExpansion.findAll({where: {year:"2020",dd_id: req.body.district}});
-        var twentyOne=await cropExpansion.findAll({where: {year:"2021",dd_id: req.body.district}});
-        var twentyTwo=await cropExpansion.findAll({where: {year:"2022" ,dd_id: req.body.district}});
+        var crop=await cropExpansion.findAll({where: {dd_id: req.body.district}});
+        var cropLists=await cropList.findAll({where: {type: "crop"}});
         
-        console.log("CropExpansion");
-        res.render('pd/cropExpansionAll/cropExpansionTableAll', {seventeen: seventeen,eighteen: eighteen,nineteen: nineteen,twenty: twenty,twentyOne: twentyOne,twentyTwo: twentyTwo} ,function(err, html) {
+        console.log("cropExpansion",crop,cropLists);
+        res.render('pd/cropExpansionAll/cropExpansionTableAll', {crop: crop,cropList: cropLists} ,function(err, html) {
             res.send(html);
         });
     }
@@ -877,7 +873,7 @@ module.exports.technologyExpansionAll=async(req,res)=>{
     try{
         var districtss=await dd.findAll();
         console.log("inside");
-        res.render('pd/technologyExpansionAll/technologyExpansionAll', { title: 'প্রকল্প এলাকার ফসল আবাদ সার্বিক অগ্রগতি',success:'',districts:districtss });
+        res.render('pd/technologyExpansionAll/technologyExpansionAll', { title: 'প্রকল্প এলাকার সার্বিক প্রযুক্তি সম্প্রসারণ',success:'',districts:districtss });
     }
     catch(err){
         console.log("outside",err);
@@ -891,7 +887,7 @@ module.exports.technologyExpansionAllFilter=async(req,res)=>{
         var technology=await technologyExpansion.findAll({where: {dd_id: req.body.district}});
         var technologyLists=await technologyList.findAll();
         
-        console.log("technologyExpansion",seventeen,eighteen,nineteen,twenty,twentyOne,twentyTwo);
+        console.log("technologyExpansion",technology,technologyLists);
         res.render('pd/technologyExpansionAll/technologyExpansionTableAll', {technology: technology,technologyList: technologyLists} ,function(err, html) {
             res.send(html);
         });
@@ -905,54 +901,45 @@ module.exports.technologyExpansionAllFilter=async(req,res)=>{
 //abadiJomi controller
 module.exports.abadiJomi=async(req,res)=>{
     try{
-        var seventeen=await abadiJomi.findOne({where: {year:"2017",upazilla_id: req.session.user_id}});
-        var eighteen=await abadiJomi.findOne({where: {year:"2018",upazilla_id: req.session.user_id}});
-        var nineteen=await abadiJomi.findOne({where: {year:"2019",upazilla_id: req.session.user_id}});
-        var twenty=await abadiJomi.findOne({where: {year:"2020",upazilla_id: req.session.user_id}});
-        var twentyOne=await abadiJomi.findOne({where: {year:"2021",upazilla_id: req.session.user_id}});
-        var twentyTwo=await abadiJomi.findOne({where: {year:"2022" ,upazilla_id: req.session.user_id}});
-        
-        res.render('pd/abadiJomi/abadiJomi', { title: 'আবাদী জমি ও ফসল উৎপাদন',success:'', seventeen: seventeen,eighteen: eighteen,nineteen: nineteen,twenty: twenty,twentyOne: twentyOne,twentyTwo: twentyTwo });
-        // var men=seventeen.purush;
-        // console.log("seventeen,",req.typeof(men));
+        var districts=await dd.findAll();
+        console.log("inside");
+        res.render('pd/abadiJomi/abadiJomi', { title: 'প্রকল্প এলাকার প্রযুক্তি সম্প্রসারণ',success:'',district:districts });
     }
     catch(err){
-        res.render('pd/abadiJomi/abadiJomi', { title: 'আবাদী জমি ও ফসল উৎপাদন',success:'', records: err });
+        console.log("outside",err);
     }
-   
-
-     
     //  records:result
 
 };
 
 module.exports.abadiJomiFilter=async(req,res)=>{
-    var seventeen=await abadiJomi.findAll({
-        where: {year:2017,upazilla_id: req.session.user_id}
+    var seventeen=await abadiJomi.findOne({
+        where: {year:2017,upazilla_id: req.body.upazilla}
     });
-    var eighteen=await abadiJomi.findAll({
-        where: {year:2018,upazilla_id: req.session.user_id}
+    var eighteen=await abadiJomi.findOne({
+        where: {year:2018,upazilla_id: req.body.upazilla}
     });
-    var nineteen=await abadiJomi.findAll({
-        where: {year:2019,upazilla_id: req.session.user_id}
+    var nineteen=await abadiJomi.findOne({
+        where: {year:2019,upazilla_id: req.body.upazilla}
     });
-    var twenty=await abadiJomi.findAll({
-        where: {year:2020,upazilla_id: req.session.user_id}
+    var twenty=await abadiJomi.findOne({
+        where: {year:2020,upazilla_id: req.body.upazilla}
     });
-    var twentyOne=await abadiJomi.findAll({
-        where: {year:2021,upazilla_id: req.session.user_id}
+    var twentyOne=await abadiJomi.findOne({
+        where: {year:2021,upazilla_id: req.body.upazilla}
     });
-    var twentyTwo=await abadiJomi.findAll({
-        where: {year:2022,upazilla_id: req.session.user_id}
-    })
-    .then(data => {
-        res.render('pd/abadiJomi', {seventeen: seventeen,eighteen: eighteen,seventeen: seventeen,nineteen: nineteen,twenty: twenty,twentyOne: twentyOne,twentyTwo: twentyTwo} ,function(err, html) {
+    var twentyTwo=await abadiJomi.findOne({
+        where: {year:2022,upazilla_id: req.body.upazilla}
+    });
+    try{
+        console.log("seventeen",seventeen,twenty,twentyOne)
+        res.render('pd/abadiJomi/abadiJomiTable', {seventeen: seventeen,eighteen: eighteen,seventeen: seventeen,nineteen: nineteen,twenty: twenty,twentyOne: twentyOne,twentyTwo: twentyTwo} ,function(err, html) {
             res.send(html);
         });
-    })
-    .catch(err => {
-        res.render('pd/abadiJomi/abadiJomiYear', { title: 'আবাদী জমি ও ফসল উৎপাদন',success:'', records: err });
-    })
+    }
+    catch {
+        console.log("outside",err);
+    }
 
 };
 
@@ -964,7 +951,6 @@ module.exports.abadiJomiDistrictFilter=async(req,res)=>{
     }
     catch(err){
         console.log("outside",err);
-        res.render('pd/abadiJomi/abadiJomi', { title: 'আবাদী জমি ও ফসল উৎপাদন',success:'', upazillas:err });
     }
      
 
@@ -975,7 +961,7 @@ module.exports.abadiJomiAll=async(req,res)=>{
     try{
         var districtss=await dd.findAll();
         console.log("inside");
-        res.render('pd/abadiJomiAll/abadiJomiAll', { title: 'প্রকল্প এলাকার ফসল আবাদ সার্বিক অগ্রগতি',success:'',districts:districtss });
+        res.render('pd/abadiJomiAll/abadiJomiAll', { title: 'প্রকল্প এলাকার আবাদী জমি ও ফসল উৎপাদনের সার্বিক অগ্রগতি',success:'',districts:districtss });
     }
     catch(err){
         console.log("outside",err);

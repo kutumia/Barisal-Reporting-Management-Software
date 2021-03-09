@@ -1,38 +1,44 @@
 <%if (records.length >0){ %>
     <table class="table table-bordered table-striped" id="tblCustomers" cellspacing="0" cellpadding="0">
-    <thead>
-    <tr>
-        <th>প্রযুক্তির নাম</th>
-        <th>ব্যবহারকারীর (সংখ্যা)(২০১৭-১৮)</th>
-        <th>ব্যবহারকারীর (সংখ্যা)(২০১৮-১৯)</th>
-        <th>ব্যবহারকারীর (সংখ্যা)(২০১৯-২০)</th>
-        <th>ব্যবহারকারীর (সংখ্যা)(২০২০-২১)</th>
-        <th>ব্যবহারকারীর (সংখ্যা)(২০২১-২২)</th>
-        <th>ব্যবহারকারীর (সংখ্যা)(২০২২-২৩)</th>
-        <th>ব্যবহৃত জমি(২০১৭-১৮)</th>
-        <th>ব্যবহৃত জমি(২০১৮-১৯)</th>
-        <th>ব্যবহৃত জমি(২০১৯-২০)</th>
-        <th>ব্যবহৃত জমি(২০২০-২১)</th>
-        <th>ব্যবহৃত জমি(২০২১-২২)</th>
-        <th>ব্যবহৃত জমি(২০২২-২৩)</th>
-    </tr>
-    </thead>
-    <tbody>
-        <% records.forEach(function(row){ %>
+        <thead>
             <tr>
-                <td><%= row.name %></td>
+                <th rowspan="2">ক্রমিক নং</th>
+                <th rowspan="2">প্রযুক্তির নাম</th>
+                <th colspan="6">ব্যবহারকারীর (সংখ্যা)</th>
+                <th colspan="6">ব্যবহৃত জমি</th>
+            </tr>
+            <tr>
+                <th>২০১৭-১৮</th>
+                <th>২০১৮-১৯</th>
+                <th>২০১৯-২০</th>
+                <th>২০২০-২১</th>
+                <th>২০২১-২২</th>
+                <th>২০২২-২৩</th>
+                <th>২০১৭-১৮</th>
+                <th>২০১৮-১৯</th>
+                <th>২০১৯-২০</th>
+                <th>২০২০-২১</th>
+                <th>২০২১-২২</th>
+                <th>২০২২-২৩</th>
+            </tr>
+        </thead>
+    <tbody>
+        <% records.forEach(function(row,index){ %>
+            <tr>
+                <td><%= index+1 %></td>
+                <td><%= row.technology %></td>
+                <td><%= row.userShotero %></td>
+                <td><%= row.userAtharo %></td>
+                <td><%= row.userUnish %></td>
+                <td><%= row.userBish %></td>
+                <td><%= row.userEkush %></td>
+                <td><%= row.userBaish %></td>
                 <td><%= row.areaShotero %></td>
                 <td><%= row.areaAtharo %></td>
                 <td><%= row.areaUnish %></td>
                 <td><%= row.areaBish %></td>
                 <td><%= row.areaEkush %></td>
                 <td><%= row.areaBaish %></td>
-                <td><%= row.productionShotero %></td>
-                <td><%= row.productionAtharo %></td>
-                <td><%= row.productionUnish %></td>
-                <td><%= row.productionBish %></td>
-                <td><%= row.productionEkush %></td>
-                <td><%= row.productionBaish %></td>
                 
             </tr>
         <% }) %>
@@ -41,21 +47,26 @@
 <% }else{ %>
     <table class="table table-bordered table-striped" id="tblCustomers" cellspacing="0" cellpadding="0">
         <thead>
-        <tr>
-            <th>প্রযুক্তির নাম</th>
-            <th>ব্যবহারকারীর (সংখ্যা)(২০১৭-১৮)</th>
-            <th>ব্যবহারকারীর (সংখ্যা)(২০১৮-১৯)</th>
-            <th>ব্যবহারকারীর (সংখ্যা)(২০১৯-২০)</th>
-            <th>ব্যবহারকারীর (সংখ্যা)(২০২০-২১)</th>
-            <th>ব্যবহারকারীর (সংখ্যা)(২০২১-২২)</th>
-            <th>ব্যবহারকারীর (সংখ্যা)(২০২২-২৩)</th>
-            <th>ব্যবহৃত জমি(২০১৭-১৮)</th>
-            <th>ব্যবহৃত জমি(২০১৮-১৯)</th>
-            <th>ব্যবহৃত জমি(২০১৯-২০)</th>
-            <th>ব্যবহৃত জমি(২০২০-২১)</th>
-            <th>ব্যবহৃত জমি(২০২১-২২)</th>
-            <th>ব্যবহৃত জমি(২০২২-২৩)</th>
-        </tr>
+            <tr>
+                <th rowspan="2">ক্রমিক নং</th>
+                <th rowspan="2">প্রযুক্তির নাম</th>
+                <th colspan="6">ব্যবহারকারীর (সংখ্যা)</th>
+                <th colspan="6">ব্যবহৃত জমি</th>
+            </tr>
+            <tr>
+                <th>২০১৭-১৮</th>
+                <th>২০১৮-১৯</th>
+                <th>২০১৯-২০</th>
+                <th>২০২০-২১</th>
+                <th>২০২১-২২</th>
+                <th>২০২২-২৩</th>
+                <th>২০১৭-১৮</th>
+                <th>২০১৮-১৯</th>
+                <th>২০১৯-২০</th>
+                <th>২০২০-২১</th>
+                <th>২০২১-২২</th>
+                <th>২০২২-২৩</th>
+            </tr>
         </thead>
         <tbody>
         <% records.forEach(function(row){ %>

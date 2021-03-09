@@ -7,7 +7,7 @@ const saao = db.saao;
 const selectedField = db.selectedField;
 const cropNibirota = db.cropNibirota;
 const producedCrop = db.producedCrop;
-
+const cropList = db.cropList;
 const multer = require("multer");
 const path = require("path");
 
@@ -215,7 +215,7 @@ module.exports.selectedField=async(req,res)=>{
     })
     .then(data => {
         console.log("inside");
-        res.render('saao/selectedField/selectedField', { title: 'প্রশিক্ষণপ্রাপ্ত কৃষকের তথ্য',success:'', records: data });
+        res.render('saao/selectedField/selectedField', { title: 'নির্বাচিত মাঠের কৃষকের তথ্য',success:'', records: data });
     })
     .catch(err => {
         console.log(err);
@@ -239,7 +239,16 @@ module.exports.selectedFieldYear=async(req,res)=>{
 
 };
 module.exports.selectedFieldForm=async(req,res)=>{
-    res.render('saao/selectedField/selectedFieldForm', { title: 'প্রশিক্ষণপ্রাপ্ত কৃষকের তথ্য',msg:'' ,success:'',user_id: req.session.user_id});
+    await saao.findOne({
+        where: {id: req.session.user_id}
+    })
+    .then(data => {
+        console.log("data,data.upazilla_id",data,data.upazilla_id);
+        res.render('saao/selectedField/selectedFieldForm', { title: 'নির্বাচিত মাঠের কৃষকের তথ্য ',msg:'' ,success:'',upazilla_id: data.upazilla_id,user_id: req.session.user_id});
+    })
+    .catch(err => {
+        console.log(err);
+    })
 };
 module.exports.selectedFieldFormPost=async(req,res)=>{
     var name= req.body.name;
@@ -262,6 +271,7 @@ module.exports.selectedFieldFormPost=async(req,res)=>{
     var groups= req.body.groups;
     var year =req.body.year;
     var user_id =req.body.user_id;
+    var upazilla_id =req.body.upazilla_id;
 
     await selectedField.create({
         name: name,
@@ -283,7 +293,8 @@ module.exports.selectedFieldFormPost=async(req,res)=>{
         irrigation:irrigation,
         groups:groups,
         year:year,
-        saao_id:user_id
+        upazilla_id:upazilla_id,
+        saao_id:user_id,
     })
         
         .then(data => {
@@ -400,10 +411,19 @@ await producedCrop.findAll({
 
 };
 module.exports.producedCropForm=async(req,res)=>{
-    res.render('saao/producedCrop/producedCropForm', { title: 'মাঠে উৎপাদিত ফসলের তথ্য',msg:'' ,success:'',user_id: req.session.user_id});
+    var saaos= await await saao.findOne({
+        where: {id: req.session.user_id}
+    })
+    var data=await cropList.findAll({where: {type: "crop"}})
+      try {
+        res.render('saao/producedCrop/producedCropForm',  { title: 'মাঠে উৎপাদিত ফসলের তথ্য',msg:'' ,success:'',upazilla_id: saaos.upazilla_id,user_id: req.session.user_id,data:data});
+      }
+      catch{
+        console.log(err);
+      };
 };
 module.exports.producedCropFormPost=async(req,res)=>{
-    var crop= req.body.crop;
+    var name= req.body.name;
     var areaShotero= req.body.areaShotero;
     var productionShotero= req.body.productionShotero;
     var areaAtharo= req.body.areaAtharo;
@@ -417,9 +437,10 @@ module.exports.producedCropFormPost=async(req,res)=>{
     var areaBaish= req.body.areaBaish;
     var productionBaish= req.body.productionBaish;
     var user_id =req.body.user_id;
+    var upazilla_id =req.body.upazilla_id;
 
     await producedCrop.create({
-        crop: crop,
+        crop: name,
         areaShotero:areaShotero,
         productionShotero:productionShotero,
         areaAtharo:areaAtharo,
@@ -432,7 +453,8 @@ module.exports.producedCropFormPost=async(req,res)=>{
         productionEkush:productionEkush,
         areaBaish:areaBaish,
         productionBaish:productionBaish,
-        saao_id:user_id
+        upazilla_id:upazilla_id,
+        saao_id:user_id,
     })
         
         .then(data => {
@@ -517,7 +539,7 @@ module.exports.cropNibirota=async(req,res)=>{
         var twentyOne=await cropNibirota.findOne({where: {year:"2021",saao_id: req.session.user_id}});
         var twentyTwo=await cropNibirota.findOne({where: {year:"2022" ,saao_id: req.session.user_id}});
         
-        res.render('saao/cropNibirota/cropNibirota', { title: 'আবাদী জমি ও ফসল উৎপাদন',success:'', seventeen: seventeen,eighteen: eighteen,nineteen: nineteen,twenty: twenty,twentyOne: twentyOne,twentyTwo: twentyTwo });
+        res.render('saao/cropNibirota/cropNibirota', { title: 'শস্য নিবিড়তার অগ্রগতির তথ্য',success:'', seventeen: seventeen,eighteen: eighteen,nineteen: nineteen,twenty: twenty,twentyOne: twentyOne,twentyTwo: twentyTwo });
         // var men=seventeen.purush;
         // console.log("seventeen,",req.typeof(men));
     }
@@ -543,7 +565,15 @@ module.exports.cropNibirotaYear=async(req,res)=>{
 
 };
 module.exports.cropNibirotaForm=async(req,res)=>{
-    res.render('saao/cropNibirota/cropNibirotaForm', { title: 'শস্য নিবিড়তার অগ্রগতি',msg:'' ,success:'',user_id: req.session.user_id});
+    await saao.findOne({
+        where: {id: req.session.user_id}
+    })
+    .then(data => {
+        res.render('saao/cropNibirota/cropNibirotaForm',  { title: 'শস্য নিবিড়তার অগ্রগতির তথ্য',msg:'' ,success:'',upazilla_id: data.upazilla_id,user_id: req.session.user_id});
+    })
+    .catch(err => {
+        console.log(err);
+    })
 };
 module.exports.cropNibirotaFormPost=async(req,res)=>{
     var fosholi= req.body.fosholi;
@@ -558,6 +588,7 @@ module.exports.cropNibirotaFormPost=async(req,res)=>{
     var irrigation= req.body.irrigation;
     var year =req.body.year;
     var user_id =req.body.user_id;
+    var upazilla_id =req.body.upazilla_id;
 
     await cropNibirota.create({
         fosholi: fosholi,
@@ -571,7 +602,8 @@ module.exports.cropNibirotaFormPost=async(req,res)=>{
         kharif1:kharif1,
         irrigation:irrigation,
         year:year,
-        saao_id:user_id
+        upazilla_id:upazilla_id,
+        saao_id:user_id,
     })
         
         .then(data => {

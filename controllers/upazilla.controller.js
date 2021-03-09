@@ -917,7 +917,7 @@ module.exports.trialProgressDelete=async(req,res)=>{
 //cropExpansion controller
 module.exports.cropExpansion=async(req,res)=>{
 
-        res.render('upazilla/cropExpansion/cropExpansion', { title: 'প্রকল্প এলাকার প্রযুক্তি সম্প্রসারণ',success:''});
+        res.render('upazilla/cropExpansion/cropExpansion', { title: 'প্রকল্প এলাকার ফসল আবাদ অগ্রগতি',success:''});
 
 
 };
@@ -940,7 +940,7 @@ module.exports.cropExpansionForm=async(req,res)=>{
     var dds=upazillas.dd_id;
     var data=await cropList.findAll({where: {type: "crop"}})
       try {
-        res.render('upazilla/cropExpansion/cropExpansionForm', { title: 'প্রকল্প এলাকার প্রযুক্তি সম্প্রসারণ',msg:'' ,success:'',dd:dds,user_id: req.session.user_id,data:data});
+        res.render('upazilla/cropExpansion/cropExpansionForm', { title: 'প্রকল্প এলাকার ফসল আবাদ অগ্রগতি',msg:'' ,success:'',dd:dds,user_id: req.session.user_id,data:data});
       }
       catch{
         console.log(err);
@@ -991,7 +991,7 @@ module.exports.cropExpansionFormPost=async(req,res)=>{
   
 };
 module.exports.cropExpansionEdit=async(req,res)=>{
-    res.render('upazilla/cropExpansion/cropExpansionForm', { title: 'প্রকল্প এলাকার প্রযুক্তি সম্প্রসারণ',msg:'' ,success:'',user_id: req.session.user_id});
+    res.render('upazilla/cropExpansion/cropExpansionForm', { title: 'প্রকল্প এলাকার ফসল আবাদ অগ্রগতি',msg:'' ,success:'',user_id: req.session.user_id});
 };
 module.exports.cropExpansionDelete=async(req,res)=>{
     var technology= req.body.technology;
@@ -1366,7 +1366,7 @@ module.exports.abadiJomiYear=async(req,res)=>{
         });
     })
     .catch(err => {
-        res.render('upazilla/abadiJomi/abadiJomiYear', { title: 'আবাদী জমি ও ফসল উৎপাদন',success:'', records: err });
+        console.log(err);
     })
 
 };
@@ -1395,6 +1395,7 @@ module.exports.abadiJomiFormPost=async(req,res)=>{
     var cholti= parseInt(req.body.cholti);
     var year =req.body.year;
     var user_id =req.body.user_id;
+    var dd_id =req.body.dd;
 
     await abadiJomi.create({
         ayoton: ayoton,
@@ -1413,7 +1414,8 @@ module.exports.abadiJomiFormPost=async(req,res)=>{
         potito:potito,
         cholti:cholti,
         year:year,
-        upazilla_id:user_id
+        upazilla_id:user_id,
+        dd_id:dd_id
     })
     
     

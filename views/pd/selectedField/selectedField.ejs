@@ -19,7 +19,7 @@
                                             <label for="district">জেলা:</label>
                                                 <select id="district" name="district">
                                                     <option value="">জেলা বাছুন</option>
-                                                    <option value="all">সকল জেলা </option>
+                                                    <!-- <option value="all">সকল জেলা </option> -->
                                                     <% district.forEach(function(row){ %>
                                                         <option value="<%= row.id %>"><%= row.district %></option>
                                                     <% }) %>
@@ -29,14 +29,14 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <select name="upazilla" id="upazilla" class="form-control">
-                                                <option value="0" disabled="true" selected="true">Select upazilla</option>
+                                                <option value="0" disabled="true" selected="true">উপজেলা বাছুন</option>
                                             </select>
                                         </div>
                                     </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <select name="saao" id="saao" class="form-control">
-                                                    <option value="0" disabled="true" selected="true">Select saao</option>
+                                                    <option value="0" disabled="true" selected="true">এসএএও বাছুন</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -119,6 +119,8 @@
                 // setting a timeout
                 $('#loading').show();
                 $('#output').hide();
+                $('#upazilla').empty();
+                $('#saao').empty();
             },
             success: function (data) {
                 $('#output').html(data);
@@ -130,6 +132,7 @@
                 });
                 }else {
                     $('#upazilla').empty();
+                    $('#saao').empty();
                 }
 
             },
@@ -150,6 +153,7 @@
                 // setting a timeout
                 $('#loading').show();
                 $('#output').hide();
+                $('#saao').empty();
             },
             success: function (data) {
                 $('#output').html(data);

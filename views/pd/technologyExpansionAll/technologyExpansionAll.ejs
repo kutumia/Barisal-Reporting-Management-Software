@@ -15,10 +15,10 @@
                                 <div class="row clearfix">
                                 <%if (districts.length >0){ %>
                                         <div class="col-md-4">
-                                            <label for="district">Choose a district:</label>
+                                            <label for="district">জেলা বাছুন:</label>
                                                 <select id="district" name="district">
                                                     <% districts.forEach(function(row){ %>
-                                                        <option value="<%= row.id %>"><%= row.uname %></option>
+                                                        <option value="<%= row.id %>"><%= row.district %></option>
                                                     <% }) %>
                                                 </select>
                                         </div>

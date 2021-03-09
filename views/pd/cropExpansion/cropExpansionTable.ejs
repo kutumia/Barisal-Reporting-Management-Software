@@ -1,705 +1,87 @@
-<table class="table table-bordered table-striped" id="tblCustomers" cellspacing="0" cellpadding="0">
-    <thead>
-    <tr>
-        <th>ক্রমিক নং</th>
-        <th>ফসলের নাম</th>
-        <th>২০১৭-১৮</th>
-        <th>২০১৮-১৯</th>
-        <th>২০১৯-২০</th>
-        <th>২০২০-২১</th>
-        <th>২০২১-২২</th>
-        <th>২০২২-২৩</th>
-        
-    </tr>
-    </thead>
+<%if (records.length >0){ %>
+    <table class="table table-bordered table-striped" id="tblCustomers" cellspacing="0" cellpadding="0">
+        <thead>
+            <tr>
+                <th rowspan="2">ক্রমিক নং</th>
+                <th rowspan="2">ফসলের নাম</th>
+                <th colspan="2">২০১৭-১৮</th>
+                <th colspan="2">২০১৮-১৯</th>
+                <th colspan="2">২০১৯-২০</th>
+                <th colspan="2">২০২০-২১</th>
+                <th colspan="2">২০২১-২২</th>
+                <th colspan="2">২০২২-২৩</th>
+            </tr>
+            <tr>
+                <th>আবাদী জমি</th>
+                <th>উৎপাদন</th>
+                <th>আবাদী জমি</th>
+                <th>উৎপাদন</th>
+                <th>আবাদী জমি</th>
+                <th>উৎপাদন</th>
+                <th>আবাদী জমি</th>
+                <th>উৎপাদন</th>
+                <th>আবাদী জমি</th>
+                <th>উৎপাদন</th>
+                <th>আবাদী জমি</th>
+                <th>উৎপাদন</th>
+            </tr>
+        </thead>
     <tbody>
-            <tr>
-                <td>১</td>
-                <td>ধান (আউশ)(আবাদী জমি হেঃ)</td>
-                <td><%= seventeen !== null ? seventeen.aushAbadi : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.aushAbadi : '' %></td>
-                <td><%= nineteen !== null ? nineteen.aushAbadi : ''  %></td>
-                <td><%= twenty !== null ? twenty.aushAbadi : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.aushAbadi : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.aushAbadi : ''  %></td>
-            </tr>
-           
-            <tr>
-                <td>২</td>
-                <td>ধান (আউশ)(উৎপাদন টন)</td>
-                <td><%= seventeen !== null ? seventeen.aushUtpadon : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.aushUtpadon : '' %></td>
-                <td><%= nineteen !== null ? nineteen.aushUtpadon : ''  %></td>
-                <td><%= twenty !== null ? twenty.aushUtpadon : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.aushUtpadon : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.aushUtpadon : ''  %></td>
-            </tr>
-            <tr>
-                <td>৩</td>
-                <td>ধান (আমন)(আবাদী জমি হেঃ)</td>
-                <td><%= seventeen !== null ? seventeen.amanAbadi : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.amanAbadi : '' %></td>
-                <td><%= nineteen !== null ? nineteen.amanAbadi : ''  %></td>
-                <td><%= twenty !== null ? twenty.amanAbadi : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.amanAbadi : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.amanAbadi : ''  %></td>
-            </tr>
-            <tr>
-                <td>৪</td>
-                <td>ধান (আমন)(উৎপাদন টন)</td>
-                <td><%= seventeen !== null ? seventeen.amanUtpadon : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.amanUtpadon : '' %></td>
-                <td><%= nineteen !== null ? nineteen.amanUtpadon : ''  %></td>
-                <td><%= twenty !== null ? twenty.amanUtpadon : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.amanUtpadon : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.amanUtpadon : ''  %></td>
-            </tr>
-            <tr>
-                <td>৫</td>
-                <td>ধান (বোরো)(আবাদী জমি হেঃ)</td>
-                <td><%= seventeen !== null ? seventeen.boroAbadi : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.boroAbadi : '' %></td>
-                <td><%= nineteen !== null ? nineteen.boroAbadi : ''  %></td>
-                <td><%= twenty !== null ? twenty.boroAbadi : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.boroAbadi : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.boroAbadi : ''  %></td>
-            </tr>
-            <tr>
-                <td>৬</td>
-                <td>ধান (বোরো)(উৎপাদন টন)</td>
-                <td><%= seventeen !== null ? seventeen.boroUtpadon : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.boroUtpadon : '' %></td>
-                <td><%= nineteen !== null ? nineteen.boroUtpadon : ''  %></td>
-                <td><%= twenty !== null ? twenty.boroUtpadon : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.boroUtpadon : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.boroUtpadon : ''  %></td>
-            </tr>
-            <tr>
-                <td>৭</td>
-                <td>ধান (হাইব্রিড)(আবাদী জমি হেঃ)</td>
-                <td><%= seventeen !== null ? seventeen.hybridAbadi : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.hybridAbadi : '' %></td>
-                <td><%= nineteen !== null ? nineteen.hybridAbadi : ''  %></td>
-                <td><%= twenty !== null ? twenty.hybridAbadi : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.hybridAbadi : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.hybridAbadi : ''  %></td>
-            </tr>
-            <tr>
-                <td>৮</td>
-                <td>ধান (হাইব্রিড)(আবাদী জমি হেঃ)</td>
-                <td><%= seventeen !== null ? seventeen.hybridUtpadon : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.hybridUtpadon : '' %></td>
-                <td><%= nineteen !== null ? nineteen.hybridUtpadon : ''  %></td>
-                <td><%= twenty !== null ? twenty.hybridUtpadon : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.hybridUtpadon : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.hybridUtpadon : ''  %></td>
-            </tr>
-            <tr>
-                <td>৯</td>
-                <td>গম (আবাদী জমি)</td>
-                <td><%= seventeen !== null ? seventeen.gomAbadi : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.gomAbadi : '' %></td>
-                <td><%= nineteen !== null ? nineteen.gomAbadi : ''  %></td>
-                <td><%= twenty !== null ? twenty.gomAbadi : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.gomAbadi : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.gomAbadi : ''  %></td>
-            </tr>
-            <tr>
-                <td>১০</td>
-                <td>গম (উৎপাদন টন)</td>
-                <td><%= seventeen !== null ? seventeen.gomUtpadon : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.gomUtpadon : '' %></td>
-                <td><%= nineteen !== null ? nineteen.gomUtpadon : ''  %></td>
-                <td><%= twenty !== null ? twenty.gomUtpadon : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.gomUtpadon : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.gomUtpadon : ''  %></td>
-            </tr>
-            <tr>
-                <td>১১</td>
-                <td>ভূট্টা (আবাদী জমি হেঃ)</td>
-                <td><%= seventeen !== null ? seventeen.vuttaAbadi : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.vuttaAbadi : '' %></td>
-                <td><%= nineteen !== null ? nineteen.vuttaAbadi : ''  %></td>
-                <td><%= twenty !== null ? twenty.vuttaAbadi : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.vuttaAbadi : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.vuttaAbadi : ''  %></td>
-            </tr>
-            <tr>
-                <td>১২</td>
-                <td>ভূট্টা (উৎপাদন টন)</td>
-                <td><%= seventeen !== null ? seventeen.vuttaUtpadon : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.vuttaUtpadon : '' %></td>
-                <td><%= nineteen !== null ? nineteen.vuttaUtpadon : ''  %></td>
-                <td><%= twenty !== null ? twenty.vuttaUtpadon : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.vuttaUtpadon : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.vuttaUtpadon : ''  %></td>
-            </tr>
-            <tr>
-                <td>১৩</td>
-                <td>বার্লি (আবাদী জমি হেঃ)</td>
-                <td><%= seventeen !== null ? seventeen.barliAbadi : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.barliAbadi : '' %></td>
-                <td><%= nineteen !== null ? nineteen.barliAbadi : ''  %></td>
-                <td><%= twenty !== null ? twenty.barliAbadi : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.barliAbadi : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.barliAbadi : ''  %></td>
-            </tr>
-            <tr>
-                <td>১৪</td>
-                <td>বার্লি (উৎপাদন টন)</td>
-                <td><%= seventeen !== null ? seventeen.barliUtpadon : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.barliUtpadon : '' %></td>
-                <td><%= nineteen !== null ? nineteen.barliUtpadon : ''  %></td>
-                <td><%= twenty !== null ? twenty.barliUtpadon : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.barliUtpadon : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.barliUtpadon : ''  %></td>
-            </tr>
-            <tr>
-                <td>১৫</td>
-                <td>পাট (আবাদী জমি হেঃ)</td>
-                <td><%= seventeen !== null ? seventeen.patAbadi : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.patAbadi : '' %></td>
-                <td><%= nineteen !== null ? nineteen.patAbadi : ''  %></td>
-                <td><%= twenty !== null ? twenty.patAbadi : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.patAbadi : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.patAbadi : ''  %></td>
-            </tr>
-
-            <tr>
-                <td>১৬</td>
-                <td>পাট (উৎপাদন টন)</td>
-                <td><%= seventeen !== null ? seventeen.patUtpadon : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.patUtpadon : '' %></td>
-                <td><%= nineteen !== null ? nineteen.patUtpadon : ''  %></td>
-                <td><%= twenty !== null ? twenty.patUtpadon : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.patUtpadon : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.patUtpadon : ''  %></td>
-            </tr>
-           
-            <tr>
-                <td>১৭</td>
-                <td>মুগ (আবাদী জমি হেঃ)</td>
-                <td><%= seventeen !== null ? seventeen.mugAbadi : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.mugAbadi : '' %></td>
-                <td><%= nineteen !== null ? nineteen.mugAbadi : ''  %></td>
-                <td><%= twenty !== null ? twenty.mugAbadi : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.mugAbadi : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.mugAbadi : ''  %></td>
-            </tr>
-            <tr>
-                <td>১৮</td>
-                <td>মুগ (উৎপাদন টন)</td>
-                <td><%= seventeen !== null ? seventeen.mugUtpadon : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.mugUtpadon : '' %></td>
-                <td><%= nineteen !== null ? nineteen.mugUtpadon : ''  %></td>
-                <td><%= twenty !== null ? twenty.mugUtpadon : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.mugUtpadon : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.mugUtpadon : ''  %></td>
-            </tr>
-            <tr>
-                <td>১৯</td>
-                <td>খেসারি (আবাদী জমি হেঃ)</td>
-                <td><%= seventeen !== null ? seventeen.kheshariAbadi : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.kheshariAbadi : '' %></td>
-                <td><%= nineteen !== null ? nineteen.kheshariAbadi : ''  %></td>
-                <td><%= twenty !== null ? twenty.kheshariAbadi : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.kheshariAbadi : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.kheshariAbadi : ''  %></td>
-            </tr>
-            <tr>
-                <td>২০</td>
-                <td>খেসারি (উৎপাদন টন)</td>
-                <td><%= seventeen !== null ? seventeen.kheshariUtpadon : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.kheshariUtpadon : '' %></td>
-                <td><%= nineteen !== null ? nineteen.kheshariUtpadon : ''  %></td>
-                <td><%= twenty !== null ? twenty.kheshariUtpadon : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.kheshariUtpadon : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.kheshariUtpadon : ''  %></td>
-            </tr>
-            <tr>
-                <td>২১</td>
-                <td>ফেলন (আবাদী জমি হেঃ)</td>
-                <td><%= seventeen !== null ? seventeen.felonAbadi : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.felonAbadi : '' %></td>
-                <td><%= nineteen !== null ? nineteen.felonAbadi : ''  %></td>
-                <td><%= twenty !== null ? twenty.felonAbadi : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.felonAbadi : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.felonAbadi : ''  %></td>
-            </tr>
-            <tr>
-                <td>২২</td>
-                <td>ফেলন (উৎপাদন টন)</td>
-                <td><%= seventeen !== null ? seventeen.felonUtpadon : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.felonUtpadon : '' %></td>
-                <td><%= nineteen !== null ? nineteen.felonUtpadon : ''  %></td>
-                <td><%= twenty !== null ? twenty.felonUtpadon : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.felonUtpadon : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.felonUtpadon : ''  %></td>
-            </tr>
-            <tr>
-                <td>২৩</td>
-                <td>সরিষা (আবাদী জমি হেঃ)</td>
-                <td><%= seventeen !== null ? seventeen.shorishaAbadi : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.shorishaAbadi : '' %></td>
-                <td><%= nineteen !== null ? nineteen.shorishaAbadi : ''  %></td>
-                <td><%= twenty !== null ? twenty.shorishaAbadi : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.shorishaAbadi : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.shorishaAbadi : ''  %></td>
-            </tr>
-            <tr>
-                <td>২৪</td>
-                <td>সরিষা (উৎপাদন টন)</td>
-                <td><%= seventeen !== null ? seventeen.shorishaUtpadon : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.shorishaUtpadon : '' %></td>
-                <td><%= nineteen !== null ? nineteen.shorishaUtpadon : ''  %></td>
-                <td><%= twenty !== null ? twenty.shorishaUtpadon : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.shorishaUtpadon : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.shorishaUtpadon : ''  %></td>
-            </tr>
-            <tr>
-                <td>২৫</td>
-                <td>তিল (আবাদী জমি হেঃ)</td>
-                <td><%= seventeen !== null ? seventeen.tilAbadi : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.tilAbadi : '' %></td>
-                <td><%= nineteen !== null ? nineteen.tilAbadi : ''  %></td>
-                <td><%= twenty !== null ? twenty.tilAbadi : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.tilAbadi : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.tilAbadi : ''  %></td>
-            </tr>
-            <tr>
-                <td>২৬</td>
-                <td>তিল (উৎপাদন টন)</td>
-                <td><%= seventeen !== null ? seventeen.tilUtpadon : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.tilUtpadon : '' %></td>
-                <td><%= nineteen !== null ? nineteen.tilUtpadon : ''  %></td>
-                <td><%= twenty !== null ? twenty.tilUtpadon : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.tilUtpadon : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.tilUtpadon : ''  %></td>
-            </tr>
-            <tr>
-                <td>২৭</td>
-                <td>সয়াবিন (আবাদী জমি হেঃ)</td>
-                <td><%= seventeen !== null ? seventeen.soyabeanAbadi : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.soyabeanAbadi : '' %></td>
-                <td><%= nineteen !== null ? nineteen.soyabeanAbadi : ''  %></td>
-                <td><%= twenty !== null ? twenty.soyabeanAbadi : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.soyabeanAbadi : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.soyabeanAbadi : ''  %></td>
-            </tr>
-            <tr>
-                <td>২৮</td>
-                <td>সয়াবিন (উৎপাদন টন)</td>
-                <td><%= seventeen !== null ? seventeen.soyabeanUtpadon : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.soyabeanUtpadon : '' %></td>
-                <td><%= nineteen !== null ? nineteen.soyabeanUtpadon : ''  %></td>
-                <td><%= twenty !== null ? twenty.soyabeanUtpadon : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.soyabeanUtpadon : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.soyabeanUtpadon : ''  %></td>
-            </tr>
-            <tr>
-                <td>২৯</td>
-                <td>চীনাবাদাম (আবাদী জমি হেঃ)</td>
-                <td><%= seventeen !== null ? seventeen.chinabadamAbadi : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.chinabadamAbadi : '' %></td>
-                <td><%= nineteen !== null ? nineteen.chinabadamAbadi : ''  %></td>
-                <td><%= twenty !== null ? twenty.chinabadamAbadi : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.chinabadamAbadi : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.chinabadamAbadi : ''  %></td>
-            </tr>
-
-            <tr>
-                <td>৩০</td>
-                <td>চীনাবাদাম (উৎপাদন টন)</td>
-                <td><%= seventeen !== null ? seventeen.chinabadamUtpadon : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.chinabadamUtpadon : '' %></td>
-                <td><%= nineteen !== null ? nineteen.chinabadamUtpadon : ''  %></td>
-                <td><%= twenty !== null ? twenty.chinabadamUtpadon : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.chinabadamUtpadon : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.chinabadamUtpadon : ''  %></td>
-            </tr>
-           
-            <tr>
-                <td>৩১</td>
-                <td>সূর্যমূখী (আবাদী জমি হেঃ)</td>
-                <td><%= seventeen !== null ? seventeen.surjomukhiAbadi : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.surjomukhiAbadi : '' %></td>
-                <td><%= nineteen !== null ? nineteen.surjomukhiAbadi : ''  %></td>
-                <td><%= twenty !== null ? twenty.surjomukhiAbadi : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.surjomukhiAbadi : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.surjomukhiAbadi : ''  %></td>
-            </tr>
-            <tr>
-                <td>৩২</td>
-                <td>সূর্যমূখী (উৎপাদন টন)</td>
-                <td><%= seventeen !== null ? seventeen.surjomukhiUtpadon : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.surjomukhiUtpadon : '' %></td>
-                <td><%= nineteen !== null ? nineteen.surjomukhiUtpadon : ''  %></td>
-                <td><%= twenty !== null ? twenty.surjomukhiUtpadon : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.surjomukhiUtpadon : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.surjomukhiUtpadon : ''  %></td>
-            </tr>
-            <tr>
-                <td>৩৩</td>
-                <td>পিঁয়াজ (আবাদী জমি হেঃ)</td>
-                <td><%= seventeen !== null ? seventeen.piyajAbadi : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.piyajAbadi : '' %></td>
-                <td><%= nineteen !== null ? nineteen.piyajAbadi : ''  %></td>
-                <td><%= twenty !== null ? twenty.piyajAbadi : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.piyajAbadi : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.piyajAbadi : ''  %></td>
-            </tr>
-            <tr>
-                <td>৩৪</td>
-                <td>পিঁয়াজ (উৎপাদন টন)</td>
-                <td><%= seventeen !== null ? seventeen.piyajUtpadon : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.piyajUtpadon : '' %></td>
-                <td><%= nineteen !== null ? nineteen.piyajUtpadon : ''  %></td>
-                <td><%= twenty !== null ? twenty.piyajUtpadon : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.piyajUtpadon : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.piyajUtpadon : ''  %></td>
-            </tr>
-            <tr>
-                <td>৩৫</td>
-                <td>রসুন (আবাদী জমি হেঃ)</td>
-                <td><%= seventeen !== null ? seventeen.roshunAbadi : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.roshunAbadi : '' %></td>
-                <td><%= nineteen !== null ? nineteen.roshunAbadi : ''  %></td>
-                <td><%= twenty !== null ? twenty.roshunAbadi : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.roshunAbadi : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.roshunAbadi : ''  %></td>
-            </tr>
-            <tr>
-                <td>৩৬</td>
-                <td>রসুন (উৎপাদন টন)</td>
-                <td><%= seventeen !== null ? seventeen.roshunUtpadon : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.roshunUtpadon : '' %></td>
-                <td><%= nineteen !== null ? nineteen.roshunUtpadon : ''  %></td>
-                <td><%= twenty !== null ? twenty.roshunUtpadon : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.roshunUtpadon : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.roshunUtpadon : ''  %></td>
-            </tr>
-            <tr>
-                <td>৩৭</td>
-                <td>হলুদ (আবাদী জমি হেঃ)</td>
-                <td><%= seventeen !== null ? seventeen.holudAbadi : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.holudAbadi : '' %></td>
-                <td><%= nineteen !== null ? nineteen.holudAbadi : ''  %></td>
-                <td><%= twenty !== null ? twenty.holudAbadi : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.holudAbadi : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.holudAbadi : ''  %></td>
-            </tr>
-            <tr>
-                <td>৩৮</td>
-                <td>হলুদ (উৎপাদন টন)</td>
-                <td><%= seventeen !== null ? seventeen.holudUtpadon : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.holudUtpadon : '' %></td>
-                <td><%= nineteen !== null ? nineteen.holudUtpadon : ''  %></td>
-                <td><%= twenty !== null ? twenty.holudUtpadon : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.holudUtpadon : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.holudUtpadon : ''  %></td>
-            </tr>
-            <tr>
-                <td>৩৯</td>
-                <td>আলু (আবাদী জমি হেঃ)</td>
-                <td><%= seventeen !== null ? seventeen.aluAbadi : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.aluAbadi : '' %></td>
-                <td><%= nineteen !== null ? nineteen.aluAbadi : ''  %></td>
-                <td><%= twenty !== null ? twenty.aluAbadi : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.aluAbadi : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.aluAbadi : ''  %></td>
-            </tr>
-            <tr>
-                <td>৪০</td>
-                <td>আলু (উৎপাদন টন)</td>
-                <td><%= seventeen !== null ? seventeen.aluUtpadon : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.aluUtpadon : '' %></td>
-                <td><%= nineteen !== null ? nineteen.aluUtpadon : ''  %></td>
-                <td><%= twenty !== null ? twenty.aluUtpadon : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.aluUtpadon : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.aluUtpadon : ''  %></td>
-            </tr>
-            <tr>
-                <td>৪১</td>
-                <td>বেগুন (আবাদী জমি হেঃ)</td>
-                <td><%= seventeen !== null ? seventeen.begunAbadi : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.begunAbadi : '' %></td>
-                <td><%= nineteen !== null ? nineteen.begunAbadi : ''  %></td>
-                <td><%= twenty !== null ? twenty.begunAbadi : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.begunAbadi : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.begunAbadi : ''  %></td>
-            </tr>
-            <tr>
-                <td>৪২</td>
-                <td>বেগুন (উৎপাদন টন)</td>
-                <td><%= seventeen !== null ? seventeen.begunUtpadon : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.begunUtpadon : '' %></td>
-                <td><%= nineteen !== null ? nineteen.begunUtpadon : ''  %></td>
-                <td><%= twenty !== null ? twenty.begunUtpadon : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.begunUtpadon : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.begunUtpadon : ''  %></td>
-            </tr>
-            <tr>
-                <td>৪৩</td>
-                <td>টমেটো (আবাদী জমি হেঃ)</td>
-                <td><%= seventeen !== null ? seventeen.tomatoAbadi : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.tomatoAbadi : '' %></td>
-                <td><%= nineteen !== null ? nineteen.tomatoAbadi : ''  %></td>
-                <td><%= twenty !== null ? twenty.tomatoAbadi : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.tomatoAbadi : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.tomatoAbadi : ''  %></td>
-            </tr>
-            <tr>
-                <td>৪৪</td>
-                <td>টমেটো (উৎপাদন টন)</td>
-                <td><%= seventeen !== null ? seventeen.tomatoUtpadon : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.tomatoUtpadon : '' %></td>
-                <td><%= nineteen !== null ? nineteen.tomatoUtpadon : ''  %></td>
-                <td><%= twenty !== null ? twenty.tomatoUtpadon : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.tomatoUtpadon : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.tomatoUtpadon : ''  %></td>
-            </tr>
-            <tr>
-                <td>৪৫</td>
-                <td>ঢেঁড়স (আবাদী জমি হেঃ)</td>
-                <td><%= seventeen !== null ? seventeen.dheroshAbadi : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.dheroshAbadi : '' %></td>
-                <td><%= nineteen !== null ? nineteen.dheroshAbadi : ''  %></td>
-                <td><%= twenty !== null ? twenty.dheroshAbadi : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.dheroshAbadi : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.dheroshAbadi : ''  %></td>
-            </tr>
-            <tr>
-                <td>৪৬</td>
-                <td>ঢেঁড়স (উৎপাদন টন)</td>
-                <td><%= seventeen !== null ? seventeen.dheroshUtpadon : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.dheroshUtpadon : '' %></td>
-                <td><%= nineteen !== null ? nineteen.dheroshUtpadon : ''  %></td>
-                <td><%= twenty !== null ? twenty.dheroshUtpadon : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.dheroshUtpadon : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.dheroshUtpadon : ''  %></td>
-            </tr>
-            <tr>
-                <td>৪৭</td>
-                <td>পুইশাক/ডাটা (আবাদী জমি হেঃ)</td>
-                <td><%= seventeen !== null ? seventeen.puishakAbadi : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.puishakAbadi : '' %></td>
-                <td><%= nineteen !== null ? nineteen.puishakAbadi : ''  %></td>
-                <td><%= twenty !== null ? twenty.puishakAbadi : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.puishakAbadi : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.puishakAbadi : ''  %></td>
-            </tr>
-            <tr>
-                <td>৪৮</td>
-                <td>পুঁইশাক/ডাটা (উৎপাদন টন)</td>
-                <td><%= seventeen !== null ? seventeen.puishakUtpadon : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.puishakUtpadon : '' %></td>
-                <td><%= nineteen !== null ? nineteen.puishakUtpadon : ''  %></td>
-                <td><%= twenty !== null ? twenty.puishakUtpadon : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.puishakUtpadon : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.puishakUtpadon : ''  %></td>
-            </tr>
-            <tr>
-                <td>৪৯</td>
-                <td>কুমড়াজাতীয় (আবাদী জমি হেঃ)</td>
-                <td><%= seventeen !== null ? seventeen.kumraAbadi : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.kumraAbadi : '' %></td>
-                <td><%= nineteen !== null ? nineteen.kumraAbadi : ''  %></td>
-                <td><%= twenty !== null ? twenty.kumraAbadi : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.kumraAbadi : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.kumraAbadi : ''  %></td>
-            </tr>
-            <tr>
-                <td>৫০</td>
-                <td>কুমড়াজাতীয় (উৎপাদন টন)</td>
-                <td><%= seventeen !== null ? seventeen.kumraUtpadon : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.kumraUtpadon : '' %></td>
-                <td><%= nineteen !== null ? nineteen.kumraUtpadon : ''  %></td>
-                <td><%= twenty !== null ? twenty.kumraUtpadon : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.kumraUtpadon : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.kumraUtpadon : ''  %></td>
-            </tr>
-            <tr>
-                <td>৫১</td>
-                <td>সীম/বরবটি (আবাদী জমি হেঃ)</td>
-                <td><%= seventeen !== null ? seventeen.simAbadi : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.simAbadi : '' %></td>
-                <td><%= nineteen !== null ? nineteen.simAbadi : ''  %></td>
-                <td><%= twenty !== null ? twenty.simAbadi : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.simAbadi : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.simAbadi : ''  %></td>
-            </tr>
-            <tr>
-                <td>৫২</td>
-                <td>সীম/বরবটি (উৎপাদন টন)</td>
-                <td><%= seventeen !== null ? seventeen.simUtpadon : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.simUtpadon : '' %></td>
-                <td><%= nineteen !== null ? nineteen.simUtpadon : ''  %></td>
-                <td><%= twenty !== null ? twenty.simUtpadon : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.simUtpadon : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.simUtpadon : ''  %></td>
-            </tr>
-            <tr>
-                <td>৫৩</td>
-                <td>আম (আবাদী জমি হেঃ)</td>
-                <td><%= seventeen !== null ? seventeen.amAbadi : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.amAbadi : '' %></td>
-                <td><%= nineteen !== null ? nineteen.amAbadi : ''  %></td>
-                <td><%= twenty !== null ? twenty.amAbadi : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.amAbadi : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.amAbadi : ''  %></td>
-            </tr>
-           
-            <tr>
-                <td>৫৪</td>
-                <td>আম (উৎপাদন টন)</td>
-                <td><%= seventeen !== null ? seventeen.amUtpadon : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.amUtpadon : '' %></td>
-                <td><%= nineteen !== null ? nineteen.amUtpadon : ''  %></td>
-                <td><%= twenty !== null ? twenty.amUtpadon : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.amUtpadon : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.amUtpadon : ''  %></td>
-            </tr>
-            <tr>
-                <td>৫৫</td>
-                <td>পেয়ারা (আবাদী জমি হেঃ)</td>
-                <td><%= seventeen !== null ? seventeen.peyaraAbadi : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.peyaraAbadi : '' %></td>
-                <td><%= nineteen !== null ? nineteen.peyaraAbadi : ''  %></td>
-                <td><%= twenty !== null ? twenty.peyaraAbadi : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.peyaraAbadi : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.peyaraAbadi : ''  %></td>
-            </tr>
-            <tr>
-                <td>৫৬</td>
-                <td>পেয়ারা (উৎপাদন টন)</td>
-                <td><%= seventeen !== null ? seventeen.peyaraUtpadon : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.peyaraUtpadon : '' %></td>
-                <td><%= nineteen !== null ? nineteen.peyaraUtpadon : ''  %></td>
-                <td><%= twenty !== null ? twenty.peyaraUtpadon : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.peyaraUtpadon : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.peyaraUtpadon : ''  %></td>
-            </tr>
-            <tr>
-                <td>৫৭</td>
-                <td>কলা (আবাদী জমি হেঃ)</td>
-                <td><%= seventeen !== null ? seventeen.kolaAbadi : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.kolaAbadi : '' %></td>
-                <td><%= nineteen !== null ? nineteen.kolaAbadi : ''  %></td>
-                <td><%= twenty !== null ? twenty.kolaAbadi : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.kolaAbadi : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.kolaAbadi : ''  %></td>
-            </tr>
-            <tr>
-                <td>৫৮</td>
-                <td>কলা (উৎপাদন টন)</td>
-                <td><%= seventeen !== null ? seventeen.kolaUtpadon : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.kolaUtpadon : '' %></td>
-                <td><%= nineteen !== null ? nineteen.kolaUtpadon : ''  %></td>
-                <td><%= twenty !== null ? twenty.kolaUtpadon : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.kolaUtpadon : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.kolaUtpadon : ''  %></td>
-            </tr>
-            <tr>
-                <td>৫৯</td>
-                <td>পেঁপে (আবাদী জমি হেঃ)</td>
-                <td><%= seventeen !== null ? seventeen.pepeAbadi : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.pepeAbadi : '' %></td>
-                <td><%= nineteen !== null ? nineteen.pepeAbadi : ''  %></td>
-                <td><%= twenty !== null ? twenty.pepeAbadi : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.pepeAbadi : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.pepeAbadi : ''  %></td>
-            </tr>
-            <tr>
-                <td>৬০</td>
-                <td>পেঁপে (উৎপাদন টন)</td>
-                <td><%= seventeen !== null ? seventeen.pepeUtpadon : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.pepeUtpadon : '' %></td>
-                <td><%= nineteen !== null ? nineteen.pepeUtpadon : ''  %></td>
-                <td><%= twenty !== null ? twenty.pepeUtpadon : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.pepeUtpadon : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.pepeUtpadon : ''  %></td>
-            </tr>
-            <tr>
-                <td>৬১</td>
-                <td>সফেদা (আবাদী জমি হেঃ)</td>
-                <td><%= seventeen !== null ? seventeen.sofedaAbadi : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.sofedaAbadi : '' %></td>
-                <td><%= nineteen !== null ? nineteen.sofedaAbadi : ''  %></td>
-                <td><%= twenty !== null ? twenty.sofedaAbadi : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.sofedaAbadi : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.sofedaAbadi : ''  %></td>
-            </tr>
-            <tr>
-                <td>৬২</td>
-                <td>সফেদা (উৎপাদন টন)</td>
-                <td><%= seventeen !== null ? seventeen.sofedaUtpadon : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.sofedaUtpadon : '' %></td>
-                <td><%= nineteen !== null ? nineteen.sofedaUtpadon : ''  %></td>
-                <td><%= twenty !== null ? twenty.sofedaUtpadon : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.sofedaUtpadon : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.sofedaUtpadon : ''  %></td>
-            </tr>
-            <tr>
-                <td>৬৩</td>
-                <td>মাল্টা (আবাদী জমি হেঃ) </td>
-                <td><%= seventeen !== null ? seventeen.maltaAbadi : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.maltaAbadi : '' %></td>
-                <td><%= nineteen !== null ? nineteen.maltaAbadi : ''  %></td>
-                <td><%= twenty !== null ? twenty.maltaAbadi : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.maltaAbadi : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.maltaAbadi : ''  %></td>
-            </tr>
-            <tr>
-                <td>৬৪</td>
-                <td>মাল্টা (উৎপাদন টন)</td>
-                <td><%= seventeen !== null ? seventeen.maltaUtpadon : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.maltaUtpadon : '' %></td>
-                <td><%= nineteen !== null ? nineteen.maltaUtpadon : ''  %></td>
-                <td><%= twenty !== null ? twenty.maltaUtpadon : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.maltaUtpadon : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.maltaUtpadon : ''  %></td>
-            </tr>
-            <tr>
-                <td>৬৫</td>
-                <td>কুল (আবাদী জমি হেঃ)</td>
-                <td><%= seventeen !== null ? seventeen.kulAbadi : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.kulAbadi : '' %></td>
-                <td><%= nineteen !== null ? nineteen.kulAbadi : ''  %></td>
-                <td><%= twenty !== null ? twenty.kulAbadi : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.kulAbadi : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.kulAbadi : ''  %></td>
-            </tr>
-            <tr>
-                <td>৬৬</td>
-                <td>কুল (উৎপাদন টন)</td>
-                <td><%= seventeen !== null ? seventeen.kulUtpadon : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.kulUtpadon : '' %></td>
-                <td><%= nineteen !== null ? nineteen.kulUtpadon : ''  %></td>
-                <td><%= twenty !== null ? twenty.kulUtpadon : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.kulUtpadon : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.kulUtpadon : ''  %></td>
-            </tr>
-            <tr>
-                <td>৬৭</td>
-                <td>তরমুজ (আবাদী জমি হেঃ) </td>
-                <td><%= seventeen !== null ? seventeen.tormujAbadi : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.tormujAbadi : '' %></td>
-                <td><%= nineteen !== null ? nineteen.tormujAbadi : ''  %></td>
-                <td><%= twenty !== null ? twenty.tormujAbadi : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.tormujAbadi : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.tormujAbadi : ''  %></td>
-            </tr>
-            <tr>
-                <td>৬৮</td>
-                <td>তরমুজ (উৎপাদন টন)</td>
-                <td><%= seventeen !== null ? seventeen.tormujUtpadon : ''  %></td>
-                <td><%= eighteen !== null ? eighteen.tormujUtpadon : '' %></td>
-                <td><%= nineteen !== null ? nineteen.tormujUtpadon : ''  %></td>
-                <td><%= twenty !== null ? twenty.tormujUtpadon : ''  %></td>
-                <td><%= twentyOne !== null ? twentyOne.tormujUtpadon : ''  %></td>
-                <td><%= twentyTwo !== null ? twentyTwo.tormujUtpadon : ''  %></td>
-            </tr>
-           
-        
+        <% records.forEach(function(row,index){ %>
+            <tr>
+                <td><%= index+1 %></td>
+                <td><%= row.crop %></td>
+                <td><%= row.areaShotero %></td>
+                <td><%= row.areaAtharo %></td>
+                <td><%= row.areaUnish %></td>
+                <td><%= row.areaBish %></td>
+                <td><%= row.areaEkush %></td>
+                <td><%= row.areaBaish %></td>
+                <td><%= row.productionShotero %></td>
+                <td><%= row.productionAtharo %></td>
+                <td><%= row.productionUnish %></td>
+                <td><%= row.productionBish %></td>
+                <td><%= row.productionEkush %></td>
+                <td><%= row.productionBaish %></td>
+               
+            </tr>
+        <% }) %>
     </tbody>
 </table>
+<% }else{ %>
+    <table class="table table-bordered table-striped" id="tblCustomers" cellspacing="0" cellpadding="0">
+        <thead>
+            <tr>
+                <th rowspan="2">ক্রমিক নং</th>
+                <th rowspan="2">ফসলের নাম</th>
+                <th colspan="2">২০১৭-১৮</th>
+                <th colspan="2">২০১৮-১৯</th>
+                <th colspan="2">২০১৯-২০</th>
+                <th colspan="2">২০২০-২১</th>
+                <th colspan="2">২০২১-২২</th>
+                <th colspan="2">২০২২-২৩</th>
+            </tr>
+            <tr>
+                <th>আবাদী জমি</th>
+                <th>উৎপাদন</th>
+                <th>আবাদী জমি</th>
+                <th>উৎপাদন</th>
+                <th>আবাদী জমি</th>
+                <th>উৎপাদন</th>
+                <th>আবাদী জমি</th>
+                <th>উৎপাদন</th>
+                <th>আবাদী জমি</th>
+                <th>উৎপাদন</th>
+                <th>আবাদী জমি</th>
+                <th>উৎপাদন</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% records.forEach(function(row){ %>
+            <tr>
+                <td colspan="10">No data Found</td>
+            </tr>
+        <% }) %>
+        </tbody>
+    </table>
+<% } %>
