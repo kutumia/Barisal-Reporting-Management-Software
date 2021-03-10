@@ -37,7 +37,6 @@ module.exports.saaologinpost=async(req,res)=>{
                         const id=req.session.user_id;
                         // res.locals.type = req.session.type;
                         // res.locals.user_id = req.session.user_id;
-                        console.log("session=", req.session.type,res.locals);
                         // const token=jwt.sign({id},process.env.JWT_SECRET,token{
                         //     expiresIn:process.env.JWT_EXPIRES_IN
                         // });
@@ -70,7 +69,6 @@ module.exports.saaoDashboard = async(req,res) => {
     saaos=await saao.findOne({where: {id:req.session.user_id}});
     dds=await dd.findOne({where: {id:saaos.dd_id}});
     upazillas=await upazilla.findOne({where: {id:saaos.upazilla_id}});
-    console.log("inside",saaos,dds,upazillas)
     res.render('saao/dashboard', { title: 'বরিশাল, পটুয়াখালী, ভোলা, ঝালকাঠী, বরগুনা, মাদারীপুর ও শরিয়তপুর কৃষি উন্নয়ন প্রকল্প ',saao:saaos,msg:'Welcome',records: saaos,dds:dds,upazillas:upazillas });
     }
     catch{
@@ -80,7 +78,6 @@ module.exports.saaoDashboard = async(req,res) => {
 module.exports.saaoEdit=async(req,res)=>{
     await saao.findByPk(req.params.id)
     .then(data => {
-        console.log("inside");
         res.render('saao/saaoEdit', { title: 'প্রশিক্ষণপ্রাপ্ত কৃষকের তথ্য',msg:'' ,success:'',records:data,user_id: req.session.user_id});
     })
     .catch(err => {
@@ -125,7 +122,6 @@ module.exports.saaoEditPost=async(req,res)=>{
 module.exports.saaoPassword=async(req,res)=>{
     await saao.findByPk(req.params.id)
     .then(data => {
-        console.log("inside");
         res.render('saao/saaoPassword', { title: 'পাসওয়ার্ড',msg:'' ,success:'',records:data,user_id: req.session.user_id});
     })
     .catch(err => {
@@ -136,7 +132,6 @@ module.exports.saaoPasswordEditPost=async(req,res)=>{
     var password= req.body.password;
     var user_id =req.body.user_id;
     const hashedPassword = await bcrypt.hash(password, 10);
-    console.log("hashedPassword",hashedPassword)
     await saao.update({
         password: hashedPassword,
     },
@@ -158,7 +153,6 @@ module.exports.saaoPasswordEditPost=async(req,res)=>{
 module.exports.saaosignup=async(req,res)=>{
     await dd.findAll()
     .then(data => {
-        console.log("inside");
         res.render('saao/signup', { title: 'বরিশাল, পটুয়াখালী, ভোলা, ঝালকাঠী, বরগুনা, মাদারীপুর ও শরিয়তপুর কৃষি উন্নয়ন প্রকল্প ',msg:'',records: data });
     })
     .catch(err => {
@@ -179,7 +173,6 @@ module.exports.saaosignuppost=async(req,res)=>{
         }
         else{
             const hashedPassword = await bcrypt.hash(password, 10);
-            console.log(hashedPassword);
             try{
                 const createsaao = await saao.create({
                     saao:saaos,
@@ -203,7 +196,6 @@ module.exports.saaosignuppost=async(req,res)=>{
 };
 module.exports.districtFilter=async(req,res)=>{
         var upazillass=await upazilla.findAll({where: {dd_id: req.body.district}});
-        console.log("inside",upazillass);
         res.send(upazillass)
 };
 //signUp controller end
@@ -214,7 +206,6 @@ module.exports.selectedField=async(req,res)=>{
         where: {saao_id: req.session.user_id}        
     })
     .then(data => {
-        console.log("inside");
         res.render('saao/selectedField/selectedField', { title: 'নির্বাচিত মাঠের কৃষকের তথ্য',success:'', records: data });
     })
     .catch(err => {
@@ -243,7 +234,6 @@ module.exports.selectedFieldForm=async(req,res)=>{
         where: {id: req.session.user_id}
     })
     .then(data => {
-        console.log("data,data.upazilla_id",data,data.upazilla_id);
         res.render('saao/selectedField/selectedFieldForm', { title: 'নির্বাচিত মাঠের কৃষকের তথ্য ',msg:'' ,success:'',upazilla_id: data.upazilla_id,user_id: req.session.user_id});
     })
     .catch(err => {
@@ -307,7 +297,6 @@ module.exports.selectedFieldFormPost=async(req,res)=>{
 module.exports.selectedFieldEdit=async(req,res)=>{
     await selectedField.findByPk(req.params.id)
     .then(data => {
-        console.log("inside");
         res.render('saao/selectedField/selectedFieldEdit', { title: 'প্রশিক্ষণপ্রাপ্ত কৃষকের তথ্য',msg:'' ,success:'',records:data,user_id: req.session.user_id});
     })
     .catch(err => {
@@ -385,7 +374,6 @@ module.exports.producedCrop=async(req,res)=>{
         where: {saao_id: req.session.user_id}        
     })
     .then(data => { 
-        console.log("inside");
         res.render('saao/producedCrop/producedCrop', { title: 'মাঠে উৎপাদিত ফসলের তথ্য',success:'', records: data });
     })
     .catch(err => {
@@ -424,50 +412,225 @@ module.exports.producedCropForm=async(req,res)=>{
 };
 module.exports.producedCropFormPost=async(req,res)=>{
     var name= req.body.name;
-    var areaShotero= req.body.areaShotero;
-    var productionShotero= req.body.productionShotero;
-    var areaAtharo= req.body.areaAtharo;
-    var productionAtharo= req.body.productionAtharo;
-    var areaUnish= req.body.areaUnish;
-    var productionUnish= req.body.productionUnish;
-    var areaBish= req.body.areaBish;
-    var productionBish= req.body.productionBish;
-    var areaEkush= req.body.areaEkush;
-    var productionEkush= req.body.productionEkush;
-    var areaBaish= req.body.areaBaish;
-    var productionBaish= req.body.productionBaish;
+    var k21= req.body.k21;
+    var k22= req.body.k22;
+    var r1= req.body.r1;
+    var r2= req.body.r2;
+    var k11= req.body.k11;
+    var k12= req.body.k12;
+    // var areaShotero= req.body.areaShotero;
+    // var productionShotero= req.body.productionShotero;
+    // var seasonShotero= req.body.seasonShotero;    
+    // var areaAtharo= req.body.areaAtharo;
+    // var productionAtharo= req.body.productionAtharo;
+    // var seasonAtharo= req.body.seasonAtharo;
+    // var areaUnish= req.body.areaUnish;
+    // var productionUnish= req.body.productionUnish;
+    // var seasonUnish= req.body.seasonUnish;
+    // var areaBish= req.body.areaBish;
+    // var productionBish= req.body.productionBish;
+    // var seasonBish= req.body.seasonBish;
+    // var areaEkush= req.body.areaEkush;
+    // var productionEkush= req.body.productionEkush;
+    // var seasonEkush= req.body.seasonEkush;
+    // var areaBaish= req.body.areaBaish;
+    // var productionBaish= req.body.productionBaish;
+    // var seasonBaish= req.body.seasonBaish;
+    var year= req.body.year;
     var user_id =req.body.user_id;
     var upazilla_id =req.body.upazilla_id;
 
     await producedCrop.create({
         crop: name,
-        areaShotero:areaShotero,
-        productionShotero:productionShotero,
-        areaAtharo:areaAtharo,
-        productionAtharo:productionAtharo,
-        areaUnish:areaUnish,
-        productionUnish:productionUnish,
-        areaBish:areaBish,
-        productionBish:productionBish,
-        areaEkush:areaEkush,
-        productionEkush:productionEkush,
-        areaBaish:areaBaish,
-        productionBaish:productionBaish,
+        k21:k21,
+        k22:k22,
+        r1:r1,
+        r2:r2,
+        k11:k11,
+        k12:k12,
+        // areaShotero:areaShotero,
+        // productionShotero:productionShotero,
+        // seasonShotero:seasonShotero,
+        // areaAtharo:areaAtharo,
+        // productionAtharo:productionAtharo,
+        // seasonAtharo:seasonAtharo,
+        // areaUnish:areaUnish,
+        // productionUnish:productionUnish,
+        // seasonUnish:seasonUnish,
+        // areaBish:areaBish,
+        // productionBish:productionBish,
+        // seasonBish:seasonBish,
+        // areaEkush:areaEkush,
+        // productionEkush:productionEkush,
+        // seasonEkush:seasonEkush,
+        // areaBaish:areaBaish,
+        // productionBaish:productionBaish,
+        // seasonBaish:seasonBaish,
+        year:year,
         upazilla_id:upazilla_id,
         saao_id:user_id,
     })
-        
-        .then(data => {
-            res.redirect('/saao/producedCrop');
+    .then(data => {
+            res.redirect(`/saao/producedCropToNibirota/${year}`);
         }).catch(err => {
             res.render('errorpage',err);
         });
   
 };
+module.exports.producedCropToNibirota=async(req,res)=>{
+    var producedCrops= await producedCrop.findAll({
+        where: {saao_id: req.session.user_id,year:req.params.year}
+    });
+    var cropNibirotas= await cropNibirota.findOne({
+        where: {saao_id: req.session.user_id,year:req.params.year}
+    });
+    console.log("inside",cropNibirotas);
+    if(cropNibirotas == null){
+        var saaos= await await saao.findOne({
+            where: {id: req.session.user_id}
+        })
+        var year=req.params.year;
+        var sumk21=0;
+             var sumk22=0;
+             var sumr1=0;
+             var sumr2=0;
+             var sumk11=0;
+             var sumk12=0;
+             var sumTotal=0;
+             producedCrops.forEach(function(row) {
+                 sumk21=sumk21+row.k21;
+                sumk22=sumk22+row.k22;
+                  sumr1=sumr1+row.r1;
+                  sumr2=sumr2+row.r2;
+                  sumk11=sumk11+row.k11;
+                  sumk12=sumk12+row.k12;
+                    })
+                    sumTotal=sumk21+sumk22+sumr1+sumr2+sumk11+sumk12;
+                    var arr=[];
+                    arr.push(sumk21,sumk22,sumr1,sumr2,sumk11,sumk12);
+                    for (i = 0; i < arr.length; ++i) 
+                         {
+                for (j = i + 1; j < arr.length; ++j) 
+                {
+                    if (arr[i] < arr[j]) 
+                    {
+                        a = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = a;
+                    }
+                }
+            };
+            number1=arr[0];
+            number2=arr[1];
+            number3=arr[2];
+            number4=arr[3];
+            number5=arr[4];
+            number6=arr[5];
+    
+            var one = number1-number2;
+            var two = number2-number3;
+            var three = number3-number4;
+            var four = number4-number5;
+            var five = number5-number6;
+            var six = number6;
+    
+    
+            await cropNibirota.create({
+                k21: sumk21,
+                k22: sumk22,
+                r1: sumr1,
+                r2: sumr2,
+                k11: sumk11,
+                k12: sumk12,
+                year:year,
+                upazilla_id:saaos.upazilla_id,
+                saao_id:req.session.user_id,
+            })
+    
+            try {
+                res.redirect('/saao/producedCrop');
+            }
+            catch{
+                res.render('errorpage',err);
+            };
+    }
+    else{
+        var saaos= await await saao.findOne({
+            where: {id: req.session.user_id}
+        })
+        var year=req.params.year;
+        var sumk21=0;
+             var sumk22=0;
+             var sumr1=0;
+             var sumr2=0;
+             var sumk11=0;
+             var sumk12=0;
+             var sumTotal=0;
+             producedCrops.forEach(function(row) {
+                 sumk21=sumk21+row.k21;
+                sumk22=sumk22+row.k22;
+                  sumr1=sumr1+row.r1;
+                  sumr2=sumr2+row.r2;
+                  sumk11=sumk11+row.k11;
+                  sumk12=sumk12+row.k12;
+                    })
+                    sumTotal=sumk21+sumk22+sumr1+sumr2+sumk11+sumk12;
+                    var arr=[];
+                    arr.push(sumk21,sumk22,sumr1,sumr2,sumk11,sumk12);
+                    for (i = 0; i < arr.length; ++i) 
+                         {
+                for (j = i + 1; j < arr.length; ++j) 
+                {
+                    if (arr[i] < arr[j]) 
+                    {
+                        a = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = a;
+                    }
+                }
+            };
+            number1=arr[0];
+            number2=arr[1];
+            number3=arr[2];
+            number4=arr[3];
+            number5=arr[4];
+            number6=arr[5];
+        
+            var one = number1-number2;
+            var two = number2-number3;
+            var three = number3-number4;
+            var four = number4-number5;
+            var five = number5-number6;
+            var six = number6;
+        
+            await cropNibirota.update({
+                k21: sumk21,
+                k22: sumk22,
+                r1: sumr1,
+                r2: sumr2,
+                k11: sumk11,
+                k12: sumk12,
+                year:year,
+                upazilla_id:saaos.upazilla_id,
+                saao_id:req.session.user_id,
+            },
+            {
+                where: {year: req.params.year,saao_id: req.session.user_id}
+            })
+        
+        
+            try {
+                res.redirect('/saao/producedCrop');
+            }
+            catch{
+                res.render('errorpage',err);
+            };
+    }
+};
+
 module.exports.producedCropEdit=async(req,res)=>{
     await producedCrop.findByPk(req.params.id)
     .then(data => {
-        console.log("inside");
         res.render('saao/producedCrop/producedCropEdit', { title: 'মাঠে উৎপাদিত ফসলের তথ্য',msg:'' ,success:'',records:data,user_id: req.session.user_id});
     })
     .catch(err => {
@@ -528,6 +691,28 @@ module.exports.producedCropDelete=async(req,res)=>{
     }
 };
 //producedCrop controller end
+
+//seasonProduction controller
+module.exports.seasonProduction=async(req,res)=>{
+    
+        res.render('saao/seasonProduction/seasonProduction', { title: 'প্রশিক্ষণপ্রাপ্ত কৃষকের তথ্য',success:'' });
+
+
+};
+
+module.exports.seasonProductionYear=async(req,res)=>{
+    await producedCrop.findAll({
+        where: {year: req.body.year,saao_id: req.session.user_id}
+    })
+    .then(data => {
+        res.render('saao/seasonProduction/seasonProductionTable', {records: data} ,function(err, html) {
+            res.send(html);
+        });
+    })
+    .catch(err => {
+        console.log("outside");    })
+
+};
 
 //cropNibirota controller
 module.exports.cropNibirota=async(req,res)=>{
@@ -616,7 +801,6 @@ module.exports.cropNibirotaFormPost=async(req,res)=>{
 module.exports.cropNibirotaEdit=async(req,res)=>{
     await cropNibirota.findByPk(req.params.id)
     .then(data => {
-        console.log("inside");
         res.render('saao/cropNibirota/cropNibirotaEdit', { title: 'শস্য নিবিড়তার অগ্রগতি',msg:'' ,success:'',records:data,user_id: req.session.user_id});
     })
     .catch(err => {

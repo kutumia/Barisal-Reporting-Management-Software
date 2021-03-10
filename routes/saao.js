@@ -3,8 +3,8 @@ const router = express.Router();
 // const { Router } = require("express");
 const app=express();
 
-const {saaosignup,saaosignuppost,saaologin,saaologinpost,saaoDashboard,districtFilter,saaoEdit,saaoEditPost,producedCropEditPost,
-    cropNibirota,cropNibirotaYear,cropNibirotaForm,cropNibirotaFormPost,producedCrop,producedCropYear,producedCropForm,producedCropFormPost,
+const {saaosignup,saaosignuppost,saaologin,saaologinpost,saaoDashboard,districtFilter,saaoEdit,saaoEditPost,producedCropEditPost,producedCropToNibirota,
+    cropNibirota,cropNibirotaYear,cropNibirotaForm,cropNibirotaFormPost,producedCrop,producedCropYear,producedCropForm,producedCropFormPost,seasonProduction,seasonProductionYear,
     selectedField,selectedFieldYear,selectedFieldForm,selectedFieldFormPost,cropNibirotaEditPost,saaoPasswordEditPost,saaoPassword,selectedFieldEditPost,
     cropNibirotaEdit,cropNibirotaDelete,producedCropEdit,producedCropDelete,selectedFieldEdit,selectedFieldDelete,} = require('../controllers/saao.controller');
 
@@ -34,6 +34,7 @@ router.post('/producedCropFormPost',producedCropFormPost);
 router.get('/producedCropEdit/:id',producedCropEdit);
 router.post('/producedCropEditPost/:id',producedCropEditPost);
 router.get('/producedCropDelete/:id',producedCropDelete);
+router.get('/producedCropToNibirota/:year',producedCropToNibirota);
 
 router.get('/selectedField',selectedField);
 router.post('/selectedFieldYear',selectedFieldYear);
@@ -43,5 +44,7 @@ router.get('/selectedFieldEdit/:id',selectedFieldEdit);
 router.post('/selectedFieldEditPost/:id',selectedFieldEditPost);
 router.get('/selectedFieldDelete/:id',selectedFieldDelete);
 
+router.get('/seasonProduction',seasonProduction);
+router.post('/seasonProductionYear',seasonProductionYear);
 
 module.exports = router;

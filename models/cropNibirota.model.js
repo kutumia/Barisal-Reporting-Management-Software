@@ -5,32 +5,26 @@ module.exports = (sequelize, Sequelize) => {
         primaryKey: true,
         autoIncrement:true
       },
-      fosholi: {
-        type: Sequelize.STRING
-      },
       abadjoggo: {
         type: Sequelize.STRING
       },
-      abadi: {
-        type: Sequelize.STRING
+      k21: {
+        type: Sequelize.INTEGER
       },
-      ek: {
-        type: Sequelize.STRING
+      k22: {
+        type: Sequelize.INTEGER
       },
-      dui: {
-        type: Sequelize.STRING
+      r1: {
+        type: Sequelize.INTEGER
       },
-      tin: {
-        type: Sequelize.STRING
+      r2: {
+        type: Sequelize.INTEGER
       },
-      kharif2: {
-        type: Sequelize.STRING
+      k11: {
+        type: Sequelize.INTEGER
       },
-      robi: {
-        type: Sequelize.STRING
-      },
-      kharif1: {
-        type: Sequelize.STRING
+      k12: {
+        type: Sequelize.INTEGER
       },
       irrigation: {
         type: Sequelize.STRING

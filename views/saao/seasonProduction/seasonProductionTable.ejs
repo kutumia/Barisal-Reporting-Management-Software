@@ -1,0 +1,93 @@
+<%if (records.length >0){ %>
+    <table class="table table-bordered table-striped" id="" cellspacing="0" cellpadding="0">
+    <thead>
+    <tr>
+        <th rowspan="2">ক্রমিক নং</th>
+        <th rowspan="2">ফসলের নাম</th>
+        <th colspan="2">খরিফ-২</th>
+        <th colspan="2">রবি</th>
+        <th colspan="2">খরিফ-২</th>
+        <th rowspan="2">মোট (হেঃ)</th>
+    </tr>
+    <tr>
+        <th>খন্দ-১</th>
+        <th>খন্দ-২</th>
+        <th>খন্দ-১</th>
+        <th>খন্দ-২</th>
+        <th>খন্দ-১</th>
+        <th>খন্দ-২</th>
+    </tr>
+    </thead>
+    <tbody>
+        <% var sumk21=0;%>
+        <% var sumk22=0;%>
+        <% var sumr1=0;%>
+        <% var sumr2=0;%>
+        <% var sumk11=0;%>
+        <% var sumk12=0;%>
+        <% var sumTotal=0;%>
+         
+        <% records.forEach(function(row,index) { %>
+            <% var sumrow=0;%>
+            <tr>
+                <td><%= index+1 %></td>
+                <td><%= row.crop %></td>
+                <td><%= row.k21 %></td>
+                <td><%= row.k22 %></td>
+                <td><%= row.r1 %></td>
+                <td><%= row.r2 %></td>
+                <td><%= row.k11 %></td>
+                <td><%= row.k12 %></td>
+                <%  sumrow=row.k21+row.k22+row.r1+row.r2+row.k11+row.k12%>
+                <%  sumk21=sumk21+row.k21%>
+                <%  sumk22=sumk22+row.k22%>
+                <%  sumr1=sumr1+row.r1%>
+                <%  sumr2=sumr2+row.r2%>
+                <%  sumk11=sumk11+row.k11%>
+                <%  sumk12=sumk12+row.k12%>
+                <td><%= sumrow %></td>
+            </tr>
+        <% }) %>
+        <tr>
+            <td></td>
+                <td>মোট =</td>
+                <td><%=sumk21%></td>
+                <td><%=sumk22%></td>
+                <td><%=sumr1%></td>
+                <td><%=sumr2%></td>
+                <td><%=sumk11%></td>
+                <td><%=sumk12%></td>
+                <%  sumTotal=sumk21+sumk22+sumr1+sumr2+sumk11+sumk12%>
+                <td><%= sumTotal %></td>
+        </tr>
+    </tbody>
+</table>
+<% }else{ %>
+    <table class="table table-bordered table-striped" id="tblCustomers" cellspacing="0" cellpadding="0">
+        <thead>
+            <tr>
+                <th rowspan="2">ক্রমিক নং</th>
+                <th rowspan="2">ফসলের নাম</th>
+                <th colspan="2">খরিফ-২</th>
+                <th colspan="2">রবি</th>
+                <th colspan="2">খরিফ-২</th>
+                <th rowspan="2">মোট (হেঃ)</th>
+            </tr>
+            <tr>
+                <th>খন্দ-১</th>
+                <th>খন্দ-২</th>
+                <th>খন্দ-১</th>
+                <th>খন্দ-২</th>
+                <th>খন্দ-১</th>
+                <th>খন্দ-২</th>
+            </tr>
+            </thead>
+        <tbody>
+        <% records.forEach(function(row){ %>
+            <tr>
+                <td colspan="10">No data Found</td>
+            </tr>
+        <% }) %>
+        </tbody>
+    </table>
+<% } %>
