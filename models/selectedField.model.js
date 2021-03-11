@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
-    const selectedField = sequelize.define("selectedField", {
+    const selectedField = sequelize.define("selectedfield", {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,

@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
-    const trialProgress = sequelize.define("trialProgress", {
+    const trialProgress = sequelize.define("trialprogress", {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,

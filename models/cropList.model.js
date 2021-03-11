@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
-    const cropList = sequelize.define("cropList", {
+    const cropList = sequelize.define("croplist", {
         id: {
             type: Sequelize.INTEGER,
             primaryKey: true,
