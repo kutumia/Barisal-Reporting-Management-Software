@@ -26,6 +26,9 @@ module.exports = (sequelize, Sequelize) => {
       k12: {
         type: Sequelize.INTEGER
       },
+      production: {
+        type: Sequelize.INTEGER
+      },
       year: {
         type: Sequelize.STRING
       },

@@ -206,6 +206,7 @@ module.exports.selectedField=async(req,res)=>{
         where: {saao_id: req.session.user_id}        
     })
     .then(data => {
+        console.log("data",data);
         res.render('saao/selectedField/selectedField', { title: 'নির্বাচিত মাঠের কৃষকের তথ্য',success:'', records: data });
     })
     .catch(err => {
@@ -220,6 +221,7 @@ module.exports.selectedFieldYear=async(req,res)=>{
         where: {year: req.body.year,saao_id: req.session.user_id}
     })
     .then(data => {
+        console.log("data",data);
         res.render('saao/selectedField/selectedFieldTable', {records: data} ,function(err, html) {
             res.send(html);
         });
@@ -230,10 +232,11 @@ module.exports.selectedFieldYear=async(req,res)=>{
 
 };
 module.exports.selectedFieldForm=async(req,res)=>{
-    await saao.findOne({
-        where: {id: req.session.user_id}
+    await selectedField.findAll({
+        where: {year: req.body.year,saao_id: req.session.user_id}
     })
     .then(data => {
+        console.log("data",data);
         res.render('saao/selectedField/selectedFieldForm', { title: 'নির্বাচিত মাঠের কৃষকের তথ্য ',msg:'' ,success:'',upazilla_id: data.upazilla_id,user_id: req.session.user_id});
     })
     .catch(err => {
@@ -370,17 +373,22 @@ module.exports.selectedFieldDelete=async(req,res)=>{
 
 //producedCrop controller
 module.exports.producedCrop=async(req,res)=>{
-    await producedCrop.findAll({
-        where: {saao_id: req.session.user_id}        
-    })
-    .then(data => { 
-        res.render('saao/producedCrop/producedCrop', { title: 'মাঠে উৎপাদিত ফসলের তথ্য',success:'', records: data });
-    })
-    .catch(err => {
+    try{
+    var seventeen=await producedCrop.findAll({where: {year:"2017",saao_id: req.session.user_id}});
+        var eighteen=await producedCrop.findAll({where: {year:"2018",saao_id: req.session.user_id}});
+        var nineteen=await producedCrop.findAll({where: {year:"2019",saao_id: req.session.user_id}});
+        var twenty=await producedCrop.findAll({where: {year:"2020",saao_id: req.session.user_id}});
+        var twentyOne=await producedCrop.findAll({where: {year:"2021",saao_id: req.session.user_id}});
+        var twentyTwo=await producedCrop.findAll({where: {year:"2022" ,saao_id: req.session.user_id}});
+        var cropLists=await cropList.findAll({where: {type: "crop"}});
+        console.log("inside",seventeen);
+        res.render('saao/producedCrop/producedCrop', { title: 'মাঠে উৎপাদিত ফসলের তথ্য',success:'',cropList:cropLists, seventeen: seventeen,eighteen: eighteen,nineteen: nineteen,twenty: twenty,twentyOne: twentyOne,twentyTwo: twentyTwo });
+        // var men=seventeen.purush;
+        // console.log("seventeen,",req.typeof(men));
+    }
+    catch(err){
         console.log(err);
-    })
-     
-    //  records:result
+    }
 
 };
 
@@ -404,7 +412,7 @@ module.exports.producedCropForm=async(req,res)=>{
     })
     var data=await cropList.findAll({where: {type: "crop"}})
       try {
-        res.render('saao/producedCrop/producedCropForm',  { title: 'মাঠে উৎপাদিত ফসলের তথ্য',msg:'' ,success:'',upazilla_id: saaos.upazilla_id,user_id: req.session.user_id,data:data});
+        res.render('saao/producedCrop/producedCropForm',  { title: 'মাঠে উৎপাদিত ফসলের তথ্য ফর্ম',msg:'' ,success:'',upazilla_id: saaos.upazilla_id,user_id: req.session.user_id,data:data});
       }
       catch{
         console.log(err);
@@ -418,24 +426,7 @@ module.exports.producedCropFormPost=async(req,res)=>{
     var r2= req.body.r2;
     var k11= req.body.k11;
     var k12= req.body.k12;
-    // var areaShotero= req.body.areaShotero;
-    // var productionShotero= req.body.productionShotero;
-    // var seasonShotero= req.body.seasonShotero;    
-    // var areaAtharo= req.body.areaAtharo;
-    // var productionAtharo= req.body.productionAtharo;
-    // var seasonAtharo= req.body.seasonAtharo;
-    // var areaUnish= req.body.areaUnish;
-    // var productionUnish= req.body.productionUnish;
-    // var seasonUnish= req.body.seasonUnish;
-    // var areaBish= req.body.areaBish;
-    // var productionBish= req.body.productionBish;
-    // var seasonBish= req.body.seasonBish;
-    // var areaEkush= req.body.areaEkush;
-    // var productionEkush= req.body.productionEkush;
-    // var seasonEkush= req.body.seasonEkush;
-    // var areaBaish= req.body.areaBaish;
-    // var productionBaish= req.body.productionBaish;
-    // var seasonBaish= req.body.seasonBaish;
+    var production= req.body.production;
     var year= req.body.year;
     var user_id =req.body.user_id;
     var upazilla_id =req.body.upazilla_id;
@@ -448,24 +439,8 @@ module.exports.producedCropFormPost=async(req,res)=>{
         r2:r2,
         k11:k11,
         k12:k12,
-        // areaShotero:areaShotero,
-        // productionShotero:productionShotero,
-        // seasonShotero:seasonShotero,
-        // areaAtharo:areaAtharo,
-        // productionAtharo:productionAtharo,
-        // seasonAtharo:seasonAtharo,
-        // areaUnish:areaUnish,
-        // productionUnish:productionUnish,
-        // seasonUnish:seasonUnish,
-        // areaBish:areaBish,
-        // productionBish:productionBish,
-        // seasonBish:seasonBish,
-        // areaEkush:areaEkush,
-        // productionEkush:productionEkush,
-        // seasonEkush:seasonEkush,
-        // areaBaish:areaBaish,
-        // productionBaish:productionBaish,
-        // seasonBaish:seasonBaish,
+        production:production,
+        
         year:year,
         upazilla_id:upazilla_id,
         saao_id:user_id,
@@ -491,19 +466,19 @@ module.exports.producedCropToNibirota=async(req,res)=>{
         })
         var year=req.params.year;
         var sumk21=0;
-             var sumk22=0;
-             var sumr1=0;
-             var sumr2=0;
-             var sumk11=0;
-             var sumk12=0;
-             var sumTotal=0;
-             producedCrops.forEach(function(row) {
-                 sumk21=sumk21+row.k21;
-                sumk22=sumk22+row.k22;
-                  sumr1=sumr1+row.r1;
-                  sumr2=sumr2+row.r2;
-                  sumk11=sumk11+row.k11;
-                  sumk12=sumk12+row.k12;
+        var sumk22=0;
+        var sumr1=0;
+        var sumr2=0;
+        var sumk11=0;
+        var sumk12=0;
+        var sumTotal=0;
+        producedCrops.forEach(function(row) {
+        sumk21=sumk21+row.k21;
+        sumk22=sumk22+row.k22;
+        sumr1=sumr1+row.r1;
+        sumr2=sumr2+row.r2;
+        sumk11=sumk11+row.k11;
+        sumk12=sumk12+row.k12;
                     })
                     sumTotal=sumk21+sumk22+sumr1+sumr2+sumk11+sumk12;
                     var arr=[];
@@ -555,7 +530,7 @@ module.exports.producedCropToNibirota=async(req,res)=>{
             };
     }
     else{
-        var saaos= await await saao.findOne({
+        var saaos=  await saao.findOne({
             where: {id: req.session.user_id}
         })
         var year=req.params.year;
@@ -695,7 +670,7 @@ module.exports.producedCropDelete=async(req,res)=>{
 //seasonProduction controller
 module.exports.seasonProduction=async(req,res)=>{
     
-        res.render('saao/seasonProduction/seasonProduction', { title: 'প্রশিক্ষণপ্রাপ্ত কৃষকের তথ্য',success:'' });
+        res.render('saao/seasonProduction/seasonProduction', { title: 'মৌসুমওয়ারী আবাদকৃত ফসলের তথ্য',success:'' });
 
 
 };
@@ -723,6 +698,7 @@ module.exports.cropNibirota=async(req,res)=>{
         var twenty=await cropNibirota.findOne({where: {year:"2020",saao_id: req.session.user_id}});
         var twentyOne=await cropNibirota.findOne({where: {year:"2021",saao_id: req.session.user_id}});
         var twentyTwo=await cropNibirota.findOne({where: {year:"2022" ,saao_id: req.session.user_id}});
+        console.log("eighteen",eighteen)
         
         res.render('saao/cropNibirota/cropNibirota', { title: 'শস্য নিবিড়তার অগ্রগতির তথ্য',success:'', seventeen: seventeen,eighteen: eighteen,nineteen: nineteen,twenty: twenty,twentyOne: twentyOne,twentyTwo: twentyTwo });
         // var men=seventeen.purush;

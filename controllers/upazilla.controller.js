@@ -323,17 +323,21 @@ module.exports.producedCrop=async(req,res)=>{
 };
 
 module.exports.producedCropFilter=async(req,res)=>{
-    await producedCrop.findAll({ 
-        where: {saao_id: req.body.saao}
-    })
-    .then(data => {
-        res.render('upazilla/producedCrop/producedCropTable', {records: data} ,function(err, html) {
-            res.send(html);
-        });
-    })
-    .catch(err => {
-        console.log("outside",err);
-    })
+    try{
+        var seventeen=await producedCrop.findAll({where: {year:"2017",saao_id: req.body.saao}});
+            var eighteen=await producedCrop.findAll({where: {year:"2018",saao_id: req.body.saao}});
+            var nineteen=await producedCrop.findAll({where: {year:"2019",saao_id: req.body.saao}});
+            var twenty=await producedCrop.findAll({where: {year:"2020",saao_id: req.body.saao}});
+            var twentyOne=await producedCrop.findAll({where: {year:"2021",saao_id: req.body.saao}});
+            var twentyTwo=await producedCrop.findAll({where: {year:"2022" ,saao_id: req.body.saao}});
+            var cropLists=await cropList.findAll({where: {type: "crop"}});
+            res.render('upazilla/producedCrop/producedCropTable', { title: 'মাঠে উৎপাদিত ফসলের তথ্য',success:'',cropList:cropLists, seventeen: seventeen,eighteen: eighteen,nineteen: nineteen,twenty: twenty,twentyOne: twentyOne,twentyTwo: twentyTwo });
+            // var men=seventeen.purush;
+            // console.log("seventeen,",req.typeof(men));
+        }
+        catch(err){
+            console.log(err);
+        }
 
 };
 //producedCrop controller end

@@ -18,61 +18,7 @@
                         </div>
 
                         <div class="table-responsive" id="output">
-                            <%if (records.length >0){ %>
-                                <table class="table table-bordered table-striped" id="" cellspacing="0" cellpadding="0">
-                                <thead>
-                                <tr>
-                                    <th rowspan="2">ক্রমিক নং</th>
-                                    <th rowspan="2">ফসলের নাম</th>
-                                    <th colspan="2">২০১৭-১৮</th>
-                                    <th colspan="2">২০১৮-১৯</th>
-                                    <th colspan="2">২০১৯-২০</th>
-                                    <th colspan="2">২০২০-২১</th>
-                                    <th colspan="2">২০২১-২২</th>
-                                    <th colspan="2">২০২২-২৩</th>
-                                    <th rowspan="2">পরিবর্তন/মুছুন</th>
-                                </tr>
-                                <tr>
-                                    <th>আয়তন (হেঃ)</th>
-                                    <th>উৎপাদন (টন)</th>
-                                    <th>আয়তন (হেঃ)</th>
-                                    <th>উৎপাদন (টন)</th>
-                                    <th>আয়তন (হেঃ)</th>
-                                    <th>উৎপাদন (টন)</th>
-                                    <th>আয়তন (হেঃ)</th>
-                                    <th>উৎপাদন (টন)</th>
-                                    <th>আয়তন (হেঃ)</th>
-                                    <th>উৎপাদন (টন)</th>
-                                    <th>আয়তন (হেঃ)</th>
-                                    <th>উৎপাদন (টন)</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                    
-                                    <% records.forEach(function(row,index) { %>
-                                        <tr>
-                                            <td><%= index+1 %></td>
-                                            <td><%= row.crop %></td>
-                                            <td><%= row.areaShotero %></td>
-                                            <td><%= row.productionShotero %></td>
-                                            <td><%= row.areaAtharo %></td>
-                                            <td><%= row.productionAtharo %></td>
-                                            <td><%= row.areaUnish %></td>
-                                            <td><%= row.productionUnish %></td>
-                                            <td><%= row.areaBish %></td>
-                                            <td><%= row.productionBish %></td>
-                                            <td><%= row.areaEkush %></td>
-                                            <td><%= row.productionEkush %></td>
-                                            <td><%= row.areaBaish %></td>
-                                            <td><%= row.productionBaish %></td>
-                                            <td><a class="btn btn-primary btn-xs" href="/saao/producedCropEdit/<%= row.id %>"><i class="fa fa-edit"></i></a>
-                                                <a class="btn btn-danger btn-xs" href="/saao/producedCropDelete/<%= row.id %>"><i class="fa fa-trash"></i></a>
-                                            </td>
-                                        </tr>
-                                    <% }) %>
-                                </tbody>
-                            </table>
-                            <% }else{ %>
+                            <%if (cropList.length >0){ %>
                                 <table class="table table-bordered table-striped" id="tblCustomers" cellspacing="0" cellpadding="0">
                                     <thead>
                                         <tr>
@@ -84,7 +30,6 @@
                                             <th colspan="2">২০২০-২১</th>
                                             <th colspan="2">২০২১-২২</th>
                                             <th colspan="2">২০২২-২৩</th>
-                                            <th rowspan="2">পরিবর্তন/মুছুন</th>
                                         </tr>
                                         <tr>
                                             <th>আয়তন (হেঃ)</th>
@@ -100,16 +45,173 @@
                                             <th>আয়তন (হেঃ)</th>
                                             <th>উৎপাদন (টন)</th>
                                         </tr>
-                                        </thead>
+                                    </thead>
                                     <tbody>
-                                    <% records.forEach(function(row){ %>
-                                        <tr>
-                                            <td colspan="10">No data Found</td>
-                                        </tr>
-                                    <% }) %>
+                                        <% cropList.forEach(function(rows,index){ %>
+                                            <tr>
+                                                <td><%= index+1 %></td>
+                                                <td><%= rows.name %></td>
+                                                <% if (seventeen.length > 0){
+                                                    seventeen.forEach(function(seventeens){ 
+                                                    if (seventeens.crop === rows.name ){ 
+                                                        sumAreaShotero = parseInt(seventeens.k21)+parseInt(seventeens.k22)+parseInt(seventeens.r1)+parseInt(seventeens.r2)+parseInt(seventeens.k11)+parseInt(seventeens.k12) 
+                                                        sumProductionShotero = seventeens.production ;
+                                                        console.log("sumProductionShotero",sumProductionShotero,seventeens.k21);
+                                                    }else{ 
+                                                            sumAreaShotero = 0 ;
+                                                            sumProductionShotero = 0 ;
+
+                                                        } 
+                                                })
+                                                }else{ 
+                                                    sumAreaShotero = 0 ;
+                                                    sumProductionShotero = 0 ;
+                                                }
+
+
+                                                 if (eighteen.length > 0){
+                                                    eighteen.forEach(function(eighteens){ 
+                                                    if (eighteens.crop === rows.name ){ 
+                                                        sumAreaAtharo = parseInt(eighteens.k21)+parseInt(eighteens.k22)+parseInt(eighteens.r1)+parseInt(eighteens.r2)+parseInt(eighteens.k11)+parseInt(eighteens.k12) ;
+                                                        sumProductionAtharo = eighteens.production ;
+                                                        }else{ 
+                                                            sumAreaAtharo = 0 ;
+                                                            sumProductionAtharo = 0 ;
+                                                        } 
+                                                })
+                                                }else{ 
+                                                    sumAreaAtharo = 0 ;
+                                                    sumProductionAtharo = 0 ;
+                                                }
+
+
+                                                if (nineteen.length > 0){
+                                                    nineteen.forEach(function(nineteens){ 
+                                                    if (nineteens.crop === rows.name ){ 
+                                                        sumAreaUnish = parseInt(nineteens.k21)+parseInt(nineteens.k22)+parseInt(nineteens.r1)+parseInt(nineteens.r2)+parseInt(nineteens.k11)+parseInt(nineteens.k12) ;
+                                                        sumProductionUnish = nineteens.production ;
+                                                        }else{ 
+                                                            sumAreaUnish = 0 ;
+                                                            sumProductionUnish = 0 ;
+                                                        } 
+                                                })
+                                                }else{ 
+                                                    sumAreaUnish = 0 ;
+                                                    sumProductionUnish = 0 ;
+                                                }
+
+
+                                                if (twenty.length > 0){
+                                                    twenty.forEach(function(twentys){ 
+                                                    if (twentys.crop === rows.name ){ 
+                                                        sumAreaBish = parseInt(twentys.k21)+parseInt(twentys.k22)+parseInt(twentys.r1)+parseInt(twentys.r2)+parseInt(twentys.k11)+parseInt(twentys.k12) ;
+                                                        sumProductionBish = twentys.production ;
+                                                        }else{ 
+                                                            sumAreaBish = 0 ;
+                                                            sumProductionBish = 0 ;
+                                                        } 
+                                                })
+                                                }else{ 
+                                                    sumAreaBish = 0 ;
+                                                    sumProductionBish = 0 ;
+                                                }
+
+
+                                                 if (twentyOne.length > 0){
+                                                    twentyOne.forEach(function(twentyOnes){ 
+                                                    if (twentyOnes.crop === rows.name ){ 
+                                                        sumAreaEkush = parseInt(twentyOnes.k21)+parseInt(twentyOnes.k22)+parseInt(twentyOnes.r1)+parseInt(twentyOnes.r2)+parseInt(twentyOnes.k11)+parseInt(twentyOnes.k12) ;
+                                                        sumProductionEkush = twentyOnes.production ;
+                                                        }else{ 
+                                                            sumAreaEkush = 0 ;
+                                                            sumProductionEkush = 0 ;
+
+                                                        } 
+                                                })
+                                                }else{ 
+                                                    sumAreaEkush = 0 ;
+                                                    sumProductionEkush = 0 ;
+                                                }
+
+                                                if (twentyTwo.length > 0){
+                                                    twentyTwo.forEach(function(twentyTwos){ 
+                                                    if (twentyTwos.crop === rows.name ){ 
+                                                        sumAreaBaish = parseInt(twentyTwos.k21)+parseInt(twentyTwos.k22)+parseInt(twentyTwos.r1)+parseInt(twentyTwos.r2)+parseInt(twentyTwos.k11)+parseInt(twentyTwos.k12);
+                                                        sumProductionBaish = twentyTwos.production ; 
+                                                        }else{ 
+                                                            sumAreaBaish = 0 ;
+                                                            sumProductionBaish = 0 ;
+                                                        } 
+                                                })
+                                                }else{ 
+                                                    sumAreaBaish = 0 ;
+                                                    sumProductionBaish = 0 ;
+                                                }
+                                                
+                                                %>
+                                                <td><%= sumAreaShotero %></td>
+                                                <td><%= sumProductionShotero %></td>
+                                                <td><%= sumAreaAtharo %></td>
+                                                <td><%= sumProductionAtharo %></td>
+                                                <td><%= sumAreaUnish %></td>
+                                                <td><%= sumProductionUnish %></td>
+                                                <td><%= sumAreaBish %></td>
+                                                <td><%= sumProductionBish %></td>
+                                                <td><%= sumAreaEkush %></td>
+                                                <td><%= sumProductionEkush %></td>
+                                                <td><%= sumAreaBaish %></td>
+                                                <td><%= sumProductionBaish %></td>
+                                                
+                                                         
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                              
+                                            </tr>
+                                        <% }) %>
                                     </tbody>
                                 </table>
-                            <% } %>
+                                <% }else{ %>
+                                    <table class="table table-bordered table-striped" id="tblCustomers" cellspacing="0" cellpadding="0">
+                                        <thead>
+                                            <tr>
+                                                <th rowspan="2">ক্রমিক নং</th>
+                                                <th rowspan="2">ফসলের নাম</th>
+                                                <th colspan="2">২০১৭-১৮</th>
+                                                <th colspan="2">২০১৮-১৯</th>
+                                                <th colspan="2">২০১৯-২০</th>
+                                                <th colspan="2">২০২০-২১</th>
+                                                <th colspan="2">২০২১-২২</th>
+                                                <th colspan="2">২০২২-২৩</th>
+                                            </tr>
+                                            <tr>
+                                                <th>আয়তন (হেঃ)</th>
+                                                <th>উৎপাদন (টন)</th>
+                                                <th>আয়তন (হেঃ)</th>
+                                                <th>উৎপাদন (টন)</th>
+                                                <th>আয়তন (হেঃ)</th>
+                                                <th>উৎপাদন (টন)</th>
+                                                <th>আয়তন (হেঃ)</th>
+                                                <th>উৎপাদন (টন)</th>
+                                                <th>আয়তন (হেঃ)</th>
+                                                <th>উৎপাদন (টন)</th>
+                                                <th>আয়তন (হেঃ)</th>
+                                                <th>উৎপাদন (টন)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <% records.forEach(function(row){ %>
+                                            <tr>
+                                                <td colspan="10">No data Found</td>
+                                            </tr>
+                                        <% }) %>
+                                        </tbody>
+                                    </table>
+                                <% } %>
+                                
                         </div>
 
                         <input type="button" id="btnExport" value="Download PDF" />
