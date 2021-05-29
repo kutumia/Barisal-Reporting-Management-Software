@@ -381,7 +381,6 @@ module.exports.producedCrop=async(req,res)=>{
         var twentyOne=await producedCrop.findAll({where: {year:"2021",saao_id: req.session.user_id}});
         var twentyTwo=await producedCrop.findAll({where: {year:"2022" ,saao_id: req.session.user_id}});
         var cropLists=await cropList.findAll({where: {type: "crop"}});
-        console.log("inside",seventeen);
         res.render('saao/producedCrop/producedCrop', { title: 'মাঠে উৎপাদিত ফসলের তথ্য',success:'',cropList:cropLists, seventeen: seventeen,eighteen: eighteen,nineteen: nineteen,twenty: twenty,twentyOne: twentyOne,twentyTwo: twentyTwo });
         // var men=seventeen.purush;
         // console.log("seventeen,",req.typeof(men));
@@ -601,8 +600,7 @@ module.exports.producedCropToNibirota=async(req,res)=>{
                 res.render('errorpage',err);
             };
     }
-};
-
+};  
 module.exports.producedCropEdit=async(req,res)=>{
     await producedCrop.findByPk(req.params.id)
     .then(data => {
@@ -688,7 +686,7 @@ module.exports.seasonProductionYear=async(req,res)=>{
         console.log("outside");    })
 
 };
-
+                                                          
 //cropNibirota controller
 module.exports.cropNibirota=async(req,res)=>{
     try{

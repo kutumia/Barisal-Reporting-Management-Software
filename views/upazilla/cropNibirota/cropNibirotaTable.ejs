@@ -14,126 +14,599 @@
         </thead>
         <tbody>
             
+            <tr>
+                <!-- Seventeen calculation -->
+                <% var seventeenarr=[];
+                if (seventeen === null){
+                    seventeenarr.push(0,0,0,0,0,0); 
+                    for (i = 0; i < seventeenarr.length; ++i) 
+                    {
+           for (j = i + 1; j < seventeenarr.length; ++j) 
+               {
+                   if (seventeenarr[i] < seventeenarr[j]) 
+                   {
+                       a = seventeenarr[i];
+                       seventeenarr[i] = seventeenarr[j];
+                       seventeenarr[j] = a;
+                   }
+               }
+           };
+               seventeennumber1=seventeenarr[0];
+               seventeennumber2=seventeenarr[1];
+               seventeennumber3=seventeenarr[2];
+               seventeennumber4=seventeenarr[3];
+               seventeennumber5=seventeenarr[4];
+               seventeennumber6=seventeenarr[5];
+           
+               var seventeenone = seventeennumber1-seventeennumber2;
+               var seventeentwo = seventeennumber2-seventeennumber3;
+               var seventeenthree = seventeennumber3-seventeennumber4;
+               var seventeenfour = seventeennumber4-seventeennumber5;
+               var seventeenfive = seventeennumber5-seventeennumber6;
+               var seventeensix = seventeennumber6;
+               var seventeentotal = 0;
+               var seventeennit = seventeenone+seventeentwo+seventeenthree+seventeenfour+seventeenfive+seventeensix;
+               var seventeentotalnumberfosholi = seventeenone*1+seventeentwo*2+seventeenthree*3+seventeenfour*4+seventeenfive*5+seventeensix*6;
+               var seventeennibirota=(seventeentotalnumberfosholi*100)/seventeennit;
+                }
+                else{
+                    seventeenarr.push(seventeen.k21,seventeen.k22,seventeen.r1,seventeen.r2,seventeen.k11,seventeen.k12);
+                    for (i = 0; i < seventeenarr.length; ++i) 
+                    {
+           for (j = i + 1; j < seventeenarr.length; ++j) 
+               {
+                   if (seventeenarr[i] < seventeenarr[j]) 
+                   {
+                       a = seventeenarr[i];
+                       seventeenarr[i] = seventeenarr[j];
+                       seventeenarr[j] = a;
+                   }
+               }
+           };
+               seventeennumber1=seventeenarr[0];
+               seventeennumber2=seventeenarr[1];
+               seventeennumber3=seventeenarr[2];
+               seventeennumber4=seventeenarr[3];
+               seventeennumber5=seventeenarr[4];
+               seventeennumber6=seventeenarr[5];
+           
+               var seventeenone = seventeennumber1-seventeennumber2;
+               var seventeentwo = seventeennumber2-seventeennumber3;
+               var seventeenthree = seventeennumber3-seventeennumber4;
+               var seventeenfour = seventeennumber4-seventeennumber5;
+               var seventeenfive = seventeennumber5-seventeennumber6;
+               var seventeensix = seventeennumber6;
+               var seventeentotal = seventeen.k21+seventeen.k22+seventeen.r1+seventeen.r2+seventeen.k11+seventeen.k12;
+               var seventeennit = seventeenone+seventeentwo+seventeenthree+seventeenfour+seventeenfive+seventeensix;
+               var seventeentotalnumberfosholi = seventeenone*1+seventeentwo*2+seventeenthree*3+seventeenfour*4+seventeenfive*5+seventeensix*6;
+               var seventeennibirota=(seventeentotalnumberfosholi*100)/seventeennit;
+               seventeennibirota = seventeennibirota.toFixed(2)
+                }
+                %>
+                <!-- Seventeen calculation ends-->
+                <!-- Eighteen calculation -->
+                <% var eighteenarr=[];
+                
+                if (eighteen === null){
+                    eighteenarr.push(0,0,0,0,0,0); 
+                    for (i = 0; i < eighteenarr.length; ++i) 
+                    {
+           for (j = i + 1; j < eighteenarr.length; ++j) 
+               {
+                   if (eighteenarr[i] < eighteenarr[j]) 
+                   {
+                       a = eighteenarr[i];
+                       eighteenarr[i] = eighteenarr[j];
+                       eighteenarr[j] = a;
+                   }
+               }
+           };
+               eighteennumber1=eighteenarr[0];
+               eighteennumber2=eighteenarr[1];
+               eighteennumber3=eighteenarr[2];
+               eighteennumber4=eighteenarr[3];
+               eighteennumber5=eighteenarr[4];
+               eighteennumber6=eighteenarr[5];
+           
+               var eighteenone = eighteennumber1-eighteennumber2;
+               var eighteentwo = eighteennumber2-eighteennumber3;
+               var eighteenthree = eighteennumber3-eighteennumber4;
+               var eighteenfour = eighteennumber4-eighteennumber5;
+               var eighteenfive = eighteennumber5-eighteennumber6;
+               var eighteensix = eighteennumber6;
+               var eighteentotal = 0;
+               var eighteennit = eighteenone+eighteentwo+eighteenthree+eighteenfour+eighteenfive+eighteensix;
+               var eighteentotalnumberfosholi = eighteenone*1+eighteentwo*2+eighteenthree*3+eighteenfour*4+eighteenfive*5+eighteensix*6;
+               var eighteennibirota=(eighteentotalnumberfosholi*100)/eighteennit;
+                }
+                else{
+                    eighteenarr.push(eighteen.k21,eighteen.k22,eighteen.r1,eighteen.r2,eighteen.k11,eighteen.k12);
+                    for (i = 0; i < eighteenarr.length; ++i) 
+                    {
+           for (j = i + 1; j < eighteenarr.length; ++j) 
+               {
+                   if (eighteenarr[i] < eighteenarr[j]) 
+                   {
+                       a = eighteenarr[i];
+                       eighteenarr[i] = eighteenarr[j];
+                       eighteenarr[j] = a;
+                   }
+               }
+           };
+               eighteennumber1=eighteenarr[0];
+               eighteennumber2=eighteenarr[1];
+               eighteennumber3=eighteenarr[2];
+               eighteennumber4=eighteenarr[3];
+               eighteennumber5=eighteenarr[4];
+               eighteennumber6=eighteenarr[5];
+           
+               var eighteenone = eighteennumber1-eighteennumber2;
+               var eighteentwo = eighteennumber2-eighteennumber3;
+               var eighteenthree = eighteennumber3-eighteennumber4;
+               var eighteenfour = eighteennumber4-eighteennumber5;
+               var eighteenfive = eighteennumber5-eighteennumber6;
+               var eighteensix = eighteennumber6;
+               var eighteentotal = eighteen.k21+eighteen.k22+eighteen.r1+eighteen.r2+eighteen.k11+eighteen.k12;
+               var eighteennit = eighteenone+eighteentwo+eighteenthree+eighteenfour+eighteenfive+eighteensix;
+               var eighteentotalnumberfosholi = eighteenone*1+eighteentwo*2+eighteenthree*3+eighteenfour*4+eighteenfive*5+eighteensix*6;
+               var eighteennibirota=(eighteentotalnumberfosholi*100)/eighteennit;
+               eighteennibirota = eighteennibirota.toFixed(2)
+                }
+               
+               
+                %>
+                <!-- Eighteen calculation ends -->
+                <!-- Nineteen calculation -->
+                <% var nineteenarr=[];
+                if (nineteen === null){
+                    nineteenarr.push(0,0,0,0,0,0); 
+                    for (i = 0; i < nineteenarr.length; ++i) 
+                    {
+           for (j = i + 1; j < nineteenarr.length; ++j) 
+               {
+                   if (nineteenarr[i] < nineteenarr[j]) 
+                   {
+                       a = nineteenarr[i];
+                       nineteenarr[i] = nineteenarr[j];
+                       nineteenarr[j] = a;
+                   }
+               }
+           };
+               nineteennumber1=nineteenarr[0];
+               nineteennumber2=nineteenarr[1];
+               nineteennumber3=nineteenarr[2];
+               nineteennumber4=nineteenarr[3];
+               nineteennumber5=nineteenarr[4];
+               nineteennumber6=nineteenarr[5];
+           
+               var nineteenone = nineteennumber1-nineteennumber2;
+               var nineteentwo = nineteennumber2-nineteennumber3;
+               var nineteenthree = nineteennumber3-nineteennumber4;
+               var nineteenfour = nineteennumber4-nineteennumber5;
+               var nineteenfive = nineteennumber5-nineteennumber6;
+               var nineteensix = nineteennumber6;
+               var nineteentotal = 0;
+               var nineteennit = nineteenone+nineteentwo+nineteenthree+nineteenfour+nineteenfive+nineteensix;
+               var nineteentotalnumberfosholi = nineteenone*1+nineteentwo*2+nineteenthree*3+nineteenfour*4+nineteenfive*5+nineteensix*6;
+               var nineteennibirota=(nineteentotalnumberfosholi*100)/nineteennit;
+                }
+                else{
+                    nineteenarr.push(nineteen.k21,nineteen.k22,nineteen.r1,nineteen.r2,nineteen.k11,nineteen.k12);
+                    for (i = 0; i < nineteenarr.length; ++i) 
+                    {
+           for (j = i + 1; j < nineteenarr.length; ++j) 
+               {
+                   if (nineteenarr[i] < nineteenarr[j]) 
+                   {
+                       a = nineteenarr[i];
+                       nineteenarr[i] = nineteenarr[j];
+                       nineteenarr[j] = a;
+                   }
+               }
+           };
+               nineteennumber1=nineteenarr[0];
+               nineteennumber2=nineteenarr[1];
+               nineteennumber3=nineteenarr[2];
+               nineteennumber4=nineteenarr[3];
+               nineteennumber5=nineteenarr[4];
+               nineteennumber6=nineteenarr[5];
+           
+               var nineteenone = nineteennumber1-nineteennumber2;
+               var nineteentwo = nineteennumber2-nineteennumber3;
+               var nineteenthree = nineteennumber3-nineteennumber4;
+               var nineteenfour = nineteennumber4-nineteennumber5;
+               var nineteenfive = nineteennumber5-nineteennumber6;
+               var nineteensix = nineteennumber6;
+               var nineteentotal = nineteen.k21+nineteen.k22+nineteen.r1+nineteen.r2+nineteen.k11+nineteen.k12;
+               var nineteennit = nineteenone+nineteentwo+nineteenthree+nineteenfour+nineteenfive+nineteensix;
+               var nineteentotalnumberfosholi = nineteenone*1+nineteentwo*2+nineteenthree*3+nineteenfour*4+nineteenfive*5+nineteensix*6;
+               var nineteennibirota=(nineteentotalnumberfosholi*100)/nineteennit;
+               nineteennibirota = nineteennibirota.toFixed(2)
+                }
+               
+                %>
+                <!-- Nineteen calculation ends -->
+                <!-- Twenty calculation  -->
+                <% var twentyarr=[];
+                if (twenty === null){
+                    twentyarr.push(0,0,0,0,0,0); 
+                    for (i = 0; i < twentyarr.length; ++i) 
+                    {
+           for (j = i + 1; j < twentyarr.length; ++j) 
+               {
+                   if (twentyarr[i] < twentyarr[j]) 
+                   {
+                       a = twentyarr[i];
+                       twentyarr[i] = twentyarr[j];
+                       twentyarr[j] = a;
+                   }
+               }
+           };
+               twentynumber1=twentyarr[0];
+               twentynumber2=twentyarr[1];
+               twentynumber3=twentyarr[2];
+               twentynumber4=twentyarr[3];
+               twentynumber5=twentyarr[4];
+               twentynumber6=twentyarr[5];
+           
+               var twentyone = twentynumber1-twentynumber2;
+               var twentytwo = twentynumber2-twentynumber3;
+               var twentythree = twentynumber3-twentynumber4;
+               var twentyfour = twentynumber4-twentynumber5;
+               var twentyfive = twentynumber5-twentynumber6;
+               var twentysix = twentynumber6;
+               var twentytotal = 0;
+               var twentynit = twentyone+twentytwo+twentythree+twentyfour+twentyfive+twentysix;
+               var twentytotalnumberfosholi = twentyone*1+twentytwo*2+twentythree*3+twentyfour*4+twentyfive*5+twentysix*6;
+               var twentynibirota=(twentytotalnumberfosholi*100)/twentynit;
+                }
+                else{
+                    twentyarr.push(twenty.k21,twenty.k22,twenty.r1,twenty.r2,twenty.k11,twenty.k12);
+                    for (i = 0; i < twentyarr.length; ++i) 
+                    {
+           for (j = i + 1; j < twentyarr.length; ++j) 
+               {
+                   if (twentyarr[i] < twentyarr[j]) 
+                   {
+                       a = twentyarr[i];
+                       twentyarr[i] = twentyarr[j];
+                       twentyarr[j] = a;
+                   }
+               }
+           };
+               twentynumber1=twentyarr[0];
+               twentynumber2=twentyarr[1];
+               twentynumber3=twentyarr[2];
+               twentynumber4=twentyarr[3];
+               twentynumber5=twentyarr[4];
+               twentynumber6=twentyarr[5];
+           
+               var twentyone = twentynumber1-twentynumber2;
+               var twentytwo = twentynumber2-twentynumber3;
+               var twentythree = twentynumber3-twentynumber4;
+               var twentyfour = twentynumber4-twentynumber5;
+               var twentyfive = twentynumber5-twentynumber6;
+               var twentysix = twentynumber6;
+               var twentytotal = twenty.k21+twenty.k22+twenty.r1+twenty.r2+twenty.k11+twenty.k12;
+               var twentynit = twentyone+twentytwo+twentythree+twentyfour+twentyfive+twentysix;
+               var twentytotalnumberfosholi = twentyone*1+twentytwo*2+twentythree*3+twentyfour*4+twentyfive*5+twentysix*6;
+               var twentynibirota=(twentytotalnumberfosholi*100)/twentynit;
+               twentynibirota = twentynibirota.toFixed(2)
+                }
+               
+                %>
+                <!-- Twenty calculation ends -->
+                <!-- TwentyOne calculation  -->
+                <% var twentyOnearr=[];
+                if (twentyOne === null){
+                    twentyOnearr.push(0,0,0,0,0,0); 
+                    for (i = 0; i < twentyOnearr.length; ++i) 
+                    {
+           for (j = i + 1; j < twentyOnearr.length; ++j) 
+               {
+                   if (twentyOnearr[i] < twentyOnearr[j]) 
+                   {
+                       a = twentyOnearr[i];
+                       twentyOnearr[i] = twentyOnearr[j];
+                       twentyOnearr[j] = a;
+                   }
+               }
+           };
+               twentyOnenumber1=twentyOnearr[0];
+               twentyOnenumber2=twentyOnearr[1];
+               twentyOnenumber3=twentyOnearr[2];
+               twentyOnenumber4=twentyOnearr[3];
+               twentyOnenumber5=twentyOnearr[4];
+               twentyOnenumber6=twentyOnearr[5];
+           
+               var twentyOneone = twentyOnenumber1-twentyOnenumber2;
+               var twentyOnetwo = twentyOnenumber2-twentyOnenumber3;
+               var twentyOnethree = twentyOnenumber3-twentyOnenumber4;
+               var twentyOnefour = twentyOnenumber4-twentyOnenumber5;
+               var twentyOnefive = twentyOnenumber5-twentyOnenumber6;
+               var twentyOnesix = twentyOnenumber6;
+               var twentyOnetotal = 0;
+               var twentyOnenit = twentyOneone+twentyOnetwo+twentyOnethree+twentyOnefour+twentyOnefive+twentyOnesix;
+               var twentyOnetotalnumberfosholi = twentyOneone*1+twentyOnetwo*2+twentyOnethree*3+twentyOnefour*4+twentyOnefive*5+twentyOnesix*6;
+               var twentyOnenibirota=(twentyOnetotalnumberfosholi*100)/twentyOnenit;
+                }
+                else{
+                    twentyOnearr.push(twentyOne.k21,twentyOne.k22,twentyOne.r1,twentyOne.r2,twentyOne.k11,twentyOne.k12);
+                    for (i = 0; i < twentyOnearr.length; ++i) 
+                    {
+           for (j = i + 1; j < twentyOnearr.length; ++j) 
+               {
+                   if (twentyOnearr[i] < twentyOnearr[j]) 
+                   {
+                       a = twentyOnearr[i];
+                       twentyOnearr[i] = twentyOnearr[j];
+                       twentyOnearr[j] = a;
+                   }
+               }
+           };
+               twentyOnenumber1=twentyOnearr[0];
+               twentyOnenumber2=twentyOnearr[1];
+               twentyOnenumber3=twentyOnearr[2];
+               twentyOnenumber4=twentyOnearr[3];
+               twentyOnenumber5=twentyOnearr[4];
+               twentyOnenumber6=twentyOnearr[5];
+           
+               var twentyOneone = twentyOnenumber1-twentyOnenumber2;
+               var twentyOnetwo = twentyOnenumber2-twentyOnenumber3;
+               var twentyOnethree = twentyOnenumber3-twentyOnenumber4;
+               var twentyOnefour = twentyOnenumber4-twentyOnenumber5;
+               var twentyOnefive = twentyOnenumber5-twentyOnenumber6;
+               var twentyOnesix = twentyOnenumber6;
+               var twentyOnetotal = twentyOne.k21+twentyOne.k22+twentyOne.r1+twentyOne.r2+twentyOne.k11+twentyOne.k12;
+               var twentyOnenit = twentyOneone+twentyOnetwo+twentyOnethree+twentyOnefour+twentyOnefive+twentyOnesix;
+               var twentyOnetotalnumberfosholi = twentyOneone*1+twentyOnetwo*2+twentyOnethree*3+twentyOnefour*4+twentyOnefive*5+twentyOnesix*6;
+               var twentyOnenibirota=(twentyOnetotalnumberfosholi*100)/twentyOnenit;
+               twentyOnenibirota = twentyOnenibirota.toFixed(2)
+                }
+               
+                %>
+                <!-- TwentyOne calculation ends -->
+                <!-- TwentyTwo calculation  -->
+                <% var twentyTwoarr=[];
+                if (twentyTwo === null){
+                    twentyTwoarr.push(0,0,0,0,0,0); 
+                    for (i = 0; i < twentyTwoarr.length; ++i) 
+                    {
+           for (j = i + 1; j < twentyTwoarr.length; ++j) 
+               {
+                   if (twentyTwoarr[i] < twentyTwoarr[j]) 
+                   {
+                       a = twentyTwoarr[i];
+                       twentyTwoarr[i] = twentyTwoarr[j];
+                       twentyTwoarr[j] = a;
+                   }
+               }
+           };
+               twentyTwonumber1=twentyTwoarr[0];
+               twentyTwonumber2=twentyTwoarr[1];
+               twentyTwonumber3=twentyTwoarr[2];
+               twentyTwonumber4=twentyTwoarr[3];
+               twentyTwonumber5=twentyTwoarr[4];
+               twentyTwonumber6=twentyTwoarr[5];
+           
+               var twentyTwoone = twentyTwonumber1-twentyTwonumber2;
+               var twentyTwotwo = twentyTwonumber2-twentyTwonumber3;
+               var twentyTwothree = twentyTwonumber3-twentyTwonumber4;
+               var twentyTwofour = twentyTwonumber4-twentyTwonumber5;
+               var twentyTwofive = twentyTwonumber5-twentyTwonumber6;
+               var twentyTwosix = twentyTwonumber6;
+               var twentyTwototal = 0;
+               var twentyTwonit = twentyTwoone+twentyTwotwo+twentyTwothree+twentyTwofour+twentyTwofive+twentyTwosix;
+               var twentyTwototalnumberfosholi = twentyTwoone*1+twentyTwotwo*2+twentyTwothree*3+twentyTwofour*4+twentyTwofive*5+twentyTwosix*6;
+               var twentyTwonibirota=(twentyTwototalnumberfosholi*100)/twentyTwonit;
+                }
+                else{
+                    twentyTwoarr.push(twentyTwo.k21,twentyTwo.k22,twentyTwo.r1,twentyTwo.r2,twentyTwo.k11,twentyTwo.k12);
+                    for (i = 0; i < twentyTwoarr.length; ++i) 
+                    {
+           for (j = i + 1; j < twentyTwoarr.length; ++j) 
+               {
+                   if (twentyTwoarr[i] < twentyTwoarr[j]) 
+                   {
+                       a = twentyTwoarr[i];
+                       twentyTwoarr[i] = twentyTwoarr[j];
+                       twentyTwoarr[j] = a;
+                   }
+               }
+           };
+               twentyTwonumber1=twentyTwoarr[0];
+               twentyTwonumber2=twentyTwoarr[1];
+               twentyTwonumber3=twentyTwoarr[2];
+               twentyTwonumber4=twentyTwoarr[3];
+               twentyTwonumber5=twentyTwoarr[4];
+               twentyTwonumber6=twentyTwoarr[5];
+           
+               var twentyTwoone = twentyTwonumber1-twentyTwonumber2;
+               var twentyTwotwo = twentyTwonumber2-twentyTwonumber3;
+               var twentyTwothree = twentyTwonumber3-twentyTwonumber4;
+               var twentyTwofour = twentyTwonumber4-twentyTwonumber5;
+               var twentyTwofive = twentyTwonumber5-twentyTwonumber6;
+               var twentyTwosix = twentyTwonumber6;
+               var twentyTwototal = twentyTwo.k21+twentyTwo.k22+twentyTwo.r1+twentyTwo.r2+twentyTwo.k11+twentyTwo.k12;
+               var twentyTwonit = twentyTwoone+twentyTwotwo+twentyTwothree+twentyTwofour+twentyTwofive+twentyTwosix;
+               var twentyTwototalnumberfosholi = twentyTwoone*1+twentyTwotwo*2+twentyTwothree*3+twentyTwofour*4+twentyTwofive*5+twentyTwosix*6;
+               var twentyTwonibirota=(twentyTwototalnumberfosholi*100)/twentyTwonit;
+               twentyTwonibirota = twentyTwonibirota.toFixed(2)
+                }
+               
+                %>
+                 <!-- TwentyTwo calculation ends -->
                 <tr>
                     <td>১</td>
-                    <td>মাঠটি এক/দুই/তিন ফসলী? </td>
-                    <td><%= seventeen !== null ? seventeen.fosholi : ''  %></td>
-                    <td><%= eighteen !== null ? eighteen.fosholi : '' %></td>
-                    <td><%= nineteen !== null ? nineteen.fosholi : ''  %></td>
-                    <td><%= twenty !== null ? twenty.fosholi : ''  %></td>
-                    <td><%= twentyOne !== null ? twentyOne.fosholi : ''  %></td>
-                    <td><%= twentyTwo !== null ? twentyTwo.fosholi : ''  %></td>
+                    <td>মোট আবাদী জমি (হেঃ)</td>
+                    <td><%= seventeen !== null ? seventeennit : '0'  %></td>
+                    <td><%= eighteen !== null ? eighteennit : '0' %></td>
+                    <td><%= nineteen !== null ? nineteennit  : '0'  %></td>
+                    <td><%= twenty !== null ? twentynit  : '0'  %></td>
+                    <td><%= twentyOne !== null ? twentyOnenit  : '0'  %></td>
+                    <td><%= twentyTwo !== null ? twentyTwonit  : '0'  %></td>
                 </tr>
-                <tr>
-                    <td>২</td>
-                    <td>আবাদযোগ্য জমি (হেঃ)</td>
-                    <td><%= seventeen !== null ? seventeen.abadjoggo : ''  %></td>
-                    <td><%= eighteen !== null ? eighteen.abadjoggo : '' %></td>
-                    <td><%= nineteen !== null ? nineteen.abadjoggo : ''  %></td>
-                    <td><%= twenty !== null ? twenty.abadjoggo : ''  %></td>
-                    <td><%= twentyOne !== null ? twentyOne.abadjoggo : ''  %></td>
-                    <td><%= twentyTwo !== null ? twentyTwo.abadjoggo : ''  %></td>
-                </tr>
-                <tr>
-                    <td>৩</td>
-                    <td>মোট আবাদী/নীট ফসলী জমি (হেঃ)</td>
-                    <td><%= seventeen !== null ? seventeen.abadi : ''  %></td>
-                    <td><%= eighteen !== null ? eighteen.abadi : '' %></td>
-                    <td><%= nineteen !== null ? nineteen.abadi : ''  %></td>
-                    <td><%= twenty !== null ? twenty.abadi : ''  %></td>
-                    <td><%= twentyOne !== null ? twentyOne.abadi : ''  %></td>
-                    <td><%= twentyTwo !== null ? twentyTwo.abadi : ''  %></td>
-                </tr>
-                <tr>
-                    <td>৪</td>
-                    <td>এক ফসলী জমি (হেঃ)</td>
-                    <td><%= seventeen !== null ? seventeen.ek : ''  %></td>
-                    <td><%= eighteen !== null ? eighteen.ek : '' %></td>
-                    <td><%= nineteen !== null ? nineteen.ek : ''  %></td>
-                    <td><%= twenty !== null ? twenty.ek : ''  %></td>
-                    <td><%= twentyOne !== null ? twentyOne.ek : ''  %></td>
-                    <td><%= twentyTwo !== null ? twentyTwo.ek : ''  %></td>
-                </tr>
-                <tr>
-                    <td>৫</td>
-                    <td>দুই ফসলী জমি (হেঃ)</td>
-                    <td><%= seventeen !== null ? seventeen.dui : ''  %></td>
-                    <td><%= eighteen !== null ? eighteen.dui : '' %></td>
-                    <td><%= nineteen !== null ? nineteen.dui : ''  %></td>
-                    <td><%= twenty !== null ? twenty.dui : ''  %></td>
-                    <td><%= twentyOne !== null ? twentyOne.dui : ''  %></td>
-                    <td><%= twentyTwo !== null ? twentyTwo.dui : ''  %></td>
-                </tr>
-                <tr>
-                    <td>৬</td>
-                    <td>তিন ফসলী জমি (হেঃ)</td>
-                    <td><%= seventeen !== null ? seventeen.tin : ''  %></td>
-                    <td><%= eighteen !== null ? eighteen.tin : '' %></td>
-                    <td><%= nineteen !== null ? nineteen.tin : ''  %></td>
-                    <td><%= twenty !== null ? twenty.tin : ''  %></td>
-                    <td><%= twentyOne !== null ? twentyOne.tin : ''  %></td>
-                    <td><%= twentyTwo !== null ? twentyTwo.tin : ''  %></td>
-                </tr>
-                <tr>
-                    <td>৭</td>
-                    <td>মোট ফসলী জমি (হেঃ)</td>
-                    <td><%= seventeen !== null ? seventeen.total : ''  %></td>
-                    <td><%= eighteen !== null ? eighteen.total : '' %></td>
-                    <td><%= nineteen !== null ? nineteen.total : ''  %></td>
-                    <td><%= twenty !== null ? twenty.total : ''  %></td>
-                    <td><%= twentyOne !== null ? twentyOne.total : ''  %></td>
-                    <td><%= twentyTwo !== null ? twentyTwo.total : ''  %></td>
-                </tr>
-                <tr>
-                    <td>৮</td>
-                    <td>ফসলের নিবিড়তা</td>
-                    <td><%= seventeen !== null ? seventeen.nibirota : ''  %></td>
-                    <td><%= eighteen !== null ? eighteen.nibirota : '' %></td>
-                    <td><%= nineteen !== null ? nineteen.nibirota : ''  %></td>
-                    <td><%= twenty !== null ? twenty.nibirota : ''  %></td>
-                    <td><%= twentyOne !== null ? twentyOne.nibirota : ''  %></td>
-                    <td><%= twentyTwo !== null ? twentyTwo.nibirota : ''  %></td>
-                </tr>
-                <tr>
-                    <td>৯</td>
-                    <td>খরিফ-২ মৌসুমে পতিত জমি (হেঃ)</td>
-                    <td><%= seventeen !== null ? seventeen.kharif2 : ''  %></td>
-                    <td><%= eighteen !== null ? eighteen.kharif2 : '' %></td>
-                    <td><%= nineteen !== null ? nineteen.kharif2 : ''  %></td>
-                    <td><%= twenty !== null ? twenty.kharif2 : ''  %></td>
-                    <td><%= twentyOne !== null ? twentyOne.kharif2 : ''  %></td>
-                    <td><%= twentyTwo !== null ? twentyTwo.kharif2 : ''  %></td>
-                </tr>
-                <tr>
-                    <td>১০</td>
-                    <td>রবি মৌসুমে পতিত জমি (হেঃ</td>
-                    <td><%= seventeen !== null ? seventeen.robi : ''  %></td>
-                    <td><%= eighteen !== null ? eighteen.robi : '' %></td>
-                    <td><%= nineteen !== null ? nineteen.robi : ''  %></td>
-                    <td><%= twenty !== null ? twenty.robi : ''  %></td>
-                    <td><%= twentyOne !== null ? twentyOne.robi : ''  %></td>
-                    <td><%= twentyTwo !== null ? twentyTwo.robi : ''  %></td>
-                </tr>
-                <tr>
-                    <td>১১</td>
-                    <td>খরিফ-১ মৌসুমে পতিত জমি (হেঃ)</td>
-                    <td><%= seventeen !== null ? seventeen.kharif1 : ''  %></td>
-                    <td><%= eighteen !== null ? eighteen.kharif1 : '' %></td>
-                    <td><%= nineteen !== null ? nineteen.kharif1 : ''  %></td>
-                    <td><%= twenty !== null ? twenty.kharif1 : ''  %></td>
-                    <td><%= twentyOne !== null ? twentyOne.kharif1 : ''  %></td>
-                    <td><%= twentyTwo !== null ? twentyTwo.kharif1 : ''  %></td>
-                </tr>
-                <tr>
-                    <td>১২</td>
-                    <td>সেচকৃত জমি (হেঃ)</td>
-                    <td><%= seventeen !== null ? seventeen.irrigation : ''  %></td>
-                    <td><%= eighteen !== null ? eighteen.irrigation : '' %></td>
-                    <td><%= nineteen !== null ? nineteen.irrigation : ''  %></td>
-                    <td><%= twenty !== null ? twenty.irrigation : ''  %></td>
-                    <td><%= twentyOne !== null ? twentyOne.irrigation : ''  %></td>
-                    <td><%= twentyTwo !== null ? twentyTwo.irrigation : ''  %></td>
-                </tr>
+                <td>২</td>
+                <td>খরিফ-২ (১ম খন্দ) মৌসুমে ফসলী জমি (হেঃ)</td>
+                <td><%= seventeen !== null ? seventeen.k21 : '0'  %></td>
+                <td><%= eighteen !== null ? eighteen.k21 : '0' %></td>
+                <td><%= nineteen !== null ? nineteen.k21 : '0'  %></td>
+                <td><%= twenty !== null ? twenty.k21 : '0'  %></td>
+                <td><%= twentyOne !== null ? twentyOne.k21 : '0'  %></td>
+                <td><%= twentyTwo !== null ? twentyTwo.k21 : '0'  %></td>
+            </tr>
+            <tr>
+                <td>৩</td>
+                <td>খরিফ-২ (২য় খন্দ) মৌসুমে ফসলী জমি (হেঃ)</td>
+                <td><%= seventeen !== null ? seventeen.k22 : '0'  %></td>
+                <td><%= eighteen !== null ? eighteen.k22 : '0' %></td>
+                <td><%= nineteen !== null ? nineteen.k22 : '0'  %></td>
+                <td><%= twenty !== null ? twenty.k22 : '0'  %></td>
+                <td><%= twentyOne !== null ? twentyOne.k22 : '0'  %></td>
+                <td><%= twentyTwo !== null ? twentyTwo.k22 : '0'  %></td>
+            </tr>
+            <tr>
+                <td>৪</td>
+                <td>রবি (১ম খন্দ) মৌসুমে ফসলী জমি (হেঃ)</td>
+                <td><%= seventeen !== null ? seventeen.r1 : '0'  %></td>
+                <td><%= eighteen !== null ? eighteen.r1 : '0' %></td>
+                <td><%= nineteen !== null ? nineteen.r1 : '0'  %></td>
+                <td><%= twenty !== null ? twenty.r1 : '0'  %></td>
+                <td><%= twentyOne !== null ? twentyOne.r1 : '0'  %></td>
+                <td><%= twentyTwo !== null ? twentyTwo.r1 : '0'  %></td>
+            </tr>
+            <tr>
+                <td>৫</td>
+                <td>রবি (২য় খন্দ) মৌসুমে ফসলী জমি (হেঃ)</td>
+                <td><%= seventeen !== null ? seventeen.r2 : '0'  %></td>
+                <td><%= eighteen !== null ? eighteen.r2 : '0' %></td>
+                <td><%= nineteen !== null ? nineteen.r2 : '0'  %></td>
+                <td><%= twenty !== null ? twenty.r2 : '0'  %></td>
+                <td><%= twentyOne !== null ? twentyOne.r2 : '0'  %></td>
+                <td><%= twentyTwo !== null ? twentyTwo.r2 : '0'  %></td>
+            </tr>
+            <tr>
+                <td>৬</td>
+                <td>খরিফ-১ (১ম খন্দ) মৌসুমে ফসলী জমি (হেঃ)</td>
+                <td><%= seventeen !== null ? seventeen.k11 : '0'  %></td>
+                <td><%= eighteen !== null ? eighteen.k11 : '0' %></td>
+                <td><%= nineteen !== null ? nineteen.k11 : '0'  %></td>
+                <td><%= twenty !== null ? twenty.k11 : '0'  %></td>
+                <td><%= twentyOne !== null ? twentyOne.k11 : '0'  %></td>
+                <td><%= twentyTwo !== null ? twentyTwo.k11 : '0'  %></td>
+            </tr>
+            <tr>
+                <td>৭</td>
+                <td>খরিফ-১ (২য় খন্দ) মৌসুমে ফসলী জমি (হেঃ)</td>
+                <td><%= seventeen !== null ? seventeen.k12 : '0'  %></td>
+                <td><%= eighteen !== null ? eighteen.k12 : '0' %></td>
+                <td><%= nineteen !== null ? nineteen.k12 : '0'  %></td>
+                <td><%= twenty !== null ? twenty.k12 : '0'  %></td>
+                <td><%= twentyOne !== null ? twentyOne.k12 : '0'  %></td>
+                <td><%= twentyTwo !== null ? twentyTwo.k12 : '0'  %></td>
+            </tr>
+            <tr>
+                <td>৮</td>
+                <td>মোট ফসলী জমি (হেঃ)</td>
+                <td><%= seventeen !== null ? seventeentotal : '0'  %></td>
+                <td><%= eighteen !== null ? eighteentotal : '0' %></td>
+                <td><%= nineteen !== null ? nineteentotal : '0'  %></td>
+                <td><%= twenty !== null ? twentytotal : '0'  %></td>
+                <td><%= twentyOne !== null ? twentyOnetotal : '0'  %></td>
+                <td><%= twentyTwo !== null ? twentyTwototal : '0'  %></td>
+            </tr>
+            <tr>
+                <td>৯</td>
+                <td>এক ফসলী জমি (হেঃ)</td>
                 
-        </tbody>
+                <td><%= seventeen !== null ? seventeenone : '0'  %></td>
+                <td><%= eighteen !== null ? eighteenone : '0' %></td>
+                <td><%= nineteen !== null ? nineteenone : '0'  %></td>
+                <td><%= twenty !== null ? twentyone : '0'  %></td>
+                <td><%= twentyOne !== null ? twentyOneone : '0'  %></td>
+                <td><%= twentyTwo !== null ? twentyTwoone : '0'  %></td>
+            </tr>
+            <tr>
+                <td>১০</td>
+                <td>দুই ফসলী জমি (হেঃ)</td>
+                <td><%= seventeen !== null ? seventeentwo : '0'  %></td>
+                <td><%= eighteen !== null ? eighteentwo : '0' %></td>
+                <td><%= nineteen !== null ? nineteentwo : '0'  %></td>
+                <td><%= twenty !== null ? twentytwo : '0'  %></td>
+                <td><%= twentyOne !== null ? twentyOnetwo : '0'  %></td>
+                <td><%= twentyTwo !== null ? twentyTwotwo : '0'  %></td>
+            </tr>
+            <tr>
+                <td>১১</td>
+                <td>তিন ফসলী জমি (হেঃ)</td>
+                <td><%= seventeen !== null ? seventeenthree : '0'  %></td>
+                <td><%= eighteen !== null ? eighteenthree : '0' %></td>
+                <td><%= nineteen !== null ? nineteenthree : '0'  %></td>
+                <td><%= twenty !== null ? twentythree : '0'  %></td>
+                <td><%= twentyOne !== null ? twentyOnethree : '0'  %></td>
+                <td><%= twentyTwo !== null ? twentyTwothree : '0'  %></td>
+            </tr>
+            <tr>
+                <td>১২</td>
+                <td>চার ফসলী জমি (হেঃ)</td>
+                <td><%= seventeen !== null ? seventeenfour : '0'  %></td>
+                <td><%= eighteen !== null ? eighteenfour : '0' %></td>
+                <td><%= nineteen !== null ? nineteenfour : '0'  %></td>
+                <td><%= twenty !== null ? twentyfour : '0'  %></td>
+                <td><%= twentyOne !== null ? twentyOnefour : '0'  %></td>
+                <td><%= twentyTwo !== null ? twentyTwofour : '0'  %></td>
+            </tr>
+            <tr>
+                <td>১৩</td>
+                <td>পাঁচ ফসলী জমি (হেঃ)</td>
+                <td><%= seventeen !== null ? seventeenfive : '0'  %></td>
+                <td><%= eighteen !== null ? eighteenfive : '0' %></td>
+                <td><%= nineteen !== null ? nineteenfive : '0'  %></td>
+                <td><%= twenty !== null ? twentyfive : '0'  %></td>
+                <td><%= twentyOne !== null ? twentyOnefive : '0'  %></td>
+                <td><%= twentyTwo !== null ? twentyTwofive : '0'  %></td>
+            </tr>
+            <tr>
+                <td>১৪</td>
+                <td>ছয় ফসলী জমি (হেঃ)</td>
+                <td><%= seventeen !== null ? seventeensix: '0' %></td>
+                <td><%= eighteen !== null ? eighteensix : '0' %></td>
+                <td><%= nineteen !== null ? nineteensix : '0'  %></td>
+                <td><%= twenty !== null ? twentysix : '0'  %></td>
+                <td><%= twentyOne !== null ? twentyOnesix : '0'  %></td>
+                <td><%= twentyTwo !== null ? twentyTwosix : '0'  %></td>
+            </tr>
+            <tr>
+                <td>১৫</td>
+                <td>নীট ফসলী জমি (হেঃ)</td>
+                <td><%= seventeen !== null ? seventeennit : '0'  %></td>
+                <td><%= eighteen !== null ? eighteennit : '0' %></td>
+                <td><%= nineteen !== null ? nineteennit : '0'  %></td>
+                <td><%= twenty !== null ? twentynit : '0'  %></td>
+                <td><%= twentyOne !== null ? twentyOnenit : '0'  %></td>
+                <td><%= twentyTwo !== null ? twentyTwonit : '0'  %></td>
+            </tr>
+            <tr>
+                <td>১৬</td>
+                <td>মোট ফসলী জমি (হেঃ)</td>
+                <td><%= seventeen !== null ? seventeentotalnumberfosholi : '0'  %></td>
+                <td><%= eighteen !== null ? eighteentotalnumberfosholi : '0' %></td>
+                <td><%= nineteen !== null ? nineteentotalnumberfosholi : '0'  %></td>
+                <td><%= twenty !== null ? twentytotalnumberfosholi : '0'  %></td>
+                <td><%= twentyOne !== null ? twentyOnetotalnumberfosholi : '0'  %></td>
+                <td><%= twentyTwo !== null ? twentyTwototalnumberfosholi : '0'  %></td>
+            </tr>
+            <tr>
+                <td>১৭</td>
+                <td>নিবিড়তা(%)</td>
+                <td><%= seventeen !== null ? seventeennibirota : '0'  %></td>
+                <td><%= eighteen !== null ? eighteennibirota : '0' %></td>
+                <td><%= nineteen !== null ? nineteennibirota : '0'  %></td>
+                <td><%= twenty !== null ? twentynibirota : '0'  %></td>
+                <td><%= twentyOne !== null ? twentyOnenibirota : '0'  %></td>
+                <td><%= twentyTwo !== null ? twentyTwonibirota : '0'  %></td>
+            </tr>
+            
+            
+    </tbody>
     </table>

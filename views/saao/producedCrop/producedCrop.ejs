@@ -14,10 +14,9 @@
                             <div class="col-md-12">
                                 <a href="/saao/producedCropForm" class="btn btn-success btn-group-sm ">মাঠে উৎপাদিত ফসলের তথ্য ফর্ম</a>
                             </div>
-
                         </div>
 
-                        <div class="table-responsive" id="output">
+                        <div class="table-responsive" id="output">                                             
                             <%if (cropList.length >0){ %>
                                 <table class="table table-bordered table-striped" id="tblCustomers" cellspacing="0" cellpadding="0">
                                     <thead>
@@ -30,7 +29,7 @@
                                             <th colspan="2">২০২০-২১</th>
                                             <th colspan="2">২০২১-২২</th>
                                             <th colspan="2">২০২২-২৩</th>
-                                        </tr>
+                                        </tr>  
                                         <tr>
                                             <th>আয়তন (হেঃ)</th>
                                             <th>উৎপাদন (টন)</th>
@@ -47,42 +46,44 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        
                                         <% cropList.forEach(function(rows,index){ %>
+                                            <% let sumAreaShotero = 0 ;
+                                            let sumProductionShotero = 0 ;
+                                            let sumAreaAtharo = 0 ;
+                                            let sumProductionAtharo = 0 ;
+                                            let sumAreaUnish = 0 ;
+                                            let sumProductionUnish = 0 ;
+                                            let sumAreaBish = 0 ;
+                                            let sumProductionBish = 0 ;
+                                            let sumAreaEkush = 0 ;
+                                            let sumProductionEkush = 0 ;
+                                            let sumAreaBaish = 0 ;
+                                            let  sumProductionBaish = 0 ;
+                                            %>
                                             <tr>
                                                 <td><%= index+1 %></td>
                                                 <td><%= rows.name %></td>
-                                                <% if (seventeen.length > 0){
+                                                <% if (seventeen.length > 0 ){
                                                     seventeen.forEach(function(seventeens){ 
                                                     if (seventeens.crop === rows.name ){ 
                                                         sumAreaShotero = parseInt(seventeens.k21)+parseInt(seventeens.k22)+parseInt(seventeens.r1)+parseInt(seventeens.r2)+parseInt(seventeens.k11)+parseInt(seventeens.k12) 
                                                         sumProductionShotero = seventeens.production ;
-                                                        console.log("sumProductionShotero",sumProductionShotero,seventeens.k21);
-                                                    }else{ 
-                                                            sumAreaShotero = 0 ;
-                                                            sumProductionShotero = 0 ;
-
-                                                        } 
-                                                })
-                                                }else{ 
-                                                    sumAreaShotero = 0 ;
-                                                    sumProductionShotero = 0 ;
-                                                }
-
-
-                                                 if (eighteen.length > 0){
+                                                        console.log("sumProductionShotero",sumProductionShotero,sumAreaShotero);
+                                                    
+                                                    }
+                                                    })
+                                                }%>
+                                                <td><%= sumAreaShotero %></td>
+                                                <td><%= sumProductionShotero %></td>
+                                                <% if (eighteen.length > 0){
                                                     eighteen.forEach(function(eighteens){ 
                                                     if (eighteens.crop === rows.name ){ 
                                                         sumAreaAtharo = parseInt(eighteens.k21)+parseInt(eighteens.k22)+parseInt(eighteens.r1)+parseInt(eighteens.r2)+parseInt(eighteens.k11)+parseInt(eighteens.k12) ;
                                                         sumProductionAtharo = eighteens.production ;
-                                                        }else{ 
-                                                            sumAreaAtharo = 0 ;
-                                                            sumProductionAtharo = 0 ;
-                                                        } 
-                                                })
-                                                }else{ 
-                                                    sumAreaAtharo = 0 ;
-                                                    sumProductionAtharo = 0 ;
-                                                }
+                                                        }
+                                                })}
+                                                
 
 
                                                 if (nineteen.length > 0){
@@ -90,14 +91,8 @@
                                                     if (nineteens.crop === rows.name ){ 
                                                         sumAreaUnish = parseInt(nineteens.k21)+parseInt(nineteens.k22)+parseInt(nineteens.r1)+parseInt(nineteens.r2)+parseInt(nineteens.k11)+parseInt(nineteens.k12) ;
                                                         sumProductionUnish = nineteens.production ;
-                                                        }else{ 
-                                                            sumAreaUnish = 0 ;
-                                                            sumProductionUnish = 0 ;
-                                                        } 
+                                                        }
                                                 })
-                                                }else{ 
-                                                    sumAreaUnish = 0 ;
-                                                    sumProductionUnish = 0 ;
                                                 }
 
 
@@ -106,14 +101,8 @@
                                                     if (twentys.crop === rows.name ){ 
                                                         sumAreaBish = parseInt(twentys.k21)+parseInt(twentys.k22)+parseInt(twentys.r1)+parseInt(twentys.r2)+parseInt(twentys.k11)+parseInt(twentys.k12) ;
                                                         sumProductionBish = twentys.production ;
-                                                        }else{ 
-                                                            sumAreaBish = 0 ;
-                                                            sumProductionBish = 0 ;
-                                                        } 
+                                                        }
                                                 })
-                                                }else{ 
-                                                    sumAreaBish = 0 ;
-                                                    sumProductionBish = 0 ;
                                                 }
 
 
@@ -122,15 +111,8 @@
                                                     if (twentyOnes.crop === rows.name ){ 
                                                         sumAreaEkush = parseInt(twentyOnes.k21)+parseInt(twentyOnes.k22)+parseInt(twentyOnes.r1)+parseInt(twentyOnes.r2)+parseInt(twentyOnes.k11)+parseInt(twentyOnes.k12) ;
                                                         sumProductionEkush = twentyOnes.production ;
-                                                        }else{ 
-                                                            sumAreaEkush = 0 ;
-                                                            sumProductionEkush = 0 ;
-
-                                                        } 
+                                                        }
                                                 })
-                                                }else{ 
-                                                    sumAreaEkush = 0 ;
-                                                    sumProductionEkush = 0 ;
                                                 }
 
                                                 if (twentyTwo.length > 0){
@@ -138,19 +120,12 @@
                                                     if (twentyTwos.crop === rows.name ){ 
                                                         sumAreaBaish = parseInt(twentyTwos.k21)+parseInt(twentyTwos.k22)+parseInt(twentyTwos.r1)+parseInt(twentyTwos.r2)+parseInt(twentyTwos.k11)+parseInt(twentyTwos.k12);
                                                         sumProductionBaish = twentyTwos.production ; 
-                                                        }else{ 
-                                                            sumAreaBaish = 0 ;
-                                                            sumProductionBaish = 0 ;
-                                                        } 
+                                                        }
                                                 })
-                                                }else{ 
-                                                    sumAreaBaish = 0 ;
-                                                    sumProductionBaish = 0 ;
                                                 }
                                                 
                                                 %>
-                                                <td><%= sumAreaShotero %></td>
-                                                <td><%= sumProductionShotero %></td>
+                                                
                                                 <td><%= sumAreaAtharo %></td>
                                                 <td><%= sumProductionAtharo %></td>
                                                 <td><%= sumAreaUnish %></td>

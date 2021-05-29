@@ -362,7 +362,6 @@ module.exports.selectedFieldFilter=async(req,res)=>{
     })
     
     .then(data => {
-        console.log("data",data)
         res.render('upazilla/selectedField/selectedFieldTable', {records: data} ,function(err, html) {
             res.send(html);
         });
@@ -373,6 +372,37 @@ module.exports.selectedFieldFilter=async(req,res)=>{
 
 };
 //selectedField controller end
+//seasonProduction controller
+module.exports.seasonProduction=async(req,res)=>{ 
+    try{
+        var saaos =await saao.findAll({ where: {upazilla_id: req.session.user_id}})
+        console.log("inside");
+        res.render('upazilla/seasonProduction/seasonProduction', { title: 'মৌসুমওয়ারী আবাদকৃত ফসলের তথ্য',success:'',saaos:saaos});
+    }
+    catch(err){
+        console.log("outside",err);
+    }
+     
+    //  records:result
+
+};
+
+module.exports.seasonProductionFilter=async(req,res)=>{
+    await producedCrop.findAll({
+        where: {year: req.body.year,saao_id: req.body.saao}
+    })
+    
+    .then(data => {
+        res.render('upazilla/seasonProduction/seasonProductionTable', {records: data} ,function(err, html) {
+            res.send(html);
+        });
+    })
+    .catch(err => {
+        console.log("outside",err);
+    })
+
+};
+//seasonProduction controller end
 
 //trainedFarmer controller
 module.exports.trainedFarmer=async(req,res)=>{

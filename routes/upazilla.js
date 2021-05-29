@@ -10,7 +10,7 @@ const {agriFairFormEdit,agriFairFormUpdate,llpYear,fieldDayYear,demonstrationYea
     technologyExpansion,technologyExpansionYear,technologyExpansionForm,technologyExpansionFormPost,initialTrialEdit,initialTrialDelete,finalTrialEdit,finalTrialDelete,
     trialProgressEdit,trialProgressDelete,cropExpansionEdit,cropExpansionDelete,breedExpansionEdit,breedExpansionDelete,technologyExpansionEdit,technologyExpansionDelete,
     abadiJomi,abadiJomiYear,abadiJomiForm,abadiJomiFormPost,abadiJomiEdit,abadiJomiDelete,trialProgressEditPost,cropNibirota,cropNibirotaFilter,trainedFarmerEditPost,trainedFarmerDelete,
-    demonstration,fieldDay,farmerTraining,agriFair,farmerPrize,llp,solarLight} = require('../controllers/upazilla.controller');
+    demonstration,fieldDay,farmerTraining,agriFair,farmerPrize,llp,solarLight,seasonProduction,seasonProductionFilter} = require('../controllers/upazilla.controller');
 router.get('/',allupazilla);
 router.get('/login',upazillalogin);
 router.post('/logins',upazillaloginpost);
@@ -29,6 +29,8 @@ router.post('/producedCropFilter',producedCropFilter);
 router.get('/selectedField',selectedField);
 router.post('/selectedFieldFilter',selectedFieldFilter);
 // router.post('/selectedFieldFilter',selectedFieldFilter);
+router.get('/seasonProduction',seasonProduction);
+router.post('/seasonProductionFilter',seasonProductionFilter);
 
 router.get('/trainedFarmer',trainedFarmer);
 router.post('/trainedFarmerYear',trainedFarmerYear);
