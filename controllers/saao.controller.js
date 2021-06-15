@@ -233,7 +233,7 @@ module.exports.selectedFieldYear=async(req,res)=>{
 };
 module.exports.selectedFieldForm=async(req,res)=>{
     await selectedField.findAll({
-        where: {year: req.body.year,saao_id: req.session.user_id}
+        where: {saao_id: req.session.user_id}
     })
     .then(data => {
         console.log("data",data);
