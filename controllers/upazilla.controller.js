@@ -1547,6 +1547,7 @@ module.exports.demonstrationYear=async(req,res)=>{
         where: {year: req.body.year,upazilla_id: req.session.user_id}
     })
     .then(data => {
+        console.log("data", data,req.body.year,req.session.user_id)
         res.render('upazilla/monitoring/demonstration/demonstrationTable', {records: data} ,function(err, html) {
          res.send(html);
         });
@@ -1560,16 +1561,21 @@ module.exports.demonstrationForm=async(req,res)=>{
     res.render('upazilla/monitoring/demonstration/demonstrationForm', { title: 'প্রদর্শনীর তথ্য ',msg:'' ,success:'',user_id: req.session.user_id});
 };
 module.exports.demonstrationFormPost=async(req,res)=>{
-    const path = req.file && req.file.path;
+    const path = req.file ;
+        console.log("path",path);
     if(path){
-        var imagePath = "/demonstration/" + req.file.filename;
-        var name= req.body.name;
-        var description= req.body.description;
-        var date= req.body.date;
-        var year =req.body.year;
-        var user_id =req.body.user_id;
+        let imageArray = [];
+    path.map((image) => {
+      const imagePathName = "/demonstration/" + image.filename;
+      imageArray.push(imagePathName)
+    })
+    var imagePath = JSON.stringify(imageArray);
+    const{batch,description,date,year,user_id} = req.body
+    var name = `প্রদর্শনী - ${req.body.batch}`;
+    console.log("sdgd",name,batch,description,date,imagePath,user_id)
         await demonstration.create({
                 name: name,
+                batch:batch,
                 description:description,
                 date:date,
                 year:year,
@@ -1579,7 +1585,7 @@ module.exports.demonstrationFormPost=async(req,res)=>{
             .then(data => {
             res.redirect('/upazilla/demonstration');
             }).catch(err => {
-            console.log("file not uploaded successfully");
+            console.log("file not uploaded successfully unfortunately");
             });
         }
         else{
@@ -1589,6 +1595,124 @@ module.exports.demonstrationFormPost=async(req,res)=>{
     
   
 };
+module.exports.demonstrationCardOpen = async (req, res) => {
+    const ddata=await demonstration.findByPk(req.params.id)
+    var batchNum = ddata.batch;
+    var year=ddata.year;
+    await demonstration
+      .findOne({
+        where: { upazilla_id: req.session.user_id, batch:batchNum, year:year },
+      })
+      .then((data) => {
+        res.render("upazilla/monitoring/demonstration/demonstrationGallery", {
+          title: "মাঠ দিবস",
+          success: "",
+          records: data
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  module.exports.demonstrationFormEdit=async(req,res)=>{
+    await demonstration.findByPk(req.params.id)
+    .then(data => {
+        console.log("inside");
+        res.render('upazilla/monitoring/demonstration/demonstrationEdit', { title: 'প্রদর্শনীর অগ্রগতির প্রতিবেদন',msg:'' ,success:'',records:data,user_id: req.session.user_id});
+    })
+    .catch(err => {
+        console.log("err");
+    })
+};
+module.exports.demonstrationFormUpdatePost = async (req, res) => {
+    const updateddemonstration = await demonstration.findByPk(req.params.id)
+    const path = req.files ;
+    if (path) {
+      let imagePath = JSON.parse(updateddemonstration.image);
+  
+      path.map((image) => {
+        imagePath.push ( `/upload/demonstration/${image.filename}` );
+      })
+  
+      const {batch,description,date,year,user_id} = req.body;
+      const name = `মাঠ দিবস - ${req.body.batch}`;
+        try{
+          await demonstration
+          .update({
+              name: name,
+              batch:batch,
+              description: description,
+              date: date,
+              year: year,
+              image: JSON.stringify(imagePath),
+              upazilla_id: user_id
+          },
+          { 
+            where: {id : req.params.id},
+          });
+  
+          res.redirect("/upazilla/demonstration");
+        } catch(err) {
+          console.log(err);
+        }
+    } else {
+      const {batch,description,date,year,upazillaId} = req.body;
+      const name = `মাঠ দিবস - ${req.body.batch}`;
+      try{
+        await demonstration
+            .update({
+                  name: name,
+                  batch:batch,
+                  description: description,
+                  date: date,
+                  year: year,
+                  upazillaId: upazillaId,
+                },
+                {
+                  where: {id : req.params.id},
+                });
+  
+        res.redirect("/upazilla/demonstration");
+      } catch(err) {
+        console.log("activity is not updated", err);
+      }
+    }
+  
+  };
+  module.exports.demonstrationCardDelete = async (req, res) => {
+    try{
+      const deleteData = await demonstration.findByPk(req.params.id);
+      deleteData.destroy();
+      res.redirect("/upazilla/demonstration");
+    } catch(err){
+      console.log(err);
+    }
+  };
+  module.exports.demonstrationImageDelete = async (req,res) => {
+    try{
+      const data = await demonstration.findByPk(req.params.demonstrationId);
+      let images = JSON.parse(data.image);
+      fs.unlink("public/"+images[req.params.imageId], function (err) {
+        if (err) console.log(err);
+        // if no error, file has been deleted successfully
+        console.log('File deleted!');
+      });
+  
+      images.splice(req.params.imageId,1)
+  
+      await demonstration.update(
+          {
+            image : JSON.stringify(images)
+          },
+          {
+            where: {id : req.params.demonstrationId},
+          }
+      );
+      res.redirect("/upazilla/demonstration");
+    } catch(err){
+      console.log(err);
+    }
+  }
 //demonstration controller ends
 
 //fieldDay controller

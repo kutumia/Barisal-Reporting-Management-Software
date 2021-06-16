@@ -10,7 +10,7 @@ const {agriFairFormEdit,agriFairFormUpdate,llpYear,fieldDayYear,demonstrationYea
     technologyExpansion,technologyExpansionYear,technologyExpansionForm,technologyExpansionFormPost,initialTrialEdit,initialTrialDelete,finalTrialEdit,finalTrialDelete,
     trialProgressEdit,trialProgressDelete,cropExpansionEdit,cropExpansionDelete,breedExpansionEdit,breedExpansionDelete,technologyExpansionEdit,technologyExpansionDelete,
     abadiJomi,abadiJomiYear,abadiJomiForm,abadiJomiFormPost,abadiJomiEdit,abadiJomiDelete,trialProgressEditPost,cropNibirota,cropNibirotaFilter,trainedFarmerEditPost,trainedFarmerDelete,
-    demonstration,fieldDay,farmerTraining,agriFair,farmerPrize,llp,solarLight,seasonProduction,seasonProductionFilter} = require('../controllers/upazilla.controller');
+    demonstration,fieldDay,farmerTraining,agriFair,farmerPrize,llp,solarLight,seasonProduction,seasonProductionFilter,demonstrationFormEdit,demonstrationFormUpdatePost,demonstrationCardDelete,demonstrationCardOpen,demonstrationImageDelete} = require('../controllers/upazilla.controller');
 router.get('/',allupazilla);
 router.get('/login',upazillalogin);
 router.post('/logins',upazillaloginpost);
@@ -98,7 +98,11 @@ router.get('/demonstration',demonstration);
 router.post('/demonstrationYear',demonstrationYear);
 router.get('/demonstrationForm',demonstrationForm);
 router.post('/demonstrationFormPost',upload,demonstrationFormPost);
-
+router.get("/demonstrationFormEdit/:id", demonstrationFormEdit);
+router.post("/demonstrationFormUpdatePost/:id", upload, demonstrationFormUpdatePost);
+router.get("/demonstrationCardDelete/:id/:year", demonstrationCardDelete)
+router.get("/demonstrationCardOpen/:id", demonstrationCardOpen);
+router.get("/demonstrationImageDelete/:demonstrationId/:imageId", demonstrationImageDelete)
 
 router.get('/fieldDay',fieldDay);
 router.post('/fieldDayYear',fieldDayYear);
