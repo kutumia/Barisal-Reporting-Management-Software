@@ -47,23 +47,19 @@ module.exports.saaologinpost = async (req, res) => {
               // console.log("the token is :"+)
               res.redirect("/saao/dashboard");
             } else {
-              return res
-                .status(200)
-                .render("saao/login", {
-                  title:
-                    "বরিশাল, পটুয়াখালী, ভোলা, ঝালকাঠী, বরগুনা, মাদারীপুর ও শরিয়তপুর কৃষি উন্নয়ন প্রকল্প ",
-                  msg: "Please provide a username and password",
-                });
+              return res.status(200).render("saao/login", {
+                title:
+                  "বরিশাল, পটুয়াখালী, ভোলা, ঝালকাঠী, বরগুনা, মাদারীপুর ও শরিয়তপুর কৃষি উন্নয়ন প্রকল্প ",
+                msg: "Please provide a username and password",
+              });
             }
           });
         } else {
-          return res
-            .status(200)
-            .render("saao/login", {
-              title:
-                "বরিশাল, পটুয়াখালী, ভোলা, ঝালকাঠী, বরগুনা, মাদারীপুর ও শরিয়তপুর কৃষি উন্নয়ন প্রকল্প ",
-              msg: "Please provide a username and password",
-            });
+          return res.status(200).render("saao/login", {
+            title:
+              "বরিশাল, পটুয়াখালী, ভোলা, ঝালকাঠী, বরগুনা, মাদারীপুর ও শরিয়তপুর কৃষি উন্নয়ন প্রকল্প ",
+            msg: "Please provide a username and password",
+          });
         }
       })
       .catch((err) => {
@@ -337,8 +333,31 @@ module.exports.selectedFieldFormPost = async (req, res) => {
   var user_id = req.body.user_id;
   var upazilla_id = req.body.upazilla_id;
 
-  await selectedField
-    .create({
+  await selectedField.create({
+    name: name,
+    fname: fname,
+    mobile: mobile,
+    total: total,
+    robi1: robi1,
+    robi2: robi2,
+    robi3: robi3,
+    robi4: robi4,
+    robi5: robi5,
+    robi6: robi6,
+    kharif1_1: kharif1_1,
+    kharif1_2: kharif1_2,
+    kharif1_3: kharif1_3,
+    kharif2_1: kharif2_1,
+    kharif2_2: kharif2_2,
+    kharif2_3: kharif2_3,
+    irrigation: irrigation,
+    groups: groups,
+    year: year,
+    upazilla_id: upazilla_id,
+    saao_id: user_id,
+  });
+  console
+    .log({
       name: name,
       fname: fname,
       mobile: mobile,
@@ -361,7 +380,6 @@ module.exports.selectedFieldFormPost = async (req, res) => {
       upazilla_id: upazilla_id,
       saao_id: user_id,
     })
-
     .then((data) => {
       res.redirect("/saao/selectedField");
     })
