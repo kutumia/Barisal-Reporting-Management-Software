@@ -311,6 +311,7 @@ module.exports.selectedFieldForm = async (req, res) => {
     });
 };
 module.exports.selectedFieldFormPost = async (req, res) => {
+  console.log(req.body);
   var name = req.body.name;
   var fname = req.body.fname;
   var mobile = req.body.mobile;
@@ -333,7 +334,6 @@ module.exports.selectedFieldFormPost = async (req, res) => {
   var user_id = req.body.user_id;
   var upazilla_id = req.body.upazilla_id;
 
-  console.log(req.body);
   await selectedField
     .create({
       name,
@@ -362,7 +362,7 @@ module.exports.selectedFieldFormPost = async (req, res) => {
       res.redirect("/saao/selectedField");
     })
     .catch((err) => {
-      console.log(err);
+      // console.log(err);
       res.render("errorpage", err);
     });
 };
