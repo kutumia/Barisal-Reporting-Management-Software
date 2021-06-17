@@ -333,7 +333,7 @@ module.exports.selectedFieldFormPost = async (req, res) => {
   var user_id = req.body.user_id;
   var upazilla_id = req.body.upazilla_id;
 
-  await selectedField.create({
+  console.log({
     name: name,
     fname: fname,
     mobile: mobile,
@@ -356,8 +356,8 @@ module.exports.selectedFieldFormPost = async (req, res) => {
     upazilla_id: upazilla_id,
     saao_id: user_id,
   });
-  console
-    .log({
+  await selectedField
+    .create({
       name: name,
       fname: fname,
       mobile: mobile,
