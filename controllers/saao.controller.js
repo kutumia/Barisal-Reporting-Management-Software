@@ -296,7 +296,7 @@ module.exports.selectedFieldForm=async(req,res)=>{
         where: {id: req.session.user_id}
     })
     .then(data => {
-        console.log("upazilla_id",data.upazilla_id)
+        console.log("upazilla_id",data.upazilla_id,user_id)
         res.render('saao/selectedField/selectedFieldForm', { title: 'নির্বাচিত মাঠের কৃষকের তথ্য ',msg:'' ,success:'',upazilla_id: data.upazilla_id,user_id: req.session.user_id});
     })
     .catch(err => {
