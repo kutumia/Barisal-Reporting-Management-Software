@@ -206,7 +206,6 @@ module.exports.selectedField=async(req,res)=>{
         where: {saao_id: req.session.user_id}        
     })
     .then(data => {
-        console.log("data",data);
         res.render('saao/selectedField/selectedField', { title: 'নির্বাচিত মাঠের কৃষকের তথ্য',success:'', records: data });
     })
     .catch(err => {
@@ -221,7 +220,6 @@ module.exports.selectedFieldYear=async(req,res)=>{
         where: {year: req.body.year,saao_id: req.session.user_id}
     })
     .then(data => {
-        console.log("data",data);
         res.render('saao/selectedField/selectedFieldTable', {records: data} ,function(err, html) {
             res.send(html);
         });
@@ -232,11 +230,11 @@ module.exports.selectedFieldYear=async(req,res)=>{
 
 };
 module.exports.selectedFieldForm=async(req,res)=>{
-    await selectedField.findAll({
-        where: {saao_id: req.session.user_id}
+    await saao.findOne({
+        where: {id: req.session.user_id}
     })
     .then(data => {
-        console.log("data",data);
+        console.log("upazilla_id",data.upazilla_id)
         res.render('saao/selectedField/selectedFieldForm', { title: 'নির্বাচিত মাঠের কৃষকের তথ্য ',msg:'' ,success:'',upazilla_id: data.upazilla_id,user_id: req.session.user_id});
     })
     .catch(err => {
@@ -406,7 +404,7 @@ await producedCrop.findAll({
 
 };
 module.exports.producedCropForm=async(req,res)=>{
-    var saaos= await await saao.findOne({
+    var saaos=  await saao.findOne({
         where: {id: req.session.user_id}
     })
     var data=await cropList.findAll({where: {type: "crop"}})
