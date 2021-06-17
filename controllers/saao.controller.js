@@ -291,17 +291,24 @@ module.exports.selectedFieldYear = async (req, res) => {
       console.log(err);
     });
 };
-module.exports.selectedFieldForm=async(req,res)=>{
-    await saao.findOne({
-        where: {id: req.session.user_id}
+module.exports.selectedFieldForm = async (req, res) => {
+  await saao
+    .findOne({
+      where: { id: req.session.user_id },
     })
-    .then(data => {
-        console.log("upazilla_id",data.upazilla_id,user_id)
-        res.render('saao/selectedField/selectedFieldForm', { title: 'নির্বাচিত মাঠের কৃষকের তথ্য ',msg:'' ,success:'',upazilla_id: data.upazilla_id,user_id: req.session.user_id});
+    .then((data) => {
+      console.log("upazilla_id", data.upazilla_id);
+      res.render("saao/selectedField/selectedFieldForm", {
+        title: "নির্বাচিত মাঠের কৃষকের তথ্য ",
+        msg: "",
+        success: "",
+        upazilla_id: data.upazilla_id,
+        user_id: req.session.user_id,
+      });
     })
-    .catch(err => {
-        console.log(err);
-    })
+    .catch((err) => {
+      console.log(err);
+    });
 };
 module.exports.selectedFieldFormPost = async (req, res) => {
   console.log(req.body);
@@ -349,7 +356,7 @@ module.exports.selectedFieldFormPost = async (req, res) => {
       groups,
       year,
       upazilla_id,
-      user_id,
+      saao_id: user_id,
     })
     .then((data) => {
       res.redirect("/saao/selectedField");
