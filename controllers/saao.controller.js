@@ -253,31 +253,39 @@ module.exports.districtFilter = async (req, res) => {
 //signUp controller end
 
 //selectedField controller
-module.exports.selectedField=async(req,res)=>{
-    await selectedField.findAll({
-        where: {saao_id: req.session.user_id}        
+module.exports.selectedField = async (req, res) => {
+  await selectedField
+    .findAll({
+      where: { saao_id: req.session.user_id },
     })
-    .then(data => {
-        res.render('saao/selectedField/selectedField', { title: 'নির্বাচিত মাঠের কৃষকের তথ্য',success:'', records: data });
+    .then((data) => {
+      console.log("data", data);
+      res.render("saao/selectedField/selectedField", {
+        title: "নির্বাচিত মাঠের কৃষকের তথ্য",
+        success: "",
+        records: data,
+      });
     })
-    .catch(err => {
-        console.log(err);
-    })
-     
-    //  records:result
+    .catch((err) => {
+      console.log(err);
+    });
 
+  //  records:result
 };
-module.exports.selectedFieldYear=async(req,res)=>{
-    await selectedField.findAll({
-        where: {year: req.body.year,saao_id: req.session.user_id}
+module.exports.selectedFieldYear = async (req, res) => {
+  await selectedField
+    .findAll({
+      where: { year: req.body.year, saao_id: req.session.user_id },
     })
-    .then(data => {
-        res.render('saao/selectedField/selectedFieldTable', {records: data} ,function(err, html) {
-            res.send(html);
-        });
-    })
-    .catch(err => {
-        console.log(err);
+    .then((data) => {
+      console.log("data", data);
+      res.render(
+        "saao/selectedField/selectedFieldTable",
+        { records: data },
+        function (err, html) {
+          res.send(html);
+        }
+      );
     })
     .catch((err) => {
       console.log(err);
@@ -544,13 +552,44 @@ module.exports.producedCropFormPost = async (req, res) => {
       console.log(err);
     });
 };
-module.exports.producedCropForm=async(req,res)=>{
-    var saaos=  await saao.findOne({
-        where: {id: req.session.user_id}
-    })
-    var data=await cropList.findAll({where: {type: "crop"}})
-      try {
-        res.render('saao/producedCrop/producedCropForm',  { title: 'মাঠে উৎপাদিত ফসলের তথ্য ফর্ম',msg:'' ,success:'',upazilla_id: saaos.upazilla_id,user_id: req.session.user_id,data:data});
+module.exports.producedCropToNibirota = async (req, res) => {
+  var producedCrops = await producedCrop.findAll({
+    where: { saao_id: req.session.user_id, year: req.params.year },
+  });
+  var cropNibirotas = await cropNibirota.findOne({
+    where: { saao_id: req.session.user_id, year: req.params.year },
+  });
+  console.log("inside", cropNibirotas);
+  if (cropNibirotas == null) {
+    var saaos = await await saao.findOne({
+      where: { id: req.session.user_id },
+    });
+    var year = req.params.year;
+    var sumk21 = 0;
+    var sumk22 = 0;
+    var sumr1 = 0;
+    var sumr2 = 0;
+    var sumk11 = 0;
+    var sumk12 = 0;
+    var sumTotal = 0;
+    producedCrops.forEach(function (row) {
+      sumk21 = sumk21 + row.k21;
+      sumk22 = sumk22 + row.k22;
+      sumr1 = sumr1 + row.r1;
+      sumr2 = sumr2 + row.r2;
+      sumk11 = sumk11 + row.k11;
+      sumk12 = sumk12 + row.k12;
+    });
+    sumTotal = sumk21 + sumk22 + sumr1 + sumr2 + sumk11 + sumk12;
+    var arr = [];
+    arr.push(sumk21, sumk22, sumr1, sumr2, sumk11, sumk12);
+    for (i = 0; i < arr.length; ++i) {
+      for (j = i + 1; j < arr.length; ++j) {
+        if (arr[i] < arr[j]) {
+          a = arr[i];
+          arr[i] = arr[j];
+          arr[j] = a;
+        }
       }
     }
     number1 = arr[0];
